@@ -22,6 +22,8 @@ public class Update {
     @Column(nullable = false)
     private String message;
 
+    private String shortMessage;
+
     public Update(Project project, LocalDateTime dateTime, String message) {
         this.project = project;
         this.dateTime = dateTime;
@@ -63,6 +65,14 @@ public class Update {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getShortMessage() {
+        return shortMessage;
+    }
+
+    public void setShortMessage(String shortMessage) {
+        this.shortMessage = shortMessage;
     }
 
     @Override

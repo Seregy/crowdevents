@@ -1,4 +1,4 @@
-package com.crowdevents.user;
+package com.crowdevents.person;
 
 import com.crowdevents.comment.Comment;
 import com.crowdevents.contribution.Contribution;
@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-public class User {
+public class Person {
     @Id
     @Column(unique = true)
     private UUID id;
@@ -28,6 +28,9 @@ public class User {
 
     @Column(nullable = false)
     private String email;
+
+    private String country;
+    private String city;
 
     @ManyToMany
     private Set<Project> createdProjects;
@@ -45,9 +48,9 @@ public class User {
     private Set<Comment> comments;
 
     @ManyToMany
-    private Set<User> followers;
+    private Set<Person> followers;
     @ManyToMany(mappedBy = "followers")
-    private Set<User> followed;
+    private Set<Person> followed;
 
     @OneToMany(mappedBy = "sender")
     private Set<Message> createdMessages;
@@ -55,7 +58,7 @@ public class User {
     @OneToMany(mappedBy = "receiver")
     private Set<Message> receivedMessages;
 
-    public User (String email, String password, String name, String surname) {
+    public Person(String email, String password, String name, String surname) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -63,7 +66,7 @@ public class User {
         this.id = UUID.randomUUID();
     }
 
-    protected User() {
+    protected Person() {
 
     }
 
@@ -107,6 +110,22 @@ public class User {
         this.email = email;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public Set<Project> getCreatedProjects() {
         return createdProjects;
     }
@@ -147,19 +166,19 @@ public class User {
         this.comments = comments;
     }
 
-    public Set<User> getFollowers() {
+    public Set<Person> getFollowers() {
         return followers;
     }
 
-    public void setFollowers(Set<User> followers) {
+    public void setFollowers(Set<Person> followers) {
         this.followers = followers;
     }
 
-    public Set<User> getFollowed() {
+    public Set<Person> getFollowed() {
         return followed;
     }
 
-    public void setFollowed(Set<User> followed) {
+    public void setFollowed(Set<Person> followed) {
         this.followed = followed;
     }
 
@@ -184,12 +203,12 @@ public class User {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof User)) {
+        if (!(o instanceof Person)) {
             return false;
         }
 
-        User user = (User) o;
-        return Objects.equals(id, user.id);
+        Person person = (Person) o;
+        return Objects.equals(id, person.id);
     }
 
     @Override

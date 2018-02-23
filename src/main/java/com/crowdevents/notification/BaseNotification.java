@@ -1,7 +1,7 @@
 package com.crowdevents.notification;
 
 import com.crowdevents.project.Project;
-import com.crowdevents.user.User;
+import com.crowdevents.person.Person;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,9 +24,9 @@ public class BaseNotification {
     private Project project;
 
     @ManyToOne
-    private User receiver;
+    private Person receiver;
 
-    public BaseNotification(String message, User receiver, LocalDateTime dateTime, Project project) {
+    public BaseNotification(String message, Person receiver, LocalDateTime dateTime, Project project) {
         this.message = message;
         this.receiver = receiver;
         this.dateTime = dateTime;
@@ -70,11 +70,11 @@ public class BaseNotification {
         this.project = project;
     }
 
-    public User getReceiver() {
+    public Person getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(User receiver) {
+    public void setReceiver(Person receiver) {
         this.receiver = receiver;
     }
 

@@ -28,6 +28,9 @@ public class Reward {
     @Column(nullable = false)
     private String description;
 
+    private String deliveryDate;
+    private String shippedTo;
+
     public Reward(Project project, Integer limit, Integer minimalContribution, String description) {
         this.project = project;
         this.maximumAmount = limit;
@@ -86,6 +89,22 @@ public class Reward {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public String getShippedTo() {
+        return shippedTo;
+    }
+
+    public void setShippedTo(String shippedTo) {
+        this.shippedTo = shippedTo;
     }
 
     @Override

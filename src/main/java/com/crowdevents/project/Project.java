@@ -4,15 +4,17 @@ import com.crowdevents.category.Category;
 import com.crowdevents.comment.Comment;
 import com.crowdevents.contribution.Contribution;
 import com.crowdevents.faq.Faq;
+import com.crowdevents.location.Location;
 import com.crowdevents.reward.Reward;
 import com.crowdevents.update.Update;
-import com.crowdevents.user.User;
+import com.crowdevents.person.Person;
+import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.Type;
+import org.joda.money.Money;
 
 import javax.persistence.*;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Set;
-import java.util.UUID;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Entity
 public class Project {
@@ -26,11 +28,26 @@ public class Project {
     @Column(nullable = false)
     private String description;
 
+    private Location location;
+
+    private LocalDateTime startDateTime;
+    private LocalDateTime endDateTime;
+
+    @Columns(columns = { @Column(name = "funding_goal_currency"), @Column(name = "funding_goal_amount") })
+    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
+    private Money fundingGoal;
+
+    @ElementCollection
+    private List<String> videoLinks = new ArrayList<>();
+
+    @ElementCollection
+    private List<String> imageLinks = new ArrayList<>();
+
     @ManyToMany(mappedBy = "createdProjects")
-    private Set<User> owners;
+    private Set<Person> owners;
 
     @ManyToMany(mappedBy = "subscribedProjects")
-    private Set<User> subscribers;
+    private Set<Person> subscribers;
 
     @OneToMany(mappedBy = "project")
     private Set<Contribution> contributions;
@@ -50,9 +67,10 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Set<Reward> rewards;
 
-    public Project(String name, String description, User... owners) {
+    public Project(String name, String description, Money fundingGoal, Person... owners) {
         this.name = name;
         this.description = description;
+        this.fundingGoal = fundingGoal;
         Collections.addAll(this.owners, owners);
         this.id = UUID.randomUUID();
     }
@@ -85,19 +103,67 @@ public class Project {
         this.description = description;
     }
 
-    public Set<User> getOwners() {
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public LocalDateTime getStartDateTime() {
+        return startDateTime;
+    }
+
+    public void setStartDateTime(LocalDateTime startDateTime) {
+        this.startDateTime = startDateTime;
+    }
+
+    public LocalDateTime getEndDateTime() {
+        return endDateTime;
+    }
+
+    public void setEndDateTime(LocalDateTime endDateTime) {
+        this.endDateTime = endDateTime;
+    }
+
+    public Money getFundingGoal() {
+        return fundingGoal;
+    }
+
+    public void setFundingGoal(Money fundingGoal) {
+        this.fundingGoal = fundingGoal;
+    }
+
+    public List<String> getVideoLinks() {
+        return videoLinks;
+    }
+
+    public void setVideoLinks(List<String> videoLinks) {
+        this.videoLinks = videoLinks;
+    }
+
+    public List<String> getImageLinks() {
+        return imageLinks;
+    }
+
+    public void setImageLinks(List<String> imageLinks) {
+        this.imageLinks = imageLinks;
+    }
+
+    public Set<Person> getOwners() {
         return owners;
     }
 
-    public void setOwners(Set<User> owners) {
+    public void setOwners(Set<Person> owners) {
         this.owners = owners;
     }
 
-    public Set<User> getSubscribers() {
+    public Set<Person> getSubscribers() {
         return subscribers;
     }
 
-    public void setSubscribers(Set<User> subscribers) {
+    public void setSubscribers(Set<Person> subscribers) {
         this.subscribers = subscribers;
     }
 

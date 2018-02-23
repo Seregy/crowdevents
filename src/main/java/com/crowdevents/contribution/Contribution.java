@@ -2,10 +2,12 @@ package com.crowdevents.contribution;
 
 import com.crowdevents.project.Project;
 import com.crowdevents.reward.Reward;
-import com.crowdevents.user.User;
+import com.crowdevents.person.Person;
+import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.Type;
+import org.joda.money.Money;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
@@ -17,7 +19,7 @@ public class Contribution {
     private UUID id;
 
     @ManyToOne
-    private User contributor;
+    private Person contributor;
 
     @ManyToOne
     private Project project;
@@ -25,17 +27,19 @@ public class Contribution {
     @Column(nullable = false)
     private LocalDateTime dateTime;
 
+    @Columns(columns = { @Column(name = "money_currency"), @Column(name = "money_amount") })
+    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
     @Column(nullable = false)
-    private BigDecimal amount;
+    private Money money;
 
     @ManyToOne
     private Reward reward;
 
-    public Contribution(User contributor, Project project, LocalDateTime dateTime, BigDecimal amount, Reward reward) {
+    public Contribution(Person contributor, Project project, LocalDateTime dateTime, Money money, Reward reward) {
         this.contributor = contributor;
         this.project = project;
         this.dateTime = dateTime;
-        this.amount = amount;
+        this.money = money;
         this.reward = reward;
         this.id = UUID.randomUUID();
     }
@@ -48,11 +52,11 @@ public class Contribution {
         this.id = id;
     }
 
-    public User getContributor() {
+    public Person getContributor() {
         return contributor;
     }
 
-    public void setContributor(User contributor) {
+    public void setContributor(Person contributor) {
         this.contributor = contributor;
     }
 
@@ -72,12 +76,12 @@ public class Contribution {
         this.dateTime = dateTime;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
+    public Money getMoney() {
+        return money;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
+    public void setMoney(Money money) {
+        this.money = money;
     }
 
     public Reward getReward() {

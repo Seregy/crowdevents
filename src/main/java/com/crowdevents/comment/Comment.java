@@ -1,9 +1,10 @@
 package com.crowdevents.comment;
 
 import com.crowdevents.project.Project;
-import com.crowdevents.user.User;
+import com.crowdevents.person.Person;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -17,15 +18,19 @@ public class Comment {
     private Project project;
 
     @ManyToOne
-    private User author;
+    private Person author;
 
     @Column(nullable = false)
     private String message;
 
-    public Comment(Project project, User author, String message) {
+    @Column(nullable = false)
+    private LocalDateTime dateTime;
+
+    public Comment(Project project, Person author, String message, LocalDateTime dateTime) {
         this.project = project;
         this.author = author;
         this.message = message;
+        this.dateTime = dateTime;
         this.id = UUID.randomUUID();
     }
 
@@ -49,11 +54,11 @@ public class Comment {
         this.project = project;
     }
 
-    public User getAuthor() {
+    public Person getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(Person author) {
         this.author = author;
     }
 
@@ -63,6 +68,14 @@ public class Comment {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     @Override

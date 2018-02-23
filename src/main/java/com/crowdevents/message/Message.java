@@ -1,8 +1,9 @@
 package com.crowdevents.message;
 
-import com.crowdevents.user.User;
+import com.crowdevents.person.Person;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -13,18 +14,22 @@ public class Message {
     private UUID id;
 
     @ManyToOne
-    private User sender;
+    private Person sender;
 
     @ManyToOne
-    private User receiver;
+    private Person receiver;
 
     @Column(nullable = false)
     private String message;
 
-    public Message(String message, User sender, User receiver) {
+    @Column(nullable = false)
+    private LocalDateTime dateTime;
+
+    public Message(String message, Person sender, Person receiver, LocalDateTime dateTime) {
         this.message = message;
         this.sender = sender;
         this.receiver = receiver;
+        this.dateTime = dateTime;
         this.id = UUID.randomUUID();
     }
 
@@ -40,19 +45,19 @@ public class Message {
         this.id = id;
     }
 
-    public User getSender() {
+    public Person getSender() {
         return sender;
     }
 
-    public void setSender(User sender) {
+    public void setSender(Person sender) {
         this.sender = sender;
     }
 
-    public User getReceiver() {
+    public Person getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(User receiver) {
+    public void setReceiver(Person receiver) {
         this.receiver = receiver;
     }
 
@@ -62,6 +67,14 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     @Override
