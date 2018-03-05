@@ -27,9 +27,11 @@ public class Contribution {
     @Column(nullable = false)
     private LocalDateTime dateTime;
 
-    @Columns(columns = { @Column(name = "money_currency"), @Column(name = "money_amount") })
+    @Columns(columns = {
+            @Column(name = "money_currency", nullable = false),
+            @Column(name = "money_amount", nullable = false)
+    })
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
-    @Column(nullable = false)
     private Money money;
 
     @ManyToOne
