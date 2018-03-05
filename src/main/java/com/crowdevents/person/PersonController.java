@@ -31,7 +31,7 @@ public class PersonController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity allPersons(@RequestBody Person person, HttpServletRequest servletRequest) {
+    public ResponseEntity addPerson(@RequestBody Person person, HttpServletRequest servletRequest) {
         Person createdPerson = personRepository.save(new Person(person.getEmail(), person.getPassword(), person.getName(), person.getSurname()));
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/person/{id}")
