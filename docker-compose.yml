@@ -1,0 +1,38 @@
+version: "3"
+services:
+  database:
+    build:
+      context: ./docker/db
+    image: crowdevents-db
+    environment:
+      - POSTGRES_USER=qa
+      - POSTGRES_DB=crowdevents-qa
+      - POSTGRES_PASSWORD=qapass
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - backend
+
+  appserver:
+    build: 
+      context: .
+      dockerfile: docker/app/Dockerfile-qa
+    image: crowdevents-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=qa
+      - POSTGRES_USER=qa
+      - POSTGRES_PASSWORD=qapass
+      - POSTGRES_DB=crowdevents-qa
+      - POSTGRES_HOSTNAME=database
+      - POSTGRES_PORT=5432
+    networks:
+      - backend
+    restart: always
+    volumes:
+      - ./target/crowdevents.war:/usr/local/tomcat/webapps/crowdevents.war
+
+networks:
+  backend:
