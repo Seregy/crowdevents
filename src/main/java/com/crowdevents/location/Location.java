@@ -12,6 +12,10 @@ public class Location {
     @Column(name = "location_longitude")
     private double longitude;
 
+    protected Location() {
+
+    }
+
     public Location(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
