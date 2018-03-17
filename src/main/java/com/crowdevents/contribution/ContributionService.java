@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public interface ContributionService {
-    Contribution contribute(UUID personId, UUID projectId, Money money, UUID rewardId, LocalDateTime dateTime);
+    Contribution contribute(UUID personId, UUID projectId, Money money, UUID rewardId);
     Contribution get(UUID id);
     void delete(UUID id);
     void changeReward(UUID id, UUID newRewardId);
