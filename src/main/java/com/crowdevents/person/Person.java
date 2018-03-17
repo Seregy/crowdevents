@@ -20,7 +20,6 @@ public class Person {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private String surname;
 
     @Column(nullable = false)
@@ -58,11 +57,10 @@ public class Person {
     @OneToMany(mappedBy = "receiver")
     private Set<Message> receivedMessages;
 
-    public Person(String email, String password, String name, String surname) {
+    public Person(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
-        this.surname = surname;
         this.id = UUID.randomUUID();
     }
 
