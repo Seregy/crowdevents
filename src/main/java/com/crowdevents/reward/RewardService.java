@@ -6,10 +6,6 @@ import java.util.UUID;
 
 public interface RewardService {
     Reward create(UUID projectId, Integer limit, Integer minimalContribution, String description);
-    Reward create(UUID projectId, Integer limit, Integer minimalContribution, String description,
-               String deliveryDate, String shippingLocation);
-    Reward create(UUID projectId, Integer limit, Integer minimalContribution, String description,
-               String deliveryDate);
     Reward get(UUID id);
     void delete(UUID id);
     void changeLimit(UUID id, Integer newLimit);
