@@ -11,11 +11,13 @@ import com.crowdevents.update.UpdateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class NotificationRepositoryService implements NotificationService {
     private NotificationRepository notificationRepository;
     private PersonRepository personRepository;

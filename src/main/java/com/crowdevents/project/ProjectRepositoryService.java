@@ -6,11 +6,13 @@ import com.crowdevents.person.PersonRepository;
 import org.joda.money.Money;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class ProjectRepositoryService implements ProjectService {
     private ProjectRepository projectRepository;
     private PersonRepository personRepository;
