@@ -42,13 +42,13 @@ public class ContributionRepositoryService implements ContributionService {
     public Contribution contribute(UUID personId, UUID projectId, Money money, UUID rewardId) {
         Person person = personRepository
                 .findById(personId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find person with id: " + personId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + personId));
         Project project = projectRepository
                 .findById(projectId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find project with id: " + projectId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + projectId));
         Reward reward = rewardRepository
                 .findById(rewardId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find reward with id: " + rewardId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid reward id: " + rewardId));
         Contribution contribution = new Contribution(person, project, LocalDateTime.now(clock), money, reward);
 
         person.getContributions().add(contribution);
@@ -71,10 +71,10 @@ public class ContributionRepositoryService implements ContributionService {
     public void changeReward(UUID id, UUID newRewardId) {
         Contribution contribution = contributionRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find contribution with id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid contribution id: " + id));
         Reward reward = rewardRepository
                 .findById(newRewardId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find reward with id: " + newRewardId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid reward id: " + newRewardId));
         contribution.setReward(reward);
         contributionRepository.save(contribution);
     }

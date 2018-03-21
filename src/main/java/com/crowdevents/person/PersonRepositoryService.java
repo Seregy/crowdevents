@@ -78,6 +78,6 @@ public class PersonRepositoryService implements PersonService {
     private Person getPerson(UUID id) {
         return personRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find person with id: " + id));
+                .orElseThrow(() -> new RuntimeException("Invalid person id: " + id));
     }
 }

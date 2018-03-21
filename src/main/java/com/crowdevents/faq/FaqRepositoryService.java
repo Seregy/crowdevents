@@ -25,7 +25,7 @@ public class FaqRepositoryService implements FaqService {
     public Faq create(UUID projectId, String question, String answer) {
         Project project = projectRepository
                 .findById(projectId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find project with id: " + projectId));
+                .orElseThrow(() -> new RuntimeException("Invalid project id: " + projectId));
         Faq faq = new Faq(project, question, answer);
 
         project.getFaqs().add(faq);
@@ -46,7 +46,7 @@ public class FaqRepositoryService implements FaqService {
     public void changeQuestion(UUID id, String newQuestion) {
         Faq faq = faqRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find faq with id: " + id));
+                .orElseThrow(() -> new RuntimeException("Invalid faq id: " + id));
         faq.setQuestion(newQuestion);
         faqRepository.save(faq);
     }
@@ -55,7 +55,7 @@ public class FaqRepositoryService implements FaqService {
     public void changeAnswer(UUID id, String newAnswer) {
         Faq faq = faqRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find faq with id: " + id));
+                .orElseThrow(() -> new RuntimeException("Invalid faq id: " + id));
         faq.setAnswer(newAnswer);
         faqRepository.save(faq);
     }

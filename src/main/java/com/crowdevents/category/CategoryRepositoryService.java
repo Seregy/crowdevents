@@ -27,8 +27,7 @@ public class CategoryRepositoryService implements CategoryService {
     public Category create(String name, String description, UUID parentCategoryId) {
         Category parent = categoryRepository
                 .findById(parentCategoryId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find parent category with id: "
-                        + parentCategoryId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid parent category id: " + parentCategoryId));
         Category category = new Category(name, description, parent);
         parent.getChildren().add(category);
         Category created = categoryRepository.save(category);
@@ -50,7 +49,7 @@ public class CategoryRepositoryService implements CategoryService {
     public void changeName(UUID id, String newName) {
         Category category = categoryRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find category with id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
         category.setName(newName);
         categoryRepository.save(category);
     }
@@ -59,7 +58,7 @@ public class CategoryRepositoryService implements CategoryService {
     public void changeDescription(UUID id, String newDescription) {
         Category category = categoryRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find category with id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
         category.setDescription(newDescription);
         categoryRepository.save(category);
     }
@@ -68,11 +67,10 @@ public class CategoryRepositoryService implements CategoryService {
     public void changeParentCategory(UUID id, UUID newParentCategoryId) {
         Category category = categoryRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find category with id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
         Category parent = categoryRepository
                 .findById(newParentCategoryId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find parent category with id: "
-                        + newParentCategoryId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid parent category id: " + newParentCategoryId));
         category.setParent(parent);
         categoryRepository.save(category);
         categoryRepository.save(parent);

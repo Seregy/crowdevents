@@ -36,12 +36,10 @@ public class CommentRepositoryService implements CommentService {
     public Comment post(UUID projectId, UUID personId, String message) {
         Project project = projectRepository
                 .findById(projectId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find project with id: "
-                        + projectId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + projectId));
         Person person = personRepository
                 .findById(personId)
-                .orElseThrow(() -> new RuntimeException("Couldn't find person with id: "
-                        + personId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + personId));
         Comment comment = new Comment(project, person, message, LocalDateTime.now(clock));
 
         person.getComments().add(comment);
@@ -62,7 +60,7 @@ public class CommentRepositoryService implements CommentService {
     public void changeMessage(UUID id, String newMessage) {
         Comment comment = commentRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find comment with id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid comment id: " + id));
         comment.setMessage(newMessage);
         commentRepository.save(comment);
     }
