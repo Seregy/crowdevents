@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -48,10 +49,8 @@ public class CommentRepositoryService implements CommentService {
         return commentRepository.save(comment);
     }
     @Override
-    public Comment get(UUID id) {
-        return commentRepository
-                .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find comment with id: " + id));
+    public Optional<Comment> get(UUID id) {
+        return commentRepository.findById(id);
     }
 
     @Override

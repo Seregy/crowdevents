@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -30,8 +31,8 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public Project get(UUID id) {
-        return getProject(id);
+    public Optional<Project> get(UUID id) {
+        return projectRepository.findById(id);
     }
 
     @Override

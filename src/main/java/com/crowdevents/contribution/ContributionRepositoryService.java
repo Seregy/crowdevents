@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -57,10 +58,8 @@ public class ContributionRepositoryService implements ContributionService {
     }
 
     @Override
-    public Contribution get(UUID id) {
-        return contributionRepository
-                .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find contribution with id: " + id));
+    public Optional<Contribution> get(UUID id) {
+        return contributionRepository.findById(id);
     }
 
     @Override

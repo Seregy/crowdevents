@@ -5,11 +5,12 @@ import com.crowdevents.person.Person;
 import org.joda.money.Money;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface ProjectService {
     Project create(String name, String description, Money fundingGoal, UUID ownerId);
-    Project get(UUID id);
+    Optional<Project> get(UUID id);
     Iterable<Project> getAll();
     void delete(UUID id);
     void changeName(UUID id, String newName);

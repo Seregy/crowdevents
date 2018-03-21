@@ -1,10 +1,11 @@
 package com.crowdevents.person;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public interface PersonService {
     Person register(String email, String password, String name);
-    Person get(UUID id);
+    Optional<Person> get(UUID id);
     void delete(UUID id);
     void changeName(UUID id, String newName);
     void changeSurname(UUID id, String newSurname);

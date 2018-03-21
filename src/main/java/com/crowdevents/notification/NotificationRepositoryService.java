@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -89,10 +90,8 @@ public class NotificationRepositoryService implements NotificationService {
     }
 
     @Override
-    public BaseNotification get(UUID id) {
-        return notificationRepository
-                .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find notification with id: " + id));
+    public Optional<BaseNotification> get(UUID id) {
+        return notificationRepository.findById(id);
     }
 
     @Override

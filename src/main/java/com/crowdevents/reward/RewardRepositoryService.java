@@ -5,6 +5,7 @@ import com.crowdevents.project.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -26,8 +27,8 @@ public class RewardRepositoryService implements RewardService {
     }
 
     @Override
-    public Reward get(UUID id) {
-        return getReward(id);
+    public Optional<Reward> get(UUID id) {
+        return rewardRepository.findById(id);
     }
 
     @Override

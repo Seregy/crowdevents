@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -36,10 +37,8 @@ public class CategoryRepositoryService implements CategoryService {
     }
 
     @Override
-    public Category get(UUID id) {
-        return categoryRepository
-                .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find category with id: " + id));
+    public Optional<Category> get(UUID id) {
+        return categoryRepository.findById(id);
     }
 
     @Override

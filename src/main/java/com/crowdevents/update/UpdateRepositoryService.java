@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -33,8 +34,8 @@ public class UpdateRepositoryService implements UpdateService {
     }
 
     @Override
-    public Update get(UUID id) {
-        return getUpdate(id);
+    public Optional<Update> get(UUID id) {
+        return updateRepository.findById(id);
     }
 
     @Override

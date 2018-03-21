@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -32,10 +33,8 @@ public class FaqRepositoryService implements FaqService {
     }
 
     @Override
-    public Faq get(UUID id) {
-        return faqRepository
-                .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find faq with id: " + id));
+    public Optional<Faq> get(UUID id) {
+        return faqRepository.findById(id);
     }
 
     @Override

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -42,10 +43,8 @@ public class MessageRepositoryService implements MessageService {
     }
 
     @Override
-    public Message get(UUID id) {
-        return messageRepository
-                .findById(id)
-                .orElseThrow(() -> new RuntimeException("Couldn't find message with id: " + id));
+    public Optional<Message> get(UUID id) {
+        return messageRepository.findById(id);
     }
 
     @Override

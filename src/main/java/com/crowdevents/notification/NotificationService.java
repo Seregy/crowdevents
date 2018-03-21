@@ -1,6 +1,7 @@
 package com.crowdevents.notification;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface NotificationService {
@@ -9,7 +10,7 @@ public interface NotificationService {
                                                           UUID projectId);
     PersonNotification sendPersonNotification(String message, UUID personId, UUID receiverId, UUID projectId);
     UpdateNotification sendUpdateNotification(String message, UUID updateId, UUID receiverId, UUID projectId);
-    BaseNotification get(UUID id);
+    Optional<BaseNotification> get(UUID id);
     void delete(UUID id);
     void changeMessage(UUID id, String newMessage);
 }
