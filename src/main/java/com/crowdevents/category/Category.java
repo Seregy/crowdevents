@@ -3,6 +3,7 @@ package com.crowdevents.category;
 import com.crowdevents.project.Project;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
@@ -20,7 +21,7 @@ public class Category {
     private Category parent;
 
     @OneToMany(mappedBy = "parent")
-    private Set<Category> children;
+    private Set<Category> children = new HashSet<>();
 
     @Column(nullable = false)
     private String name;
