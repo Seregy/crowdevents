@@ -30,9 +30,7 @@ public class CategoryRepositoryService implements CategoryService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid parent category id: " + parentCategoryId));
         Category category = new Category(name, description, parent);
         parent.getChildren().add(category);
-        Category created = categoryRepository.save(category);
-        categoryRepository.save(parent);
-        return created;
+        return categoryRepository.save(category);
     }
 
     @Override
@@ -73,6 +71,5 @@ public class CategoryRepositoryService implements CategoryService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid parent category id: " + newParentCategoryId));
         category.setParent(parent);
         categoryRepository.save(category);
-        categoryRepository.save(parent);
     }
 }
