@@ -44,28 +44,28 @@ public class Project {
     private List<String> imageLinks = new ArrayList<>();
 
     @ManyToMany(mappedBy = "createdProjects")
-    private Set<Person> owners;
+    private Set<Person> owners = new HashSet<>();
 
     @ManyToMany(mappedBy = "subscribedProjects")
-    private Set<Person> subscribers;
+    private Set<Person> subscribers = new HashSet<>();
 
     @OneToMany(mappedBy = "project")
-    private Set<Contribution> contributions;
+    private Set<Contribution> contributions = new HashSet<>();
 
     @OneToMany(mappedBy = "project")
-    private Set<Comment> comments;
+    private Set<Comment> comments = new HashSet<>();
 
     @OneToMany(mappedBy = "project")
-    private Set<Faq> faqs;
+    private Set<Faq> faqs = new HashSet<>();
 
     @ManyToMany(mappedBy = "projects")
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     @OneToMany(mappedBy = "project")
-    private Set<Update> updates;
+    private Set<Update> updates = new HashSet<>();
 
     @OneToMany(mappedBy = "project")
-    private Set<Reward> rewards;
+    private Set<Reward> rewards = new HashSet<>();
 
     public Project(String name, String description, Money fundingGoal, Person... owners) {
         this.name = name;

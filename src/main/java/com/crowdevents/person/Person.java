@@ -7,6 +7,7 @@ import com.crowdevents.notification.BaseNotification;
 import com.crowdevents.project.Project;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
@@ -32,30 +33,30 @@ public class Person {
     private String city;
 
     @ManyToMany
-    private Set<Project> createdProjects;
+    private Set<Project> createdProjects = new HashSet<>();
 
     @ManyToMany
-    private Set<Project> subscribedProjects;
+    private Set<Project> subscribedProjects = new HashSet<>();
 
     @OneToMany(mappedBy = "contributor")
-    private Set<Contribution> contributions;
+    private Set<Contribution> contributions = new HashSet<>();
 
     @OneToMany(mappedBy = "receiver")
-    private Set<BaseNotification> notifications;
+    private Set<BaseNotification> notifications = new HashSet<>();
 
     @OneToMany(mappedBy = "author")
-    private Set<Comment> comments;
+    private Set<Comment> comments = new HashSet<>();
 
     @ManyToMany
-    private Set<Person> followers;
+    private Set<Person> followers = new HashSet<>();
     @ManyToMany(mappedBy = "followers")
-    private Set<Person> followed;
+    private Set<Person> followed = new HashSet<>();
 
     @OneToMany(mappedBy = "sender")
-    private Set<Message> createdMessages;
+    private Set<Message> createdMessages = new HashSet<>();
 
     @OneToMany(mappedBy = "receiver")
-    private Set<Message> receivedMessages;
+    private Set<Message> receivedMessages = new HashSet<>();
 
     public Person(String email, String password, String name) {
         this.email = email;

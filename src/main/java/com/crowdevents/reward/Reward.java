@@ -4,6 +4,7 @@ import com.crowdevents.contribution.Contribution;
 import com.crowdevents.project.Project;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
@@ -18,7 +19,7 @@ public class Reward {
     private Project project;
 
     @OneToMany(mappedBy = "reward")
-    private Set<Contribution> contributions;
+    private Set<Contribution> contributions = new HashSet<>();
 
     @Column(nullable = false)
     private Integer minimalContribution;
