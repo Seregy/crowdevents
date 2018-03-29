@@ -60,12 +60,12 @@ public class UpdateRepositoryService implements UpdateService {
     private Project getProject(UUID id) {
         return projectRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid project id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + id));
     }
 
     private Update getUpdate(UUID id) {
         return updateRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid update id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid update id: " + id));
     }
 }

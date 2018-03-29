@@ -74,12 +74,12 @@ public class RewardRepositoryService implements RewardService {
     private Project getProject(UUID id) {
         return projectRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid project id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + id));
     }
 
     private Reward getReward(UUID id) {
         return rewardRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid reward id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid reward id: " + id));
     }
 }

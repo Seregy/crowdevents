@@ -31,10 +31,10 @@ public class MessageRepositoryService implements MessageService {
     public Message send(UUID senderId, UUID receiverId, String message) {
         Person sender = personRepository
                 .findById(senderId)
-                .orElseThrow(() -> new RuntimeException("Invalid person id: " + senderId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + senderId));
         Person receiver = personRepository
                 .findById(receiverId)
-                .orElseThrow(() -> new RuntimeException("Invalid person id: " + receiverId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + receiverId));
         Message newMessage = new Message(message, sender, receiver, LocalDateTime.now(clock));
 
         sender.getCreatedMessages().add(newMessage);
@@ -56,7 +56,7 @@ public class MessageRepositoryService implements MessageService {
     public void changeMessage(UUID id, String newMessage) {
         Message message = messageRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid message id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid message id: " + id));
         message.setMessage(newMessage);
         messageRepository.save(message);
     }

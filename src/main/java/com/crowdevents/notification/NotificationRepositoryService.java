@@ -56,7 +56,7 @@ public class NotificationRepositoryService implements NotificationService {
                                                                  UUID receiverId, UUID projectId) {
         Contribution contribution = contributionRepository
                 .findById(contributionId)
-                .orElseThrow(() -> new RuntimeException("Invalid contribution id: " + contributionId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid contribution id: " + contributionId));
         Person receiver = getPerson(receiverId);
         Project project = getProject(projectId);
 
@@ -80,7 +80,7 @@ public class NotificationRepositoryService implements NotificationService {
     public UpdateNotification sendUpdateNotification(String message, UUID updateId, UUID receiverId, UUID projectId) {
         Update update = updateRepository
                 .findById(updateId)
-                .orElseThrow(() -> new RuntimeException("Invalid update id: " + updateId));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid update id: " + updateId));
         Person receiver = getPerson(receiverId);
         Project project = getProject(projectId);
 
@@ -103,7 +103,7 @@ public class NotificationRepositoryService implements NotificationService {
     public void changeMessage(UUID id, String newMessage) {
         BaseNotification notification = notificationRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid notification id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid notification id: " + id));
         notification.setMessage(newMessage);
         notificationRepository.save(notification);
     }
@@ -111,12 +111,12 @@ public class NotificationRepositoryService implements NotificationService {
     private Person getPerson(UUID id) {
         return personRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid person id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + id));
     }
 
     private Project getProject(UUID id) {
         return projectRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid project id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + id));
     }
 }

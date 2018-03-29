@@ -114,12 +114,12 @@ public class ProjectRepositoryService implements ProjectService {
     private Person getPerson(UUID id) {
         return personRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid person id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + id));
     }
 
     private Project getProject(UUID id) {
         return projectRepository
                 .findById(id)
-                .orElseThrow(() -> new RuntimeException("Invalid project id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + id));
     }
 }
