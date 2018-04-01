@@ -106,7 +106,7 @@ public class ProjectRepositoryService implements ProjectService {
         Project project = getProject(id);
         for (UUID ownerId : ownersIds) {
             Person owner = getPerson(ownerId);
-            project.getOwners().add(owner);
+            project.addOwner(owner);
         }
         projectRepository.save(project);
     }

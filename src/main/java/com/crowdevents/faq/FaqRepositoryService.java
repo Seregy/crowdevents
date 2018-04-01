@@ -28,7 +28,7 @@ public class FaqRepositoryService implements FaqService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + projectId));
         Faq faq = new Faq(project, question, answer);
 
-        project.getFaqs().add(faq);
+        project.addFaq(faq);
         return faqRepository.save(faq);
     }
 

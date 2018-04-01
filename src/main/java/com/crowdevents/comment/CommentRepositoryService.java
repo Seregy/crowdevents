@@ -42,8 +42,8 @@ public class CommentRepositoryService implements CommentService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + personId));
         Comment comment = new Comment(project, person, message, LocalDateTime.now(clock));
 
-        person.getComments().add(comment);
-        project.getComments().add(comment);
+        person.addComment(comment);
+        project.addComment(comment);
         return commentRepository.save(comment);
     }
     @Override

@@ -37,8 +37,8 @@ public class MessageRepositoryService implements MessageService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + receiverId));
         Message newMessage = new Message(message, sender, receiver, LocalDateTime.now(clock));
 
-        sender.getCreatedMessages().add(newMessage);
-        receiver.getReceivedMessages().add(newMessage);
+        sender.addCreatedMessage(newMessage);
+        receiver.addReceivedMessage(newMessage);
         return messageRepository.save(newMessage);
     }
 

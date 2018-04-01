@@ -75,6 +75,16 @@ public class Category {
         return children;
     }
 
+    public void addChild(Category category) {
+        children.add(category);
+        category.setParent(this);
+    }
+
+    public void removeChild(Category category) {
+        children.remove(category);
+        category.setParent(null);
+    }
+
     public void setChildren(Set<Category> children) {
         this.children = children;
     }

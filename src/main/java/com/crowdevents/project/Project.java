@@ -139,12 +139,28 @@ public class Project {
         return videoLinks;
     }
 
+    public void addVideoLink(String link) {
+        videoLinks.add(link);
+    }
+
+    public void removeVideoLink(String link) {
+        videoLinks.remove(link);
+    }
+
     public void setVideoLinks(List<String> videoLinks) {
         this.videoLinks = videoLinks;
     }
 
     public List<String> getImageLinks() {
         return imageLinks;
+    }
+
+    public void addImageLink(String link) {
+        imageLinks.add(link);
+    }
+
+    public void removeImageLink(String link) {
+        imageLinks.remove(link);
     }
 
     public void setImageLinks(List<String> imageLinks) {
@@ -155,12 +171,32 @@ public class Project {
         return owners;
     }
 
+    public void addOwner(Person owner) {
+        owners.add(owner);
+        owner.getCreatedProjects().add(this);
+    }
+
+    public void removeOwner(Person owner) {
+        owners.remove(owner);
+        owner.getCreatedProjects().remove(this);
+    }
+
     public void setOwners(Set<Person> owners) {
         this.owners = owners;
     }
 
     public Set<Person> getSubscribers() {
         return subscribers;
+    }
+
+    public void addSubscriber(Person subscriber) {
+        subscribers.add(subscriber);
+        subscriber.getSubscribedProjects().add(this);
+    }
+
+    public void removeSubscriber(Person subscriber) {
+        subscribers.remove(subscriber);
+        subscriber.getSubscribedProjects().remove(this);
     }
 
     public void setSubscribers(Set<Person> subscribers) {
@@ -171,12 +207,32 @@ public class Project {
         return contributions;
     }
 
+    public void addContribution(Contribution contribution) {
+        contributions.add(contribution);
+        contribution.setProject(this);
+    }
+
+    public void removeContribution(Contribution contribution) {
+        contributions.remove(contribution);
+        contribution.setProject(null);
+    }
+
     public void setContributions(Set<Contribution> contributions) {
         this.contributions = contributions;
     }
 
     public Set<Comment> getComments() {
         return comments;
+    }
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
+        comment.setProject(this);
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
+        comment.setProject(null);
     }
 
     public void setComments(Set<Comment> comments) {
@@ -187,12 +243,32 @@ public class Project {
         return faqs;
     }
 
+    public void addFaq(Faq faq) {
+        faqs.add(faq);
+        faq.setProject(this);
+    }
+
+    public void removeFaq(Faq faq) {
+        faqs.remove(faq);
+        faq.setProject(null);
+    }
+
     public void setFaqs(Set<Faq> faqs) {
         this.faqs = faqs;
     }
 
     public Set<Category> getCategories() {
         return categories;
+    }
+
+    public void addCategory(Category category) {
+        categories.add(category);
+        category.getProjects().add(this);
+    }
+
+    public void removeCategory(Category category) {
+        categories.remove(category);
+        category.getProjects().remove(this);
     }
 
     public void setCategories(Set<Category> categories) {
@@ -203,12 +279,32 @@ public class Project {
         return updates;
     }
 
+    public void addUpdate(Update update) {
+        updates.add(update);
+        update.setProject(this);
+    }
+
+    public void removeUpdate(Update update) {
+        updates.remove(update);
+        update.setProject(null);
+    }
+
     public void setUpdates(Set<Update> updates) {
         this.updates = updates;
     }
 
     public Set<Reward> getRewards() {
         return rewards;
+    }
+
+    public void addReward(Reward reward) {
+        rewards.add(reward);
+        reward.setProject(this);
+    }
+
+    public void removeReward(Reward reward) {
+        rewards.remove(reward);
+        reward.setProject(null);
     }
 
     public void setRewards(Set<Reward> rewards) {

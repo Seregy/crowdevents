@@ -69,6 +69,16 @@ public class Reward {
         return contributions;
     }
 
+    public void addContribution(Contribution contribution) {
+        contributions.add(contribution);
+        contribution.setReward(this);
+    }
+
+    public void removeContribution(Contribution contribution) {
+        contributions.remove(contribution);
+        contribution.setReward(null);
+    }
+
     public void setContributions(Set<Contribution> contributions) {
         this.contributions = contributions;
     }

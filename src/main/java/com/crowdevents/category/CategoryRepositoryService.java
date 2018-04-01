@@ -29,7 +29,7 @@ public class CategoryRepositoryService implements CategoryService {
                 .findById(parentCategoryId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid parent category id: " + parentCategoryId));
         Category category = new Category(name, description, parent);
-        parent.getChildren().add(category);
+        parent.addChild(category);
         return categoryRepository.save(category);
     }
 

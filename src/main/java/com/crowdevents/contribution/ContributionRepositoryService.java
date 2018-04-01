@@ -51,9 +51,9 @@ public class ContributionRepositoryService implements ContributionService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid reward id: " + rewardId));
         Contribution contribution = new Contribution(person, project, LocalDateTime.now(clock), money, reward);
 
-        person.getContributions().add(contribution);
-        project.getContributions().add(contribution);
-        reward.getContributions().add(contribution);
+        person.addContribution(contribution);
+        project.addContribution(contribution);
+        reward.addContribution(contribution);
         return contributionRepository.save(contribution);
     }
 

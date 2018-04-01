@@ -145,12 +145,32 @@ public class Person {
         return contributions;
     }
 
+    public void addContribution(Contribution contribution) {
+        contributions.add(contribution);
+        contribution.setContributor(this);
+    }
+
+    public void removeContribution(Contribution contribution) {
+        contributions.remove(contribution);
+        contribution.setContributor(null);
+    }
+
     public void setContributions(Set<Contribution> contributions) {
         this.contributions = contributions;
     }
 
     public Set<BaseNotification> getNotifications() {
         return notifications;
+    }
+
+    public void addNotification(BaseNotification notification) {
+        notifications.add(notification);
+        notification.setReceiver(this);
+    }
+
+    public void removeNotification(BaseNotification notification) {
+        notifications.remove(notification);
+        notification.setReceiver(null);
     }
 
     public void setNotifications(Set<BaseNotification> notifications) {
@@ -161,12 +181,32 @@ public class Person {
         return comments;
     }
 
+    public void addComment(Comment comment) {
+        comments.add(comment);
+        comment.setAuthor(this);
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
+        comment.setAuthor(null);
+    }
+
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
 
     public Set<Person> getFollowers() {
         return followers;
+    }
+
+    public void addFollower(Person follower) {
+        followers.add(follower);
+        follower.addFollowed(this);
+    }
+
+    public void removeFollower(Person follower) {
+        followers.remove(follower);
+        follower.removeFollowed(this);
     }
 
     public void setFollowers(Set<Person> followers) {
@@ -177,6 +217,16 @@ public class Person {
         return followed;
     }
 
+    public void addFollowed(Person follow) {
+        followed.add(follow);
+        follow.addFollower(this);
+    }
+
+    public void removeFollowed(Person follow) {
+        followed.add(follow);
+        follow.removeFollower(this);
+    }
+
     public void setFollowed(Set<Person> followed) {
         this.followed = followed;
     }
@@ -185,12 +235,32 @@ public class Person {
         return createdMessages;
     }
 
+    public void addCreatedMessage(Message message) {
+        createdMessages.add(message);
+        message.setSender(this);
+    }
+
+    public void removeCreatedMessage(Message message) {
+        createdMessages.remove(message);
+        message.setSender(null);
+    }
+
     public void setCreatedMessages(Set<Message> createdMessages) {
         this.createdMessages = createdMessages;
     }
 
     public Set<Message> getReceivedMessages() {
         return receivedMessages;
+    }
+
+    public void addReceivedMessage(Message message) {
+        receivedMessages.add(message);
+        message.setReceiver(this);
+    }
+
+    public void removeReceivedMessage(Message message) {
+        receivedMessages.remove(message);
+        message.setReceiver(null);
     }
 
     public void setReceivedMessages(Set<Message> receivedMessages) {
