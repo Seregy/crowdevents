@@ -2,6 +2,9 @@ package com.crowdevents.reward;
 
 import com.crowdevents.contribution.Contribution;
 import com.crowdevents.project.Project;
+import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.Type;
+import org.joda.money.Money;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -21,8 +24,10 @@ public class Reward {
     @OneToMany(mappedBy = "reward")
     private Set<Contribution> contributions = new HashSet<>();
 
-    @Column(nullable = false)
-    private Integer minimalContribution;
+    @Columns(columns = { @Column(name = "funding_goal_currency"),
+            @Column(name = "funding_goal_amount", nullable = false) })
+    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
+    private Money minimalContribution;
 
     private Integer maximumAmount;
 
@@ -32,7 +37,7 @@ public class Reward {
     private String deliveryDate;
     private String shippedTo;
 
-    public Reward(Project project, Integer limit, Integer minimalContribution, String description) {
+    public Reward(Project project, Integer limit, Money minimalContribution, String description) {
         this.project = project;
         this.maximumAmount = limit;
         this.minimalContribution = minimalContribution;
@@ -76,11 +81,11 @@ public class Reward {
         this.maximumAmount = maximumAmount;
     }
 
-    public Integer getMinimalContribution() {
+    public Money getMinimalContribution() {
         return minimalContribution;
     }
 
-    public void setMinimalContribution(Integer minimalContribution) {
+    public void setMinimalContribution(Money minimalContribution) {
         this.minimalContribution = minimalContribution;
     }
 

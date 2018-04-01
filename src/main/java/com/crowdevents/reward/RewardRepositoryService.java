@@ -2,6 +2,7 @@ package com.crowdevents.reward;
 
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
+import org.joda.money.Money;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class RewardRepositoryService implements RewardService {
     }
 
     @Override
-    public Reward create(UUID projectId, Integer limit, Integer minimalContribution, String description) {
+    public Reward create(UUID projectId, Integer limit, Money minimalContribution, String description) {
         Project project = getProject(projectId);
         Reward reward = new Reward(project, limit, minimalContribution, description);
         return rewardRepository.save(reward);
@@ -44,7 +45,7 @@ public class RewardRepositoryService implements RewardService {
     }
 
     @Override
-    public void changeMinimalContribution(UUID id, Integer newMinimalContribution) {
+    public void changeMinimalContribution(UUID id, Money newMinimalContribution) {
         Reward reward = getReward(id);
         reward.setMinimalContribution(newMinimalContribution);
         rewardRepository.save(reward);
