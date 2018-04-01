@@ -49,7 +49,7 @@ public class CategoryRepositoryServiceTest {
 
         assertEquals(mockedCategory, result);
         assertEquals(mockedParentCategory, result.getParent());
-        assertTrue(result.getParent().getChildren().contains(mockedCategory));
+        assertFalse(result.getParent().getChildren().isEmpty());
     }
 
     @Test
