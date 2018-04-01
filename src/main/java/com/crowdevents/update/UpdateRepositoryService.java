@@ -2,14 +2,16 @@ package com.crowdevents.update;
 
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
@@ -18,6 +20,13 @@ public class UpdateRepositoryService implements UpdateService {
     private ProjectRepository projectRepository;
     private Clock clock;
 
+    /**
+     * Creates new update service that uses repositories.
+     *
+     * @param updateRepository update repository
+     * @param projectRepository project repository
+     * @param clock clock for generating date and time
+     */
     @Autowired
     public UpdateRepositoryService(UpdateRepository updateRepository,
                                    ProjectRepository projectRepository, Clock clock) {

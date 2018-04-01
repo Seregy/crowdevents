@@ -2,9 +2,13 @@ package com.crowdevents.faq;
 
 import com.crowdevents.project.Project;
 
-import javax.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Faq {
@@ -21,6 +25,13 @@ public class Faq {
     @Column(nullable = false)
     private String answer;
 
+    /**
+     * Constructs new frequently asked question with answer.
+     *
+     * @param project project to which faq belongs
+     * @param question frequently asked question
+     * @param answer answer to the question
+     */
     public Faq(Project project, String question, String answer) {
         this.project = project;
         this.question = question;

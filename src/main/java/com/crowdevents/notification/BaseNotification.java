@@ -1,12 +1,16 @@
 package com.crowdevents.notification;
 
-import com.crowdevents.project.Project;
 import com.crowdevents.person.Person;
+import com.crowdevents.project.Project;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "notification")
 public class BaseNotification {
@@ -26,7 +30,16 @@ public class BaseNotification {
     @ManyToOne
     private Person receiver;
 
-    public BaseNotification(String message, Person receiver, LocalDateTime dateTime, Project project) {
+    /**
+     * Constructs new generic notification that has message and refers to some project.
+     *
+     * @param message notification message
+     * @param receiver person who will receive the notification
+     * @param dateTime creation date and time
+     * @param project project, referenced by the notification
+     */
+    public BaseNotification(String message, Person receiver, LocalDateTime dateTime,
+                            Project project) {
         this.message = message;
         this.receiver = receiver;
         this.dateTime = dateTime;

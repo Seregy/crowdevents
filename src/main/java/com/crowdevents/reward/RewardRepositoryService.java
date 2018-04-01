@@ -2,12 +2,13 @@ package com.crowdevents.reward;
 
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
-import org.joda.money.Money;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;
+
+import org.joda.money.Money;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class RewardRepositoryService implements RewardService {
@@ -15,13 +16,15 @@ public class RewardRepositoryService implements RewardService {
     private ProjectRepository projectRepository;
 
     @Autowired
-    public RewardRepositoryService(RewardRepository rewardRepository, ProjectRepository projectRepository) {
+    public RewardRepositoryService(RewardRepository rewardRepository,
+                                   ProjectRepository projectRepository) {
         this.rewardRepository = rewardRepository;
         this.projectRepository = projectRepository;
     }
 
     @Override
-    public Reward create(UUID projectId, Integer limit, Money minimalContribution, String description) {
+    public Reward create(UUID projectId, Integer limit, Money minimalContribution,
+                         String description) {
         Project project = getProject(projectId);
         Reward reward = new Reward(project, limit, minimalContribution, description);
         return rewardRepository.save(reward);

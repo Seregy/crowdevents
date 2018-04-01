@@ -2,12 +2,14 @@ package com.crowdevents.faq;
 
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.UUID;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
@@ -25,7 +27,8 @@ public class FaqRepositoryService implements FaqService {
     public Faq create(UUID projectId, String question, String answer) {
         Project project = projectRepository
                 .findById(projectId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + projectId));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid project id: " + projectId));
         Faq faq = new Faq(project, question, answer);
 
         project.addFaq(faq);

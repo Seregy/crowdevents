@@ -2,11 +2,17 @@ package com.crowdevents.category;
 
 import com.crowdevents.project.Project;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -40,6 +46,13 @@ public class Category {
         this(name, null, parent);
     }
 
+    /**
+     * Constructs new category for projects.
+     *
+     * @param name name of the category
+     * @param description short description
+     * @param parent parent category
+     */
     public Category(String name, String description, Category parent) {
         this.name = name;
         this.description = description;

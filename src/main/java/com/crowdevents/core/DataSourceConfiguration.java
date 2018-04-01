@@ -1,5 +1,7 @@
 package com.crowdevents.core;
 
+import javax.sql.DataSource;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -8,10 +10,13 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-import javax.sql.DataSource;
-
 @Configuration
 public class DataSourceConfiguration {
+    /**
+     * Creates datasource for embedded H2 database for development purposes.
+     *
+     * @return datasource for embedded h2 db
+     */
     @Profile("development")
     @Bean
     public DataSource embeddedDataSource() {
@@ -20,6 +25,16 @@ public class DataSourceConfiguration {
                 .build();
     }
 
+    /**
+     * Creates datasource for PostgreSQL database for testing purposes.
+     *
+     * @param host hostname of the database
+     * @param port port
+     * @param database name of the database
+     * @param user user
+     * @param password password
+     * @return datasource for PostgreSQL db
+     */
     @Profile("qa")
     @Bean
     public DataSource qaDataSource(@Value("${POSTGRES_HOSTNAME}") String host,

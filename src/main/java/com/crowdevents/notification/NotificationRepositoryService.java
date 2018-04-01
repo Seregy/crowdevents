@@ -8,14 +8,16 @@ import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
 import com.crowdevents.update.Update;
 import com.crowdevents.update.UpdateRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
@@ -27,6 +29,16 @@ public class NotificationRepositoryService implements NotificationService {
     private UpdateRepository updateRepository;
     private Clock clock;
 
+    /**
+     * Creates new notification service that uses repositories.
+     *
+     * @param notificationRepository notification repository
+     * @param personRepository person repository
+     * @param projectRepository project repository
+     * @param contributionRepository contribution repository
+     * @param updateRepository update repository
+     * @param clock clock for generating date and time
+     */
     @Autowired
     public NotificationRepositoryService(NotificationRepository notificationRepository,
                                          PersonRepository personRepository,
@@ -47,26 +59,31 @@ public class NotificationRepositoryService implements NotificationService {
         Person receiver = getPerson(receiverId);
         Project project = getProject(projectId);
 
-        BaseNotification baseNotification = new BaseNotification(message, receiver, LocalDateTime.now(clock), project);
+        BaseNotification baseNotification = new BaseNotification(message, receiver,
+                LocalDateTime.now(clock), project);
         return notificationRepository.save(baseNotification);
     }
 
     @Override
-    public ContributionNotification sendContributionNotification(String message, UUID contributionId,
-                                                                 UUID receiverId, UUID projectId) {
+    public ContributionNotification sendContributionNotification(String message,
+                                                                 UUID contributionId,
+                                                                 UUID receiverId,
+                                                                 UUID projectId) {
         Contribution contribution = contributionRepository
                 .findById(contributionId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid contribution id: " + contributionId));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid contribution id: " + contributionId));
         Person receiver = getPerson(receiverId);
         Project project = getProject(projectId);
 
-        ContributionNotification contributionNotification = new ContributionNotification(message, contribution,
-                receiver, LocalDateTime.now(clock), project);
+        ContributionNotification contributionNotification = new ContributionNotification(message,
+                contribution, receiver, LocalDateTime.now(clock), project);
         return notificationRepository.save(contributionNotification);
     }
 
     @Override
-    public PersonNotification sendPersonNotification(String message, UUID personId, UUID receiverId, UUID projectId) {
+    public PersonNotification sendPersonNotification(String message, UUID personId,
+                                                     UUID receiverId, UUID projectId) {
         Person person = getPerson(personId);
         Person receiver = getPerson(receiverId);
         Project project = getProject(projectId);
@@ -77,7 +94,8 @@ public class NotificationRepositoryService implements NotificationService {
     }
 
     @Override
-    public UpdateNotification sendUpdateNotification(String message, UUID updateId, UUID receiverId, UUID projectId) {
+    public UpdateNotification sendUpdateNotification(String message, UUID updateId,
+                                                     UUID receiverId, UUID projectId) {
         Update update = updateRepository
                 .findById(updateId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid update id: " + updateId));

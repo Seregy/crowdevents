@@ -1,13 +1,17 @@
 package com.crowdevents.person;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.util.UUID;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @Controller
 @RequestMapping("/person")
@@ -27,12 +31,21 @@ public class PersonController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Person person(@PathVariable UUID id) {
-        return personRepository.findById(id).orElseThrow(() -> new RuntimeException("No such person detected"));
+        return personRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("No such person detected"));
     }
 
+    /**
+     * Adds new person.
+     *
+     * @param person person to add
+     * @param servletRequest information about request
+     * @return http status 201 Created with location of the person in header
+     */
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity addPerson(@RequestBody Person person, HttpServletRequest servletRequest) {
-        Person createdPerson = personRepository.save(new Person(person.getEmail(), person.getPassword(), person.getName()));
+        Person createdPerson = personRepository.save(new Person(person.getEmail(),
+                person.getPassword(), person.getName()));
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/person/{id}")
                 .buildAndExpand(createdPerson.getId())

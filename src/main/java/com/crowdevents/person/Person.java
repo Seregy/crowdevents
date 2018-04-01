@@ -6,11 +6,16 @@ import com.crowdevents.message.Message;
 import com.crowdevents.notification.BaseNotification;
 import com.crowdevents.project.Project;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Person {
@@ -58,6 +63,13 @@ public class Person {
     @OneToMany(mappedBy = "receiver")
     private Set<Message> receivedMessages = new HashSet<>();
 
+    /**
+     * Constructs new person that represents user of the system.
+     *
+     * @param email email address
+     * @param password password
+     * @param name username
+     */
     public Person(String email, String password, String name) {
         this.email = email;
         this.password = password;

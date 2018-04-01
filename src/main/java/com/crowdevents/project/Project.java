@@ -5,16 +5,30 @@ import com.crowdevents.comment.Comment;
 import com.crowdevents.contribution.Contribution;
 import com.crowdevents.faq.Faq;
 import com.crowdevents.location.Location;
+import com.crowdevents.person.Person;
 import com.crowdevents.reward.Reward;
 import com.crowdevents.update.Update;
-import com.crowdevents.person.Person;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
 import org.joda.money.Money;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.*;
 
 @Entity
 public class Project {
@@ -33,7 +47,8 @@ public class Project {
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
 
-    @Columns(columns = { @Column(name = "funding_goal_currency"), @Column(name = "funding_goal_amount") })
+    @Columns(columns = { @Column(name = "funding_goal_currency"),
+            @Column(name = "funding_goal_amount") })
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
     private Money fundingGoal;
 
@@ -67,6 +82,14 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Set<Reward> rewards = new HashSet<>();
 
+    /**
+     * Constructs new project.
+     *
+     * @param name name of the project
+     * @param description description
+     * @param fundingGoal funding goal of the project
+     * @param owners owners of the project
+     */
     public Project(String name, String description, Money fundingGoal, Person... owners) {
         this.name = name;
         this.description = description;

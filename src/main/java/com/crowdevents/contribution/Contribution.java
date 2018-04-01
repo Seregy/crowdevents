@@ -1,16 +1,22 @@
 package com.crowdevents.contribution;
 
+import com.crowdevents.person.Person;
 import com.crowdevents.project.Project;
 import com.crowdevents.reward.Reward;
-import com.crowdevents.person.Person;
+
+import java.time.LocalDateTime;
+import java.util.Objects;
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
 import org.joda.money.Money;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 public class Contribution {
@@ -37,7 +43,17 @@ public class Contribution {
     @ManyToOne
     private Reward reward;
 
-    public Contribution(Person contributor, Project project, LocalDateTime dateTime, Money money, Reward reward) {
+    /**
+     * Constructs new contribution to the project.
+     *
+     * @param contributor person who made the contribution
+     * @param project project to which the contribution was made
+     * @param dateTime creation date and time
+     * @param money contributed currency and amount
+     * @param reward reward for this contribution
+     */
+    public Contribution(Person contributor, Project project, LocalDateTime dateTime,
+                        Money money, Reward reward) {
         this.contributor = contributor;
         this.project = project;
         this.dateTime = dateTime;

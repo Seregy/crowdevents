@@ -2,10 +2,14 @@ package com.crowdevents.update;
 
 import com.crowdevents.project.Project;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Update {
@@ -24,6 +28,13 @@ public class Update {
 
     private String shortMessage;
 
+    /**
+     * Constructs new update message about project.
+     *
+     * @param project project to which update belongs
+     * @param dateTime creation date and time
+     * @param message update message
+     */
     public Update(Project project, LocalDateTime dateTime, String message) {
         this.project = project;
         this.dateTime = dateTime;

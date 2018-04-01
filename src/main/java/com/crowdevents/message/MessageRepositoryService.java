@@ -2,14 +2,18 @@ package com.crowdevents.message;
 
 import com.crowdevents.person.Person;
 import com.crowdevents.person.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
 
 @Service
 @Transactional
@@ -18,6 +22,13 @@ public class MessageRepositoryService implements MessageService {
     private PersonRepository personRepository;
     private Clock clock;
 
+    /**
+     * Creates new message service that uses repositories.
+     *
+     * @param messageRepository message repository
+     * @param personRepository person repository
+     * @param clock clock for generating date and time
+     */
     @Autowired
     public MessageRepositoryService(MessageRepository messageRepository,
                                     PersonRepository personRepository,
@@ -31,10 +42,12 @@ public class MessageRepositoryService implements MessageService {
     public Message send(UUID senderId, UUID receiverId, String message) {
         Person sender = personRepository
                 .findById(senderId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + senderId));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid person id: " + senderId));
         Person receiver = personRepository
                 .findById(receiverId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + receiverId));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid person id: " + receiverId));
         Message newMessage = new Message(message, sender, receiver, LocalDateTime.now(clock));
 
         sender.addCreatedMessage(newMessage);

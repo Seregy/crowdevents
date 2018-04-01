@@ -1,8 +1,8 @@
 package com.crowdevents.location;
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import java.util.Objects;
 
 @Embeddable
 public class Location {
@@ -47,8 +47,8 @@ public class Location {
         }
 
         Location location = (Location) o;
-        return Double.compare(location.latitude, latitude) == 0 &&
-                Double.compare(location.longitude, longitude) == 0;
+        return Double.compare(location.latitude, latitude) == 0
+                && Double.compare(location.longitude, longitude) == 0;
     }
 
     @Override

@@ -2,10 +2,14 @@ package com.crowdevents.message;
 
 import com.crowdevents.person.Person;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Message {
@@ -25,6 +29,14 @@ public class Message {
     @Column(nullable = false)
     private LocalDateTime dateTime;
 
+    /**
+     * Constructs new personal message.
+     *
+     * @param message text of the message
+     * @param sender person who sent the message
+     * @param receiver person who will receive the message
+     * @param dateTime creation date and time
+     */
     public Message(String message, Person sender, Person receiver, LocalDateTime dateTime) {
         this.message = message;
         this.sender = sender;

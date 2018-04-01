@@ -2,15 +2,21 @@ package com.crowdevents.reward;
 
 import com.crowdevents.contribution.Contribution;
 import com.crowdevents.project.Project;
-import org.hibernate.annotations.Columns;
-import org.hibernate.annotations.Type;
-import org.joda.money.Money;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.Type;
+import org.joda.money.Money;
 
 @Entity
 public class Reward {
@@ -37,6 +43,14 @@ public class Reward {
     private String deliveryDate;
     private String shippedTo;
 
+    /**
+     * Constructs new reward for contribution specified amount of money.
+     *
+     * @param project project to which reward belongs
+     * @param limit amount of users that can claim this reward
+     * @param minimalContribution minimal contribution needed for claiming this reward
+     * @param description description of the reward
+     */
     public Reward(Project project, Integer limit, Money minimalContribution, String description) {
         this.project = project;
         this.maximumAmount = limit;

@@ -1,12 +1,16 @@
 package com.crowdevents.comment;
 
-import com.crowdevents.project.Project;
 import com.crowdevents.person.Person;
+import com.crowdevents.project.Project;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Comment {
@@ -26,6 +30,14 @@ public class Comment {
     @Column(nullable = false)
     private LocalDateTime dateTime;
 
+    /**
+     * Constructs new comment to the project.
+     *
+     * @param project project to which comment belongs
+     * @param author person who wrote comment
+     * @param message message
+     * @param dateTime creation date and time
+     */
     public Comment(Project project, Person author, String message, LocalDateTime dateTime) {
         this.project = project;
         this.author = author;

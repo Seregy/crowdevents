@@ -6,8 +6,12 @@ import java.util.UUID;
 
 public interface UpdateService {
     Update post(UUID projectId, String message);
+
     Optional<Update> get(UUID id);
+
     void delete(UUID id);
+
     void changeMessage(UUID id, String newMessage);
+
     void changeShortMessage(UUID id, String newShortMessage);
 }

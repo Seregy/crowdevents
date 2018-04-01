@@ -6,15 +6,20 @@ import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
 import com.crowdevents.reward.Reward;
 import com.crowdevents.reward.RewardRepository;
-import org.joda.money.Money;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
+
+import javax.transaction.Transactional;
+
+import org.joda.money.Money;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
 
 @Service
 @Transactional
@@ -25,6 +30,15 @@ public class ContributionRepositoryService implements ContributionService {
     private RewardRepository rewardRepository;
     private Clock clock;
 
+    /**
+     * Creates new contribution service that uses repositories.
+     *
+     * @param contributionRepository contribution repository
+     * @param personRepository person repository
+     * @param projectRepository project repository
+     * @param rewardRepository reward repository
+     * @param clock clock for generating date and time
+     */
     @Autowired
     public ContributionRepositoryService(ContributionRepository contributionRepository,
                                          PersonRepository personRepository,
@@ -42,14 +56,18 @@ public class ContributionRepositoryService implements ContributionService {
     public Contribution contribute(UUID personId, UUID projectId, Money money, UUID rewardId) {
         Person person = personRepository
                 .findById(personId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + personId));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid person id: " + personId));
         Project project = projectRepository
                 .findById(projectId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + projectId));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid project id: " + projectId));
         Reward reward = rewardRepository
                 .findById(rewardId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid reward id: " + rewardId));
-        Contribution contribution = new Contribution(person, project, LocalDateTime.now(clock), money, reward);
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid reward id: " + rewardId));
+        Contribution contribution = new Contribution(person, project,
+                LocalDateTime.now(clock), money, reward);
 
         person.addContribution(contribution);
         project.addContribution(contribution);
@@ -71,10 +89,12 @@ public class ContributionRepositoryService implements ContributionService {
     public void changeReward(UUID id, UUID newRewardId) {
         Contribution contribution = contributionRepository
                 .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid contribution id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid contribution id: " + id));
         Reward reward = rewardRepository
                 .findById(newRewardId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid reward id: " + newRewardId));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid reward id: " + newRewardId));
         contribution.setReward(reward);
         contributionRepository.save(contribution);
     }

@@ -4,14 +4,17 @@ import com.crowdevents.person.Person;
 import com.crowdevents.person.PersonRepository;
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 @Service
 @Transactional
@@ -21,6 +24,14 @@ public class CommentRepositoryService implements CommentService {
     private PersonRepository personRepository;
     private Clock clock;
 
+    /**
+     * Creates new comment service that uses repositories.
+     *
+     * @param commentRepository comment repository
+     * @param projectRepository project repository
+     * @param personRepository person repository
+     * @param clock clock to use for generating date and time
+     */
     @Autowired
     public CommentRepositoryService(CommentRepository commentRepository,
                                     ProjectRepository projectRepository,
@@ -36,7 +47,8 @@ public class CommentRepositoryService implements CommentService {
     public Comment post(UUID projectId, UUID personId, String message) {
         Project project = projectRepository
                 .findById(projectId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + projectId));
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid project id: " + projectId));
         Person person = personRepository
                 .findById(personId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + personId));
@@ -46,6 +58,7 @@ public class CommentRepositoryService implements CommentService {
         project.addComment(comment);
         return commentRepository.save(comment);
     }
+
     @Override
     public Optional<Comment> get(UUID id) {
         return commentRepository.findById(id);

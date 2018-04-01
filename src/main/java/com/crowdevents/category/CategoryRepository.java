@@ -1,8 +1,8 @@
 package com.crowdevents.category;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
-
 import java.util.UUID;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface CategoryRepository extends PagingAndSortingRepository<Category, UUID> {
 }
