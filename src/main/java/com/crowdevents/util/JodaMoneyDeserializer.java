@@ -8,13 +8,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
+import org.springframework.boot.jackson.JsonComponent;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 
+@JsonComponent
 public class JodaMoneyDeserializer extends StdDeserializer<Money> {
-    public JodaMoneyDeserializer(Class<?> vc) {
-        super(vc);
+    public JodaMoneyDeserializer() {
+        super(Money.class);
     }
 
     @Override

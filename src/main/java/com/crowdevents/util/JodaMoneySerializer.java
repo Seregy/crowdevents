@@ -4,12 +4,14 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.joda.money.Money;
+import org.springframework.boot.jackson.JsonComponent;
 
 import java.io.IOException;
 
+@JsonComponent
 public class JodaMoneySerializer extends StdSerializer<Money> {
-    public JodaMoneySerializer(Class<Money> t) {
-        super(t);
+    public JodaMoneySerializer() {
+        super(Money.class);
     }
 
     @Override
