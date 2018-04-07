@@ -15,6 +15,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -39,6 +40,7 @@ public class Person {
     private String city;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "PERSON_PROJECTS_OWNED")
     private Set<Project> createdProjects = new HashSet<>();
 
     @ManyToMany
