@@ -7,13 +7,17 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.joda.money.Money;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ProjectService {
-    Project create(String name, String description, Money fundingGoal, UUID ownerId);
+    Project create(String name, String description, Money fundingGoal, UUID... ownersIds);
 
     Optional<Project> get(UUID id);
 
-    Iterable<Project> getAll();
+    Page<Project> getAll(Pageable pageable);
+
+    Page<Project> getAllAfter(Pageable pageable, UUID afterId);
 
     void delete(UUID id);
 

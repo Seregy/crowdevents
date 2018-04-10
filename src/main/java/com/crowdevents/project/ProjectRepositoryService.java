@@ -12,6 +12,8 @@ import java.util.UUID;
 import javax.transaction.Transactional;
 
 import org.joda.money.Money;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,9 +29,9 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public Project create(String name, String description, Money fundingGoal, UUID ownerId) {
-        Person owner = getPerson(ownerId);
-        Project project = new Project(name, description, fundingGoal, owner);
+    public Project create(String name, String description, Money fundingGoal, UUID... ownersIds) {
+        Person[] persons = Arrays.stream(ownersIds).map(this::getPerson).toArray(Person[]::new);
+        Project project = new Project(name, description, fundingGoal, persons);
         return projectRepository.save(project);
     }
 
@@ -39,8 +41,13 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public Iterable<Project> getAll() {
-        return projectRepository.findAll();
+    public Page<Project> getAll(Pageable pageable) {
+        return projectRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Project> getAllAfter(Pageable pageable, UUID afterId) {
+        throw new RuntimeException("Not implemented");
     }
 
     @Override

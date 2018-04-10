@@ -11,6 +11,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -89,11 +93,12 @@ public class ProjectRepositoryServiceTest {
                 new Project("Project 2", "Description 2", null),
                 new Project("Project 3", "Description 3", null),
                 new Project("Project 4", "Description 4", null)};
-        Mockito.when(mockProjectRepository.findAll()).thenReturn(Arrays.asList(projects));
+        Mockito.when(mockProjectRepository.findAll(Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(projects)));
 
-        Iterable<Project> result = projectService.getAll();
+        Page<Project> result = projectService.getAll(PageRequest.of(0, 4));
 
-        assertEquals(Arrays.asList(projects), result);
+        assertEquals(new PageImpl<>(Arrays.asList(projects)), result);
     }
 
     @Test
