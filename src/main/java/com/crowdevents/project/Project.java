@@ -96,7 +96,9 @@ public class Project {
         this.name = name;
         this.description = description;
         this.fundingGoal = fundingGoal;
-        Collections.addAll(this.owners, owners);
+        for(Person owner : owners) {
+            addOwner(owner);
+        }
         this.id = UUID.randomUUID();
     }
 
