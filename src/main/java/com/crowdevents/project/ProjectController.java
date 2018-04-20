@@ -1,8 +1,8 @@
 package com.crowdevents.project;
 
+import com.crowdevents.core.web.PageResource;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -28,11 +28,12 @@ public class ProjectController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Page<ProjectResource> getAllProjects(@PageableDefault(value = 30) Pageable pageable,
+    public PageResource<ProjectResource> getAllProjects(@PageableDefault(value = 30) Pageable pageable,
                                                   @RequestAttribute(name = "starting_after",
                                                 required = false) UUID startingAfterId) {
-        return projectService.getAll(pageable)
-                .map((project) -> modelMapper.map(project, ProjectResource.class));
+        return new PageResource<>(
+                projectService.getAll(pageable)
+                        .map((project) -> modelMapper.map(project, ProjectResource.class)));
     }
 
     @RequestMapping(method = RequestMethod.POST)
