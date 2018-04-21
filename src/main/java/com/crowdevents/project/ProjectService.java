@@ -16,7 +16,7 @@ public interface ProjectService {
 
     Page<Project> getAll(Pageable pageable);
 
-    Page<Project> getAllAfter(Pageable pageable, Long afterId);
+    Page<Project> getAllBeforeAndOrAfter(Long beforeId, Long afterId, Pageable pageable);
 
     void delete(Long id);
 
@@ -37,4 +37,6 @@ public interface ProjectService {
     void addImageLink(Long id, String... links);
 
     void addOwner(Long id, Long... ownersIds);
+
+    void update(Long id, Project newProject);
 }

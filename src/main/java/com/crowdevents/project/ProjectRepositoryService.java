@@ -7,7 +7,6 @@ import com.crowdevents.person.PersonRepository;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Optional;
-import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -46,8 +45,16 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public Page<Project> getAllAfter(Pageable pageable, Long afterId) {
-        return null;
+    public Page<Project> getAllBeforeAndOrAfter(Long beforeId, Long afterId, Pageable pageable) {
+        if (beforeId != null && afterId != null) {
+            return projectRepository.findAllByIdAfterAndIdBefore(afterId, beforeId, pageable);
+        } else if (beforeId != null){
+            return projectRepository.findAllByIdBefore(beforeId, pageable);
+        } else if (afterId != null) {
+            return projectRepository.findAllByIdAfter(afterId, pageable);
+        } else {
+            throw new IllegalArgumentException("Either beforeId or afterId must not be null");
+        }
     }
 
     @Override
@@ -118,6 +125,18 @@ public class ProjectRepositoryService implements ProjectService {
             Person owner = getPerson(ownerId);
             project.addOwner(owner);
         }
+        projectRepository.save(project);
+    }
+
+    @Override
+    public void update(Long id, Project newProject) {
+        Project project = getProject(id);
+        project.setName(newProject.getName());
+        project.setDescription(newProject.getDescription());
+        project.setLocation(newProject.getLocation());
+        project.setStartDateTime(newProject.getStartDateTime());
+        project.setEndDateTime(newProject.getEndDateTime());
+        project.setFundingGoal(newProject.getFundingGoal());
         projectRepository.save(project);
     }
 
