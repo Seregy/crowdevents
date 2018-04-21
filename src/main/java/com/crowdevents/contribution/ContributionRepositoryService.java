@@ -10,7 +10,7 @@ import com.crowdevents.reward.RewardRepository;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
+
 
 import javax.transaction.Transactional;
 
@@ -53,7 +53,7 @@ public class ContributionRepositoryService implements ContributionService {
     }
 
     @Override
-    public Contribution contribute(UUID personId, UUID projectId, Money money, UUID rewardId) {
+    public Contribution contribute(Long personId, Long projectId, Money money, Long rewardId) {
         Person person = personRepository
                 .findById(personId)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -76,17 +76,17 @@ public class ContributionRepositoryService implements ContributionService {
     }
 
     @Override
-    public Optional<Contribution> get(UUID id) {
+    public Optional<Contribution> get(Long id) {
         return contributionRepository.findById(id);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         contributionRepository.deleteById(id);
     }
 
     @Override
-    public void changeReward(UUID id, UUID newRewardId) {
+    public void changeReward(Long id, Long newRewardId) {
         Contribution contribution = contributionRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(

@@ -1,7 +1,7 @@
 package com.crowdevents.person;
 
 import java.net.URI;
-import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.ResponseEntity;
@@ -30,7 +30,7 @@ public class PersonController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Person person(@PathVariable UUID id) {
+    public Person person(@PathVariable Long id) {
         return personRepository.findById(id).orElseThrow(() ->
                 new RuntimeException("No such person detected"));
     }

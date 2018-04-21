@@ -5,18 +5,15 @@ import com.crowdevents.project.Project;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Comment {
     @Id
     @Column(unique = true)
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @ManyToOne
     private Project project;
@@ -43,18 +40,17 @@ public class Comment {
         this.author = author;
         this.message = message;
         this.dateTime = dateTime;
-        this.id = UUID.randomUUID();
     }
 
     protected Comment() {
 
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -88,23 +84,5 @@ public class Comment {
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Comment)) {
-            return false;
-        }
-
-        Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

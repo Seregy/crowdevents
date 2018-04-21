@@ -1,16 +1,16 @@
 package com.crowdevents.contribution;
 
 import java.util.Optional;
-import java.util.UUID;
+
 
 import org.joda.money.Money;
 
 public interface ContributionService {
-    Contribution contribute(UUID personId, UUID projectId, Money money, UUID rewardId);
+    Contribution contribute(Long personId, Long projectId, Money money, Long rewardId);
 
-    Optional<Contribution> get(UUID id);
+    Optional<Contribution> get(Long id);
 
-    void delete(UUID id);
+    void delete(Long id);
 
-    void changeReward(UUID id, UUID newRewardId);
+    void changeReward(Long id, Long newRewardId);
 }

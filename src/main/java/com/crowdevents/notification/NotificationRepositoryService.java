@@ -12,7 +12,7 @@ import com.crowdevents.update.UpdateRepository;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
+
 
 import javax.transaction.Transactional;
 
@@ -55,7 +55,7 @@ public class NotificationRepositoryService implements NotificationService {
     }
 
     @Override
-    public BaseNotification sendBaseNotification(String message, UUID receiverId, UUID projectId) {
+    public BaseNotification sendBaseNotification(String message, Long receiverId, Long projectId) {
         Person receiver = getPerson(receiverId);
         Project project = getProject(projectId);
 
@@ -66,9 +66,9 @@ public class NotificationRepositoryService implements NotificationService {
 
     @Override
     public ContributionNotification sendContributionNotification(String message,
-                                                                 UUID contributionId,
-                                                                 UUID receiverId,
-                                                                 UUID projectId) {
+                                                                 Long contributionId,
+                                                                 Long receiverId,
+                                                                 Long projectId) {
         Contribution contribution = contributionRepository
                 .findById(contributionId)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -82,8 +82,8 @@ public class NotificationRepositoryService implements NotificationService {
     }
 
     @Override
-    public PersonNotification sendPersonNotification(String message, UUID personId,
-                                                     UUID receiverId, UUID projectId) {
+    public PersonNotification sendPersonNotification(String message, Long personId,
+                                                     Long receiverId, Long projectId) {
         Person person = getPerson(personId);
         Person receiver = getPerson(receiverId);
         Project project = getProject(projectId);
@@ -94,8 +94,8 @@ public class NotificationRepositoryService implements NotificationService {
     }
 
     @Override
-    public UpdateNotification sendUpdateNotification(String message, UUID updateId,
-                                                     UUID receiverId, UUID projectId) {
+    public UpdateNotification sendUpdateNotification(String message, Long updateId,
+                                                     Long receiverId, Long projectId) {
         Update update = updateRepository
                 .findById(updateId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid update id: " + updateId));
@@ -108,17 +108,17 @@ public class NotificationRepositoryService implements NotificationService {
     }
 
     @Override
-    public Optional<BaseNotification> get(UUID id) {
+    public Optional<BaseNotification> get(Long id) {
         return notificationRepository.findById(id);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         notificationRepository.deleteById(id);
     }
 
     @Override
-    public void changeMessage(UUID id, String newMessage) {
+    public void changeMessage(Long id, String newMessage) {
         BaseNotification notification = notificationRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid notification id: " + id));
@@ -126,13 +126,13 @@ public class NotificationRepositoryService implements NotificationService {
         notificationRepository.save(notification);
     }
 
-    private Person getPerson(UUID id) {
+    private Person getPerson(Long id) {
         return personRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + id));
     }
 
-    private Project getProject(UUID id) {
+    private Project getProject(Long id) {
         return projectRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + id));

@@ -2,23 +2,23 @@ package com.crowdevents.notification;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
+
 
 public interface NotificationService {
-    BaseNotification sendBaseNotification(String message, UUID receiverId, UUID projectId);
+    BaseNotification sendBaseNotification(String message, Long receiverId, Long projectId);
 
-    ContributionNotification sendContributionNotification(String message, UUID contributionId,
-                                                          UUID receiverId, UUID projectId);
+    ContributionNotification sendContributionNotification(String message, Long contributionId,
+                                                          Long receiverId, Long projectId);
 
-    PersonNotification sendPersonNotification(String message, UUID personId, UUID receiverId,
-                                              UUID projectId);
+    PersonNotification sendPersonNotification(String message, Long personId, Long receiverId,
+                                              Long projectId);
 
-    UpdateNotification sendUpdateNotification(String message, UUID updateId, UUID receiverId,
-                                              UUID projectId);
+    UpdateNotification sendUpdateNotification(String message, Long updateId, Long receiverId,
+                                              Long projectId);
 
-    Optional<BaseNotification> get(UUID id);
+    Optional<BaseNotification> get(Long id);
 
-    void delete(UUID id);
+    void delete(Long id);
 
-    void changeMessage(UUID id, String newMessage);
+    void changeMessage(Long id, String newMessage);
 }

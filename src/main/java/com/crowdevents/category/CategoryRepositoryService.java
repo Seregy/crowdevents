@@ -1,7 +1,7 @@
 package com.crowdevents.category;
 
 import java.util.Optional;
-import java.util.UUID;
+
 
 import javax.transaction.Transactional;
 
@@ -26,7 +26,7 @@ public class CategoryRepositoryService implements CategoryService {
     }
 
     @Override
-    public Category create(String name, String description, UUID parentCategoryId) {
+    public Category create(String name, String description, Long parentCategoryId) {
         Category parent = categoryRepository
                 .findById(parentCategoryId)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -37,17 +37,17 @@ public class CategoryRepositoryService implements CategoryService {
     }
 
     @Override
-    public Optional<Category> get(UUID id) {
+    public Optional<Category> get(Long id) {
         return categoryRepository.findById(id);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         categoryRepository.deleteById(id);
     }
 
     @Override
-    public void changeName(UUID id, String newName) {
+    public void changeName(Long id, String newName) {
         Category category = categoryRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
@@ -56,7 +56,7 @@ public class CategoryRepositoryService implements CategoryService {
     }
 
     @Override
-    public void changeDescription(UUID id, String newDescription) {
+    public void changeDescription(Long id, String newDescription) {
         Category category = categoryRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
@@ -65,7 +65,7 @@ public class CategoryRepositoryService implements CategoryService {
     }
 
     @Override
-    public void changeParentCategory(UUID id, UUID newParentCategoryId) {
+    public void changeParentCategory(Long id, Long newParentCategoryId) {
         Category category = categoryRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));

@@ -16,15 +16,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import java.util.UUID;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
@@ -35,7 +28,8 @@ import org.joda.money.Money;
 public class Project {
     @Id
     @Column(unique = true)
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -99,18 +93,17 @@ public class Project {
         for(Person owner : owners) {
             addOwner(owner);
         }
-        this.id = UUID.randomUUID();
     }
 
     protected Project() {
 
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -336,23 +329,5 @@ public class Project {
 
     public void setRewards(Set<Reward> rewards) {
         this.rewards = rewards;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Project)) {
-            return false;
-        }
-
-        Project project = (Project) o;
-        return Objects.equals(id, project.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

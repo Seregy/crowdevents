@@ -1,7 +1,7 @@
 package com.crowdevents.person;
 
 import java.util.Optional;
-import java.util.UUID;
+
 
 import javax.transaction.Transactional;
 
@@ -25,58 +25,58 @@ public class PersonRepositoryService implements PersonService {
     }
 
     @Override
-    public Optional<Person> get(UUID id) {
+    public Optional<Person> get(Long id) {
         return personRepository.findById(id);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         personRepository.deleteById(id);
     }
 
     @Override
-    public void changeName(UUID id, String newName) {
+    public void changeName(Long id, String newName) {
         Person person = getPerson(id);
         person.setName(newName);
         personRepository.save(person);
     }
 
     @Override
-    public void changeSurname(UUID id, String newSurname) {
+    public void changeSurname(Long id, String newSurname) {
         Person person = getPerson(id);
         person.setSurname(newSurname);
         personRepository.save(person);
     }
 
     @Override
-    public void changePassword(UUID id, String newPassword) {
+    public void changePassword(Long id, String newPassword) {
         Person person = getPerson(id);
         person.setPassword(newPassword);
         personRepository.save(person);
     }
 
     @Override
-    public void changeEmail(UUID id, String newEmail) {
+    public void changeEmail(Long id, String newEmail) {
         Person person = getPerson(id);
         person.setEmail(newEmail);
         personRepository.save(person);
     }
 
     @Override
-    public void changeCountry(UUID id, String newCountry) {
+    public void changeCountry(Long id, String newCountry) {
         Person person = getPerson(id);
         person.setCountry(newCountry);
         personRepository.save(person);
     }
 
     @Override
-    public void changeCity(UUID id, String newCity) {
+    public void changeCity(Long id, String newCity) {
         Person person = getPerson(id);
         person.setCity(newCity);
         personRepository.save(person);
     }
 
-    private Person getPerson(UUID id) {
+    private Person getPerson(Long id) {
         return personRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + id));

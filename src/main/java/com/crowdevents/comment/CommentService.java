@@ -1,15 +1,13 @@
 package com.crowdevents.comment;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface CommentService {
-    Comment post(UUID projectId, UUID personId, String message);
+    Comment post(Long projectId, Long personId, String message);
 
-    Optional<Comment> get(UUID id);
+    Optional<Comment> get(Long id);
 
-    void delete(UUID id);
+    void delete(Long id);
 
-    void changeMessage(UUID id, String newMessage);
+    void changeMessage(Long id, String newMessage);
 }

@@ -12,7 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
-import java.util.UUID;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,14 +32,14 @@ public class RewardRepositoryServiceTest {
     @Test
     public void create_WithProperParams_ShouldCreateNewReward() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
         Reward mockReward = new Reward(mockProject, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
         Mockito.when(mockRewardRepository.save(Mockito.any())).thenReturn(mockReward);
 
 
-        Reward result = rewardService.create(UUID.fromString("00000000-0000-0000-0000-000000000001"), 2,
+        Reward result = rewardService.create(1L, 2,
                 Money.of(CurrencyUnit.USD, 1), "Reward description");
 
         assertEquals(mockReward, result);
@@ -47,18 +47,18 @@ public class RewardRepositoryServiceTest {
 
     @Test
     public void create_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
         Mockito.when(mockRewardRepository.save(Mockito.any())).thenReturn(mockReward);
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.create(UUID.fromString("00000000-0000-0000-0000-000000000001"), 2,
+            rewardService.create(1L, 2,
                     Money.of(CurrencyUnit.USD, 1), "Reward description");
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
@@ -66,54 +66,54 @@ public class RewardRepositoryServiceTest {
     public void get_WithProperParams_ShouldReturnExistingReward() {
         Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
 
-        Optional<Reward> result = rewardService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Reward> result = rewardService.get(1L);
 
         assertEquals(Optional.of(mockReward), result);
     }
 
     @Test
     public void get_WithWrongId_ShouldReturnEmptyValue() {
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
-        Optional<Reward> result = rewardService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Reward> result = rewardService.get(1L);
 
         assertEquals(Optional.empty(), result);
     }
 
     @Test
     public void delete_WithExistingId_ShouldDeleteReward() {
-        rewardService.delete(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        rewardService.delete(1L);
 
         Mockito.verify(mockRewardRepository, Mockito.times(1))
-                .deleteById(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+                .deleteById(1L);
     }
 
     @Test
     public void changeLimit_WithProperParams_ShouldChangeLimit() {
         Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
 
         assertEquals(Integer.valueOf(2), mockReward.getMaximumAmount());
-        rewardService.changeLimit(UUID.fromString("00000000-0000-0000-0000-000000000001"), 5);
+        rewardService.changeLimit(1L, 5);
         assertEquals(Integer.valueOf(5), mockReward.getMaximumAmount());
     }
 
     @Test
     public void changeLimit_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeLimit(UUID.fromString("00000000-0000-0000-0000-000000000001"), 5);
+            rewardService.changeLimit(1L, 5);
         });
 
-        assertEquals("Invalid reward id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid reward id: 1",
                 exception.getMessage());
     }
 
@@ -121,26 +121,26 @@ public class RewardRepositoryServiceTest {
     public void changeMinimalContribution_WithProperParams_ShouldChangeMinimalContribution() {
         Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
 
         assertEquals(Money.of(CurrencyUnit.USD, 1), mockReward.getMinimalContribution());
-        rewardService.changeMinimalContribution(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        rewardService.changeMinimalContribution(1L,
                 Money.of(CurrencyUnit.USD, 5));
         assertEquals(Money.of(CurrencyUnit.USD, 5), mockReward.getMinimalContribution());
     }
 
     @Test
     public void changeMinimalContribution_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeMinimalContribution(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            rewardService.changeMinimalContribution(1L,
                     Money.of(CurrencyUnit.USD, 5));
         });
 
-        assertEquals("Invalid reward id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid reward id: 1",
                 exception.getMessage());
     }
 
@@ -148,26 +148,26 @@ public class RewardRepositoryServiceTest {
     public void changeDescription_WithProperParams_ShouldChangeDescription() {
         Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
 
         assertEquals("Reward description", mockReward.getDescription());
-        rewardService.changeDescription(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        rewardService.changeDescription(1L,
                 "New description");
         assertEquals("New description", mockReward.getDescription());
     }
 
     @Test
     public void changeDescription_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeDescription(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            rewardService.changeDescription(1L,
                     "New description");
         });
 
-        assertEquals("Invalid reward id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid reward id: 1",
                 exception.getMessage());
     }
 
@@ -175,26 +175,26 @@ public class RewardRepositoryServiceTest {
     public void changeDeliveryDate_WithProperParams_ShouldChangeDeliveryDate() {
         Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
 
         assertNull(mockReward.getDeliveryDate());
-        rewardService.changeDeliveryDate(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        rewardService.changeDeliveryDate(1L,
                 "New delivery date");
         assertEquals("New delivery date", mockReward.getDeliveryDate());
     }
 
     @Test
     public void changeDeliveryDate_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeDeliveryDate(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            rewardService.changeDeliveryDate(1L,
                     "New delivery date");
         });
 
-        assertEquals("Invalid reward id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid reward id: 1",
                 exception.getMessage());
     }
 
@@ -202,26 +202,26 @@ public class RewardRepositoryServiceTest {
     public void changeShippingLocation_WithProperParams_ShouldChangeShippingLocation() {
         Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
 
         assertNull(mockReward.getShippedTo());
-        rewardService.changeShippingLocation(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        rewardService.changeShippingLocation(1L,
                 "New shipping location");
         assertEquals("New shipping location", mockReward.getShippedTo());
     }
 
     @Test
     public void changeShippingLocation_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeShippingLocation(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            rewardService.changeShippingLocation(1L,
                     "New shipping location");
         });
 
-        assertEquals("Invalid reward id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid reward id: 1",
                 exception.getMessage());
     }
 }

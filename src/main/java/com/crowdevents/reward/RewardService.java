@@ -1,24 +1,23 @@
 package com.crowdevents.reward;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import org.joda.money.Money;
 
 public interface RewardService {
-    Reward create(UUID projectId, Integer limit, Money minimalContribution, String description);
+    Reward create(Long projectId, Integer limit, Money minimalContribution, String description);
 
-    Optional<Reward> get(UUID id);
+    Optional<Reward> get(Long id);
 
-    void delete(UUID id);
+    void delete(Long id);
 
-    void changeLimit(UUID id, Integer newLimit);
+    void changeLimit(Long id, Integer newLimit);
 
-    void changeMinimalContribution(UUID id, Money newMinimalContribution);
+    void changeMinimalContribution(Long id, Money newMinimalContribution);
 
-    void changeDescription(UUID id, String newDescription);
+    void changeDescription(Long id, String newDescription);
 
-    void changeDeliveryDate(UUID id, String newDeliveryDate);
+    void changeDeliveryDate(Long id, String newDeliveryDate);
 
-    void changeShippingLocation(UUID id, String newShippingLocation);
+    void changeShippingLocation(Long id, String newShippingLocation);
 }

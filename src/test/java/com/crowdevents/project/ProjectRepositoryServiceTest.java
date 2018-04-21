@@ -37,21 +37,21 @@ public class ProjectRepositoryServiceTest {
     @Test
     public void create_WithProperParams_ShouldCreateNewProject() {
         Person mockPerson = new Person("email", "password", "name");
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
         Project mockProject = new Project("Name", "description", null, mockPerson);
         Mockito.when(mockProjectRepository.save(Mockito.any()))
                 .thenReturn(mockProject);
 
         Project result = projectService.create("Name", "description", null,
-                UUID.fromString("00000000-0000-0000-0000-000000000001"));
+                1L);
 
         assertEquals(mockProject, result);
     }
 
     @Test
     public void create_WithWrongOwnerId_ShouldThrowException() {
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Project mockProject = new Project("Name", "description", null);
         Mockito.when(mockProjectRepository.save(Mockito.any()))
@@ -59,30 +59,30 @@ public class ProjectRepositoryServiceTest {
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             projectService.create("Name", "description", null,
-                    UUID.fromString("00000000-0000-0000-0000-000000000001"));
+                    1L);
         });
 
-        assertEquals("Invalid person id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid person id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void get_WithProperParams_ShouldReturnExistingProject() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
-        Optional<Project> result = projectService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Project> result = projectService.get(1L);
 
         assertEquals(Optional.of(mockProject), result);
     }
 
     @Test
     public void get_WithWrongId_ShouldReturnEmptyValue() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
-        Optional<Project> result = projectService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Project> result = projectService.get(1L);
 
         assertEquals(Optional.empty(), result);
     }
@@ -103,59 +103,59 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteProject() {
-        projectService.delete(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        projectService.delete(1L);
 
         Mockito.verify(mockProjectRepository, Mockito.times(1))
-                .deleteById(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+                .deleteById(1L);
     }
 
     @Test
     public void changeName_WithProperParams_ShouldChangeName() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         assertEquals("Name", mockProject.getName());
-        projectService.changeName(UUID.fromString("00000000-0000-0000-0000-000000000001"), "New name");
+        projectService.changeName(1L, "New name");
         assertEquals("New name", mockProject.getName());
     }
 
     @Test
     public void changeName_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeName(UUID.fromString("00000000-0000-0000-0000-000000000001"), "New name");
+            projectService.changeName(1L, "New name");
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void changeDescription_WithProperParams_ShouldChangeDescription() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         assertEquals("description", mockProject.getDescription());
-        projectService.changeDescription(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        projectService.changeDescription(1L,
                 "New description");
         assertEquals("New description", mockProject.getDescription());
     }
 
     @Test
     public void changeDescription_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeDescription(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            projectService.changeDescription(1L,
                     "New description");
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
@@ -163,156 +163,156 @@ public class ProjectRepositoryServiceTest {
     public void changeFundingGoal_WithProperParams_ShouldChangeFundingGoal() {
         Money goal = Money.of(CurrencyUnit.USD, 10);
         Project mockProject = new Project("Name", "description", goal);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         assertEquals(Money.of(CurrencyUnit.USD, 10), mockProject.getFundingGoal());
-        projectService.changeFundingGoal(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        projectService.changeFundingGoal(1L,
                 Money.of(CurrencyUnit.USD, 15));
         assertEquals(Money.of(CurrencyUnit.USD, 15), mockProject.getFundingGoal());
     }
 
     @Test
     public void changeFundingGoal_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeFundingGoal(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            projectService.changeFundingGoal(1L,
                     Money.of(CurrencyUnit.USD, 15));
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void changeLocation_WithProperParams_ShouldChangeLocation() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         assertNull(mockProject.getLocation());
-        projectService.changeLocation(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        projectService.changeLocation(1L,
                 new Location(50.45, 30.52));
         assertEquals(new Location(50.45, 30.52), mockProject.getLocation());
     }
 
     @Test
     public void changeLocation_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeLocation(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            projectService.changeLocation(1L,
                     new Location(50.45, 30.52));
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void changeStartDateTime_WithProperParams_ShouldChangeStartDateTime() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         assertNull(mockProject.getStartDateTime());
-        projectService.changeStartDateTime(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        projectService.changeStartDateTime(1L,
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         assertEquals(LocalDateTime.parse("2018-01-01T01:00:00"), mockProject.getStartDateTime());
     }
 
     @Test
     public void changeStartDateTime_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeStartDateTime(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            projectService.changeStartDateTime(1L,
                     LocalDateTime.parse("2018-01-01T01:00:00"));
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void changeEndDateTime_WithProperParams_ShouldChangeEndDateTime() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         assertNull(mockProject.getEndDateTime());
-        projectService.changeEndDateTime(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        projectService.changeEndDateTime(1L,
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         assertEquals(LocalDateTime.parse("2018-01-01T01:00:00"), mockProject.getEndDateTime());
     }
 
     @Test
     public void changeEndDateTime_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeEndDateTime(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            projectService.changeEndDateTime(1L,
                     LocalDateTime.parse("2018-01-01T01:00:00"));
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void addVideoLink_WithProperParams_ShouldAddNewVideoLink() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         assertTrue(mockProject.getVideoLinks().isEmpty());
-        projectService.addVideoLink(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        projectService.addVideoLink(1L,
                 "link 1", "link 2");
         assertEquals(Arrays.asList("link 1", "link 2"), mockProject.getVideoLinks());
     }
 
     @Test
     public void addVideoLink_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.addVideoLink(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            projectService.addVideoLink(1L,
                     "link 1", "link 2");
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void addImageLink_WithProperParams_ShouldAddNewImageLink() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         assertTrue(mockProject.getImageLinks().isEmpty());
-        projectService.addImageLink(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        projectService.addImageLink(1L,
                "image link 1", "image link 2");
         assertEquals(Arrays.asList("image link 1", "image link 2"), mockProject.getImageLinks());
     }
 
     @Test
     public void addImageLink_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.addImageLink(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            projectService.addImageLink(1L,
                     "image link 1", "image link 2");
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
@@ -322,16 +322,16 @@ public class ProjectRepositoryServiceTest {
         Set<Person> initialOwners = new HashSet<>();
         initialOwners.add(mockPerson);
         Project mockProject = new Project("Name", "description", null, mockPerson);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
         Person newOwner = new Person("Another@mail.com", "owner", "owner");
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.of(newOwner));
 
         assertEquals(initialOwners, mockProject.getOwners());
-        projectService.addOwner(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                UUID.fromString("00000000-0000-0000-0000-000000000002"));
+        projectService.addOwner(1L,
+                2L);
         Set<Person> resultOwners = new HashSet<>();
         resultOwners.add(mockPerson);
         resultOwners.add(newOwner);
@@ -342,34 +342,34 @@ public class ProjectRepositoryServiceTest {
     public void addOwner_WithWrongOwnerId_ShouldThrowException() {
         Person mockPerson = new Person("email", "password", "name");
         Project mockProject = new Project("Name", "description", null, mockPerson);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.addOwner(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000002"));
+            projectService.addOwner(1L,
+                    2L);
         });
 
-        assertEquals("Invalid person id: 00000000-0000-0000-0000-000000000002",
+        assertEquals("Invalid person id: 2",
                 exception.getMessage());
     }
 
     @Test
     public void addOwner_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Person newOwner = new Person("Another@mail.com", "owner", "owner");
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.of(newOwner));
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.addOwner(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000002"));
+            projectService.addOwner(1L,
+                    2L);
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 }

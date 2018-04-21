@@ -3,18 +3,15 @@ package com.crowdevents.faq;
 import com.crowdevents.project.Project;
 
 import java.util.Objects;
-import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Faq {
     @Id
     @Column(unique = true)
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @ManyToOne
     private Project project;
@@ -36,18 +33,17 @@ public class Faq {
         this.project = project;
         this.question = question;
         this.answer = answer;
-        this.id = UUID.randomUUID();
     }
 
     protected Faq() {
 
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,23 +69,5 @@ public class Faq {
 
     public void setAnswer(String answer) {
         this.answer = answer;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Faq)) {
-            return false;
-        }
-
-        Faq faq = (Faq) o;
-        return Objects.equals(id, faq.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

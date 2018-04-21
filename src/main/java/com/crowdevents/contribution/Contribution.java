@@ -6,12 +6,8 @@ import com.crowdevents.reward.Reward;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
@@ -22,7 +18,8 @@ import org.joda.money.Money;
 public class Contribution {
     @Id
     @Column(unique = true)
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @ManyToOne
     private Person contributor;
@@ -59,14 +56,13 @@ public class Contribution {
         this.dateTime = dateTime;
         this.money = money;
         this.reward = reward;
-        this.id = UUID.randomUUID();
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -108,23 +104,5 @@ public class Contribution {
 
     public void setReward(Reward reward) {
         this.reward = reward;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Contribution)) {
-            return false;
-        }
-
-        Contribution that = (Contribution) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

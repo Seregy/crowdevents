@@ -4,7 +4,6 @@ import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -24,7 +23,7 @@ public class FaqRepositoryService implements FaqService {
     }
 
     @Override
-    public Faq create(UUID projectId, String question, String answer) {
+    public Faq create(Long projectId, String question, String answer) {
         Project project = projectRepository
                 .findById(projectId)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -36,17 +35,17 @@ public class FaqRepositoryService implements FaqService {
     }
 
     @Override
-    public Optional<Faq> get(UUID id) {
+    public Optional<Faq> get(Long id) {
         return faqRepository.findById(id);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         faqRepository.deleteById(id);
     }
 
     @Override
-    public void changeQuestion(UUID id, String newQuestion) {
+    public void changeQuestion(Long id, String newQuestion) {
         Faq faq = faqRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid faq id: " + id));
@@ -55,7 +54,7 @@ public class FaqRepositoryService implements FaqService {
     }
 
     @Override
-    public void changeAnswer(UUID id, String newAnswer) {
+    public void changeAnswer(Long id, String newAnswer) {
         Faq faq = faqRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid faq id: " + id));

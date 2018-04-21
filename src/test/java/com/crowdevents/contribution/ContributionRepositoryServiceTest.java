@@ -19,7 +19,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Optional;
-import java.util.UUID;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -52,16 +52,16 @@ public class ContributionRepositoryServiceTest {
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
         Mockito.when(mockContributionRepository.save(Mockito.any()))
                 .thenReturn(mockContribution);
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000003")))
+        Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.of(mockReward));
 
-        Contribution result = contributionService.contribute(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                UUID.fromString("00000000-0000-0000-0000-000000000002"), Money.of(CurrencyUnit.USD, 1),
-                UUID.fromString("00000000-0000-0000-0000-000000000003"));
+        Contribution result = contributionService.contribute(1L,
+                2L, Money.of(CurrencyUnit.USD, 1),
+                3L);
 
         assertEquals(mockContribution, result);
     }
@@ -74,20 +74,20 @@ public class ContributionRepositoryServiceTest {
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
         Mockito.when(mockContributionRepository.save(Mockito.any()))
                 .thenReturn(mockContribution);
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000003")))
+        Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.of(mockReward));
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            contributionService.contribute(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000002"), Money.of(CurrencyUnit.USD, 1),
-                    UUID.fromString("00000000-0000-0000-0000-000000000003"));
+            contributionService.contribute(1L,
+                    2L, Money.of(CurrencyUnit.USD, 1),
+                    3L);
         });
 
-        assertEquals("Invalid person id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid person id: 1",
                 exception.getMessage());
     }
 
@@ -99,20 +99,20 @@ public class ContributionRepositoryServiceTest {
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
         Mockito.when(mockContributionRepository.save(Mockito.any()))
                 .thenReturn(mockContribution);
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.empty());
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000003")))
+        Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.of(mockReward));
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            contributionService.contribute(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000002"), Money.of(CurrencyUnit.USD, 1),
-                    UUID.fromString("00000000-0000-0000-0000-000000000003"));
+            contributionService.contribute(1L,
+                    2L, Money.of(CurrencyUnit.USD, 1),
+                    3L);
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000002",
+        assertEquals("Invalid project id: 2",
                 exception.getMessage());
     }
 
@@ -124,20 +124,20 @@ public class ContributionRepositoryServiceTest {
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
         Mockito.when(mockContributionRepository.save(Mockito.any()))
                 .thenReturn(mockContribution);
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000003")))
+        Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            contributionService.contribute(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000002"), Money.of(CurrencyUnit.USD, 1),
-                    UUID.fromString("00000000-0000-0000-0000-000000000003"));
+            contributionService.contribute(1L,
+                    2L, Money.of(CurrencyUnit.USD, 1),
+                    3L);
         });
 
-        assertEquals("Invalid reward id: 00000000-0000-0000-0000-000000000003",
+        assertEquals("Invalid reward id: 3",
                 exception.getMessage());
     }
 
@@ -145,30 +145,30 @@ public class ContributionRepositoryServiceTest {
     public void get_WithExistingId_ShouldReturnExistingContribution() {
         Contribution mockContribution = new Contribution(null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
-        Mockito.when(mockContributionRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockContributionRepository.findById(1L))
                 .thenReturn(Optional.of(mockContribution));
 
-        Optional<Contribution> result = contributionService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Contribution> result = contributionService.get(1L);
 
         assertEquals(Optional.of(mockContribution), result);
     }
 
     @Test
     public void get_WithWrongId_ShouldReturnEmptyValue() {
-        Mockito.when(mockContributionRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockContributionRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
-        Optional<Contribution> result = contributionService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Contribution> result = contributionService.get(1L);
 
         assertEquals(Optional.empty(), result);
     }
 
     @Test
     public void delete_WithExistingId_ShouldDeleteComment() {
-        contributionService.delete(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        contributionService.delete(1L);
 
         Mockito.verify(mockContributionRepository, Mockito.times(1))
-                .deleteById(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+                .deleteById(1L);
     }
 
     @Test
@@ -176,37 +176,37 @@ public class ContributionRepositoryServiceTest {
         Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1), "description");
         Contribution mockContribution = new Contribution(null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
-        Mockito.when(mockContributionRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockContributionRepository.findById(2L))
                 .thenReturn(Optional.of(mockContribution));
         Reward anotherReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5), "Another description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000003")))
+        Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.of(anotherReward));
 
         assertEquals(mockReward, mockContribution.getReward());
-        contributionService.changeReward(UUID.fromString("00000000-0000-0000-0000-000000000002"),
-                UUID.fromString("00000000-0000-0000-0000-000000000003"));
+        contributionService.changeReward(2L,
+                3L);
         assertEquals(anotherReward, mockContribution.getReward());
     }
 
     @Test
     public void changeReward_WithWrongContributionId_ShouldThrowException() {
         Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1), "description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
-        Mockito.when(mockContributionRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockContributionRepository.findById(2L))
                 .thenReturn(Optional.empty());
         Reward anotherReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5), "Another description");
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000003")))
+        Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.of(anotherReward));
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            contributionService.changeReward(UUID.fromString("00000000-0000-0000-0000-000000000002"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000003"));
+            contributionService.changeReward(2L,
+                    3L);
         });
 
-        assertEquals("Invalid contribution id: 00000000-0000-0000-0000-000000000002",
+        assertEquals("Invalid contribution id: 2",
                 exception.getMessage());
     }
 
@@ -215,19 +215,19 @@ public class ContributionRepositoryServiceTest {
         Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1), "description");
         Contribution mockContribution = new Contribution(null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
-        Mockito.when(mockContributionRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockContributionRepository.findById(2L))
                 .thenReturn(Optional.of(mockContribution));
-        Mockito.when(mockRewardRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000003")))
+        Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            contributionService.changeReward(UUID.fromString("00000000-0000-0000-0000-000000000002"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000003"));
+            contributionService.changeReward(2L,
+                    3L);
         });
 
-        assertEquals("Invalid reward id: 00000000-0000-0000-0000-000000000003",
+        assertEquals("Invalid reward id: 3",
                 exception.getMessage());
     }
 }

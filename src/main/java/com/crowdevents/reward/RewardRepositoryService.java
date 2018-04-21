@@ -4,7 +4,7 @@ import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
 
 import java.util.Optional;
-import java.util.UUID;
+
 
 import org.joda.money.Money;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class RewardRepositoryService implements RewardService {
     }
 
     @Override
-    public Reward create(UUID projectId, Integer limit, Money minimalContribution,
+    public Reward create(Long projectId, Integer limit, Money minimalContribution,
                          String description) {
         Project project = getProject(projectId);
         Reward reward = new Reward(project, limit, minimalContribution, description);
@@ -31,57 +31,57 @@ public class RewardRepositoryService implements RewardService {
     }
 
     @Override
-    public Optional<Reward> get(UUID id) {
+    public Optional<Reward> get(Long id) {
         return rewardRepository.findById(id);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         rewardRepository.deleteById(id);
     }
 
     @Override
-    public void changeLimit(UUID id, Integer newLimit) {
+    public void changeLimit(Long id, Integer newLimit) {
         Reward reward = getReward(id);
         reward.setMaximumAmount(newLimit);
         rewardRepository.save(reward);
     }
 
     @Override
-    public void changeMinimalContribution(UUID id, Money newMinimalContribution) {
+    public void changeMinimalContribution(Long id, Money newMinimalContribution) {
         Reward reward = getReward(id);
         reward.setMinimalContribution(newMinimalContribution);
         rewardRepository.save(reward);
     }
 
     @Override
-    public void changeDescription(UUID id, String newDescription) {
+    public void changeDescription(Long id, String newDescription) {
         Reward reward = getReward(id);
         reward.setDescription(newDescription);
         rewardRepository.save(reward);
     }
 
     @Override
-    public void changeDeliveryDate(UUID id, String newDeliveryDate) {
+    public void changeDeliveryDate(Long id, String newDeliveryDate) {
         Reward reward = getReward(id);
         reward.setDeliveryDate(newDeliveryDate);
         rewardRepository.save(reward);
     }
 
     @Override
-    public void changeShippingLocation(UUID id, String newShippingLocation) {
+    public void changeShippingLocation(Long id, String newShippingLocation) {
         Reward reward = getReward(id);
         reward.setShippedTo(newShippingLocation);
         rewardRepository.save(reward);
     }
 
-    private Project getProject(UUID id) {
+    private Project getProject(Long id) {
         return projectRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + id));
     }
 
-    private Reward getReward(UUID id) {
+    private Reward getReward(Long id) {
         return rewardRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid reward id: " + id));

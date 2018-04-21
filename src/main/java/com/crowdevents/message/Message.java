@@ -4,18 +4,15 @@ import com.crowdevents.person.Person;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Message {
     @Id
     @Column(unique = true)
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @ManyToOne
     private Person sender;
@@ -42,18 +39,17 @@ public class Message {
         this.sender = sender;
         this.receiver = receiver;
         this.dateTime = dateTime;
-        this.id = UUID.randomUUID();
     }
 
     protected Message() {
 
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -87,23 +83,5 @@ public class Message {
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Message)) {
-            return false;
-        }
-
-        Message message = (Message) o;
-        return Objects.equals(id, message.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

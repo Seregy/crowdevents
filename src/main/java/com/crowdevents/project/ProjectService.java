@@ -4,38 +4,37 @@ import com.crowdevents.location.Location;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.joda.money.Money;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ProjectService {
-    Project create(String name, String description, Money fundingGoal, UUID... ownersIds);
+    Project create(String name, String description, Money fundingGoal, Long... ownersIds);
 
-    Optional<Project> get(UUID id);
+    Optional<Project> get(Long id);
 
     Page<Project> getAll(Pageable pageable);
 
-    Page<Project> getAllAfter(Pageable pageable, UUID afterId);
+    Page<Project> getAllAfter(Pageable pageable, Long afterId);
 
-    void delete(UUID id);
+    void delete(Long id);
 
-    void changeName(UUID id, String newName);
+    void changeName(Long id, String newName);
 
-    void changeDescription(UUID id, String newDescription);
+    void changeDescription(Long id, String newDescription);
 
-    void changeFundingGoal(UUID id, Money newGoal);
+    void changeFundingGoal(Long id, Money newGoal);
 
-    void changeLocation(UUID id, Location newLocation);
+    void changeLocation(Long id, Location newLocation);
 
-    void changeStartDateTime(UUID id, LocalDateTime newStartDateTime);
+    void changeStartDateTime(Long id, LocalDateTime newStartDateTime);
 
-    void changeEndDateTime(UUID id, LocalDateTime newEndDateTime);
+    void changeEndDateTime(Long id, LocalDateTime newEndDateTime);
 
-    void addVideoLink(UUID id, String... links);
+    void addVideoLink(Long id, String... links);
 
-    void addImageLink(UUID id, String... links);
+    void addImageLink(Long id, String... links);
 
-    void addOwner(UUID id, UUID... ownersIds);
+    void addOwner(Long id, Long... ownersIds);
 }

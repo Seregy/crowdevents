@@ -6,7 +6,6 @@ import com.crowdevents.person.PersonRepository;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -39,7 +38,7 @@ public class MessageRepositoryService implements MessageService {
     }
 
     @Override
-    public Message send(UUID senderId, UUID receiverId, String message) {
+    public Message send(Long senderId, Long receiverId, String message) {
         Person sender = personRepository
                 .findById(senderId)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -56,17 +55,17 @@ public class MessageRepositoryService implements MessageService {
     }
 
     @Override
-    public Optional<Message> get(UUID id) {
+    public Optional<Message> get(Long id) {
         return messageRepository.findById(id);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         messageRepository.deleteById(id);
     }
 
     @Override
-    public void changeMessage(UUID id, String newMessage) {
+    public void changeMessage(Long id, String newMessage) {
         Message message = messageRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid message id: " + id));

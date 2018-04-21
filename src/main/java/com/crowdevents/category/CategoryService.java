@@ -1,20 +1,19 @@
 package com.crowdevents.category;
 
 import java.util.Optional;
-import java.util.UUID;
 
 public interface CategoryService {
     Category create(String name, String description);
 
-    Category create(String name, String description, UUID parentCategoryId);
+    Category create(String name, String description, Long parentCategoryId);
 
-    Optional<Category> get(UUID id);
+    Optional<Category> get(Long id);
 
-    void delete(UUID id);
+    void delete(Long id);
 
-    void changeName(UUID id, String newName);
+    void changeName(Long id, String newName);
 
-    void changeDescription(UUID id, String newDescription);
+    void changeDescription(Long id, String newDescription);
 
-    void changeParentCategory(UUID id, UUID newParentCategoryId);
+    void changeParentCategory(Long id, Long newParentCategoryId);
 }

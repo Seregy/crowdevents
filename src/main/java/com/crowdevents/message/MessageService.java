@@ -1,14 +1,13 @@
 package com.crowdevents.message;
 
 import java.util.Optional;
-import java.util.UUID;
 
 public interface MessageService {
-    Message send(UUID senderId, UUID receiverId, String message);
+    Message send(Long senderId, Long receiverId, String message);
 
-    Optional<Message> get(UUID id);
+    Optional<Message> get(Long id);
 
-    void delete(UUID id);
+    void delete(Long id);
 
-    void changeMessage(UUID id, String newMessage);
+    void changeMessage(Long id, String newMessage);
 }

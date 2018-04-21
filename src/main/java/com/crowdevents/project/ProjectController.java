@@ -29,8 +29,8 @@ public class ProjectController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public PageResource<ProjectResource> getAllProjects(@PageableDefault(value = 30) Pageable pageable,
-                                                  @RequestAttribute(name = "starting_after",
-                                                required = false) UUID startingAfterId) {
+                                                        @RequestAttribute(name = "starting_after",
+                                                                required = false) Long startingAfterId) {
         return new PageResource<>(
                 projectService.getAll(pageable)
                         .map((project) -> modelMapper.map(project, ProjectResource.class)));
@@ -39,7 +39,7 @@ public class ProjectController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity addProject(@RequestBody ProjectResource project, HttpServletRequest servletRequest) {
         Project newProject = projectService.create(project.getName(), project.getDescription(),
-                project.getFundingGoal(), project.getOwners().toArray(new UUID[] {}));
+                project.getFundingGoal(), project.getOwners().toArray(new Long[] {}));
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/projects/{id}")
                 .buildAndExpand(newProject.getId())

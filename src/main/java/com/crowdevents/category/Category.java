@@ -5,20 +5,15 @@ import com.crowdevents.project.Project;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Category {
     @Id
     @Column(unique = true)
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @ManyToMany
     private Set<Project> projects;
@@ -57,14 +52,13 @@ public class Category {
         this.name = name;
         this.description = description;
         this.parent = parent;
-        this.id = UUID.randomUUID();
     }
 
     protected Category() {
 
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
@@ -116,23 +110,5 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Category)) {
-            return false;
-        }
-
-        Category category = (Category) o;
-        return Objects.equals(id, category.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

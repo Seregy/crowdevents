@@ -6,10 +6,10 @@ import org.joda.money.Money;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 public class ProjectResource {
-    private UUID id;
+    private Long id;
     private String name;
     private String description;
     private Location location;
@@ -20,24 +20,24 @@ public class ProjectResource {
     private List<String> videoLinks = new ArrayList<>();
     private List<String> imageLinks = new ArrayList<>();
 
-    private List<UUID> owners = new ArrayList<>();
-    private List<UUID> subscribers = new ArrayList<>();
-    private List<UUID> contributions = new ArrayList<>();
-    private List<UUID> comments = new ArrayList<>();
-    private List<UUID> faqs = new ArrayList<>();
-    private List<UUID> categories = new ArrayList<>();
-    private List<UUID> updates = new ArrayList<>();
-    private List<UUID> rewards = new ArrayList<>();
+    private List<Long> owners = new ArrayList<>();
+    private List<Long> subscribers = new ArrayList<>();
+    private List<Long> contributions = new ArrayList<>();
+    private List<Long> comments = new ArrayList<>();
+    private List<Long> faqs = new ArrayList<>();
+    private List<Long> categories = new ArrayList<>();
+    private List<Long> updates = new ArrayList<>();
+    private List<Long> rewards = new ArrayList<>();
 
     public ProjectResource() {
 
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -105,67 +105,67 @@ public class ProjectResource {
         this.imageLinks = imageLinks;
     }
 
-    public List<UUID> getOwners() {
+    public List<Long> getOwners() {
         return owners;
     }
 
-    public void setOwners(List<UUID> owners) {
+    public void setOwners(List<Long> owners) {
         this.owners = owners;
     }
 
-    public List<UUID> getSubscribers() {
+    public List<Long> getSubscribers() {
         return subscribers;
     }
 
-    public void setSubscribers(List<UUID> subscribers) {
+    public void setSubscribers(List<Long> subscribers) {
         this.subscribers = subscribers;
     }
 
-    public List<UUID> getContributions() {
+    public List<Long> getContributions() {
         return contributions;
     }
 
-    public void setContributions(List<UUID> contributions) {
+    public void setContributions(List<Long> contributions) {
         this.contributions = contributions;
     }
 
-    public List<UUID> getComments() {
+    public List<Long> getComments() {
         return comments;
     }
 
-    public void setComments(List<UUID> comments) {
+    public void setComments(List<Long> comments) {
         this.comments = comments;
     }
 
-    public List<UUID> getFaqs() {
+    public List<Long> getFaqs() {
         return faqs;
     }
 
-    public void setFaqs(List<UUID> faqs) {
+    public void setFaqs(List<Long> faqs) {
         this.faqs = faqs;
     }
 
-    public List<UUID> getCategories() {
+    public List<Long> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<UUID> categories) {
+    public void setCategories(List<Long> categories) {
         this.categories = categories;
     }
 
-    public List<UUID> getUpdates() {
+    public List<Long> getUpdates() {
         return updates;
     }
 
-    public void setUpdates(List<UUID> updates) {
+    public void setUpdates(List<Long> updates) {
         this.updates = updates;
     }
 
-    public List<UUID> getRewards() {
+    public List<Long> getRewards() {
         return rewards;
     }
 
-    public void setRewards(List<UUID> rewards) {
+    public void setRewards(List<Long> rewards) {
         this.rewards = rewards;
     }
 }

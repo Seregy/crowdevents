@@ -29,14 +29,14 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public Project create(String name, String description, Money fundingGoal, UUID... ownersIds) {
+    public Project create(String name, String description, Money fundingGoal, Long... ownersIds) {
         Person[] persons = Arrays.stream(ownersIds).map(this::getPerson).toArray(Person[]::new);
         Project project = new Project(name, description, fundingGoal, persons);
         return projectRepository.save(project);
     }
 
     @Override
-    public Optional<Project> get(UUID id) {
+    public Optional<Project> get(Long id) {
         return projectRepository.findById(id);
     }
 
@@ -46,88 +46,88 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public Page<Project> getAllAfter(Pageable pageable, UUID afterId) {
-        throw new RuntimeException("Not implemented");
+    public Page<Project> getAllAfter(Pageable pageable, Long afterId) {
+        return null;
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         projectRepository.deleteById(id);
     }
 
     @Override
-    public void changeName(UUID id, String newName) {
+    public void changeName(Long id, String newName) {
         Project project = getProject(id);
         project.setName(newName);
         projectRepository.save(project);
     }
 
     @Override
-    public void changeDescription(UUID id, String newDescription) {
+    public void changeDescription(Long id, String newDescription) {
         Project project = getProject(id);
         project.setDescription(newDescription);
         projectRepository.save(project);
     }
 
     @Override
-    public void changeFundingGoal(UUID id, Money newGoal) {
+    public void changeFundingGoal(Long id, Money newGoal) {
         Project project = getProject(id);
         project.setFundingGoal(newGoal);
         projectRepository.save(project);
     }
 
     @Override
-    public void changeLocation(UUID id, Location newLocation) {
+    public void changeLocation(Long id, Location newLocation) {
         Project project = getProject(id);
         project.setLocation(newLocation);
         projectRepository.save(project);
     }
 
     @Override
-    public void changeStartDateTime(UUID id, LocalDateTime newStartDateTime) {
+    public void changeStartDateTime(Long id, LocalDateTime newStartDateTime) {
         Project project = getProject(id);
         project.setStartDateTime(newStartDateTime);
         projectRepository.save(project);
     }
 
     @Override
-    public void changeEndDateTime(UUID id, LocalDateTime newEndDateTime) {
+    public void changeEndDateTime(Long id, LocalDateTime newEndDateTime) {
         Project project = getProject(id);
         project.setEndDateTime(newEndDateTime);
         projectRepository.save(project);
     }
 
     @Override
-    public void addVideoLink(UUID id, String... links) {
+    public void addVideoLink(Long id, String... links) {
         Project project = getProject(id);
         project.getVideoLinks().addAll(Arrays.asList(links));
         projectRepository.save(project);
     }
 
     @Override
-    public void addImageLink(UUID id, String... links) {
+    public void addImageLink(Long id, String... links) {
         Project project = getProject(id);
         project.getImageLinks().addAll(Arrays.asList(links));
         projectRepository.save(project);
     }
 
     @Override
-    public void addOwner(UUID id, UUID... ownersIds) {
+    public void addOwner(Long id, Long... ownersIds) {
         Project project = getProject(id);
-        for (UUID ownerId : ownersIds) {
+        for (Long ownerId : ownersIds) {
             Person owner = getPerson(ownerId);
             project.addOwner(owner);
         }
         projectRepository.save(project);
     }
 
-    private Person getPerson(UUID id) {
+    private Person getPerson(Long id) {
         return personRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid person id: " + id));
     }
 
-    private Project getProject(UUID id) {
+    private Project getProject(Long id) {
         return projectRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + id));

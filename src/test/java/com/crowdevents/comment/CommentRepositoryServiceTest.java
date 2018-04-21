@@ -11,7 +11,7 @@ import org.mockito.*;
 import java.time.*;
 import java.util.Collections;
 import java.util.Optional;
-import java.util.UUID;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,13 +41,12 @@ public class CommentRepositoryServiceTest {
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockCommentRepository.save(Mockito.any()))
                 .thenReturn(mockComment);
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
-        Comment result = commentService.post(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        Comment result = commentService.post(1L, 1L,
                 "message");
 
         assertEquals(mockComment, result);
@@ -60,18 +59,15 @@ public class CommentRepositoryServiceTest {
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockCommentRepository.save(Mockito.any()))
                 .thenReturn(mockComment);
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
-                .thenReturn(Optional.empty());
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
-                .thenReturn(Optional.of(mockProject));
+        Mockito.when(mockPersonRepository.findById(1L)).thenReturn(Optional.empty());
+        Mockito.when(mockProjectRepository.findById(1L)).thenReturn(Optional.of(mockProject));
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            commentService.post(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            commentService.post(1L, 1L,
                     "message");
         });
 
-        assertEquals("Invalid person id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid person id: 1",
                 exception.getMessage());
     }
 
@@ -82,18 +78,15 @@ public class CommentRepositoryServiceTest {
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockCommentRepository.save(Mockito.any()))
                 .thenReturn(mockComment);
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
-                .thenReturn(Optional.of(mockPerson));
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
-                .thenReturn(Optional.empty());
+        Mockito.when(mockPersonRepository.findById(1L)).thenReturn(Optional.of(mockPerson));
+        Mockito.when(mockProjectRepository.findById(1L)).thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            commentService.post(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            commentService.post(1L, 1L,
                     "message");
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
@@ -101,56 +94,54 @@ public class CommentRepositoryServiceTest {
     public void get_WithExistingId_ShouldReturnExistingComment() {
         Comment mockComment = new Comment(null, null, "Some message",
                 LocalDateTime.parse("2018-01-01T01:00:00"));
-        Mockito.when(mockCommentRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
-                .thenReturn(Optional.of(mockComment));
+        Mockito.when(mockCommentRepository.findById(1L)).thenReturn(Optional.of(mockComment));
 
-        Optional<Comment> result = commentService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Comment> result = commentService.get(1L);
 
         assertEquals(Optional.of(mockComment), result);
     }
 
     @Test
     public void get_WithWrongId_ShouldReturnEmptyValue() {
-        Mockito.when(mockCommentRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
-                .thenReturn(Optional.empty());
+        Mockito.when(mockCommentRepository.findById(1L)).thenReturn(Optional.empty());
 
-        Optional<Comment> result = commentService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Comment> result = commentService.get(1L);
 
         assertEquals(Optional.empty(), result);
     }
 
     @Test
     public void delete_WithExistingId_ShouldDeleteComment() {
-        commentService.delete(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        commentService.delete(1L);
 
         Mockito.verify(mockCommentRepository, Mockito.times(1))
-                .deleteById(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+                .deleteById(1L);
     }
 
     @Test
     public void changeMessage_WithProperParams_ShouldChangeComment() {
         Comment mockComment = new Comment(null, null, "Some message",
                 LocalDateTime.parse("2018-01-01T01:00:00"));
-        Mockito.when(mockCommentRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockCommentRepository.findById(1L))
                 .thenReturn(Optional.of(mockComment));
 
         assertEquals("Some message", mockComment.getMessage());
-        commentService.changeMessage(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        commentService.changeMessage(1L,
                 "New message");
         assertEquals("New message", mockComment.getMessage());
     }
 
     @Test
     public void changeMessage_WithWrongCommentId_ShouldThrowException() {
-        Mockito.when(mockCommentRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockCommentRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            commentService.changeMessage(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            commentService.changeMessage(1L,
                     "message");
         });
 
-        assertEquals("Invalid comment id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid comment id: 1",
                 exception.getMessage());
     }
 }

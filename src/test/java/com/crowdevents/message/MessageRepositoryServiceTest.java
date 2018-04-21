@@ -13,7 +13,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Optional;
-import java.util.UUID;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,52 +35,52 @@ public class MessageRepositoryServiceTest {
     @Test
     public void send_WithProperParams_ShouldCreateNewMessage() {
         Person mockSender = new Person("sender@mail.com", "senderpass", "sender");
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockSender));
         Person mockReceiver = new Person("receiver@mail.com", "receiverpass", "receiver");
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.of(mockReceiver));
         Message mockMessage = new Message("Message", mockSender, mockReceiver,
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockMessageRepository.save(Mockito.any())).thenReturn(mockMessage);
 
-        Message result = messageService.send(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                UUID.fromString("00000000-0000-0000-0000-000000000002"), "Message");
+        Message result = messageService.send(1L,
+                2L, "Message");
 
         assertEquals(mockMessage, result);
     }
 
     @Test
     public void send_WithWrongSenderId_ShouldThrowException() {
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Person mockReceiver = new Person("receiver@mail.com", "receiverpass", "receiver");
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.of(mockReceiver));
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            messageService.send(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000002"), "Message");
+            messageService.send(1L,
+                    2L, "Message");
         });
 
-        assertEquals("Invalid person id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid person id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void send_WithWrongReceiverId_ShouldThrowException() {
         Person mockSender = new Person("sender@mail.com", "senderpass", "sender");
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockSender));
-        Mockito.when(mockPersonRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000002")))
+        Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            messageService.send(UUID.fromString("00000000-0000-0000-0000-000000000001"),
-                    UUID.fromString("00000000-0000-0000-0000-000000000002"), "Message");
+            messageService.send(1L,
+                    2L, "Message");
         });
 
-        assertEquals("Invalid person id: 00000000-0000-0000-0000-000000000002",
+        assertEquals("Invalid person id: 2",
                 exception.getMessage());
     }
 
@@ -88,41 +88,41 @@ public class MessageRepositoryServiceTest {
     public void get_WithExistingId_ShouldReturnExistingMessage() {
         Message mockMessage = new Message("Message", null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"));
-        Mockito.when(mockMessageRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockMessageRepository.findById(1L))
                 .thenReturn(Optional.of(mockMessage));
 
-        Optional<Message> result = messageService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Message> result = messageService.get(1L);
 
         assertEquals(Optional.of(mockMessage), result);
     }
 
     @Test
     public void get_WithWrongId_ShouldReturnEmptyValue() {
-        Mockito.when(mockMessageRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockMessageRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
-        Optional<Message> result = messageService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Message> result = messageService.get(1L);
 
         assertEquals(Optional.empty(), result);
     }
 
     @Test
     public void delete_WithExistingId_ShouldDeleteComment() {
-        messageService.delete(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        messageService.delete(1L);
 
         Mockito.verify(mockMessageRepository, Mockito.times(1))
-                .deleteById(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+                .deleteById(1L);
     }
 
     @Test
     public void changeMessage_WithProperParams_ShouldChangeMessage() {
         Message mockMessage = new Message("Mock message", null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"));
-        Mockito.when(mockMessageRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockMessageRepository.findById(1L))
                 .thenReturn(Optional.of(mockMessage));
 
         assertEquals("Mock message", mockMessage.getMessage());
-        messageService.changeMessage(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        messageService.changeMessage(1L,
                 "New message");
         assertEquals("New message", mockMessage.getMessage());
     }
@@ -131,15 +131,15 @@ public class MessageRepositoryServiceTest {
     public void changeMessage_WithWrongMessageId_ShouldThrowException() {
         Message mockMessage = new Message("Mock message", null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"));
-        Mockito.when(mockMessageRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockMessageRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            messageService.changeMessage(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            messageService.changeMessage(1L,
                     "New message");
         });
 
-        assertEquals("Invalid message id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid message id: 1",
                 exception.getMessage());
         assertEquals("Mock message", mockMessage.getMessage());
     }

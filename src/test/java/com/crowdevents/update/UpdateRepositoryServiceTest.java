@@ -13,7 +13,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Optional;
-import java.util.UUID;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,109 +34,109 @@ public class UpdateRepositoryServiceTest {
     @Test
     public void post_WithProperParams_ShouldCreateNewUpdate() {
         Project mockProject = new Project("Name", "description", null);
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
         Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
         Mockito.when(mockUpdateRepository.save(Mockito.any())).thenReturn(mockUpdate);
 
-        Update result = updateService.post(UUID.fromString("00000000-0000-0000-0000-000000000001"), "Message");
+        Update result = updateService.post(1L, "Message");
 
         assertEquals(mockUpdate, result);
     }
 
     @Test
     public void create_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
         Mockito.when(mockUpdateRepository.save(Mockito.any())).thenReturn(mockUpdate);
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            updateService.post(UUID.fromString("00000000-0000-0000-0000-000000000001"), "Message");
+            updateService.post(1L, "Message");
         });
 
-        assertEquals("Invalid project id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid project id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void get_WithProperParams_ShouldReturnExistingUpdate() {
         Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
-        Mockito.when(mockUpdateRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
 
-        Optional<Update> result = updateService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Update> result = updateService.get(1L);
 
         assertEquals(Optional.of(mockUpdate), result);
     }
 
     @Test
     public void get_WithWrongId_ShouldReturnEmptyValue() {
-        Mockito.when(mockUpdateRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
-        Optional<Update> result = updateService.get(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        Optional<Update> result = updateService.get(1L);
 
         assertEquals(Optional.empty(), result);
     }
 
     @Test
     public void delete_WithExistingId_ShouldDeleteUpdate() {
-        updateService.delete(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+        updateService.delete(1L);
 
         Mockito.verify(mockUpdateRepository, Mockito.times(1))
-                .deleteById(UUID.fromString("00000000-0000-0000-0000-000000000001"));
+                .deleteById(1L);
     }
 
     @Test
     public void changeMessage_WithProperParams_ShouldChangeMessage() {
         Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
-        Mockito.when(mockUpdateRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
 
         assertEquals("Message", mockUpdate.getMessage());
-        updateService.changeMessage(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        updateService.changeMessage(1L,
                 "New message");
         assertEquals("New message", mockUpdate.getMessage());
     }
 
     @Test
     public void changeMessage_WithWrongUpdateId_ShouldThrowException() {
-        Mockito.when(mockUpdateRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            updateService.changeMessage(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            updateService.changeMessage(1L,
                     "New message");
         });
 
-        assertEquals("Invalid update id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid update id: 1",
                 exception.getMessage());
     }
 
     @Test
     public void changeShortMessage_WithProperParams_ShouldChangeShortMessage() {
         Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
-        Mockito.when(mockUpdateRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
 
         assertNull(mockUpdate.getShortMessage());
-        updateService.changeShortMessage(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+        updateService.changeShortMessage(1L,
                 "New short message");
         assertEquals("New short message", mockUpdate.getShortMessage());
     }
 
     @Test
     public void changeShortMessage_WithWrongUpdateId_ShouldThrowException() {
-        Mockito.when(mockUpdateRepository.findById(UUID.fromString("00000000-0000-0000-0000-000000000001")))
+        Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.empty());
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            updateService.changeShortMessage(UUID.fromString("00000000-0000-0000-0000-000000000001"),
+            updateService.changeShortMessage(1L,
                     "New short message");
         });
 
-        assertEquals("Invalid update id: 00000000-0000-0000-0000-000000000001",
+        assertEquals("Invalid update id: 1",
                 exception.getMessage());
     }
 }

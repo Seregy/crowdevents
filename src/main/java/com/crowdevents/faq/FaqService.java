@@ -1,16 +1,15 @@
 package com.crowdevents.faq;
 
 import java.util.Optional;
-import java.util.UUID;
 
 public interface FaqService {
-    Faq create(UUID projectId, String question, String answer);
+    Faq create(Long projectId, String question, String answer);
 
-    Optional<Faq> get(UUID id);
+    Optional<Faq> get(Long id);
 
-    void delete(UUID id);
+    void delete(Long id);
 
-    void changeQuestion(UUID id, String newQuestion);
+    void changeQuestion(Long id, String newQuestion);
 
-    void changeAnswer(UUID id, String newAnswer);
+    void changeAnswer(Long id, String newAnswer);
 }

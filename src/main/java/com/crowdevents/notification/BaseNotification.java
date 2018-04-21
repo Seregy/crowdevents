@@ -5,18 +5,15 @@ import com.crowdevents.project.Project;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity(name = "notification")
 public class BaseNotification {
     @Id
     @Column(unique = true)
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @Column(nullable = false)
     private LocalDateTime dateTime;
@@ -44,7 +41,6 @@ public class BaseNotification {
         this.receiver = receiver;
         this.dateTime = dateTime;
         this.project = project;
-        this.id = UUID.randomUUID();
     }
 
     protected BaseNotification() {
@@ -59,11 +55,11 @@ public class BaseNotification {
         this.message = message;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -89,23 +85,5 @@ public class BaseNotification {
 
     public void setReceiver(Person receiver) {
         this.receiver = receiver;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof BaseNotification)) {
-            return false;
-        }
-
-        BaseNotification that = (BaseNotification) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

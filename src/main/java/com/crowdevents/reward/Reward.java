@@ -6,13 +6,8 @@ import com.crowdevents.project.Project;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
@@ -22,7 +17,8 @@ import org.joda.money.Money;
 public class Reward {
     @Id
     @Column(unique = true)
-    private UUID id;
+    @GeneratedValue
+    private Long id;
 
     @ManyToOne
     private Project project;
@@ -56,18 +52,17 @@ public class Reward {
         this.maximumAmount = limit;
         this.minimalContribution = minimalContribution;
         this.description = description;
-        this.id = UUID.randomUUID();
     }
 
     protected Reward() {
 
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -135,23 +130,5 @@ public class Reward {
 
     public void setShippedTo(String shippedTo) {
         this.shippedTo = shippedTo;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Reward)) {
-            return false;
-        }
-
-        Reward reward = (Reward) o;
-        return Objects.equals(id, reward.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

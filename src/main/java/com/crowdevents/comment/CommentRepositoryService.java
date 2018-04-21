@@ -8,7 +8,7 @@ import com.crowdevents.project.ProjectRepository;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.UUID;
+
 
 import javax.transaction.Transactional;
 
@@ -44,7 +44,7 @@ public class CommentRepositoryService implements CommentService {
     }
 
     @Override
-    public Comment post(UUID projectId, UUID personId, String message) {
+    public Comment post(Long projectId, Long personId, String message) {
         Project project = projectRepository
                 .findById(projectId)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -60,17 +60,17 @@ public class CommentRepositoryService implements CommentService {
     }
 
     @Override
-    public Optional<Comment> get(UUID id) {
+    public Optional<Comment> get(Long id) {
         return commentRepository.findById(id);
     }
 
     @Override
-    public void delete(UUID id) {
+    public void delete(Long id) {
         commentRepository.deleteById(id);
     }
 
     @Override
-    public void changeMessage(UUID id, String newMessage) {
+    public void changeMessage(Long id, String newMessage) {
         Comment comment = commentRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid comment id: " + id));
