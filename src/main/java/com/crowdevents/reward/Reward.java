@@ -17,7 +17,7 @@ import org.joda.money.Money;
 public class Reward {
     @Id
     @Column(unique = true)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne

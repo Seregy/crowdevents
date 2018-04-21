@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Update {
     @Id
     @Column(unique = true)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne

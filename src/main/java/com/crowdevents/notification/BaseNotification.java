@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class BaseNotification {
     @Id
     @Column(unique = true)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)

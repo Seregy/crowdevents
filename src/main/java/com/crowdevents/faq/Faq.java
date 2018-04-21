@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Faq {
     @Id
     @Column(unique = true)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
