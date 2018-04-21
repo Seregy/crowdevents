@@ -34,6 +34,7 @@ public class Project {
     @Column(nullable = false)
     private String name;
 
+    @Lob
     @Column(nullable = false)
     private String description;
 
