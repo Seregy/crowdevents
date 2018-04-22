@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -28,6 +29,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
+import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 
 @Entity
@@ -360,7 +362,9 @@ public class Project {
         if (contributed.length > 0) {
             return Money.total(contributed);
         } else {
-            return Money.zero(fundingGoal.getCurrencyUnit());
+            return Money.zero(Optional.ofNullable(fundingGoal)
+                    .map(Money::getCurrencyUnit)
+                    .orElse(CurrencyUnit.USD));
         }
     }
 }
