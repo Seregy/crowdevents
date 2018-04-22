@@ -3,6 +3,7 @@ package com.crowdevents.person;
 import com.crowdevents.core.web.Views;
 import com.fasterxml.jackson.annotation.JsonView;
 
+@JsonView(Views.Detailed.class)
 public class PersonResource {
     @JsonView(Views.Minimal.class)
     private Long id;
@@ -13,7 +14,9 @@ public class PersonResource {
     @JsonView(Views.Minimal.class)
     private String surname;
 
+    @JsonView(Views.Protected.class)
     private String password;
+
     private String email;
     private String country;
     private String city;

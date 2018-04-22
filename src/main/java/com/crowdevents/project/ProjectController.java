@@ -52,6 +52,7 @@ public class ProjectController {
         return new PageResource<>(resultPage.map((project) -> modelMapper.map(project, ProjectResource.class)));
     }
 
+    @JsonView(Views.Detailed.class)
     @GetMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity<ProjectResource> getProject(@PathVariable("id") Long id) {
@@ -60,6 +61,7 @@ public class ProjectController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @JsonView(Views.Detailed.class)
     @PostMapping
     public ResponseEntity createProject(@RequestBody ProjectResource newProject, HttpServletRequest servletRequest) {
         Project createdProject = projectService.create(newProject.getName(), newProject.getDescription(),
@@ -71,6 +73,7 @@ public class ProjectController {
         return ResponseEntity.created(uri).build();
     }
 
+    @JsonView(Views.Detailed.class)
     @PostMapping(value = "/{id}")
     public ResponseEntity updateProject(@PathVariable("id") Long id, @RequestBody Map<String, Object> patchValues) {
         Optional<Project> project = projectService.get(id);
