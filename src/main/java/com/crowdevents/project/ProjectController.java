@@ -72,7 +72,7 @@ public class ProjectController {
     public ResponseEntity updateProject(@PathVariable("id") Long id, @RequestBody Map<String, Object> patchValues) {
         Optional<Project> project = projectService.get(id);
         if (project.isPresent()) {
-            ProjectResource projectResource = modelMapper.map(project, ProjectResource.class);
+            ProjectResource projectResource = modelMapper.map(project.get(), ProjectResource.class);
             modelMapper.map(patchValues, projectResource);
             projectService.update(id, modelMapper.map(projectResource, Project.class));
             return ResponseEntity.noContent().build();
