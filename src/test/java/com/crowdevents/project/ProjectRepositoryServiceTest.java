@@ -102,6 +102,65 @@ public class ProjectRepositoryServiceTest {
     }
 
     @Test
+    public void getAllBeforeAndOrAfter_WithProperBeforeId_ShouldReturnAllProjectsBeforeId() {
+        Project[] projects = {new Project("Project 1", "Description 1", null),
+                new Project("Project 2", "Description 2", null),
+                new Project("Project 3", "Description 3", null),
+                new Project("Project 4", "Description 4", null)};
+        List<Project> beforeList = Arrays.asList(projects[0], projects[1]);
+        Mockito.when(mockProjectRepository.findAllByIdBefore(3L, Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(beforeList));
+
+        Page<Project> result = projectService.getAllBeforeAndOrAfter(3L, null,
+                PageRequest.of(0, 2));
+
+        assertEquals(new PageImpl<>(beforeList), result);
+    }
+
+    @Test
+    public void getAllBeforeAndOrAfter_WithProperAfterId_ShouldReturnAllProjectsAfterId() {
+        Project[] projects = {new Project("Project 1", "Description 1", null),
+                new Project("Project 2", "Description 2", null),
+                new Project("Project 3", "Description 3", null),
+                new Project("Project 4", "Description 4", null)};
+        List<Project> afterList = Arrays.asList(projects[2], projects[3]);
+        Mockito.when(mockProjectRepository.findAllByIdAfter(2L, Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(afterList));
+
+        Page<Project> result = projectService.getAllBeforeAndOrAfter(null, 2L,
+                PageRequest.of(0, 2));
+
+        assertEquals(new PageImpl<>(afterList), result);
+    }
+
+    @Test
+    public void getAllBeforeAndOrAfter_WithProperBeforeAndAfterId_ShouldReturnAllProjectsBetweenIds() {
+        Project[] projects = {new Project("Project 1", "Description 1", null),
+                new Project("Project 2", "Description 2", null),
+                new Project("Project 3", "Description 3", null),
+                new Project("Project 4", "Description 4", null)};
+        List<Project> betweenList = Arrays.asList(projects[1], projects[2]);
+        Mockito.when(mockProjectRepository
+                .findAllByIdAfterAndIdBefore(1L, 4L, Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(betweenList));
+
+        Page<Project> result = projectService.getAllBeforeAndOrAfter(4L, 1L,
+                PageRequest.of(0, 2));
+
+        assertEquals(new PageImpl<>(betweenList), result);
+    }
+
+    @Test
+    public void getAllBeforeAndOrAfter_WithNullIds_ShouldThrowException() {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            projectService.getAllBeforeAndOrAfter(null, null, PageRequest.of(0, 1));
+        });
+
+        assertEquals("Either beforeId or afterId must not be null",
+                exception.getMessage());
+    }
+
+    @Test
     public void delete_WithExistingId_ShouldDeleteProject() {
         projectService.delete(1L);
 
@@ -367,6 +426,48 @@ public class ProjectRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             projectService.addOwner(1L,
                     2L);
+        });
+
+        assertEquals("Invalid project id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithProperProject_ShouldUpdateProject() {
+        Project mockProject = new Project("Name", "description", null);
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "description", null);
+        newProject.setStartDateTime(LocalDateTime.parse("2018-01-01T01:00:00"));
+
+        assertNull(mockProject.getStartDateTime());
+        projectService.update(1L, newProject);
+        assertEquals("Name", mockProject.getName());
+        assertEquals(LocalDateTime.parse("2018-01-01T01:00:00"), mockProject.getStartDateTime());
+    }
+
+    @Test
+    public void update_WithNullProject_ShouldThrowException() {
+        Project mockProject = new Project("Name", "description", null);
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            projectService.update(1L, null);
+        });
+
+        assertEquals("NewProject must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongProjectId_ShouldThrowException() {
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Project newProject = new Project("Name", "description", null);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            projectService.update(1L, newProject);
         });
 
         assertEquals("Invalid project id: 1",
