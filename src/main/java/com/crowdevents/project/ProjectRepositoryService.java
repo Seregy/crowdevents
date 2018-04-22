@@ -130,6 +130,10 @@ public class ProjectRepositoryService implements ProjectService {
 
     @Override
     public void update(Long id, Project newProject) {
+        if (newProject == null) {
+            throw new IllegalArgumentException("NewProject must not be null");
+        }
+
         Project project = getProject(id);
         project.setName(newProject.getName());
         project.setDescription(newProject.getDescription());
