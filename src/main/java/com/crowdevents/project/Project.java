@@ -46,6 +46,8 @@ public class Project {
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
     private Money fundingGoal;
 
+    private String projectImageLink;
+
     @ElementCollection
     private List<String> videoLinks = new ArrayList<>();
 
@@ -152,6 +154,14 @@ public class Project {
 
     public void setFundingGoal(Money fundingGoal) {
         this.fundingGoal = fundingGoal;
+    }
+
+    public String getProjectImageLink() {
+        return projectImageLink;
+    }
+
+    public void setProjectImageLink(String projectImageLink) {
+        this.projectImageLink = projectImageLink;
     }
 
     public List<String> getVideoLinks() {
@@ -328,5 +338,16 @@ public class Project {
 
     public void setRewards(Set<Reward> rewards) {
         this.rewards = rewards;
+    }
+
+    public Money getRaisedMoney() {
+        Money[] contributed = contributions.stream()
+                .map(Contribution::getMoney)
+                .toArray(Money[]::new);
+        if (contributed.length > 0) {
+            return Money.total(contributed);
+        } else {
+            return Money.zero(fundingGoal.getCurrencyUnit());
+        }
     }
 }

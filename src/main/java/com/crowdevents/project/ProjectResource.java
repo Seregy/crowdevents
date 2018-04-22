@@ -43,9 +43,17 @@ public class ProjectResource {
     @JsonView(Views.Minimal.class)
     private Money fundingGoal;
 
-    @JsonProperty("videos")
+    @JsonProperty("raised")
+    @JsonView(Views.Minimal.class)
+    private Money raisedMoney;
+
+    @JsonProperty("project_image")
+    @JsonView(Views.Minimal.class)
+    private String projectImageLink;
+
+    @JsonProperty("gallery_videos")
     private List<String> videoLinks = new ArrayList<>();
-    @JsonProperty("images")
+    @JsonProperty("gallery_images")
     private List<String> imageLinks = new ArrayList<>();
 
     @JsonView(Views.Minimal.class)
@@ -117,6 +125,22 @@ public class ProjectResource {
 
     public void setFundingGoal(Money fundingGoal) {
         this.fundingGoal = fundingGoal;
+    }
+
+    public Money getRaisedMoney() {
+        return raisedMoney;
+    }
+
+    public void setRaisedMoney(Money raisedMoney) {
+        this.raisedMoney = raisedMoney;
+    }
+
+    public String getProjectImageLink() {
+        return projectImageLink;
+    }
+
+    public void setProjectImageLink(String projectImageLink) {
+        this.projectImageLink = projectImageLink;
     }
 
     public List<String> getVideoLinks() {
