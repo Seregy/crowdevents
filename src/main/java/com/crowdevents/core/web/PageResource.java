@@ -1,10 +1,12 @@
 package com.crowdevents.core.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
 
+@JsonView(Views.Minimal.class)
 public class PageResource<T> {
     private List<T> content;
     @JsonProperty("page_number")

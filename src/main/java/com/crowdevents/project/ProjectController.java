@@ -1,6 +1,8 @@
 package com.crowdevents.project;
 
+import com.crowdevents.core.web.Views;
 import com.crowdevents.core.web.PageResource;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,6 +30,7 @@ public class ProjectController {
         this.modelMapper = modelMapper;
     }
 
+    @JsonView(Views.Minimal.class)
     @GetMapping
     @ResponseBody
     public PageResource<ProjectResource> getAllProjects(@RequestParam(name = "page", defaultValue = "0")
