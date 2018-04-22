@@ -2,6 +2,7 @@ package com.crowdevents.project;
 
 import com.crowdevents.core.web.PageResource;
 import com.crowdevents.core.web.Views;
+import com.crowdevents.person.PersonResource;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import java.net.URI;
@@ -100,7 +101,10 @@ public class ProjectController {
                                         HttpServletRequest servletRequest) {
         Project createdProject = projectService.create(newProject.getName(),
                 newProject.getDescription(),
-                newProject.getFundingGoal(), newProject.getOwners().toArray(new Long[] {}));
+                newProject.getFundingGoal(),
+                newProject.getOwners().stream()
+                        .map(PersonResource::getId)
+                        .toArray(Long[]::new));
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/v0/projects/{id}")
                 .buildAndExpand(createdProject.getId())
