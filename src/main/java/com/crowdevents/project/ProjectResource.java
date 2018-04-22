@@ -1,33 +1,63 @@
 package com.crowdevents.project;
 
-import com.crowdevents.location.Location;
+import com.crowdevents.category.CategoryResource;
+import com.crowdevents.comment.CommentResource;
+import com.crowdevents.contribution.ContributionResource;
+import com.crowdevents.core.web.Views;
+import com.crowdevents.faq.FaqResource;
+import com.crowdevents.location.LocationResource;
+import com.crowdevents.person.PersonResource;
+import com.crowdevents.reward.RewardResource;
+import com.crowdevents.update.UpdateResource;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.joda.money.Money;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@JsonView(Views.Detailed.class)
 public class ProjectResource {
+    @JsonView(Views.Minimal.class)
     private Long id;
+
+    @JsonView(Views.Minimal.class)
     private String name;
+
+    @JsonView(Views.Minimal.class)
     private String description;
-    private Location location;
+
+    @JsonView(Views.Minimal.class)
+    private LocationResource location;
+
+    @JsonProperty("starts")
+    @JsonView(Views.Minimal.class)
     private LocalDateTime startDateTime;
+
+    @JsonProperty("ends")
+    @JsonView(Views.Minimal.class)
     private LocalDateTime endDateTime;
+
+    @JsonProperty("funding_goal")
+    @JsonView(Views.Minimal.class)
     private Money fundingGoal;
 
+    @JsonProperty("videos")
     private List<String> videoLinks = new ArrayList<>();
+    @JsonProperty("images")
     private List<String> imageLinks = new ArrayList<>();
 
-    private List<Long> owners = new ArrayList<>();
-    private List<Long> subscribers = new ArrayList<>();
-    private List<Long> contributions = new ArrayList<>();
-    private List<Long> comments = new ArrayList<>();
-    private List<Long> faqs = new ArrayList<>();
-    private List<Long> categories = new ArrayList<>();
-    private List<Long> updates = new ArrayList<>();
-    private List<Long> rewards = new ArrayList<>();
+    @JsonView(Views.Minimal.class)
+    private List<PersonResource> owners = new ArrayList<>();
+
+    private List<PersonResource> subscribers = new ArrayList<>();
+    private List<ContributionResource> contributions = new ArrayList<>();
+    private List<CommentResource> comments = new ArrayList<>();
+    private List<FaqResource> faqs = new ArrayList<>();
+    private List<CategoryResource> categories = new ArrayList<>();
+    private List<UpdateResource> updates = new ArrayList<>();
+    private List<RewardResource> rewards = new ArrayList<>();
 
     public ProjectResource() {
 
@@ -57,11 +87,11 @@ public class ProjectResource {
         this.description = description;
     }
 
-    public Location getLocation() {
+    public LocationResource getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(LocationResource location) {
         this.location = location;
     }
 
@@ -105,67 +135,67 @@ public class ProjectResource {
         this.imageLinks = imageLinks;
     }
 
-    public List<Long> getOwners() {
+    public List<PersonResource> getOwners() {
         return owners;
     }
 
-    public void setOwners(List<Long> owners) {
+    public void setOwners(List<PersonResource> owners) {
         this.owners = owners;
     }
 
-    public List<Long> getSubscribers() {
+    public List<PersonResource> getSubscribers() {
         return subscribers;
     }
 
-    public void setSubscribers(List<Long> subscribers) {
+    public void setSubscribers(List<PersonResource> subscribers) {
         this.subscribers = subscribers;
     }
 
-    public List<Long> getContributions() {
+    public List<ContributionResource> getContributions() {
         return contributions;
     }
 
-    public void setContributions(List<Long> contributions) {
+    public void setContributions(List<ContributionResource> contributions) {
         this.contributions = contributions;
     }
 
-    public List<Long> getComments() {
+    public List<CommentResource> getComments() {
         return comments;
     }
 
-    public void setComments(List<Long> comments) {
+    public void setComments(List<CommentResource> comments) {
         this.comments = comments;
     }
 
-    public List<Long> getFaqs() {
+    public List<FaqResource> getFaqs() {
         return faqs;
     }
 
-    public void setFaqs(List<Long> faqs) {
+    public void setFaqs(List<FaqResource> faqs) {
         this.faqs = faqs;
     }
 
-    public List<Long> getCategories() {
+    public List<CategoryResource> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Long> categories) {
+    public void setCategories(List<CategoryResource> categories) {
         this.categories = categories;
     }
 
-    public List<Long> getUpdates() {
+    public List<UpdateResource> getUpdates() {
         return updates;
     }
 
-    public void setUpdates(List<Long> updates) {
+    public void setUpdates(List<UpdateResource> updates) {
         this.updates = updates;
     }
 
-    public List<Long> getRewards() {
+    public List<RewardResource> getRewards() {
         return rewards;
     }
 
-    public void setRewards(List<Long> rewards) {
+    public void setRewards(List<RewardResource> rewards) {
         this.rewards = rewards;
     }
 }
