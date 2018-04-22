@@ -2,9 +2,8 @@ package com.crowdevents.core.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
-import org.springframework.data.domain.Page;
-
 import java.util.List;
+import org.springframework.data.domain.Page;
 
 @JsonView(Views.Minimal.class)
 public class PageResource<T> {
@@ -27,6 +26,11 @@ public class PageResource<T> {
 
     }
 
+    /**
+     * Constructs new PageResource from existing Page.
+     *
+     * @param page page to be transformed
+     */
     public PageResource(Page<T> page) {
         this.content = page.getContent();
         this.totalElements = page.getTotalElements();
@@ -46,10 +50,6 @@ public class PageResource<T> {
         this.content = content;
     }
 
-    public void setTotalElements(long totalElements) {
-        this.totalElements = totalElements;
-    }
-
     public int getPageSize() {
         return pageSize;
     }
@@ -58,15 +58,11 @@ public class PageResource<T> {
         this.pageSize = pageSize;
     }
 
-    public void setOffset(long offset) {
-        this.offset = offset;
-    }
-
     public long getTotalElements() {
         return totalElements;
     }
 
-    public void setTotalElements(int totalElements) {
+    public void setTotalElements(long totalElements) {
         this.totalElements = totalElements;
     }
 
@@ -82,7 +78,7 @@ public class PageResource<T> {
         return offset;
     }
 
-    public void setOffset(int offset) {
+    public void setOffset(long offset) {
         this.offset = offset;
     }
 

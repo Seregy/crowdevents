@@ -11,11 +11,11 @@ import com.crowdevents.reward.RewardResource;
 import com.crowdevents.update.UpdateResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
-import org.joda.money.Money;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import org.joda.money.Money;
 
 @JsonView(Views.Detailed.class)
 public class ProjectResource {

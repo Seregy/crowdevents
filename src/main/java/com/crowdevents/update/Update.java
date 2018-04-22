@@ -3,9 +3,13 @@ package com.crowdevents.update;
 import com.crowdevents.project.Project;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Update {

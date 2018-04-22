@@ -5,9 +5,8 @@ import com.crowdevents.person.PersonResource;
 import com.crowdevents.project.ProjectResource;
 import com.crowdevents.reward.RewardResource;
 import com.fasterxml.jackson.annotation.JsonView;
-import org.joda.money.Money;
-
 import java.time.LocalDateTime;
+import org.joda.money.Money;
 
 public class ContributionResource {
     @JsonView(Views.Minimal.class)

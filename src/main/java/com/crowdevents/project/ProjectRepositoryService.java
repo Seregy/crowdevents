@@ -48,7 +48,7 @@ public class ProjectRepositoryService implements ProjectService {
     public Page<Project> getAllBeforeAndOrAfter(Long beforeId, Long afterId, Pageable pageable) {
         if (beforeId != null && afterId != null) {
             return projectRepository.findAllByIdAfterAndIdBefore(afterId, beforeId, pageable);
-        } else if (beforeId != null){
+        } else if (beforeId != null) {
             return projectRepository.findAllByIdBefore(beforeId, pageable);
         } else if (afterId != null) {
             return projectRepository.findAllByIdAfter(afterId, pageable);

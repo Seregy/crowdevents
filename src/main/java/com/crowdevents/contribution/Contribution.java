@@ -5,14 +5,17 @@ import com.crowdevents.project.Project;
 import com.crowdevents.reward.Reward;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
 import org.joda.money.Money;
-
 
 @Entity
 public class Contribution {

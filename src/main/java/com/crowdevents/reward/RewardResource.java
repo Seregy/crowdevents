@@ -2,14 +2,15 @@ package com.crowdevents.reward;
 
 import com.crowdevents.contribution.ContributionResource;
 import com.crowdevents.project.ProjectResource;
-import org.joda.money.Money;
 
 import java.util.List;
+
+import org.joda.money.Money;
 
 public class RewardResource {
     private Long id;
     private ProjectResource project;
-    private List<ContributionResource> contributions ;
+    private List<ContributionResource> contributions;
     private Money minimalContribution;
     private Integer maximumAmount;
     private String description;

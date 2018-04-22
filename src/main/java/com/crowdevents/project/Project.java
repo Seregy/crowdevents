@@ -15,12 +15,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
 import org.joda.money.Money;
-
 
 @Entity
 public class Project {
@@ -91,7 +99,7 @@ public class Project {
         this.name = name;
         this.description = description;
         this.fundingGoal = fundingGoal;
-        for(Person owner : owners) {
+        for (Person owner : owners) {
             addOwner(owner);
         }
     }
@@ -340,6 +348,11 @@ public class Project {
         this.rewards = rewards;
     }
 
+    /**
+     * Returns money already raised from contributors.
+     *
+     * @return raised money
+     */
     public Money getRaisedMoney() {
         Money[] contributed = contributions.stream()
                 .map(Contribution::getMoney)

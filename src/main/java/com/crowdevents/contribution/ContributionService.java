@@ -2,7 +2,6 @@ package com.crowdevents.contribution;
 
 import java.util.Optional;
 
-
 import org.joda.money.Money;
 
 public interface ContributionService {
