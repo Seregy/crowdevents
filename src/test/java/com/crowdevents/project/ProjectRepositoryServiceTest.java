@@ -162,7 +162,10 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteProject() {
-        projectService.delete(1L);
+        Mockito.when(mockProjectRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(projectService.delete(1L));
 
         Mockito.verify(mockProjectRepository, Mockito.times(1))
                 .deleteById(1L);

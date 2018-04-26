@@ -57,7 +57,10 @@ public class PersonRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeletePerson() {
-        personService.delete(1L);
+        Mockito.when(mockPersonRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(personService.delete(1L));
 
         Mockito.verify(mockPersonRepository, Mockito.times(1))
                 .deleteById(1L);

@@ -18,7 +18,7 @@ public interface ProjectService {
 
     Page<Project> getAllBeforeAndOrAfter(Long beforeId, Long afterId, Pageable pageable);
 
-    void delete(Long id);
+    boolean delete(Long id);
 
     void changeName(Long id, String newName);
 

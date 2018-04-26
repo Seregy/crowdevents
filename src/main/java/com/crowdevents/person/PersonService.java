@@ -7,7 +7,7 @@ public interface PersonService {
 
     Optional<Person> get(Long id);
 
-    void delete(Long id);
+    boolean delete(Long id);
 
     void changeName(Long id, String newName);
 

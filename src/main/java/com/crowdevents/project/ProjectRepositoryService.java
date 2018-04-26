@@ -58,8 +58,12 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public void delete(Long id) {
-        projectRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (projectRepository.existsById(id)) {
+            projectRepository.deleteById(id);
+        }
+
+        return !projectRepository.existsById(id);
     }
 
     @Override
