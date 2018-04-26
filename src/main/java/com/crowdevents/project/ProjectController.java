@@ -78,7 +78,7 @@ public class ProjectController {
      * Returns specific project.
      *
      * @param id id of the project to be returned
-     * @return project or {@code null} if it wasn't found
+     * @return 204 with project inside the body or 404 if it wasn't found
      */
     @JsonView(Views.Detailed.class)
     @GetMapping(value = "/{id}")
@@ -114,7 +114,7 @@ public class ProjectController {
     }
 
     /**
-     * Update existing project.
+     * Updates existing project.
      *
      * @param id id of the project to update
      * @param patchValues values to update
