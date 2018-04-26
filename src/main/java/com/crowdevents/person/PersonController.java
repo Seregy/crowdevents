@@ -1,55 +1,131 @@
 package com.crowdevents.person;
 
+import com.crowdevents.core.web.PageResource;
+import com.crowdevents.core.web.Views;
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.net.URI;
+import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @Controller
-@RequestMapping("/person")
+@RequestMapping("v0/persons")
 public class PersonController {
-    private PersonRepository personRepository;
+    private PersonService personService;
+    private ModelMapper modelMapper;
 
-    public PersonController(PersonRepository personRepository) {
-        this.personRepository = personRepository;
-    }
-
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
-    @ResponseBody
-    public Iterable<Person> allPersons() {
-        return personRepository.findAll();
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public Person person(@PathVariable Long id) {
-        return personRepository.findById(id).orElseThrow(() ->
-                new RuntimeException("No such person detected"));
+    public PersonController(PersonService personService, ModelMapper modelMapper) {
+        this.personService = personService;
+        this.modelMapper = modelMapper;
     }
 
     /**
-     * Adds new person.
+     * Returns page with persons inside it.
      *
-     * @param person person to add
-     * @param servletRequest information about request
-     * @return http status 201 Created with location of the person in header
+     * @param pageNumber number of page
+     * @param limit amount of items on page
+     * @return page with persons
      */
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity addPerson(@RequestBody Person person, HttpServletRequest servletRequest) {
-        Person createdPerson = personRepository.save(new Person(person.getEmail(),
-                person.getPassword(), person.getName()));
+    @JsonView(Views.Minimal.class)
+    @GetMapping
+    @ResponseBody
+    public PageResource<PersonResource> getAllPersons(
+            @RequestParam(name = "page", defaultValue = "0") int pageNumber,
+            @RequestParam(name = "limit", defaultValue = "10") int limit) {
+        PageRequest pageRequest = PageRequest.of(pageNumber, limit);
+        Page<Person> resultPage = personService.getAll(pageRequest);
+
+        return new PageResource<>(
+                resultPage.map((project) -> modelMapper.map(project, PersonResource.class)));
+    }
+
+    /**
+     * Returns specific person.
+     *
+     * @param id id of the project to be returned
+     * @return response with http status 204 with person inside the body or 404 if it wasn't found
+     */
+    @JsonView(Views.Detailed.class)
+    @GetMapping(value = "/{id}")
+    @ResponseBody
+    public ResponseEntity<PersonResource> getPerson(@PathVariable("id") Long id) {
+        return personService.get(id)
+                .map(project -> ResponseEntity.ok(modelMapper.map(project, PersonResource.class)))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    /**
+     * Registers new person.
+     *
+     * @param newPerson person to be registered
+     * @param servletRequest information about request
+     * @return response with http status 201 and link to the project in the header
+     */
+    @JsonView(Views.Detailed.class)
+    @PostMapping
+    public ResponseEntity registerPerson(@RequestBody PersonResource newPerson,
+                                        HttpServletRequest servletRequest) {
+        Person createdPerson = personService.register(newPerson.getEmail(),
+                newPerson.getPassword(),
+                newPerson.getName());
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
-                .path("/person/{id}")
+                .path("/v0/persons/{id}")
                 .buildAndExpand(createdPerson.getId())
                 .toUri();
         return ResponseEntity.created(uri).build();
+    }
+
+    /**
+     * Updates existing person.
+     *
+     * @param id id of person to update
+     * @param patchValues values to update
+     * @return response with http status 204 or 404 if the person wasn't found
+     */
+    @JsonView(Views.Detailed.class)
+    @PostMapping(value = "/{id}")
+    public ResponseEntity updatePerson(@PathVariable("id") Long id,
+                                        @RequestBody Map<String, Object> patchValues) {
+        Optional<Person> person = personService.get(id);
+        if (person.isPresent()) {
+            PersonResource personResource = modelMapper.map(person.get(), PersonResource.class);
+            modelMapper.map(patchValues, personResource);
+            personService.update(id, modelMapper.map(personResource, Person.class));
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    /**
+     * Deletes existing person.
+     *
+     * @param id id of the project to delete
+     * @return response with http status 204 or 404 if the person wasn't found
+     */
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity deletePerson(@PathVariable("id") Long id) {
+        if (personService.delete(id)) {
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.notFound().build();
     }
 }
