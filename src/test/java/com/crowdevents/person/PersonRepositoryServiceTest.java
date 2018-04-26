@@ -6,7 +6,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 
@@ -53,6 +58,20 @@ public class PersonRepositoryServiceTest {
         Optional<Person> result = personService.get(1L);
 
         assertEquals(Optional.empty(), result);
+    }
+
+    @Test
+    public void getAll_ShouldReturnAllPersons() {
+        Person[] persons = {new Person("person1@mail.com", "pass1", "Person 1"),
+                new Person("person2@mail.com", "pass2", "Person 2"),
+                new Person("person3@mail.com", "pass3", "Person 3"),
+                new Person("person4@mail.com", "pass4", "Person 4")};
+        Mockito.when(mockPersonRepository.findAll(Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(persons)));
+
+        Page<Person> result = personService.getAll(PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Arrays.asList(persons)), result);
     }
 
     @Test
@@ -213,6 +232,50 @@ public class PersonRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             personService.changeCity(1L,
                     "New city");
+        });
+
+        assertEquals("Invalid person id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithProperProject_ShouldUpdatePerson() {
+        Person mockPerson = new Person("name@email.com", "password", "Name");
+        Mockito.when(mockPersonRepository.findById(1L))
+                .thenReturn(Optional.of(mockPerson));
+        Person newPerson = new Person("new@email.com", "password", null);
+        newPerson.setCountry("Brand new country");
+
+        assertNull(mockPerson.getCountry());
+        personService.update(1L, newPerson);
+        assertNull(mockPerson.getName());
+        assertEquals("Brand new country", mockPerson.getCountry());
+        assertEquals("new@email.com", mockPerson.getEmail());
+        assertEquals("password", mockPerson.getPassword());
+    }
+
+    @Test
+    public void update_WithNullPerson_ShouldThrowException() {
+        Person mockPerson = new Person("name@email.com", "password", "Name");
+        Mockito.when(mockPersonRepository.findById(1L))
+                .thenReturn(Optional.of(mockPerson));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            personService.update(1L, null);
+        });
+
+        assertEquals("NewPerson must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongPersonId_ShouldThrowException() {
+        Mockito.when(mockPersonRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Person newPerson = new Person("new@email.com", "New password", null);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            personService.update(1L, newPerson);
         });
 
         assertEquals("Invalid person id: 1",

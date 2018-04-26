@@ -5,6 +5,8 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,6 +31,10 @@ public class PersonRepositoryService implements PersonService {
     }
 
     @Override
+    public Page<Person> getAll(Pageable pageable) {
+        return personRepository.findAll(pageable);
+    }
+
     @Override
     public boolean delete(Long id) {
         if (personRepository.existsById(id)) {
@@ -77,6 +83,22 @@ public class PersonRepositoryService implements PersonService {
     public void changeCity(Long id, String newCity) {
         Person person = getPerson(id);
         person.setCity(newCity);
+        personRepository.save(person);
+    }
+
+    @Override
+    public void update(Long id, Person newPerson) {
+        if (newPerson == null) {
+            throw new IllegalArgumentException("NewPerson must not be null");
+        }
+
+        Person person = getPerson(id);
+        person.setName(newPerson.getName());
+        person.setSurname(newPerson.getSurname());
+        person.setEmail(newPerson.getEmail());
+        person.setPassword(newPerson.getPassword());
+        person.setCountry(newPerson.getCountry());
+        person.setCity(newPerson.getCity());
         personRepository.save(person);
     }
 
