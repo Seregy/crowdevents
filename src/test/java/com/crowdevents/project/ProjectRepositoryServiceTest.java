@@ -108,7 +108,7 @@ public class ProjectRepositoryServiceTest {
                 new Project("Project 3", "Description 3", null),
                 new Project("Project 4", "Description 4", null)};
         List<Project> beforeList = Arrays.asList(projects[0], projects[1]);
-        Mockito.when(mockProjectRepository.findAllByIdBefore(3L, Mockito.any(Pageable.class)))
+        Mockito.when(mockProjectRepository.findAllByIdBefore(Mockito.eq(3L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(beforeList));
 
         Page<Project> result = projectService.getAllBeforeAndOrAfter(3L, null,
@@ -124,7 +124,7 @@ public class ProjectRepositoryServiceTest {
                 new Project("Project 3", "Description 3", null),
                 new Project("Project 4", "Description 4", null)};
         List<Project> afterList = Arrays.asList(projects[2], projects[3]);
-        Mockito.when(mockProjectRepository.findAllByIdAfter(2L, Mockito.any(Pageable.class)))
+        Mockito.when(mockProjectRepository.findAllByIdAfter(Mockito.eq(2L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(afterList));
 
         Page<Project> result = projectService.getAllBeforeAndOrAfter(null, 2L,
@@ -141,7 +141,7 @@ public class ProjectRepositoryServiceTest {
                 new Project("Project 4", "Description 4", null)};
         List<Project> betweenList = Arrays.asList(projects[1], projects[2]);
         Mockito.when(mockProjectRepository
-                .findAllByIdAfterAndIdBefore(1L, 4L, Mockito.any(Pageable.class)))
+                .findAllByIdAfterAndIdBefore(Mockito.eq(1L), Mockito.eq(4L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(betweenList));
 
         Page<Project> result = projectService.getAllBeforeAndOrAfter(4L, 1L,
