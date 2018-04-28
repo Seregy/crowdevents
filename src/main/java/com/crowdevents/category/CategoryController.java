@@ -85,9 +85,15 @@ public class CategoryController {
     @PostMapping
     public ResponseEntity createCategory(@RequestBody CategoryResource newCategory,
                                         HttpServletRequest servletRequest) {
-        Category createdCategory = categoryService.create(newCategory.getName(),
-                newCategory.getDescription(),
-                newCategory.getParent().getId());
+        Category createdCategory;
+        if (newCategory.getParent() != null) {
+            createdCategory = categoryService.create(newCategory.getName(),
+                    newCategory.getDescription(),
+                    newCategory.getParent().getId());
+        } else {
+            createdCategory = categoryService.create(newCategory.getName(),
+                    newCategory.getDescription());
+        }
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/v0/categories/{id}")
                 .buildAndExpand(createdCategory.getId())
