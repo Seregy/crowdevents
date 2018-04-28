@@ -5,6 +5,8 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -41,12 +43,18 @@ public class CategoryRepositoryService implements CategoryService {
     }
 
     @Override
+    public Page<Category> getAll(Pageable pageable) {
+        return categoryRepository.findAll(pageable);
+    }
+
+    @Override
     public boolean delete(Long id) {
         if (categoryRepository.existsById(id)) {
             categoryRepository.deleteById(id);
         }
 
         return !categoryRepository.existsById(id);
+
     }
 
     @Override

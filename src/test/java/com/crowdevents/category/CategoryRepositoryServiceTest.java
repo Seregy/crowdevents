@@ -6,7 +6,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 
@@ -83,6 +88,20 @@ public class CategoryRepositoryServiceTest {
         Optional<Category> result = categoryService.get(1L);
 
         assertEquals(Optional.empty(), result);
+    }
+
+    @Test
+    public void getAll_ShouldReturnAllCategories() {
+        Category[] categories = {new Category("Category 1", "Description 1"),
+                new Category("Category 2", "Description 2"),
+                new Category("Category 3", "Description 3"),
+                new Category("Category 4", "Description 4")};
+        Mockito.when(mockCategoryRepository.findAll(Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(categories)));
+
+        Page<Category> result = categoryService.getAll(PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Arrays.asList(categories)), result);
     }
 
     @Test
