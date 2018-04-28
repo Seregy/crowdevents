@@ -36,16 +36,8 @@ public class Category {
 
     private String description;
 
-    public Category(String name) {
-        this(name, null, null);
-    }
-
     public Category(String name, String description) {
         this(name, description, null);
-    }
-
-    public Category(String name, Category parent) {
-        this(name, null, parent);
     }
 
     /**
