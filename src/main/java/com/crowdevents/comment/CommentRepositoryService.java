@@ -64,8 +64,12 @@ public class CommentRepositoryService implements CommentService {
     }
 
     @Override
-    public void delete(Long id) {
-        commentRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (commentRepository.existsById(id)) {
+            commentRepository.deleteById(id);
+        }
+
+        return !commentRepository.existsById(id);
     }
 
     @Override
@@ -75,5 +79,22 @@ public class CommentRepositoryService implements CommentService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid comment id: " + id));
         comment.setMessage(newMessage);
         commentRepository.save(comment);
+    }
+
+    @Override
+    public void update(Long id, Comment updatedComment) {
+        if (updatedComment == null) {
+            throw new IllegalArgumentException("Updated comment must not be null");
+        }
+
+        Comment comment = getComment(id);
+        comment.setMessage(updatedComment.getMessage());
+        commentRepository.save(comment);
+    }
+
+    private Comment getComment(Long id) {
+        return commentRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid comment id: " + id));
     }
 }

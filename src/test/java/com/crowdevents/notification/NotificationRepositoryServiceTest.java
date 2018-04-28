@@ -421,7 +421,10 @@ public class NotificationRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteNotification() {
-        notificationService.delete(1L);
+        Mockito.when(mockNotificationRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(notificationService.delete(1L));
 
         Mockito.verify(mockNotificationRepository, Mockito.times(1))
                 .deleteById(1L);
@@ -448,6 +451,50 @@ public class NotificationRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             notificationService.changeMessage(1L,
                     "New message");
+        });
+
+        assertEquals("Invalid notification id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithProperParams_ShouldUpdateNotification() {
+        BaseNotification mockNotification = new BaseNotification("Message", null,
+                LocalDateTime.parse("2018-01-01T01:00:00"), null);
+        Mockito.when(mockNotificationRepository.findById(1L))
+                .thenReturn(Optional.of(mockNotification));
+        BaseNotification updatedNotification = new BaseNotification("New message", null,
+                null, null);
+
+        assertEquals("Message", mockNotification.getMessage());
+        notificationService.update(1L, updatedNotification);
+        assertEquals("New message", mockNotification.getMessage());
+    }
+
+    @Test
+    public void update_WithNullUpdatedNotification_ShouldThrowException() {
+        BaseNotification mockNotification = new BaseNotification("Message", null,
+                LocalDateTime.parse("2018-01-01T01:00:00"), null);
+        Mockito.when(mockNotificationRepository.findById(1L))
+                .thenReturn(Optional.of(mockNotification));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            notificationService.update(1L, null);
+        });
+
+        assertEquals("Updated notification must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongMessageId_ShouldThrowException() {
+        Mockito.when(mockNotificationRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        BaseNotification updatedNotification = new BaseNotification("New message", null,
+                null, null);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            notificationService.update(1L, updatedNotification);
         });
 
         assertEquals("Invalid notification id: 1",

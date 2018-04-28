@@ -35,8 +35,12 @@ public class RewardRepositoryService implements RewardService {
     }
 
     @Override
-    public void delete(Long id) {
-        rewardRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (rewardRepository.existsById(id)) {
+            rewardRepository.deleteById(id);
+        }
+
+        return !rewardRepository.existsById(id);
     }
 
     @Override
@@ -71,6 +75,21 @@ public class RewardRepositoryService implements RewardService {
     public void changeShippingLocation(Long id, String newShippingLocation) {
         Reward reward = getReward(id);
         reward.setShippedTo(newShippingLocation);
+        rewardRepository.save(reward);
+    }
+
+    @Override
+    public void update(Long id, Reward updatedReward) {
+        if (updatedReward == null) {
+            throw new IllegalArgumentException("Updated reward must not be null");
+        }
+
+        Reward reward = getReward(id);
+        reward.setMaximumAmount(updatedReward.getMaximumAmount());
+        reward.setMinimalContribution(updatedReward.getMinimalContribution());
+        reward.setDescription(updatedReward.getDescription());
+        reward.setDeliveryDate(updatedReward.getDeliveryDate());
+        reward.setShippedTo(updatedReward.getShippedTo());
         rewardRepository.save(reward);
     }
 

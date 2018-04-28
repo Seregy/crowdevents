@@ -41,8 +41,12 @@ public class CategoryRepositoryService implements CategoryService {
     }
 
     @Override
-    public void delete(Long id) {
-        categoryRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (categoryRepository.existsById(id)) {
+            categoryRepository.deleteById(id);
+        }
+
+        return !categoryRepository.existsById(id);
     }
 
     @Override
@@ -74,5 +78,27 @@ public class CategoryRepositoryService implements CategoryService {
                         "Invalid parent category id: " + newParentCategoryId));
         category.setParent(parent);
         categoryRepository.save(category);
+    }
+
+    @Override
+    public void update(Long id, Category updatedCategory) {
+        if (updatedCategory == null) {
+            throw new IllegalArgumentException("Updated category must not be null");
+        }
+
+        Category category = getCategory(id);
+        category.setName(updatedCategory.getName());
+        category.setDescription(updatedCategory.getDescription());
+        if (updatedCategory.getParent() != null) {
+            Category parentCategory = getCategory(updatedCategory.getParent().getId());
+            category.setParent(parentCategory);
+        }
+        categoryRepository.save(category);
+    }
+
+    private Category getCategory(Long id) {
+        return categoryRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
     }
 }

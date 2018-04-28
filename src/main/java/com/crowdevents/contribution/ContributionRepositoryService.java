@@ -80,8 +80,12 @@ public class ContributionRepositoryService implements ContributionService {
     }
 
     @Override
-    public void delete(Long id) {
-        contributionRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (contributionRepository.existsById(id)) {
+            contributionRepository.deleteById(id);
+        }
+
+        return !contributionRepository.existsById(id);
     }
 
     @Override
@@ -96,5 +100,33 @@ public class ContributionRepositoryService implements ContributionService {
                         "Invalid reward id: " + newRewardId));
         contribution.setReward(reward);
         contributionRepository.save(contribution);
+    }
+
+    @Override
+    public void update(Long id, Contribution updatedContribution) {
+        if (updatedContribution == null) {
+            throw new IllegalArgumentException("Updated contribution must not be null");
+        }
+
+        Contribution contribution = getContribution(id);
+        if (updatedContribution.getReward() != null) {
+            Reward newReward = getReward(updatedContribution.getReward().getId());
+            contribution.setReward(newReward);
+        }
+        contributionRepository.save(contribution);
+    }
+
+    private Contribution getContribution(Long id) {
+        return contributionRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid contribution id: " + id));
+    }
+
+    private Reward getReward(Long id) {
+        return rewardRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid reward id: " + id));
     }
 }

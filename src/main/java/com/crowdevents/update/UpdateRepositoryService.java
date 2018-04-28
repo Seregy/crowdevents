@@ -47,8 +47,12 @@ public class UpdateRepositoryService implements UpdateService {
     }
 
     @Override
-    public void delete(Long id) {
-        updateRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (updateRepository.existsById(id)) {
+            updateRepository.deleteById(id);
+        }
+
+        return !updateRepository.existsById(id);
     }
 
     @Override
@@ -62,6 +66,18 @@ public class UpdateRepositoryService implements UpdateService {
     public void changeShortMessage(Long id, String newShortMessage) {
         Update update = getUpdate(id);
         update.setShortMessage(newShortMessage);
+        updateRepository.save(update);
+    }
+
+    @Override
+    public void update(Long id, Update updatedUpdate) {
+        if (updatedUpdate == null) {
+            throw new IllegalArgumentException("Updated update must not be null");
+        }
+
+        Update update = getUpdate(id);
+        update.setMessage(updatedUpdate.getMessage());
+        update.setShortMessage(updatedUpdate.getShortMessage());
         updateRepository.save(update);
     }
 

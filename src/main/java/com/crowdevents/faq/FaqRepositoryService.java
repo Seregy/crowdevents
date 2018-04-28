@@ -40,8 +40,12 @@ public class FaqRepositoryService implements FaqService {
     }
 
     @Override
-    public void delete(Long id) {
-        faqRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (faqRepository.existsById(id)) {
+            faqRepository.deleteById(id);
+        }
+
+        return !faqRepository.existsById(id);
     }
 
     @Override
@@ -60,5 +64,23 @@ public class FaqRepositoryService implements FaqService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid faq id: " + id));
         faq.setAnswer(newAnswer);
         faqRepository.save(faq);
+    }
+
+    @Override
+    public void update(Long id, Faq updatedFaq) {
+        if (updatedFaq == null) {
+            throw new IllegalArgumentException("Updated faq must not be null");
+        }
+
+        Faq faq = getFaq(id);
+        faq.setQuestion(updatedFaq.getQuestion());
+        faq.setAnswer(updatedFaq.getAnswer());
+        faqRepository.save(faq);
+    }
+
+    private Faq getFaq(Long id) {
+        return faqRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid faq id: " + id));
     }
 }

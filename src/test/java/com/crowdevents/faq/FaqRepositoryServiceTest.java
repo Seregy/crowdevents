@@ -83,7 +83,10 @@ public class FaqRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteComment() {
-        faqService.delete(1L);
+        Mockito.when(mockFaqRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(faqService.delete(1L));
 
         Mockito.verify(mockFaqRepository, Mockito.times(1))
                 .deleteById(1L);
@@ -135,6 +138,46 @@ public class FaqRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             faqService.changeAnswer(1L,
                     "Another answer");
+        });
+
+        assertEquals("Invalid faq id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithProperParams_ShouldUpdateFaq() {
+        Faq mockFaq = new Faq(null, "Mock question", "Mock answer");
+        Mockito.when(mockFaqRepository.findById(1L))
+                .thenReturn(Optional.of(mockFaq));
+        Faq updatedFaq = new Faq(null, "New question", "New answer");
+
+        faqService.update(1L, updatedFaq);
+        assertEquals("New question", mockFaq.getQuestion());
+        assertEquals("New answer", mockFaq.getAnswer());
+    }
+
+    @Test
+    public void update_WithNullUpdatedFaq_ShouldThrowException() {
+        Faq mockFaq = new Faq(null, "Mock question", "Mock answer");
+        Mockito.when(mockFaqRepository.findById(1L))
+                .thenReturn(Optional.of(mockFaq));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            faqService.update(1L, null);
+        });
+
+        assertEquals("Updated faq must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongFaqId_ShouldThrowException() {
+        Mockito.when(mockFaqRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Faq updatedFaq = new Faq(null, "New question", "New answer");
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            faqService.update(1L, updatedFaq);
         });
 
         assertEquals("Invalid faq id: 1",

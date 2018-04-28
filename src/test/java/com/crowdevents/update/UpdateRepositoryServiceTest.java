@@ -82,7 +82,10 @@ public class UpdateRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteUpdate() {
-        updateService.delete(1L);
+        Mockito.when(mockUpdateRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(updateService.delete(1L));
 
         Mockito.verify(mockUpdateRepository, Mockito.times(1))
                 .deleteById(1L);
@@ -134,6 +137,51 @@ public class UpdateRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             updateService.changeShortMessage(1L,
                     "New short message");
+        });
+
+        assertEquals("Invalid update id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithProperParams_ShouldUpdateUpdate() {
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        Mockito.when(mockUpdateRepository.findById(1L))
+                .thenReturn(Optional.of(mockUpdate));
+        Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "New message");
+        updatedUpdate.setShortMessage("Short message");
+
+        assertEquals("Message", mockUpdate.getMessage());
+        assertNull(mockUpdate.getShortMessage());
+        updateService.update(1L, updatedUpdate);
+        assertEquals("New message", mockUpdate.getMessage());
+        assertEquals("Short message", mockUpdate.getShortMessage());
+    }
+
+    @Test
+    public void update_WithNullUpdate_ShouldThrowException() {
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        Mockito.when(mockUpdateRepository.findById(1L))
+                .thenReturn(Optional.of(mockUpdate));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            updateService.update(1L, null);
+        });
+
+        assertEquals("Updated update must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongUpdateId_ShouldThrowException() {
+        Mockito.when(mockUpdateRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "New message");
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            updateService.update(1L, updatedUpdate);
         });
 
         assertEquals("Invalid update id: 1",

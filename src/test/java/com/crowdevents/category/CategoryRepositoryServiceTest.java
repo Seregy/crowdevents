@@ -87,7 +87,10 @@ public class CategoryRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteCategory() {
-        categoryService.delete(1L);
+        Mockito.when(mockCategoryRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(categoryService.delete(1L));
 
         Mockito.verify(mockCategoryRepository, Mockito.times(1))
                 .deleteById(1L);
@@ -128,5 +131,70 @@ public class CategoryRepositoryServiceTest {
         assertEquals(mockedParentCategory, mockedCategory.getParent());
         categoryService.changeParentCategory(1L, 2L);
         assertEquals(anotherParent, mockedCategory.getParent());
+    }
+
+    @Test
+    public void update_WithProperParams_ShouldUpdateCategory() {
+        Category mockCategory = new Category("Mock", "Mocked category");
+        Mockito.when(mockCategoryRepository.findById(1L))
+                .thenReturn(Optional.of(mockCategory));
+        Category mockParentCategory = new Category("Parent", "Mocked parent category");
+        mockParentCategory.setId(2L);
+        Mockito.when(mockCategoryRepository.findById(2L))
+                .thenReturn(Optional.of(mockParentCategory));
+        Category updatedCategory = new Category("New name", null, mockParentCategory);
+
+        assertNull(mockCategory.getParent());
+        categoryService.update(1L, updatedCategory);
+        assertNull(mockCategory.getDescription());
+        assertEquals("New name", mockCategory.getName());
+        assertEquals(mockParentCategory, mockCategory.getParent());
+    }
+
+    @Test
+    public void update_WithNullUpdatedCategory_ShouldThrowException() {
+        Category mockCategory = new Category("Mock", "Mocked category");
+        Mockito.when(mockCategoryRepository.findById(1L))
+                .thenReturn(Optional.of(mockCategory));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            categoryService.update(1L, null);
+        });
+
+        assertEquals("Updated category must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongCategoryId_ShouldThrowException() {
+        Mockito.when(mockCategoryRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Category updatedCategory = new Category("New name", null, null);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            categoryService.update(1L, updatedCategory);
+        });
+
+        assertEquals("Invalid category id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongParentCategoryId_ShouldThrowException() {
+        Category mockCategory = new Category("Mock", "Mocked category");
+        Mockito.when(mockCategoryRepository.findById(1L))
+                .thenReturn(Optional.of(mockCategory));
+        Category mockParentCategory = new Category("Parent", "Mocked parent category");
+        mockParentCategory.setId(2L);
+        Mockito.when(mockCategoryRepository.findById(2L))
+                .thenReturn(Optional.empty());
+        Category newCategory = new Category("New name", null, mockParentCategory);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            categoryService.update(1L, newCategory);
+        });
+
+        assertEquals("Invalid category id: 2",
+                exception.getMessage());
     }
 }

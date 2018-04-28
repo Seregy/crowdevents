@@ -165,7 +165,10 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteComment() {
-        contributionService.delete(1L);
+        Mockito.when(mockContributionRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(contributionService.delete(1L));
 
         Mockito.verify(mockContributionRepository, Mockito.times(1))
                 .deleteById(1L);
@@ -228,6 +231,78 @@ public class ContributionRepositoryServiceTest {
         });
 
         assertEquals("Invalid reward id: 3",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithProperPropers_ShouldUpdateContribution() {
+        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
+                "description");
+        Contribution mockContribution = new Contribution(null, null,
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
+        Mockito.when(mockContributionRepository.findById(1L))
+                .thenReturn(Optional.of(mockContribution));
+        Reward newReward = new Reward(null, 1, Money.of(CurrencyUnit.CAD, 5),
+                "New reward description");
+        newReward.setId(2L);
+        Mockito.when(mockRewardRepository.findById(2L))
+                .thenReturn(Optional.of(newReward));
+        Contribution updatedContribution = new Contribution(null, null,
+                LocalDateTime.parse("2018-02-02T01:00:00"), null, newReward);
+
+        contributionService.update(1L, updatedContribution);
+        assertEquals(newReward, mockContribution.getReward());
+    }
+
+    @Test
+    public void update_WithNullUpdatedContribution_ShouldThrowException() {
+        Contribution mockContribution = new Contribution(null, null,
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
+        Mockito.when(mockContributionRepository.findById(1L))
+                .thenReturn(Optional.of(mockContribution));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            contributionService.update(1L, null);
+        });
+
+        assertEquals("Updated contribution must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongContributionId_ShouldThrowException() {
+        Mockito.when(mockContributionRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Contribution updatedContribution = new Contribution(null, null,
+                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            contributionService.update(1L, updatedContribution);
+        });
+
+        assertEquals("Invalid contribution id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongRewardId_ShouldThrowException() {
+        Contribution mockContribution = new Contribution(null, null,
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
+        Mockito.when(mockContributionRepository.findById(1L))
+                .thenReturn(Optional.of(mockContribution));
+        Reward newReward = new Reward(null, 1, Money.of(CurrencyUnit.CAD, 5),
+                "New reward description");
+        newReward.setId(2L);
+        Mockito.when(mockRewardRepository.findById(2L))
+                .thenReturn(Optional.empty());
+        Contribution newContribution = new Contribution(null, null,
+                LocalDateTime.parse("2018-02-02T01:00:00"), null, newReward);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            contributionService.update(1L, newContribution);
+        });
+
+        assertEquals("Invalid reward id: 2",
                 exception.getMessage());
     }
 }

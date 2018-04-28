@@ -7,7 +7,9 @@ public interface CommentService {
 
     Optional<Comment> get(Long id);
 
-    void delete(Long id);
+    boolean delete(Long id);
 
     void changeMessage(Long id, String newMessage);
+
+    void update(Long id, Comment updatedComment);
 }

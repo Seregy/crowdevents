@@ -112,8 +112,12 @@ public class NotificationRepositoryService implements NotificationService {
     }
 
     @Override
-    public void delete(Long id) {
-        notificationRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (notificationRepository.existsById(id)) {
+            notificationRepository.deleteById(id);
+        }
+
+        return !notificationRepository.existsById(id);
     }
 
     @Override
@@ -122,6 +126,17 @@ public class NotificationRepositoryService implements NotificationService {
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid notification id: " + id));
         notification.setMessage(newMessage);
+        notificationRepository.save(notification);
+    }
+
+    @Override
+    public void update(Long id, BaseNotification updatedNotification) {
+        if (updatedNotification == null) {
+            throw new IllegalArgumentException("Updated notification must not be null");
+        }
+
+        BaseNotification notification = getBaseNotification(id);
+        notification.setMessage(updatedNotification.getMessage());
         notificationRepository.save(notification);
     }
 
@@ -135,5 +150,11 @@ public class NotificationRepositoryService implements NotificationService {
         return projectRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid project id: " + id));
+    }
+
+    private BaseNotification getBaseNotification(Long id) {
+        return notificationRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid notification id: " + id));
     }
 }

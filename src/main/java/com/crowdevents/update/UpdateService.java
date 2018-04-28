@@ -8,9 +8,11 @@ public interface UpdateService {
 
     Optional<Update> get(Long id);
 
-    void delete(Long id);
+    boolean delete(Long id);
 
     void changeMessage(Long id, String newMessage);
 
     void changeShortMessage(Long id, String newShortMessage);
+
+    void update(Long id, Update updatedUpdate);
 }

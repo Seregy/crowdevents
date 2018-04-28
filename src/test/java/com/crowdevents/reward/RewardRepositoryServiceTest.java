@@ -86,7 +86,10 @@ public class RewardRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteReward() {
-        rewardService.delete(1L);
+        Mockito.when(mockRewardRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(rewardService.delete(1L));
 
         Mockito.verify(mockRewardRepository, Mockito.times(1))
                 .deleteById(1L);
@@ -219,6 +222,60 @@ public class RewardRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             rewardService.changeShippingLocation(1L,
                     "New shipping location");
+        });
+
+        assertEquals("Invalid reward id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithProperParams_ShouldUpdateReward() {
+        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "Reward description");
+        Mockito.when(mockRewardRepository.findById(1L))
+                .thenReturn(Optional.of(mockReward));
+        Reward updatedReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5),
+                "New description");
+        updatedReward.setShippedTo("New shipping location");
+        updatedReward.setDeliveryDate("New delivery date");
+
+        assertEquals(Integer.valueOf(2), mockReward.getMaximumAmount());
+        assertEquals(Money.of(CurrencyUnit.USD, 1), mockReward.getMinimalContribution());
+        assertEquals("Reward description", mockReward.getDescription());
+        assertNull(mockReward.getShippedTo());
+        assertNull(mockReward.getDeliveryDate());
+        rewardService.update(1L, updatedReward);
+        assertEquals(Integer.valueOf(5), mockReward.getMaximumAmount());
+        assertEquals(Money.of(CurrencyUnit.USD, 5), mockReward.getMinimalContribution());
+        assertEquals("New description", mockReward.getDescription());
+        assertEquals("New shipping location", mockReward.getShippedTo());
+        assertEquals("New delivery date", mockReward.getDeliveryDate());
+    }
+
+    @Test
+    public void update_WithNullReward_ShouldThrowException() {
+        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "Reward description");
+        Mockito.when(mockRewardRepository.findById(1L))
+                .thenReturn(Optional.of(mockReward));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            rewardService.update(1L, null);
+        });
+
+        assertEquals("Updated reward must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongMessageId_ShouldThrowException() {
+        Mockito.when(mockRewardRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Reward updatedReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5),
+                "New description");
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            rewardService.update(1L, updatedReward);
         });
 
         assertEquals("Invalid reward id: 1",

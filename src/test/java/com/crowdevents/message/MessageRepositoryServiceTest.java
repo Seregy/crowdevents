@@ -108,7 +108,10 @@ public class MessageRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteComment() {
-        messageService.delete(1L);
+        Mockito.when(mockMessageRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(messageService.delete(1L));
 
         Mockito.verify(mockMessageRepository, Mockito.times(1))
                 .deleteById(1L);
@@ -142,5 +145,47 @@ public class MessageRepositoryServiceTest {
         assertEquals("Invalid message id: 1",
                 exception.getMessage());
         assertEquals("Mock message", mockMessage.getMessage());
+    }
+
+    @Test
+    public void update_WithProperParams_ShouldUpdateMessage() {
+        Message mockMessage = new Message("Mock message", null, null,
+                LocalDateTime.parse("2018-01-01T01:00:00"));
+        Mockito.when(mockMessageRepository.findById(1L))
+                .thenReturn(Optional.of(mockMessage));
+        Message updatedMessage = new Message("New message", null, null, null);
+
+        assertEquals("Mock message", mockMessage.getMessage());
+        messageService.update(1L, updatedMessage);
+        assertEquals("New message", mockMessage.getMessage());
+    }
+
+    @Test
+    public void update_WithNullUpdatedMessage_ShouldThrowException() {
+        Message mockMessage = new Message("Mock message", null, null,
+                LocalDateTime.parse("2018-01-01T01:00:00"));
+        Mockito.when(mockMessageRepository.findById(1L))
+                .thenReturn(Optional.of(mockMessage));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            messageService.update(1L, null);
+        });
+
+        assertEquals("Updated message must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongMessageId_ShouldThrowException() {
+        Mockito.when(mockMessageRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Message updatedMessage = new Message("New message", null, null, null);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            messageService.update(1L, updatedMessage);
+        });
+
+        assertEquals("Invalid message id: 1",
+                exception.getMessage());
     }
 }

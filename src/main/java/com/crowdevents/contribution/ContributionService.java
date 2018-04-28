@@ -9,7 +9,9 @@ public interface ContributionService {
 
     Optional<Contribution> get(Long id);
 
-    void delete(Long id);
+    boolean delete(Long id);
 
     void changeReward(Long id, Long newRewardId);
+
+    void update(Long id, Contribution updatedContribution);
 }

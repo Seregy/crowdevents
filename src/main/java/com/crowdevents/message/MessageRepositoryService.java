@@ -60,8 +60,12 @@ public class MessageRepositoryService implements MessageService {
     }
 
     @Override
-    public void delete(Long id) {
-        messageRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (messageRepository.existsById(id)) {
+            messageRepository.deleteById(id);
+        }
+
+        return !messageRepository.existsById(id);
     }
 
     @Override
@@ -71,5 +75,22 @@ public class MessageRepositoryService implements MessageService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid message id: " + id));
         message.setMessage(newMessage);
         messageRepository.save(message);
+    }
+
+    @Override
+    public void update(Long id, Message updatedMessage) {
+        if (updatedMessage == null) {
+            throw new IllegalArgumentException("Updated message must not be null");
+        }
+
+        Message message = getMessage(id);
+        message.setMessage(updatedMessage.getMessage());
+        messageRepository.save(message);
+    }
+
+    private Message getMessage(Long id) {
+        return messageRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid message id: " + id));
     }
 }

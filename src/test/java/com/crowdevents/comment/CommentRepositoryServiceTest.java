@@ -112,7 +112,10 @@ public class CommentRepositoryServiceTest {
 
     @Test
     public void delete_WithExistingId_ShouldDeleteComment() {
-        commentService.delete(1L);
+        Mockito.when(mockCommentRepository.existsById(1L))
+                .thenReturn(true)
+                .thenReturn(false);
+        assertTrue(commentService.delete(1L));
 
         Mockito.verify(mockCommentRepository, Mockito.times(1))
                 .deleteById(1L);
@@ -139,6 +142,47 @@ public class CommentRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             commentService.changeMessage(1L,
                     "message");
+        });
+
+        assertEquals("Invalid comment id: 1",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithProperParams_ShouldUpdateComment() {
+        Comment mockComment = new Comment(null, null, "Some message",
+                LocalDateTime.parse("2018-01-01T01:00:00"));
+        Mockito.when(mockCommentRepository.findById(1L))
+                .thenReturn(Optional.of(mockComment));
+        Comment updatedComment = new Comment(null, null, "New message", null);
+
+        commentService.update(1L, updatedComment);
+        assertEquals("New message", mockComment.getMessage());
+    }
+
+    @Test
+    public void update_WithNullUpdatedComment_ShouldThrowException() {
+        Comment mockComment = new Comment(null, null, "Some message",
+                LocalDateTime.parse("2018-01-01T01:00:00"));
+        Mockito.when(mockCommentRepository.findById(1L))
+                .thenReturn(Optional.of(mockComment));
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            commentService.update(1L, null);
+        });
+
+        assertEquals("Updated comment must not be null",
+                exception.getMessage());
+    }
+
+    @Test
+    public void update_WithWrongCommentId_ShouldThrowException() {
+        Mockito.when(mockCommentRepository.findById(1L))
+                .thenReturn(Optional.empty());
+        Comment updatedComment = new Comment(null, null, "New message", null);
+
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+            commentService.update(1L, updatedComment);
         });
 
         assertEquals("Invalid comment id: 1",

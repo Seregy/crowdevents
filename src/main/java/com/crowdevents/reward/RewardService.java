@@ -9,7 +9,7 @@ public interface RewardService {
 
     Optional<Reward> get(Long id);
 
-    void delete(Long id);
+    boolean delete(Long id);
 
     void changeLimit(Long id, Integer newLimit);
 
@@ -20,4 +20,6 @@ public interface RewardService {
     void changeDeliveryDate(Long id, String newDeliveryDate);
 
     void changeShippingLocation(Long id, String newShippingLocation);
+
+    void update(Long id, Reward updatedReward);
 }

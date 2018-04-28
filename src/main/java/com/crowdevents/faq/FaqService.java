@@ -7,9 +7,11 @@ public interface FaqService {
 
     Optional<Faq> get(Long id);
 
-    void delete(Long id);
+    boolean delete(Long id);
 
     void changeQuestion(Long id, String newQuestion);
 
     void changeAnswer(Long id, String newAnswer);
+
+    void update(Long id, Faq updatedFaq);
 }
