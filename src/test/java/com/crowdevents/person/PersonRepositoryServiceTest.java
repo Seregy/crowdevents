@@ -255,7 +255,7 @@ public class PersonRepositoryServiceTest {
     }
 
     @Test
-    public void update_WithNullPerson_ShouldThrowException() {
+    public void update_WithNullUpdatedPerson_ShouldThrowException() {
         Person mockPerson = new Person("name@email.com", "password", "Name");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
@@ -264,7 +264,7 @@ public class PersonRepositoryServiceTest {
             personService.update(1L, null);
         });
 
-        assertEquals("NewPerson must not be null",
+        assertEquals("Updated person must not be null",
                 exception.getMessage());
     }
 

@@ -38,5 +38,5 @@ public interface ProjectService {
 
     void addOwner(Long id, Long... ownersIds);
 
-    void update(Long id, Project newProject);
+    void update(Long id, Project updatedProject);
 }

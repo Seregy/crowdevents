@@ -133,18 +133,18 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public void update(Long id, Project newProject) {
-        if (newProject == null) {
-            throw new IllegalArgumentException("NewProject must not be null");
+    public void update(Long id, Project updatedProject) {
+        if (updatedProject == null) {
+            throw new IllegalArgumentException("Updated project must not be null");
         }
 
         Project project = getProject(id);
-        project.setName(newProject.getName());
-        project.setDescription(newProject.getDescription());
-        project.setLocation(newProject.getLocation());
-        project.setStartDateTime(newProject.getStartDateTime());
-        project.setEndDateTime(newProject.getEndDateTime());
-        project.setFundingGoal(newProject.getFundingGoal());
+        project.setName(updatedProject.getName());
+        project.setDescription(updatedProject.getDescription());
+        project.setLocation(updatedProject.getLocation());
+        project.setStartDateTime(updatedProject.getStartDateTime());
+        project.setEndDateTime(updatedProject.getEndDateTime());
+        project.setFundingGoal(updatedProject.getFundingGoal());
         projectRepository.save(project);
     }
 

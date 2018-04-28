@@ -26,5 +26,5 @@ public interface PersonService {
 
     void changeCity(Long id, String newCity);
 
-    void update(Long id, Person newPerson);
+    void update(Long id, Person updatedPerson);
 }

@@ -450,7 +450,7 @@ public class ProjectRepositoryServiceTest {
     }
 
     @Test
-    public void update_WithNullProject_ShouldThrowException() {
+    public void update_WithNullUpdatedProject_ShouldThrowException() {
         Project mockProject = new Project("Name", "description", null);
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
@@ -459,7 +459,7 @@ public class ProjectRepositoryServiceTest {
             projectService.update(1L, null);
         });
 
-        assertEquals("NewProject must not be null",
+        assertEquals("Updated project must not be null",
                 exception.getMessage());
     }
 
