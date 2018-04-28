@@ -53,13 +53,13 @@ public class PersonController {
         Page<Person> resultPage = personService.getAll(pageRequest);
 
         return new PageResource<>(
-                resultPage.map((project) -> modelMapper.map(project, PersonResource.class)));
+                resultPage.map((person) -> modelMapper.map(person, PersonResource.class)));
     }
 
     /**
      * Returns specific person.
      *
-     * @param id id of the project to be returned
+     * @param id id of the person to be returned
      * @return response with http status 204 with person inside the body or 404 if it wasn't found
      */
     @JsonView(Views.Detailed.class)
@@ -67,7 +67,7 @@ public class PersonController {
     @ResponseBody
     public ResponseEntity<PersonResource> getPerson(@PathVariable("id") Long id) {
         return personService.get(id)
-                .map(project -> ResponseEntity.ok(modelMapper.map(project, PersonResource.class)))
+                .map(person -> ResponseEntity.ok(modelMapper.map(person, PersonResource.class)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -76,7 +76,7 @@ public class PersonController {
      *
      * @param newPerson person to be registered
      * @param servletRequest information about request
-     * @return response with http status 201 and link to the project in the header
+     * @return response with http status 201 and link to the person in the header
      */
     @JsonView(Views.Detailed.class)
     @PostMapping
@@ -117,7 +117,7 @@ public class PersonController {
     /**
      * Deletes existing person.
      *
-     * @param id id of the project to delete
+     * @param id id of the person to delete
      * @return response with http status 204 or 404 if the person wasn't found
      */
     @DeleteMapping(value = "/{id}")
