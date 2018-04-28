@@ -2,10 +2,12 @@ package com.crowdevents.category;
 
 import com.crowdevents.core.web.Views;
 import com.crowdevents.project.ProjectResource;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import java.util.List;
 
+@JsonView(Views.Detailed.class)
 public class CategoryResource {
     @JsonView(Views.Minimal.class)
     private Long id;
@@ -13,9 +15,11 @@ public class CategoryResource {
     private List<ProjectResource> projects;
 
     @JsonView(Views.Minimal.class)
-    private Category parent;
+    @JsonIgnoreProperties({"parent", "children"})
+    private CategoryResource parent;
 
-    private List<Category> children;
+    @JsonIgnoreProperties({"parent", "children"})
+    private List<CategoryResource> children;
 
     @JsonView(Views.Minimal.class)
     private String name;
@@ -31,19 +35,19 @@ public class CategoryResource {
         this.id = id;
     }
 
-    public Category getParent() {
+    public CategoryResource getParent() {
         return parent;
     }
 
-    public void setParent(Category parent) {
+    public void setParent(CategoryResource parent) {
         this.parent = parent;
     }
 
-    public List<Category> getChildren() {
+    public List<CategoryResource> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Category> children) {
+    public void setChildren(List<CategoryResource> children) {
         this.children = children;
     }
 
