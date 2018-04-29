@@ -12,6 +12,8 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -61,6 +63,21 @@ public class CommentRepositoryService implements CommentService {
     @Override
     public Optional<Comment> get(Long id) {
         return commentRepository.findById(id);
+    }
+
+    @Override
+    public Page<Comment> getAll(Pageable pageable) {
+        return commentRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Comment> getAllByProject(Long projectId, Pageable pageable) {
+        return commentRepository.findAllByProjectId(projectId, pageable);
+    }
+
+    @Override
+    public Page<Comment> getAllByPerson(Long personId, Pageable pageable) {
+        return commentRepository.findAllByAuthorId(personId, pageable);
     }
 
     @Override
