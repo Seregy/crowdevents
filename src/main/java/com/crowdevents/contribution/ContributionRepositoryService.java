@@ -1,5 +1,6 @@
 package com.crowdevents.contribution;
 
+import com.crowdevents.comment.Comment;
 import com.crowdevents.person.Person;
 import com.crowdevents.person.PersonRepository;
 import com.crowdevents.project.Project;
@@ -16,6 +17,8 @@ import javax.transaction.Transactional;
 import org.joda.money.Money;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -77,6 +80,21 @@ public class ContributionRepositoryService implements ContributionService {
     @Override
     public Optional<Contribution> get(Long id) {
         return contributionRepository.findById(id);
+    }
+
+    @Override
+    public Page<Contribution> getAll(Pageable pageable) {
+        return contributionRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Contribution> getAllByProject(Long projectId, Pageable pageable) {
+        return contributionRepository.findAllByProjectId(projectId, pageable);
+    }
+
+    @Override
+    public Page<Contribution> getAllByPerson(Long personId, Pageable pageable) {
+        return contributionRepository.findAllByContributorId(personId, pageable);
     }
 
     @Override

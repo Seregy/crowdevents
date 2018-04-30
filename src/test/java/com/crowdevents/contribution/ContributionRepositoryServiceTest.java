@@ -13,11 +13,17 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 
 
@@ -161,6 +167,100 @@ public class ContributionRepositoryServiceTest {
         Optional<Contribution> result = contributionService.get(1L);
 
         assertEquals(Optional.empty(), result);
+    }
+
+    @Test
+    public void getAll_ShouldReturnAllContributions() {
+        Contribution[] contributions = {
+                new Contribution(null, null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 1), null),
+                new Contribution(null, null, LocalDateTime.parse("2018-02-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 2), null),
+                new Contribution(null, null, LocalDateTime.parse("2018-03-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 3), null),
+                new Contribution(null, null, LocalDateTime.parse("2018-04-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 4), null)};
+        Mockito.when(mockContributionRepository.findAll(Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
+
+        Page<Contribution> result = contributionService.getAll(PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Arrays.asList(contributions)), result);
+    }
+
+    @Test
+    public void getAllByProject_WithProperProjectId_ShouldReturnAllContributions() {
+        Project project = new Project("Project 1", null, null);
+        project.setId(1L);
+        Contribution[] contributions = {
+                new Contribution(null, project, LocalDateTime.parse("2018-01-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 1), null),
+                new Contribution(null, project, LocalDateTime.parse("2018-02-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 2), null)};
+        Mockito.when(mockContributionRepository.findAllByProjectId(Mockito.eq(1L), Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
+
+        Page<Contribution> result = contributionService.getAllByProject(1L, PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Arrays.asList(contributions)), result);
+    }
+
+    @Test
+    public void getAllByProject_WithWrongProjectId_ShouldReturnEmptyPage() {
+        Project project = new Project("Project 1", null, null);
+        project.setId(1L);
+        Contribution[] contributions = {
+                new Contribution(null, project, LocalDateTime.parse("2018-01-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 1), null),
+                new Contribution(null, project, LocalDateTime.parse("2018-02-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 2), null)};
+        Mockito.when(mockContributionRepository.findAllByProjectId(Mockito.eq(1L), Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
+        Mockito.when(mockContributionRepository.findAllByProjectId(Mockito.eq(2L), Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Collections.emptyList()));
+
+        Page<Contribution> result = contributionService.getAllByProject(2L, PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Collections.emptyList()), result);
+    }
+
+    @Test
+    public void getAllByPerson_WithProperPersonId_ShouldReturnAllContributions() {
+        Person person = new Person("person1@email.com", "pass", "Person 1");
+        person.setId(1L);
+        Contribution[] contributions = {
+                new Contribution(person, null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 1), null),
+                new Contribution(person, null, LocalDateTime.parse("2018-02-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 2), null)};
+        Mockito.when(mockContributionRepository.findAllByContributorId(Mockito.eq(1L),
+                Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
+
+        Page<Contribution> result = contributionService.getAllByPerson(1L, PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Arrays.asList(contributions)), result);
+    }
+
+    @Test
+    public void getAllByPerson_WithWrongPersonId_ShouldReturnEmptyPage() {
+        Person person = new Person("person1@email.com", "pass", "Person 1");
+        person.setId(1L);
+        Contribution[] contributions = {
+                new Contribution(person, null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 1), null),
+                new Contribution(person, null, LocalDateTime.parse("2018-02-01T01:00:00"),
+                        Money.of(CurrencyUnit.USD, 2), null)};
+        Mockito.when(mockContributionRepository.findAllByContributorId(Mockito.eq(1L),
+                Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
+        Mockito.when(mockContributionRepository.findAllByContributorId(Mockito.eq(2L),
+                Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Collections.emptyList()));
+
+        Page<Contribution> result = contributionService.getAllByPerson(2L, PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Collections.emptyList()), result);
     }
 
     @Test
