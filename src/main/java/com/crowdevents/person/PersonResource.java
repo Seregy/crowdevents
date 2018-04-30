@@ -1,6 +1,7 @@
 package com.crowdevents.person;
 
 import com.crowdevents.core.web.Views;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @JsonView(Views.Detailed.class)
@@ -20,6 +21,9 @@ public class PersonResource {
     private String email;
     private String country;
     private String city;
+
+    @JsonProperty("image_link")
+    private String personImageLink;
 
     public Long getId() {
         return id;
@@ -75,5 +79,13 @@ public class PersonResource {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPersonImageLink() {
+        return personImageLink;
+    }
+
+    public void setPersonImageLink(String personImageLink) {
+        this.personImageLink = personImageLink;
     }
 }

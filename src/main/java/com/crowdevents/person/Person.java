@@ -40,6 +40,8 @@ public class Person {
     private String country;
     private String city;
 
+    private String personImageLink;
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "PERSON_PROJECTS_OWNED")
     private Set<Project> createdProjects = new HashSet<>();
@@ -138,6 +140,14 @@ public class Person {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPersonImageLink() {
+        return personImageLink;
+    }
+
+    public void setPersonImageLink(String personImageLink) {
+        this.personImageLink = personImageLink;
     }
 
     public Set<Project> getCreatedProjects() {
