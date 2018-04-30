@@ -10,7 +10,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 
 
@@ -82,6 +88,60 @@ public class RewardRepositoryServiceTest {
         Optional<Reward> result = rewardService.get(1L);
 
         assertEquals(Optional.empty(), result);
+    }
+
+    @Test
+    public void getAll_ShouldReturnAllReward() {
+        Reward[] rewards = {
+                new Reward(null, 1, Money.of(CurrencyUnit.USD, 1), "Reward 1"),
+                new Reward(null, 2, Money.of(CurrencyUnit.USD, 2), "Reward 2"),
+                new Reward(null, 3, Money.of(CurrencyUnit.USD, 3), "Reward 3"),
+                new Reward(null, 4, Money.of(CurrencyUnit.USD, 4), "Reward 4")
+        };
+        Mockito.when(mockRewardRepository.findAll(Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(rewards)));
+
+        Page<Reward> result = rewardService.getAll(PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Arrays.asList(rewards)), result);
+    }
+
+    @Test
+    public void getAllByProject_WithProperProjectId_ShouldReturnAllRewards() {
+        Project project = new Project("Project 1", null, null);
+        project.setId(1L);
+        Reward[] rewards = {
+                new Reward(project, 1, Money.of(CurrencyUnit.USD, 1), "Reward 1"),
+                new Reward(project, 2, Money.of(CurrencyUnit.USD, 2), "Reward 2"),
+                new Reward(project, 3, Money.of(CurrencyUnit.USD, 3), "Reward 3"),
+                new Reward(project, 4, Money.of(CurrencyUnit.USD, 4), "Reward 4")
+        };
+        Mockito.when(mockRewardRepository.findAllByProjectId(Mockito.eq(1L), Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(rewards)));
+
+        Page<Reward> result = rewardService.getAllByProject(1L, PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Arrays.asList(rewards)), result);
+    }
+
+    @Test
+    public void getAllByProject_WithWrongProjectId_ShouldReturnEmptyPage() {
+        Project project = new Project("Project 1", null, null);
+        project.setId(1L);
+        Reward[] rewards = {
+                new Reward(project, 1, Money.of(CurrencyUnit.USD, 1), "Reward 1"),
+                new Reward(project, 2, Money.of(CurrencyUnit.USD, 2), "Reward 2"),
+                new Reward(project, 3, Money.of(CurrencyUnit.USD, 3), "Reward 3"),
+                new Reward(project, 4, Money.of(CurrencyUnit.USD, 4), "Reward 4")
+        };
+        Mockito.when(mockRewardRepository.findAllByProjectId(Mockito.eq(1L), Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Arrays.asList(rewards)));
+        Mockito.when(mockRewardRepository.findAllByProjectId(Mockito.eq(2L), Mockito.any(Pageable.class)))
+                .thenReturn(new PageImpl<>(Collections.emptyList()));
+
+        Page<Reward> result = rewardService.getAllByProject(2L, PageRequest.of(0, 4));
+
+        assertEquals(new PageImpl<>(Collections.emptyList()), result);
     }
 
     @Test

@@ -7,6 +7,8 @@ import java.util.Optional;
 
 import org.joda.money.Money;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -32,6 +34,16 @@ public class RewardRepositoryService implements RewardService {
     @Override
     public Optional<Reward> get(Long id) {
         return rewardRepository.findById(id);
+    }
+
+    @Override
+    public Page<Reward> getAll(Pageable pageable) {
+        return rewardRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Reward> getAllByProject(Long projectId, Pageable pageable) {
+        return rewardRepository.findAllByProjectId(projectId, pageable);
     }
 
     @Override
