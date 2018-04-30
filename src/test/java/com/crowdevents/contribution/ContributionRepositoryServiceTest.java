@@ -53,7 +53,8 @@ public class ContributionRepositoryServiceTest {
     public void contribute_WithProperParams_ShouldCreateNewContribution() {
         Person mockPerson = new Person("email", "password", "name");
         Project mockProject = new Project("Name", "description", null, mockPerson);
-        Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1), "description");
+        Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1),
+                "description");
         Contribution mockContribution = new Contribution(mockPerson, mockProject,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
         Mockito.when(mockContributionRepository.save(Mockito.any()))
@@ -75,7 +76,8 @@ public class ContributionRepositoryServiceTest {
     @Test
     public void contribute_WithWrongPersonId_ShouldThrowException() {
         Project mockProject = new Project("Name", "description", null);
-        Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1), "description");
+        Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1),
+                "description");
         Contribution mockContribution = new Contribution(null, mockProject,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
         Mockito.when(mockContributionRepository.save(Mockito.any()))
@@ -100,7 +102,8 @@ public class ContributionRepositoryServiceTest {
     @Test
     public void contribute_WithWrongProjectId_ShouldThrowException() {
         Person mockPerson = new Person("email", "password", "name");
-        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1), "description");
+        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
+                "description");
         Contribution mockContribution = new Contribution(mockPerson, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
         Mockito.when(mockContributionRepository.save(Mockito.any()))
@@ -264,7 +267,7 @@ public class ContributionRepositoryServiceTest {
     }
 
     @Test
-    public void delete_WithExistingId_ShouldDeleteComment() {
+    public void delete_WithExistingId_ShouldDeleteContribution() {
         Mockito.when(mockContributionRepository.existsById(1L))
                 .thenReturn(true)
                 .thenReturn(false);
@@ -276,14 +279,16 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void changeReward_WithProperParams_ShouldChangeReward() {
-        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1), "description");
+        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
+                "description");
         Contribution mockContribution = new Contribution(null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
         Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
         Mockito.when(mockContributionRepository.findById(2L))
                 .thenReturn(Optional.of(mockContribution));
-        Reward anotherReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5), "Another description");
+        Reward anotherReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5),
+                "Another description");
         Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.of(anotherReward));
 
@@ -295,12 +300,14 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void changeReward_WithWrongContributionId_ShouldThrowException() {
-        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1), "description");
+        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
+                "description");
         Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
         Mockito.when(mockContributionRepository.findById(2L))
                 .thenReturn(Optional.empty());
-        Reward anotherReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5), "Another description");
+        Reward anotherReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5),
+                "Another description");
         Mockito.when(mockRewardRepository.findById(3L))
                 .thenReturn(Optional.of(anotherReward));
 
@@ -315,7 +322,8 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void changeReward_WithWrongRewardId_ShouldThrowException() {
-        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1), "description");
+        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
+                "description");
         Contribution mockContribution = new Contribution(null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
         Mockito.when(mockRewardRepository.findById(1L))
