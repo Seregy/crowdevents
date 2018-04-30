@@ -61,6 +61,10 @@ public class Contribution {
         this.reward = reward;
     }
 
+    protected Contribution() {
+
+    }
+
     public Long getId() {
         return id;
     }
