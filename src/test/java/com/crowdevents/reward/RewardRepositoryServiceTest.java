@@ -162,9 +162,9 @@ public class RewardRepositoryServiceTest {
         Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
 
-        assertEquals(Integer.valueOf(2), mockReward.getMaximumAmount());
+        assertEquals(Integer.valueOf(2), mockReward.getLimit());
         rewardService.changeLimit(1L, 5);
-        assertEquals(Integer.valueOf(5), mockReward.getMaximumAmount());
+        assertEquals(Integer.valueOf(5), mockReward.getLimit());
     }
 
     @Test
@@ -268,10 +268,10 @@ public class RewardRepositoryServiceTest {
         Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
 
-        assertNull(mockReward.getShippedTo());
+        assertNull(mockReward.getShippingLocation());
         rewardService.changeShippingLocation(1L,
                 "New shipping location");
-        assertEquals("New shipping location", mockReward.getShippedTo());
+        assertEquals("New shipping location", mockReward.getShippingLocation());
     }
 
     @Test
@@ -296,19 +296,19 @@ public class RewardRepositoryServiceTest {
                 .thenReturn(Optional.of(mockReward));
         Reward updatedReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5),
                 "New description");
-        updatedReward.setShippedTo("New shipping location");
+        updatedReward.setShippingLocation("New shipping location");
         updatedReward.setDeliveryDate("New delivery date");
 
-        assertEquals(Integer.valueOf(2), mockReward.getMaximumAmount());
+        assertEquals(Integer.valueOf(2), mockReward.getLimit());
         assertEquals(Money.of(CurrencyUnit.USD, 1), mockReward.getMinimalContribution());
         assertEquals("Reward description", mockReward.getDescription());
-        assertNull(mockReward.getShippedTo());
+        assertNull(mockReward.getShippingLocation());
         assertNull(mockReward.getDeliveryDate());
         rewardService.update(1L, updatedReward);
-        assertEquals(Integer.valueOf(5), mockReward.getMaximumAmount());
+        assertEquals(Integer.valueOf(5), mockReward.getLimit());
         assertEquals(Money.of(CurrencyUnit.USD, 5), mockReward.getMinimalContribution());
         assertEquals("New description", mockReward.getDescription());
-        assertEquals("New shipping location", mockReward.getShippedTo());
+        assertEquals("New shipping location", mockReward.getShippingLocation());
         assertEquals("New delivery date", mockReward.getDeliveryDate());
     }
 

@@ -36,13 +36,14 @@ public class Reward {
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
     private Money minimalContribution;
 
-    private Integer maximumAmount;
+    @Column(name = "reward_limit")
+    private Integer limit;
 
     @Column(nullable = false)
     private String description;
 
     private String deliveryDate;
-    private String shippedTo;
+    private String shippingLocation;
 
     /**
      * Constructs new reward for contribution specified amount of money.
@@ -54,7 +55,7 @@ public class Reward {
      */
     public Reward(Project project, Integer limit, Money minimalContribution, String description) {
         this.project = project;
-        this.maximumAmount = limit;
+        this.limit = limit;
         this.minimalContribution = minimalContribution;
         this.description = description;
     }
@@ -97,12 +98,12 @@ public class Reward {
         this.contributions = contributions;
     }
 
-    public Integer getMaximumAmount() {
-        return maximumAmount;
+    public Integer getLimit() {
+        return limit;
     }
 
-    public void setMaximumAmount(Integer maximumAmount) {
-        this.maximumAmount = maximumAmount;
+    public void setLimit(Integer limit) {
+        this.limit = limit;
     }
 
     public Money getMinimalContribution() {
@@ -129,11 +130,11 @@ public class Reward {
         this.deliveryDate = deliveryDate;
     }
 
-    public String getShippedTo() {
-        return shippedTo;
+    public String getShippingLocation() {
+        return shippingLocation;
     }
 
-    public void setShippedTo(String shippedTo) {
-        this.shippedTo = shippedTo;
+    public void setShippingLocation(String shippingLocation) {
+        this.shippingLocation = shippingLocation;
     }
 }

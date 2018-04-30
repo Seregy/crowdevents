@@ -102,7 +102,7 @@ public class RewardController {
     public ResponseEntity createReward(@RequestBody RewardResource newReward,
                                      HttpServletRequest servletRequest) {
         Reward createdReward = rewardService.create(newReward.getProject().getId(),
-                newReward.getMaximumAmount(), newReward.getMinimalContribution(),
+                newReward.getLimit(), newReward.getMinimalContribution(),
                 newReward.getDescription());
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/v0/rewards/{id}")

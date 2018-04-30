@@ -28,9 +28,8 @@ public class RewardResource {
     @JsonView(Views.Minimal.class)
     private Money minimalContribution;
 
-    @JsonProperty("maximum_amount")
     @JsonView(Views.Minimal.class)
-    private Integer maximumAmount;
+    private Integer limit;
 
     @JsonView(Views.Minimal.class)
     private String description;
@@ -39,9 +38,9 @@ public class RewardResource {
     @JsonView(Views.Minimal.class)
     private String deliveryDate;
 
-    @JsonProperty("shipped_to")
+    @JsonProperty("shipping_location")
     @JsonView(Views.Minimal.class)
-    private String shippedTo;
+    private String shippingLocation;
 
     public Long getId() {
         return id;
@@ -75,12 +74,12 @@ public class RewardResource {
         this.minimalContribution = minimalContribution;
     }
 
-    public Integer getMaximumAmount() {
-        return maximumAmount;
+    public Integer getLimit() {
+        return limit;
     }
 
-    public void setMaximumAmount(Integer maximumAmount) {
-        this.maximumAmount = maximumAmount;
+    public void setLimit(Integer limit) {
+        this.limit = limit;
     }
 
     public String getDescription() {
@@ -99,11 +98,11 @@ public class RewardResource {
         this.deliveryDate = deliveryDate;
     }
 
-    public String getShippedTo() {
-        return shippedTo;
+    public String getShippingLocation() {
+        return shippingLocation;
     }
 
-    public void setShippedTo(String shippedTo) {
-        this.shippedTo = shippedTo;
+    public void setShippingLocation(String shippingLocation) {
+        this.shippingLocation = shippingLocation;
     }
 }

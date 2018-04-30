@@ -58,7 +58,7 @@ public class RewardRepositoryService implements RewardService {
     @Override
     public void changeLimit(Long id, Integer newLimit) {
         Reward reward = getReward(id);
-        reward.setMaximumAmount(newLimit);
+        reward.setLimit(newLimit);
         rewardRepository.save(reward);
     }
 
@@ -86,7 +86,7 @@ public class RewardRepositoryService implements RewardService {
     @Override
     public void changeShippingLocation(Long id, String newShippingLocation) {
         Reward reward = getReward(id);
-        reward.setShippedTo(newShippingLocation);
+        reward.setShippingLocation(newShippingLocation);
         rewardRepository.save(reward);
     }
 
@@ -97,11 +97,11 @@ public class RewardRepositoryService implements RewardService {
         }
 
         Reward reward = getReward(id);
-        reward.setMaximumAmount(updatedReward.getMaximumAmount());
+        reward.setLimit(updatedReward.getLimit());
         reward.setMinimalContribution(updatedReward.getMinimalContribution());
         reward.setDescription(updatedReward.getDescription());
         reward.setDeliveryDate(updatedReward.getDeliveryDate());
-        reward.setShippedTo(updatedReward.getShippedTo());
+        reward.setShippingLocation(updatedReward.getShippingLocation());
         rewardRepository.save(reward);
     }
 

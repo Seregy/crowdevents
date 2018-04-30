@@ -113,9 +113,9 @@ public class MappingConfiguration {
                         result.setMinimalContribution(value);
                     }
 
-                    if (source.containsKey("maximum_amount")) {
-                        Integer value = (Integer) source.get("maximum_amount");
-                        result.setMaximumAmount(value);
+                    if (source.containsKey("limit")) {
+                        Integer value = (Integer) source.get("limit");
+                        result.setLimit(value);
                     }
 
                     if (source.containsKey("delivery_date")) {
@@ -123,9 +123,9 @@ public class MappingConfiguration {
                         result.setDeliveryDate(value);
                     }
 
-                    if (source.containsKey("shipped_to")) {
-                        String value = (String) source.get("shipped_to");
-                        result.setShippedTo(value);
+                    if (source.containsKey("shipping_location")) {
+                        String value = (String) source.get("shipping_location");
+                        result.setShippingLocation(value);
                     }
 
                     return result;
