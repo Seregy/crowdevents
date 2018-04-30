@@ -1,20 +1,46 @@
 package com.crowdevents.reward;
 
 import com.crowdevents.contribution.ContributionResource;
+import com.crowdevents.core.web.Views;
 import com.crowdevents.project.ProjectResource;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import java.util.List;
 
 import org.joda.money.Money;
 
+@JsonView(Views.Detailed.class)
 public class RewardResource {
+    @JsonView(Views.Minimal.class)
     private Long id;
+
+    @JsonIgnoreProperties({"gallery_videos", "gallery_images", "owners", "subscribers",
+            "contributions", "comments", "faqs", "categories", "updates", "rewards"})
     private ProjectResource project;
+
+    @JsonIgnoreProperties({"project", "reward"})
     private List<ContributionResource> contributions;
+
+    @JsonProperty("minimal_contribution")
+    @JsonView(Views.Minimal.class)
     private Money minimalContribution;
+
+    @JsonProperty("maximum_amount")
+    @JsonView(Views.Minimal.class)
     private Integer maximumAmount;
+
+    @JsonView(Views.Minimal.class)
     private String description;
+
+    @JsonProperty("delivery_date")
+    @JsonView(Views.Minimal.class)
     private String deliveryDate;
+
+    @JsonProperty("shipped_to")
+    @JsonView(Views.Minimal.class)
     private String shippedTo;
 
     public Long getId() {
