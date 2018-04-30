@@ -43,24 +43,34 @@ public class MappingConfiguration {
                     ProjectResource result = context.getDestination();
                     if (source.containsKey("name")) {
                         result.setName((String) source.get("name"));
-                    } else if (source.containsKey("description")) {
+                    }
+
+                    if (source.containsKey("description")) {
                         result.setDescription((String) source.get("description"));
-                    } else if (source.containsKey("location")) {
+                    }
+
+                    if (source.containsKey("location")) {
                         Object value = source.get("location");
                         LocationResource location = (value == null) ? null
                                 : mapper.map(value, LocationResource.class);
                         result.setLocation(location);
-                    } else if (source.containsKey("starts")) {
+                    }
+
+                    if (source.containsKey("starts")) {
                         Object value = source.get("starts");
                         LocalDateTime dateTime = (value == null) ? null
                                 : mapper.map(value, LocalDateTime.class);
                         result.setStartDateTime(dateTime);
-                    } else if (source.containsKey("ends")) {
+                    }
+
+                    if (source.containsKey("ends")) {
                         Object value = source.get("ends");
                         LocalDateTime dateTime = (value == null) ? null
                                 : mapper.map(value, LocalDateTime.class);
                         result.setEndDateTime(dateTime);
-                    } else if (source.containsKey("funding_goal")) {
+                    }
+
+                    if (source.containsKey("funding_goal")) {
                         Object value = source.get("funding_goal");
                         Money money = value == null ? null : mapper.map(value, Money.class);
                         result.setFundingGoal(money);
