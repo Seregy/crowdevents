@@ -4,23 +4,29 @@ import com.crowdevents.core.web.Views;
 import com.crowdevents.person.PersonResource;
 import com.crowdevents.project.ProjectResource;
 import com.crowdevents.reward.RewardResource;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonView;
 import java.time.LocalDateTime;
 import org.joda.money.Money;
 
+@JsonView(Views.Detailed.class)
 public class ContributionResource {
     @JsonView(Views.Minimal.class)
     private Long id;
 
+    @JsonIgnoreProperties({"password", "email", "country", "city"})
     @JsonView(Views.Minimal.class)
     private PersonResource contributor;
 
+    @JsonIgnoreProperties({"gallery_videos", "gallery_images", "owners", "subscribers",
+            "contributions", "comments", "faqs", "categories", "updates", "rewards"})
     private ProjectResource project;
     private LocalDateTime dateTime;
 
     @JsonView(Views.Minimal.class)
     private Money money;
 
+    @JsonIgnoreProperties(value = {"project", "contributions"}, allowSetters = true)
     @JsonView(Views.Minimal.class)
     private RewardResource reward;
 
