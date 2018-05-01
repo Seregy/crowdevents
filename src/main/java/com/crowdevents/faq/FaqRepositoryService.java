@@ -8,6 +8,8 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -37,6 +39,16 @@ public class FaqRepositoryService implements FaqService {
     @Override
     public Optional<Faq> get(Long id) {
         return faqRepository.findById(id);
+    }
+
+    @Override
+    public Page<Faq> getAll(Pageable pageable) {
+        return faqRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Faq> getAllByProject(Long projectId, Pageable pageable) {
+        return faqRepository.findAllByProjectId(projectId, pageable);
     }
 
     @Override
