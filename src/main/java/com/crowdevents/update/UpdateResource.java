@@ -1,14 +1,30 @@
 package com.crowdevents.update;
 
+import com.crowdevents.core.web.Views;
 import com.crowdevents.project.ProjectResource;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import java.time.LocalDateTime;
 
+@JsonView(Views.Detailed.class)
 public class UpdateResource {
+    @JsonView(Views.Minimal.class)
     private Long id;
+
+    @JsonIgnoreProperties({"gallery_videos", "gallery_images", "owners", "subscribers",
+            "contributions", "comments", "faqs", "categories", "updates", "rewards"})
     private ProjectResource project;
+
+    @JsonProperty("posted")
+    @JsonView(Views.Minimal.class)
     private LocalDateTime dateTime;
+
     private String message;
+
+    @JsonProperty("short_message")
+    @JsonView(Views.Minimal.class)
     private String shortMessage;
 
     public Long getId() {
