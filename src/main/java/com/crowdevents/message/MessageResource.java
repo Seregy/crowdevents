@@ -1,14 +1,28 @@
 package com.crowdevents.message;
 
+import com.crowdevents.core.web.Views;
 import com.crowdevents.person.PersonResource;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import java.time.LocalDateTime;
 
+@JsonView(Views.Detailed.class)
 public class MessageResource {
+    @JsonView(Views.Minimal.class)
     private Long id;
+
+    @JsonIgnoreProperties({"password", "email", "country", "city"})
+    @JsonView(Views.Minimal.class)
     private PersonResource sender;
+
+    @JsonIgnoreProperties({"password", "email", "country", "city"})
+    @JsonView(Views.Minimal.class)
     private PersonResource receiver;
+
     private String message;
+
+    @JsonView(Views.Minimal.class)
     private LocalDateTime dateTime;
 
     public Long getId() {
