@@ -239,4 +239,20 @@ public class ProjectResource {
     public void setRewards(List<RewardResource> rewards) {
         this.rewards = rewards;
     }
+
+    public ProjectType getType() {
+        return type;
+    }
+
+    public void setType(ProjectType type) {
+        this.type = type;
+    }
+
+    public ProjectVisibility getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(ProjectVisibility visibility) {
+        this.visibility = visibility;
+    }
 }
