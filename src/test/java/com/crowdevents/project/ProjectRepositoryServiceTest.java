@@ -197,7 +197,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void changeDescription_WithProperParams_ShouldChangeDescription() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "short description", null);
+        mockProject.setDescription("description");
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
