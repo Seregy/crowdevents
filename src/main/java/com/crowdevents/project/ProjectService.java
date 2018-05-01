@@ -10,7 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ProjectService {
-    Project create(String name, String description, Money fundingGoal, Long... ownersIds);
+    Project create(String name, String shortDescription, Money fundingGoal, Long... ownersIds);
 
     Optional<Project> get(Long id);
 

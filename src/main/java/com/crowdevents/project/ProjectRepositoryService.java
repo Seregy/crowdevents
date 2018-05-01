@@ -28,9 +28,9 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public Project create(String name, String description, Money fundingGoal, Long... ownersIds) {
+    public Project create(String name, String shortDescription, Money fundingGoal, Long... ownersIds) {
         Person[] persons = Arrays.stream(ownersIds).map(this::getPerson).toArray(Person[]::new);
-        Project project = new Project(name, description, fundingGoal, persons);
+        Project project = new Project(name, shortDescription, fundingGoal, persons);
         project.setType(ProjectType.IN_CREATION);
         project.setVisibility(ProjectVisibility.PRIVATE);
         return projectRepository.save(project);
@@ -142,11 +142,15 @@ public class ProjectRepositoryService implements ProjectService {
 
         Project project = getProject(id);
         project.setName(updatedProject.getName());
+        project.setShortDescription(updatedProject.getShortDescription());
         project.setDescription(updatedProject.getDescription());
         project.setLocation(updatedProject.getLocation());
         project.setStartDateTime(updatedProject.getStartDateTime());
         project.setEndDateTime(updatedProject.getEndDateTime());
         project.setFundingGoal(updatedProject.getFundingGoal());
+        project.setProjectImageLink(updatedProject.getProjectImageLink());
+        project.setType(updatedProject.getType());
+        project.setVisibility(updatedProject.getVisibility());
         projectRepository.save(project);
     }
 

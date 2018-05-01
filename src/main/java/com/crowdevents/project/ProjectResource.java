@@ -25,7 +25,10 @@ public class ProjectResource {
     @JsonView(Views.Minimal.class)
     private String name;
 
+    @JsonProperty("short_description")
     @JsonView(Views.Minimal.class)
+    private String shortDescription;
+
     private String description;
 
     @JsonView(Views.Minimal.class)
@@ -91,6 +94,14 @@ public class ProjectResource {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public String getDescription() {

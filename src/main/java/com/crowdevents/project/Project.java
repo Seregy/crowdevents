@@ -41,16 +41,22 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 60)
     private String name;
 
+    @Column(name = "short_description",
+            nullable = false, length = 140)
+    private String shortDescription;
+
     @Lob
-    @Column(nullable = false)
     private String description;
 
     private Location location;
 
+    @Column(name = "start_date_time")
     private LocalDateTime startDateTime;
+
+    @Column(name = "end_date_time")
     private LocalDateTime endDateTime;
 
     @Columns(columns = { @Column(name = "funding_goal_currency"),
@@ -58,6 +64,7 @@ public class Project {
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
     private Money fundingGoal;
 
+    @Column(name = "image_link")
     private String projectImageLink;
 
     @Column(nullable = false)
@@ -103,13 +110,13 @@ public class Project {
      * Constructs new project.
      *
      * @param name name of the project
-     * @param description description
+     * @param shortDescription short description
      * @param fundingGoal funding goal of the project
      * @param owners owners of the project
      */
-    public Project(String name, String description, Money fundingGoal, Person... owners) {
+    public Project(String name, String shortDescription, Money fundingGoal, Person... owners) {
         this.name = name;
-        this.description = description;
+        this.shortDescription = shortDescription;
         this.fundingGoal = fundingGoal;
         for (Person owner : owners) {
             addOwner(owner);
@@ -142,6 +149,14 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public Location getLocation() {
