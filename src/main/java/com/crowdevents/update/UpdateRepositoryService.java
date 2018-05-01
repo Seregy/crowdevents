@@ -10,6 +10,8 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,6 +46,16 @@ public class UpdateRepositoryService implements UpdateService {
     @Override
     public Optional<Update> get(Long id) {
         return updateRepository.findById(id);
+    }
+
+    @Override
+    public Page<Update> getAll(Pageable pageable) {
+        return updateRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Update> getAllByProject(Long projectId, Pageable pageable) {
+        return updateRepository.findAllByProjectId(projectId, pageable);
     }
 
     @Override
