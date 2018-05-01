@@ -16,6 +16,8 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -109,6 +111,16 @@ public class NotificationRepositoryService implements NotificationService {
     @Override
     public Optional<BaseNotification> get(Long id) {
         return notificationRepository.findById(id);
+    }
+
+    @Override
+    public Page<BaseNotification> getAll(Pageable pageable) {
+        return notificationRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<BaseNotification> getAllByPerson(Long personId, Pageable pageable) {
+        return notificationRepository.findAllByReceiverId(personId, pageable);
     }
 
     @Override

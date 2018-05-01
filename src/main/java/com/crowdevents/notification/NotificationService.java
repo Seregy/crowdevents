@@ -1,7 +1,9 @@
 package com.crowdevents.notification;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 public interface NotificationService {
@@ -17,6 +19,10 @@ public interface NotificationService {
                                               Long projectId);
 
     Optional<BaseNotification> get(Long id);
+
+    Page<BaseNotification> getAll(Pageable pageable);
+
+    Page<BaseNotification> getAllByPerson(Long personId, Pageable pageable);
 
     boolean delete(Long id);
 
