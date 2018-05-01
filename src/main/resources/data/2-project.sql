@@ -1,200 +1,1804 @@
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (1, 'Bigtax', 'Proin risus. Praesent lectus.', -22.7733, -47.3047061, null, null, 'RUB', 9466.07);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (2, 'Wrapsafe', 'In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 46.3989378, 15.8176288, '2018-01-18T14:54:19Z', '2018-03-12T13:43:05Z', 'GBP', 9154.06);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (3, 'Solarbreeze', 'Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', 45.716147, -73.5471039, '2018-01-30T14:35:57Z', '2018-03-05T18:17:02Z', 'UAH', 1511.4);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (4, 'Zamit', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 59.5785947, 9.2442028, '2018-01-20T09:18:26Z', '2018-03-19T22:45:47Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (5, 'Alpha', 'Aliquam quis turpis eget elit sodales scelerisque.', 19.2244114, 100.3947116, '2018-02-14T00:02:50Z', '2018-03-15T21:19:08Z', 'BYN', 4428.09);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (6, 'Stim', 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', -6.6656231, 106.3438367, '2018-01-23T07:20:35Z', '2018-03-30T00:45:17Z', 'BYN', 1289.28);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (7, 'Stim', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.', 18.3637867, 103.651666, null, null, 'RUB', 7880.01);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (8, 'Bamity', 'Phasellus in felis. Donec semper sapien a libero.', null, null, '2018-01-28T17:03:21Z', '2018-03-03T13:58:31Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (9, 'Zamit', 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', null, null, '2018-01-25T15:00:16Z', '2018-03-29T05:13:22Z', 'UAH', 2350.2);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (10, 'Solarbreeze', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', null, null, '2018-02-04T02:05:38Z', '2018-03-16T21:00:08Z', 'UAH', 847.08);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (11, 'Alphazap', 'Nunc purus. Phasellus in felis. Donec semper sapien a libero.', 54.9082369, 23.879755, '2018-01-20T17:55:42Z', '2018-03-28T06:15:56Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (12, 'Pannier', 'Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.', -2.9997434, 104.8162784, '2018-02-08T22:24:03Z', '2018-03-15T17:29:14Z', 'RUB', 8720.56);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (13, 'Keylex', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', null, null, '2018-01-13T00:13:14Z', '2018-03-27T08:35:44Z', 'UAH', 7987.54);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (14, 'Duobam', 'Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero.', 28.423436, 109.006211, '2018-01-15T23:27:23Z', '2018-03-04T03:49:08Z', 'RUB', 4618.15);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (15, 'Fix San', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', 53.0155306, 21.3375451, '2018-02-17T11:37:41Z', '2018-03-17T16:16:46Z', 'UAH', 3150.6);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (16, 'Hatity', 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', null, null, null, null, 'USD', 7780.69);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (17, 'Toughjoyfax', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', 26.608357, 118.481377, null, null, 'USD', 2944.75);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (18, 'Otcom', 'Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.', null, null, '2018-02-19T17:11:38Z', '2018-03-16T21:27:32Z', 'GBP', 7501.05);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (19, 'Zaam-Dox', 'Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.', 37.32273, 109.155152, null, null, 'GBP', 7923.14);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (20, 'Solarbreeze', 'Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', null, null, '2018-01-21T01:50:00Z', '2018-03-30T07:24:20Z', 'RUB', 240.7);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (21, 'Fix San', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.', 38.8973837, -77.0395416, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (22, 'Latlux', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 35.6131551, -97.6385368, '2018-01-13T03:06:34Z', '2018-03-15T20:14:35Z', 'RUB', 291.87);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (23, 'Mat Lam Tam', 'Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.', null, null, null, null, 'UAH', 9737.45);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (24, 'Greenlam', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', -13.77085, -73.536636, null, null, 'RUB', 2647.35);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (25, 'Voltsillam', 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 60.1518638, 59.9684485, '2018-01-07T14:25:21Z', '2018-03-30T10:52:10Z', 'EUR', 300.52);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (26, 'Home Ing', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.', 6.2958736, 101.7296049, '2018-01-13T07:35:48Z', '2018-03-24T03:22:10Z', 'BYN', 3430.73);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (27, 'Fix San', 'Integer a nibh. In quis justo.', 23.156538, 102.746704, null, null, 'UAH', 4050.67);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (28, 'Bitwolf', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', null, null, '2018-01-01T09:23:37Z', '2018-03-27T16:48:25Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (29, 'Bitchip', 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.', 26.7957017, 86.2970998, null, null, 'RUB', 1499.24);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (30, 'Daltfresh', 'Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.', 31.7776563, 35.2324593, '2018-02-21T20:53:35Z', '2018-03-27T20:02:14Z', 'RUB', 5500.43);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (31, 'Prodder', 'Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', null, null, null, null, 'EUR', 330.18);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (32, 'Stringtough', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.', 14.5042717, 120.9923141, '2018-01-28T05:21:37Z', '2018-03-23T21:41:08Z', 'RUB', 2301.73);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (33, 'Fintone', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.', null, null, null, null, 'UAH', 8722.44);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (34, 'Zamit', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', null, null, '2018-02-09T04:09:53Z', '2018-03-22T14:21:34Z', 'EUR', 7348.72);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (35, 'Duobam', 'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', null, null, '2018-01-11T09:19:47Z', '2018-03-20T04:11:31Z', 'BYN', 6344.16);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (36, 'Fixflex', 'Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.', -24.6, 26.43, '2018-02-05T15:41:07Z', '2018-03-07T02:11:26Z', 'GBP', 8656.98);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (37, 'Bigtax', 'Pellentesque ultrices mattis odio.', 9.899259, -84.0624815, '2018-01-01T04:13:15Z', '2018-03-04T22:14:55Z', 'USD', 5977.78);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (38, 'Keylex', 'Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.', null, null, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (39, 'Viva', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', 24.479833, 118.089425, '2018-01-13T21:42:58Z', '2018-03-04T11:43:11Z', 'UAH', 5061.34);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (40, 'Voltsillam', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.', 50.9093945, 7.0486698, null, null, 'GBP', 5361.61);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (41, 'Daltfresh', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.', -5.667322, 119.648399, '2018-02-09T05:34:52Z', '2018-03-30T13:15:48Z', 'BYN', 7920.98);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (42, 'Regrant', 'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', 52.5713649, 39.5247021, '2018-02-20T19:40:05Z', '2018-03-23T13:05:32Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (43, 'Hatity', 'Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', -8.128563, 112.6943559, '2018-01-01T20:57:18Z', '2018-03-20T20:44:41Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (44, 'Mat Lam Tam', 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 50.3171905, 2.801236, '2018-02-08T17:00:43Z', '2018-03-31T23:53:53Z', 'USD', 6196.89);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (45, 'Greenlam', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', 53.916791, -6.9711886, '2018-01-02T02:12:01Z', '2018-03-05T14:57:04Z', 'RUB', 5214.71);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (46, 'Otcom', 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.', 33.8918998, 35.5630426, '2018-02-22T18:42:54Z', '2018-03-11T06:27:27Z', 'EUR', 1529.41);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (47, 'Home Ing', 'Nunc purus. Phasellus in felis. Donec semper sapien a libero.', -39.0482569, 174.2418241, '2018-01-26T00:29:42Z', '2018-03-29T00:12:26Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (48, 'Matsoft', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.', null, null, null, null, 'RUB', 4423.66);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (49, 'Redhold', 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 23.759956, 116.157387, '2018-02-13T12:33:31Z', '2018-03-18T17:27:42Z', 'USD', 9019.38);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (50, 'Home Ing', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', -7.0250344, 113.5758261, '2018-01-18T16:19:25Z', '2018-03-05T17:17:10Z', 'BYN', 3752.27);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (51, 'Zamit', 'Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', 28.168791, 113.641688, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (52, 'It', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.', 7.1797684, 2.0714223, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (53, 'Cardguard', 'Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.', -1.955673, 121.119499, '2018-02-02T23:51:57Z', '2018-03-14T18:33:25Z', 'RUB', 4857.28);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (54, 'Tempsoft', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.', null, null, '2018-01-07T22:21:29Z', '2018-03-05T12:28:33Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (55, 'Hatity', 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.', 6.83249, 124.454363, '2018-01-15T22:42:23Z', '2018-03-11T18:11:23Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (56, 'Kanlam', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', 3.991663, -73.766129, '2018-01-31T06:13:48Z', '2018-03-19T19:24:32Z', 'GBP', 9056.87);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (57, 'Namfix', 'Sed ante. Vivamus tortor.', 24.467141, 115.77735, null, null, 'BYN', 8058.77);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (58, 'Konklux', 'Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', 11.8566874, 38.015522, null, null, 'RUB', 8458.71);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (59, 'Voyatouch', 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.', 41.2610181, -8.5728738, null, null, 'EUR', 939.1);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (60, 'Regrant', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.', 30.164169, 118.271111, '2018-01-02T03:51:22Z', '2018-03-06T20:11:40Z', 'UAH', 1182.97);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (61, 'Tres-Zap', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 14.9806953, 120.5779616, null, null, 'UAH', 4400.89);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (62, 'Flexidy', 'Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.', 44.4713171, 38.4021735, '2018-02-10T17:11:05Z', '2018-03-06T13:34:18Z', 'USD', 7209.8);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (63, 'Job', 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.', -6.764566, 108.4496053, '2018-01-20T00:54:52Z', '2018-03-12T17:05:48Z', 'GBP', 620.26);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (64, 'Overhold', 'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', 59.943312, 30.3512378, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (65, 'Zathin', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.', null, null, '2018-01-31T06:05:42Z', '2018-03-10T04:53:16Z', 'EUR', 1565.53);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (66, 'Duobam', 'Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.', 36.87468, 106.451871, '2018-01-29T22:53:42Z', '2018-03-16T05:48:10Z', 'USD', 7803.22);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (67, 'Sonsing', 'Quisque porta volutpat erat.', null, null, null, null, 'EUR', 8646.43);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (68, 'Tempsoft', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.', -8.0246687, 112.5066293, null, null, 'UAH', 9449.72);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (69, 'Home Ing', 'Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.', null, null, '2018-02-20T09:33:30Z', '2018-03-27T17:58:20Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (70, 'Bamity', 'In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.', 39.3438828, -8.0659871, '2018-01-19T04:15:43Z', '2018-03-09T23:37:16Z', 'RUB', 5837.2);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (71, 'Zoolab', 'Nulla facilisi.', 17.4561766, 50.580869, '2018-01-06T09:17:28Z', '2018-03-27T05:09:42Z', 'UAH', 1553.88);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (72, 'Sub-Ex', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', 39.827432, -8.8763264, '2018-02-14T11:26:42Z', '2018-03-25T10:32:22Z', 'BYN', 9510.52);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (73, 'Job', 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 39.7012988, -8.784267, '2018-01-22T13:10:57Z', '2018-03-06T00:30:13Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (74, 'Stringtough', 'Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 8.0011905, -67.3950339, '2018-01-26T16:55:40Z', '2018-03-26T05:58:55Z', 'USD', 9602.37);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (75, 'Alphazap', 'Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', 56.8521006, 14.8183366, null, null, 'EUR', 2323.13);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (76, 'Sonsing', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 55.2763668, 61.9012109, '2018-01-13T09:21:00Z', '2018-03-22T10:25:19Z', 'USD', 9200.7);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (77, 'Tempsoft', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis.', null, null, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (78, 'Zoolab', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 57.7189182, 13.0953584, '2018-01-13T18:51:29Z', '2018-03-11T21:57:46Z', 'RUB', 2025.23);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (79, 'Quo Lux', 'Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.', 34.9690901, 63.1443045, '2018-02-08T04:55:29Z', '2018-03-19T14:08:21Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (80, 'Ventosanzap', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.', null, null, '2018-01-06T00:45:42Z', '2018-03-14T08:42:16Z', 'RUB', 8270.56);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (81, 'Zoolab', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', null, null, '2018-02-07T15:08:25Z', '2018-03-26T02:48:18Z', 'UAH', 4036.29);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (82, 'Voltsillam', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.', null, null, '2018-01-24T18:52:12Z', '2018-03-17T09:45:55Z', 'UAH', 9579.01);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (83, 'Zathin', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', null, null, '2018-01-01T22:03:08Z', '2018-03-10T05:52:21Z', 'RUB', 5403.16);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (84, 'Zaam-Dox', 'Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', 33.8597337, 134.6589917, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (85, 'Redhold', 'Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.', 25.549887, 113.68437, null, null, 'EUR', 7255.54);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (86, 'Home Ing', 'Integer a nibh.', null, null, '2018-02-05T01:46:22Z', '2018-03-14T23:30:00Z', 'UAH', 4180.51);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (87, 'Bytecard', 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', 23.134117, 106.417805, '2018-01-03T01:45:23Z', '2018-03-23T06:03:25Z', 'USD', 8651.67);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (88, 'Keylex', 'Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', null, null, null, null, 'BYN', 8449.9);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (89, 'Bamity', 'In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.', null, null, '2018-01-27T16:42:15Z', '2018-03-29T11:11:26Z', 'USD', 3182.48);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (90, 'Tampflex', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.', 46.023082, 124.734722, '2018-02-03T16:34:24Z', '2018-03-25T21:10:59Z', 'UAH', 9108.4);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (91, 'Konklab', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis.', -3.3186067, 114.5943784, null, null, 'EUR', 2770.72);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (92, 'Voyatouch', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', null, null, '2018-02-15T01:47:52Z', '2018-03-17T20:33:46Z', 'USD', 8241.06);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (93, 'Temp', 'Aenean fermentum.', null, null, null, null, 'RUB', 8777.9);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (94, 'Job', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', 51.7717109, 15.921227, '2018-02-02T04:15:08Z', '2018-03-23T01:54:34Z', 'BYN', 9372.03);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (95, 'Asoka', 'Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.', 46.0531262, 13.613736, '2018-02-14T00:53:49Z', '2018-03-22T08:05:18Z', 'EUR', 199.82);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (96, 'Sonsing', 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', null, null, '2018-01-02T02:31:08Z', '2018-03-03T06:32:55Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (97, 'Cardguard', 'Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.', 27.867118, 116.18757, '2018-02-25T11:56:21Z', '2018-03-05T02:52:26Z', 'UAH', 6595.37);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (98, 'Bamity', 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', 33.6669335, 113.1115294, null, null, 'UAH', 9667.71);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (99, 'Span', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', null, null, '2018-02-28T20:04:01Z', '2018-03-30T20:54:18Z', 'EUR', 811.59);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (100, 'Vagram', 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 27.8264989, 91.135302, '2018-02-04T11:59:43Z', '2018-03-03T23:05:34Z', 'BYN', 1744.33);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (101, 'Kanlam', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.', 13.559532, 123.2715608, '2018-02-06T01:19:08Z', '2018-03-27T10:33:25Z', 'RUB', 4363.94);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (102, 'Sub-Ex', 'Fusce consequat. Nulla nisl. Nunc nisl.', -7.6155556, 112.6211111, null, null, 'BYN', 9997.5);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (103, 'Transcof', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.', 0.9024684, 120.6545022, '2018-02-01T08:10:18Z', '2018-03-21T08:23:03Z', 'USD', 9655.82);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (104, 'Cardify', 'Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 48.3238703, 38.5208692, '2018-02-22T05:23:28Z', '2018-03-02T14:54:42Z', 'UAH', 9727.08);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (105, 'Holdlamis', 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst.', null, null, null, null, 'RUB', 4251.56);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (106, 'Lotstring', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', null, null, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (107, 'Asoka', 'Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.', 42.65, -73.76, null, null, 'RUB', 9049.18);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (108, 'Biodex', 'Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend.', -22.1755019, -46.805914, null, null, 'BYN', 1467.77);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (109, 'Stim', 'Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', 30.318685, 119.725587, '2018-01-03T19:24:54Z', '2018-03-05T11:53:10Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (110, 'Subin', 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', 50.5339443, 16.0497864, '2018-02-10T03:56:22Z', '2018-03-29T04:45:32Z', 'EUR', 6958.68);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (111, 'Y-find', 'Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 28.00872, -15.3980224, '2018-01-08T20:00:48Z', '2018-03-26T02:54:34Z', 'GBP', 5634.51);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (112, 'Voyatouch', 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.', 52.1682974, 17.8955629, null, null, 'USD', 2143.63);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (113, 'Bigtax', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', '-9.9104', '120.4871', null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (114, 'Temp', 'Duis ac nibh.', 45.2235244, 20.0319685, '2018-02-25T05:03:13Z', '2018-03-11T14:56:23Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (115, 'Greenlam', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.', 34.7671945, -82.3777335, '2018-01-22T02:59:48Z', '2018-03-26T07:10:47Z', 'BYN', 9605.83);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (116, 'Gembucket', 'Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', 19.5037694, -99.1324282, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (117, 'Zontrax', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.', 53.2833165, 24.4054988, '2018-02-11T16:05:23Z', '2018-03-27T01:42:21Z', 'EUR', 7408.4);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (118, 'Kanlam', 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.', 55.1192905, 61.6026474, '2018-01-04T16:30:43Z', '2018-03-18T13:45:33Z', 'GBP', 6880.14);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (119, 'Tempsoft', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.', 63.827461, 20.2599325, '2018-01-16T16:54:03Z', '2018-03-22T13:20:18Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (120, 'Namfix', 'Duis bibendum.', null, null, '2018-02-21T16:34:20Z', '2018-03-11T12:18:08Z', 'UAH', 5237.75);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (121, 'Ronstring', 'Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', null, null, '2018-01-06T19:36:22Z', '2018-03-09T13:28:47Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (122, 'Lotstring', 'Aliquam erat volutpat. In congue. Etiam justo.', 58.7462917, 26.3972118, '2018-02-18T14:05:19Z', '2018-03-26T11:17:04Z', 'RUB', 8082.76);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (123, 'Flowdesk', 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', -7.0058265, 107.6306684, '2018-02-16T12:59:19Z', '2018-03-18T21:47:07Z', 'RUB', 8067.7);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (124, 'Toughjoyfax', 'Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 16.6020807, 100.6534443, '2018-01-01T15:58:29Z', '2018-03-18T02:22:39Z', 'BYN', 1158.94);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (125, 'Bamity', 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', null, null, '2018-01-06T14:30:46Z', '2018-03-18T13:26:56Z', 'BYN', 3059.82);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (126, 'Y-Solowarm', 'Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', null, null, '2018-01-30T03:28:43Z', '2018-03-04T19:29:40Z', 'GBP', 3890.95);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (127, 'Bytecard', 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.', null, null, '2018-02-27T07:34:54Z', '2018-03-07T21:31:26Z', 'EUR', 5684.28);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (128, 'Fixflex', 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', 46.614036, 0.0494681, null, null, 'EUR', 9687.53);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (129, 'Trippledex', 'In hac habitasse platea dictumst.', 39.0927696, -9.0571089, '2018-02-08T18:45:45Z', '2018-03-08T08:40:59Z', 'BYN', 5687.46);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (130, 'Alpha', 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 30.833435, 111.073494, null, null, 'UAH', 9079.59);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (131, 'Zamit', 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', null, null, '2018-01-01T20:42:47Z', '2018-03-17T07:53:13Z', 'GBP', 8176.64);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (132, 'Bigtax', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.', 54.732298, 39.507098, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (133, 'Sonair', 'Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', null, null, null, null, 'EUR', 527.39);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (134, 'Cookley', 'Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', null, null, '2018-02-25T12:27:11Z', '2018-03-07T11:55:11Z', 'USD', 3577.33);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (135, 'Cardguard', 'Nulla mollis molestie lorem. Quisque ut erat.', 9.9298167, -73.9590333, '2018-02-24T14:00:17Z', '2018-03-20T07:58:25Z', 'USD', 4486.42);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (136, 'Ronstring', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', 53.1517598, 49.8698614, null, null, 'BYN', 5503.35);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (137, 'Biodex', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.', 51.5742615, 5.0840393, '2018-01-24T12:34:48Z', '2018-03-28T10:02:02Z', 'RUB', 9321.95);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (138, 'Matsoft', 'Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', null, null, '2018-02-10T06:02:30Z', '2018-03-04T10:16:45Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (139, 'Keylex', 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.', 56.0394628, 12.7110264, '2018-01-27T03:29:13Z', '2018-03-18T15:08:08Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (140, 'Home Ing', 'Nullam porttitor lacus at turpis.', 30.829314, 118.124765, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (141, 'Vagram', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', null, null, '2018-01-18T21:22:11Z', '2018-03-02T02:55:49Z', 'BYN', 8640.16);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (142, 'Bitchip', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', null, null, '2018-01-03T07:16:49Z', '2018-03-13T10:01:47Z', 'GBP', 7501.82);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (143, 'Latlux', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.', null, null, '2018-02-02T14:22:53Z', '2018-03-13T17:58:38Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (144, 'Lotlux', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.', 53.1511461, 27.0908004, null, null, 'RUB', 6297.96);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (145, 'Alpha', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', '18.31173', '-71.16145', '2018-01-15T00:45:44Z', '2018-03-28T15:27:40Z', 'USD', 9393.91);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (146, 'Biodex', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', null, null, null, null, 'UAH', 482.06);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (147, 'Tresom', 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', -28.8999222, 27.8750976, '2018-02-08T05:25:52Z', '2018-03-17T19:56:49Z', 'RUB', 1155.17);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (148, 'Gembucket', 'Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.', 39.9041999, 116.4073963, null, null, 'GBP', 6620.86);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (149, 'Domainer', 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', -13.5362103, -39.940155, '2018-01-01T10:34:35Z', '2018-03-29T19:55:43Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (150, 'Stronghold', 'Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', null, null, '2018-01-24T22:54:33Z', '2018-03-22T20:36:37Z', 'EUR', 2880.36);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (151, 'Quo Lux', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.', 41.802914, 123.3763, '2018-02-04T07:14:01Z', '2018-03-09T12:40:41Z', 'EUR', 6780.42);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (152, 'Tresom', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.', null, null, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (153, 'Trippledex', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.', '43.34041', '44.01868', null, null, 'BYN', 1701.91);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (154, 'Cardify', 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.', -9.1598599, -76.799288, null, null, 'RUB', 6142.13);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (155, 'Zoolab', 'Aenean fermentum.', '31.49737', '35.11362', '2018-02-28T05:40:31Z', '2018-03-25T22:13:07Z', 'GBP', 6492.07);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (156, 'Treeflex', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.', 38.9025835, -9.040848, '2018-02-19T12:06:56Z', '2018-03-12T04:20:52Z', 'USD', 1557.83);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (157, 'Aerified', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.', null, null, '2018-02-04T07:55:31Z', '2018-03-03T11:28:41Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (158, 'Toughjoyfax', 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.', 51.5646744, 31.7847761, '2018-01-16T23:33:04Z', '2018-03-27T06:25:35Z', 'UAH', 2135.22);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (159, 'Overhold', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', null, null, '2018-02-23T12:12:38Z', '2018-03-29T23:50:17Z', 'BYN', 3801.33);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (160, 'Bitwolf', 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.', 41.8984166, 20.905252, '2018-02-05T01:01:05Z', '2018-03-21T07:01:50Z', 'USD', 5481.31);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (161, 'Cardguard', 'Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 14.4249369, 121.4488182, null, null, 'USD', 6808.17);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (162, 'Bigtax', 'Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.', 24.663055, 118.41315, '2018-01-21T06:45:40Z', '2018-03-02T15:21:12Z', 'USD', 5382.69);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (163, 'Mat Lam Tam', 'Maecenas pulvinar lobortis est.', null, null, '2018-02-28T07:35:18Z', '2018-03-19T01:05:36Z', 'RUB', 3586.99);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (164, 'Y-Solowarm', 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 61.15, -149.9199999, '2018-01-26T16:26:21Z', '2018-03-20T13:41:42Z', 'GBP', 2003.52);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (165, 'Ventosanzap', 'Ut at dolor quis odio consequat varius. Integer ac leo.', 43.8006906, 5.8147664, '2018-01-10T14:26:46Z', '2018-03-13T18:12:27Z', 'EUR', 9486.88);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (166, 'Matsoft', 'Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.', 31.3265959, 105.7904148, '2018-01-07T01:51:44Z', '2018-03-11T09:28:47Z', 'EUR', 3774.3);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (167, 'Subin', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum.', null, null, null, null, 'BYN', 8499.79);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (168, 'Zathin', 'Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', 19.6031486, -99.0550357, '2018-01-28T00:54:03Z', '2018-03-15T23:12:24Z', 'UAH', 3003.18);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (169, 'Y-Solowarm', 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.', 51.7976037, 19.4547287, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (170, 'Greenlam', 'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.', 21.857958, 111.982232, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (171, 'Gembucket', 'Sed accumsan felis.', 29.099294, 119.692696, '2018-01-30T09:53:36Z', '2018-03-24T18:21:08Z', 'USD', 3608.95);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (172, 'Sub-Ex', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', null, null, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (173, 'Vagram', 'Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 22.775792, 108.317902, '2018-01-12T23:26:59Z', '2018-03-13T07:46:15Z', 'UAH', 9223.12);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (174, 'Ventosanzap', 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 57.8857887, 12.3260421, '2018-01-15T15:55:20Z', '2018-03-05T07:39:35Z', 'RUB', 2292.3);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (175, 'Transcof', 'Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', 39.266576, 77.597552, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (176, 'Lotlux', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum.', null, null, null, null, 'EUR', 5228.36);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (177, 'Mat Lam Tam', 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.', 33.8305244, -4.8353154, '2018-01-19T06:20:19Z', '2018-03-18T07:54:28Z', 'UAH', 7539.26);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (178, 'Toughjoyfax', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.', 34.683646, 112.469023, '2018-01-25T01:51:46Z', '2018-03-23T01:32:26Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (179, 'Daltfresh', 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', -3.6483486, 119.5571677, '2018-01-19T13:38:34Z', '2018-03-11T01:14:06Z', 'BYN', 5107.32);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (180, 'Cookley', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.', -7.0549395, 107.6451458, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (181, 'Gembucket', 'Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', 46.5993244, -1.1457859, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (182, 'Ventosanzap', 'Integer ac leo. Pellentesque ultrices mattis odio.', 20.8965838, -105.4093552, '2018-01-31T20:32:11Z', '2018-03-31T03:24:53Z', 'GBP', 1947.36);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (183, 'Biodex', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', 51.6205979, 17.8047355, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (184, 'Greenlam', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', null, null, '2018-02-04T09:25:28Z', '2018-03-12T22:11:44Z', 'BYN', 9240.61);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (185, 'Flowdesk', 'Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.', 28.271297, 87.128131, '2018-01-29T21:45:26Z', '2018-03-07T02:04:24Z', 'GBP', 8617.05);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (186, 'Alphazap', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', null, null, null, null, 'RUB', 2501.14);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (187, 'Cookley', 'Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.', -7.4178714, 108.6917922, '2018-01-02T06:34:47Z', '2018-03-29T03:18:42Z', 'GBP', 2248.82);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (188, 'Bitchip', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 48.1862896, 99.856925, '2018-01-20T05:30:00Z', '2018-03-22T10:54:55Z', 'USD', 6441.39);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (189, 'Tres-Zap', 'Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', -7.3162208, 140.4308159, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (190, 'Trippledex', 'Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', null, null, null, null, 'RUB', 2584.62);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (191, 'Wrapsafe', 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.', 2.399572, -78.189712, '2018-02-01T07:29:35Z', '2018-03-07T22:01:04Z', 'UAH', 9007.54);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (192, 'Flexidy', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.', null, null, '2018-02-08T19:17:46Z', '2018-03-19T11:57:58Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (193, 'Flowdesk', 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.', -7.3582578, 109.540241, '2018-02-04T09:05:31Z', '2018-03-21T13:55:13Z', null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (194, 'Cardguard', 'Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', 50.4217341, 2.8830762, '2018-01-21T19:32:18Z', '2018-03-19T18:05:57Z', 'GBP', 8981.62);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (195, 'Kanlam', 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.', 55.9496102, 38.0865214, '2018-01-25T23:00:33Z', '2018-03-27T02:33:07Z', 'RUB', 8343.7);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (196, 'Opela', 'Aliquam sit amet diam in magna bibendum imperdiet.', 61.1035855, 23.179484, '2018-01-15T09:31:59Z', '2018-03-22T13:22:09Z', 'USD', 3076.89);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (197, 'Zoolab', 'In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.', 78.221061, 15.6469321, '2018-01-10T01:48:59Z', '2018-03-05T15:56:57Z', 'RUB', 8952.12);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (198, 'Zaam-Dox', 'In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', 45.8068679, 15.8104824, null, null, null, null);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (199, 'Hatity', 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 33.7443314, 36.7011138, '2018-02-27T15:56:20Z', '2018-03-23T05:57:36Z', 'UAH', 9798.65);
-insert into PROJECT (id, name, description, location_latitude, location_longitude, startDateTime, endDateTime, funding_goal_currency, funding_goal_amount) values (200, 'Bitchip', 'Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.', null, null, null, null, 'UAH', 9709.11);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (1, 'Domainer', 'eu massa donec dapibus duis at velit eu est congue elementum in', 'ACTIVE', 'LINK_ONLY', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 16.1344075, 102.2090224, '2018-05-24T11:48:55Z', '2018-07-25T23:17:47Z', 'THB', 1845.0, 'https://picsum.photos/1024/576/?image=293');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (2, 'Gembucket', 'id massa id nisl venenatis lacinia aenean sit amet justo morbi ut', 'ACTIVE', 'LINK_ONLY', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 54.3777115, 81.9305699, '2018-04-01T11:42:48Z', '2018-06-02T10:00:51Z', 'RUB', 2787.3, 'https://picsum.photos/1024/576/?image=407');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (3, 'Tres-Zap', 'nulla integer pede justo lacinia eget tincidunt eget tempus vel', 'ACTIVE', 'PUBLIC', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 41.1298235, -8.2201345, '2018-05-22T01:32:56Z', '2018-07-20T21:54:29Z', 'EUR', 1975.0, 'https://picsum.photos/1024/576/?image=124');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (4, 'Bitwolf', 'pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel', 'IN_CREATION', 'PRIVATE', null, null, null, null, '2018-06-09T16:49:11Z', 'CNY', 5995.7, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (5, 'Cookley', 'in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla', 'ACTIVE', 'PUBLIC', 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.', 8.955271, 126.009711, '2018-05-23T18:53:20Z', '2018-07-22T10:54:25Z', 'PHP', 793.0, 'https://picsum.photos/1024/576/?image=127');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (6, 'Temp', 'risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc', 'ACTIVE', 'LINK_ONLY', 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', -2.0978271, 113.7989815, '2018-04-16T23:28:36Z', '2018-06-24T21:23:56Z', 'IDR', 6743.7, 'https://picsum.photos/1024/576/?image=288');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (7, 'Namfix', 'risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl', 'IN_CREATION', 'LINK_ONLY', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.', null, null, '2018-04-23T07:19:27Z', null, 'PHP', 5393.8, 'https://picsum.photos/1024/576/?image=358');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (8, 'Mat Lam Tam', 'eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec', 'ACTIVE', 'PUBLIC', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', -21.6110027, -55.168269, '2018-04-08T09:21:53Z', '2018-06-29T20:22:35Z', 'BRL', 1845.1, 'https://picsum.photos/1024/576/?image=326');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (9, 'Home Ing', 'posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat', 'IN_CREATION', 'LINK_ONLY', null, 40.852747, 44.2741475, '2018-04-26T04:28:13Z', null, null, null, 'https://picsum.photos/1024/576/?image=197');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (10, 'Hatity', 'rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede', 'ACTIVE', 'PUBLIC', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 37.2374847, -121.8277925, '2018-05-14T23:53:51Z', '2018-07-11T01:26:02Z', 'USD', 4760.3, 'https://picsum.photos/1024/576/?image=141');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (11, 'Tres-Zap', 'dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'ACTIVE', 'PUBLIC', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 14.4068464, 103.1048449, '2018-04-15T05:21:26Z', '2018-06-09T16:34:18Z', 'THB', 2591.5, 'https://picsum.photos/1024/576/?image=131');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (12, 'Biodex', 'laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis', 'IN_CREATION', 'LINK_ONLY', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', null, null, null, '2018-06-01T12:07:22Z', 'CNY', 5773.4, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (13, 'Sonair', 'habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat', 'ACTIVE', 'LINK_ONLY', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', 43.372464, 128.2323169, '2018-04-14T19:59:10Z', '2018-07-22T12:00:00Z', 'CNY', 8118.5, 'https://picsum.photos/1024/576/?image=51');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (14, 'Voltsillam', 'est donec odio justo sollicitudin ut suscipit a feugiat et eros', 'ACTIVE', 'PUBLIC', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 41.274605, -8.0974429, '2018-04-01T01:59:31Z', '2018-07-05T02:02:42Z', 'EUR', 3746.8, 'https://picsum.photos/1024/576/?image=402');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (15, 'Lotlux', 'vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante', 'ACTIVE', 'LINK_ONLY', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '51.84861', '41.46056', '2018-04-03T09:09:42Z', '2018-06-01T19:31:13Z', 'RUB', 3724.7, 'https://picsum.photos/1024/576/?image=207');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (16, 'Kanlam', 'tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis', 'ACTIVE', 'PUBLIC', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 14.9649534, 102.6298251, '2018-05-12T03:04:26Z', '2018-07-14T04:01:22Z', 'THB', 9339.3, 'https://picsum.photos/1024/576/?image=379');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (17, 'Domainer', 'velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum', 'ACTIVE', 'LINK_ONLY', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 14.6688068, 121.1138058, '2018-05-28T06:51:09Z', '2018-06-22T03:24:02Z', 'PHP', 3503.5, 'https://picsum.photos/1024/576/?image=390');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (18, 'Span', 'libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim', 'IN_CREATION', 'LINK_ONLY', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 34.454443, 113.050581, null, null, null, null, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (19, 'Y-Solowarm', 'est congue elementum in hac habitasse platea dictumst morbi vestibulum', 'ACTIVE', 'PUBLIC', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 47.1860699, 33.7785346, '2018-04-12T11:02:09Z', '2018-07-17T02:31:09Z', 'UAH', 4819.8, 'https://picsum.photos/1024/576/?image=361');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (20, 'Zoolab', 'semper rutrum nulla nunc purus phasellus in felis donec semper', 'ACTIVE', 'PUBLIC', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 31.114301, 121.574951, '2018-04-21T19:45:41Z', '2018-07-12T06:59:39Z', 'CNY', 7522.4, 'https://picsum.photos/1024/576/?image=98');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (21, 'Stim', 'vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 'ACTIVE', 'PUBLIC', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.', 45.4372062, 13.5257205, '2018-05-27T10:56:29Z', '2018-06-18T16:17:04Z', 'HRK', 4776.8, 'https://picsum.photos/1024/576/?image=168');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (22, 'Cardify', 'potenti cras in purus eu magna vulputate luctus cum sociis natoque', 'ACTIVE', 'LINK_ONLY', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 25.0645253, 91.7228043, '2018-04-13T23:24:50Z', '2018-06-26T17:41:11Z', 'BDT', 9111.4, 'https://picsum.photos/1024/576/?image=358');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (23, 'Voltsillam', 'vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien', 'ACTIVE', 'PUBLIC', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 29.837883, 120.353629, '2018-05-30T12:00:43Z', '2018-06-05T15:38:41Z', 'CNY', 7514.3, 'https://picsum.photos/1024/576/?image=59');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (24, 'Namfix', 'ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor', 'IN_CREATION', 'LINK_ONLY', null, -31.4505323, -64.1847851, null, null, null, null, 'https://picsum.photos/1024/576/?image=467');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (25, 'Bigtax', 'eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat', 'ACTIVE', 'PUBLIC', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', '-7.204', '108.5127', '2018-05-19T00:43:19Z', '2018-06-28T02:05:35Z', 'IDR', 548.3, 'https://picsum.photos/1024/576/?image=91');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (26, 'Sonsing', 'morbi a ipsum integer a nibh in quis justo maecenas', 'IN_CREATION', 'PRIVATE', null, 44.0643415, 1.1011089, '2018-04-10T23:45:49Z', '2018-07-11T11:19:04Z', null, null, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (27, 'Tampflex', 'lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc', 'ACTIVE', 'PUBLIC', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 38.0780931, 139.9986263, '2018-04-22T13:38:56Z', '2018-07-09T06:49:26Z', 'JPY', 1025.5, 'https://picsum.photos/1024/576/?image=239');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (28, 'Stim', 'duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla', 'ACTIVE', 'PUBLIC', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', 18.6642304, 105.7556564, '2018-04-29T21:48:24Z', '2018-06-22T22:58:43Z', 'VND', 2617.2, 'https://picsum.photos/1024/576/?image=120');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (29, 'Home Ing', 'mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue', 'ACTIVE', 'LINK_ONLY', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', '-9.7219', '119.2998', '2018-04-06T22:11:40Z', '2018-06-01T13:07:32Z', 'IDR', 2254.1, 'https://picsum.photos/1024/576/?image=265');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (30, 'Konklux', 'et tempus semper est quam pharetra magna ac consequat metus', 'ACTIVE', 'PUBLIC', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 0.5185303, 25.2007728, '2018-04-03T01:41:47Z', '2018-06-09T17:21:37Z', 'CDF', 7272.9, 'https://picsum.photos/1024/576/?image=20');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (31, 'Bitchip', 'amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis', 'ACTIVE', 'PUBLIC', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', '50.35008', '-113.76866', '2018-05-23T00:22:42Z', '2018-07-05T07:30:18Z', 'CAD', 5832.5, 'https://picsum.photos/1024/576/?image=476');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (32, 'Y-find', 'tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris', 'ACTIVE', 'LINK_ONLY', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 56.0913813, 12.9029659, '2018-05-01T13:34:38Z', '2018-06-10T01:22:01Z', 'SEK', 8379.2, 'https://picsum.photos/1024/576/?image=322');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (33, 'Konklab', 'sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et', 'ACTIVE', 'PUBLIC', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 13.7823265, 122.9052261, '2018-05-08T11:05:53Z', '2018-07-20T07:20:20Z', 'PHP', 7256.6, 'https://picsum.photos/1024/576/?image=99');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (34, 'Voltsillam', 'quis orci eget orci vehicula condimentum curabitur in libero ut massa', 'ACTIVE', 'PUBLIC', 'Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', -1.4577245, 36.9785033, '2018-04-01T22:11:27Z', '2018-07-01T06:02:25Z', 'KES', 504.7, 'https://picsum.photos/1024/576/?image=212');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (35, 'Zoolab', 'erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus', 'ACTIVE', 'LINK_ONLY', 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', -23.534948, -46.7737972, '2018-04-21T03:28:09Z', '2018-06-12T06:53:11Z', 'BRL', 7539.6, 'https://picsum.photos/1024/576/?image=255');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (36, 'Sonair', 'nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse', 'ACTIVE', 'PUBLIC', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 33.5760112, 130.6627355, '2018-04-08T23:59:30Z', '2018-06-11T08:20:10Z', 'JPY', 6261.5, 'https://picsum.photos/1024/576/?image=165');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (37, 'Holdlamis', 'amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis', 'ACTIVE', 'PUBLIC', 'In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', 32.838202, 35.079523, '2018-05-06T08:55:39Z', '2018-07-05T19:19:30Z', 'ILS', 3248.1, 'https://picsum.photos/1024/576/?image=312');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (38, 'Latlux', 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla', 'ACTIVE', 'PUBLIC', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', 41.3234558, -74.8058417, '2018-05-19T18:19:19Z', '2018-06-09T09:12:03Z', 'CNY', 2769.8, 'https://picsum.photos/1024/576/?image=268');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (39, 'Alphazap', 'lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut', 'IN_CREATION', 'LINK_ONLY', 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', null, null, null, null, 'IDR', 1029.2, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (40, 'Keylex', 'eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus', 'IN_CREATION', 'LINK_ONLY', null, null, null, '2018-05-04T02:25:01Z', '2018-07-24T06:18:29Z', null, null, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (41, 'Keylex', 'justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse', 'ACTIVE', 'PUBLIC', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 23.588928, 110.08531, '2018-05-23T21:22:08Z', '2018-06-02T06:07:01Z', 'CNY', 2021.6, 'https://picsum.photos/1024/576/?image=448');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (42, 'Trippledex', 'imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum', 'ACTIVE', 'PUBLIC', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', 42.0469772, 19.8960968, '2018-04-12T04:01:38Z', '2018-07-08T16:17:08Z', 'ALL', 6042.8, 'https://picsum.photos/1024/576/?image=11');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (43, 'Aerified', 'semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci', 'ACTIVE', 'LINK_ONLY', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 53.58244, 20.2827, '2018-04-17T23:04:14Z', '2018-06-17T10:51:34Z', 'PLN', 6288.1, 'https://picsum.photos/1024/576/?image=292');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (44, 'Span', 'parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque', 'ACTIVE', 'PUBLIC', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 49.7478983, 16.5775355, '2018-05-27T00:46:17Z', '2018-07-29T04:26:38Z', 'CZK', 5589.3, 'https://picsum.photos/1024/576/?image=188');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (45, 'Daltfresh', 'habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt', 'ACTIVE', 'LINK_ONLY', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 50.1611633, 12.2816034, '2018-05-03T16:01:30Z', '2018-06-08T22:13:41Z', 'CZK', 3243.0, 'https://picsum.photos/1024/576/?image=330');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (46, 'Zontrax', 'elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis', 'IN_CREATION', 'PRIVATE', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', null, null, '2018-04-04T02:58:01Z', '2018-07-30T16:36:10Z', 'BRL', 4963.8, 'https://picsum.photos/1024/576/?image=73');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (47, 'Redhold', 'vivamus in felis eu sapien cursus vestibulum proin eu mi', 'ACTIVE', 'PUBLIC', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 6.7468164, 38.4139922, '2018-05-03T02:13:47Z', '2018-06-10T18:44:57Z', 'ETB', 8939.3, 'https://picsum.photos/1024/576/?image=348');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (48, 'Tin', 'ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec', 'IN_CREATION', 'PRIVATE', null, 38.9079399, -77.0717165, null, '2018-07-01T07:57:19Z', 'USD', 8773.9, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (49, 'Ventosanzap', 'sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce', 'ACTIVE', 'LINK_ONLY', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 0.490107, 35.743418, '2018-05-27T05:47:59Z', '2018-07-20T09:45:35Z', 'KES', 6053.5, 'https://picsum.photos/1024/576/?image=470');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (50, 'Biodex', 'id turpis integer aliquet massa id lobortis convallis tortor risus dapibus', 'ACTIVE', 'LINK_ONLY', 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 49.9555247, 15.9914362, '2018-05-28T06:32:19Z', '2018-06-13T17:53:08Z', 'CZK', 428.2, 'https://picsum.photos/1024/576/?image=67');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (51, 'Trippledex', 'sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci', 'ACTIVE', 'LINK_ONLY', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 52.1734345, 19.6947536, '2018-04-14T23:40:03Z', '2018-07-18T15:33:33Z', 'PLN', 8170.1, 'https://picsum.photos/1024/576/?image=495');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (52, 'Rank', 'sapien arcu sed augue aliquam erat volutpat in congue etiam', 'IN_CREATION', 'LINK_ONLY', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', -40.4057293, 175.5843632, '2018-04-09T19:10:13Z', null, 'NZD', 2134.5, 'https://picsum.photos/1024/576/?image=305');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (53, 'Mat Lam Tam', 'in libero ut massa volutpat convallis morbi odio odio elementum', 'ACTIVE', 'PUBLIC', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 46.3583447, 14.2930813, '2018-05-12T17:50:08Z', '2018-07-22T05:04:16Z', 'EUR', 6733.0, 'https://picsum.photos/1024/576/?image=161');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (54, 'Konklab', 'libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan', 'ACTIVE', 'PUBLIC', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 51.4984999, -0.1401487, '2018-05-14T17:51:53Z', '2018-06-04T02:31:21Z', 'GBP', 2037.2, 'https://picsum.photos/1024/576/?image=123');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (55, 'Zoolab', 'dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus', 'IN_CREATION', 'PRIVATE', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', -4.2596751, -43.0182166, '2018-04-07T17:33:39Z', '2018-06-19T16:50:01Z', 'BRL', 3325.4, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (56, 'Bigtax', 'mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac', 'ACTIVE', 'LINK_ONLY', 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', 31.228026, 121.454211, '2018-04-07T13:09:17Z', '2018-06-27T12:19:34Z', 'CNY', 5995.4, 'https://picsum.photos/1024/576/?image=257');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (57, 'Veribet', 'cursus id turpis integer aliquet massa id lobortis convallis tortor', 'ACTIVE', 'PUBLIC', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 32.78, -96.8, '2018-05-26T23:39:40Z', '2018-07-30T13:30:57Z', 'USD', 1679.2, 'https://picsum.photos/1024/576/?image=163');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (58, 'Tempsoft', 'etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate', 'ACTIVE', 'PUBLIC', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.', -25.0225309, 46.9853688, '2018-05-18T03:25:24Z', '2018-06-09T20:38:24Z', 'MGA', 5691.4, 'https://picsum.photos/1024/576/?image=207');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (59, 'Asoka', 'mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a', 'ACTIVE', 'PUBLIC', 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 48.9410561, 15.6896923, '2018-05-15T06:47:44Z', '2018-07-16T17:51:30Z', 'CZK', 2896.4, 'https://picsum.photos/1024/576/?image=152');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (60, 'Stringtough', 'fusce lacus purus aliquet at feugiat non pretium quis lectus', 'ACTIVE', 'PUBLIC', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 57.4492483, 97.3580243, '2018-05-22T03:13:41Z', '2018-06-28T06:16:38Z', 'RUB', 2881.9, 'https://picsum.photos/1024/576/?image=233');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (61, 'Prodder', 'ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc', 'IN_CREATION', 'PRIVATE', null, 29.222417, 89.982425, '2018-04-29T23:10:02Z', null, null, null, 'https://picsum.photos/1024/576/?image=367');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (62, 'Namfix', 'adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id', 'ACTIVE', 'LINK_ONLY', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 19.3851705, -99.1837453, '2018-04-08T04:36:19Z', '2018-06-11T10:27:33Z', 'MXN', 8556.9, 'https://picsum.photos/1024/576/?image=278');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (63, 'Lotstring', 'etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam', 'ACTIVE', 'PUBLIC', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.', 24.020975, 88.9922341, '2018-04-19T18:17:30Z', '2018-06-01T21:11:03Z', 'BDT', 4957.9, 'https://picsum.photos/1024/576/?image=425');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (64, 'Tres-Zap', 'in porttitor pede justo eu massa donec dapibus duis at velit eu', 'ACTIVE', 'PUBLIC', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', '53.10014', '-111.76844', '2018-04-22T19:42:48Z', '2018-07-07T03:59:29Z', 'CAD', 8834.0, 'https://picsum.photos/1024/576/?image=465');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (65, 'Toughjoyfax', 'dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis', 'IN_CREATION', 'LINK_ONLY', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', null, null, null, '2018-07-18T17:57:35Z', null, null, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (66, 'Zontrax', 'faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec', 'ACTIVE', 'PUBLIC', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 24.6755872, 121.770825, '2018-05-19T20:09:35Z', '2018-06-14T01:57:56Z', 'CNY', 879.8, 'https://picsum.photos/1024/576/?image=252');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (67, 'Tres-Zap', 'libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim', 'ACTIVE', 'PUBLIC', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 21.982137, 112.80173, '2018-04-09T23:12:58Z', '2018-06-06T13:00:36Z', 'CNY', 7563.5, 'https://picsum.photos/1024/576/?image=97');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (68, 'Tampflex', 'magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis', 'ACTIVE', 'PUBLIC', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', -6.588201, 106.804564, '2018-04-08T21:24:59Z', '2018-07-21T12:49:57Z', 'IDR', 8247.5, 'https://picsum.photos/1024/576/?image=395');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (69, 'Overhold', 'vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat', 'ACTIVE', 'LINK_ONLY', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.
+
+Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
+
+Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 42.3581499, 20.0777218, '2018-04-25T23:41:48Z', '2018-07-03T07:52:28Z', 'ALL', 6816.4, 'https://picsum.photos/1024/576/?image=291');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (70, 'Biodex', 'ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu', 'IN_CREATION', 'PRIVATE', null, null, null, null, null, null, null, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (71, 'Hatity', 'ut ultrices vel augue vestibulum ante ipsum primis in faucibus', 'IN_CREATION', 'LINK_ONLY', null, null, null, '2018-05-19T23:52:43Z', null, 'CNY', 2643.2, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (72, 'Overhold', 'libero rutrum ac lobortis vel dapibus at diam nam tristique tortor eu', 'ACTIVE', 'LINK_ONLY', 'Phasellus in felis. Donec semper sapien a libero. Nam dui.', 47.3525565, 127.4199187, '2018-04-11T14:07:58Z', '2018-07-23T19:44:36Z', 'CNY', 1829.7, 'https://picsum.photos/1024/576/?image=352');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (73, 'Domainer', 'nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit', 'ACTIVE', 'LINK_ONLY', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', -17.1406793, -71.8230371, '2018-04-08T08:52:51Z', '2018-06-08T21:26:04Z', 'PEN', 82.5, 'https://picsum.photos/1024/576/?image=219');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (74, 'Gembucket', 'sit amet consectetuer adipiscing elit proin interdum mauris non ligula', 'IN_CREATION', 'PRIVATE', null, null, null, '2018-04-21T22:00:22Z', '2018-06-13T12:18:43Z', 'RUB', 4846.3, 'https://picsum.photos/1024/576/?image=274');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (75, 'Cardguard', 'in leo maecenas pulvinar lobortis est phasellus sit amet erat', 'IN_CREATION', 'PRIVATE', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', -17.3256545, 49.36706, '2018-04-19T06:10:54Z', null, 'MGA', 3131.1, 'https://picsum.photos/1024/576/?image=468');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (76, 'Fix San', 'iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo', 'ACTIVE', 'LINK_ONLY', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 50.4810642, 34.9654363, '2018-05-07T20:26:38Z', '2018-07-05T12:04:23Z', 'UAH', 6149.0, 'https://picsum.photos/1024/576/?image=348');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (77, 'Matsoft', 'nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae', 'ACTIVE', 'PUBLIC', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 40.1941227, -8.8629472, '2018-04-07T02:41:58Z', '2018-07-29T08:30:47Z', 'EUR', 3877.9, 'https://picsum.photos/1024/576/?image=428');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (78, 'Zamit', 'vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor', 'ACTIVE', 'PUBLIC', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 48.8048649, 2.1203554, '2018-05-04T02:52:49Z', '2018-07-20T00:15:59Z', 'EUR', 1846.9, 'https://picsum.photos/1024/576/?image=233');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (79, 'Lotlux', 'sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis', 'ACTIVE', 'LINK_ONLY', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', -8.665118, 115.16736, '2018-04-04T05:42:48Z', '2018-07-04T17:13:49Z', 'IDR', 5495.9, 'https://picsum.photos/1024/576/?image=313');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (80, 'Bytecard', 'in sagittis dui vel nisl duis ac nibh fusce lacus purus', 'ACTIVE', 'PUBLIC', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.', 9.9772764, 125.2748944, '2018-04-27T11:22:47Z', '2018-07-10T19:31:57Z', 'PHP', 2042.9, 'https://picsum.photos/1024/576/?image=351');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (81, 'Quo Lux', 'pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem', 'IN_CREATION', 'LINK_ONLY', null, -7.7257788, 108.1636206, '2018-05-09T08:04:27Z', null, 'IDR', 5254.7, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (82, 'Trippledex', 'quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec', 'ACTIVE', 'PUBLIC', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', -8.2182795, 112.2950314, '2018-04-12T12:13:45Z', '2018-07-09T14:08:04Z', 'IDR', 2708.8, 'https://picsum.photos/1024/576/?image=73');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (83, 'Duobam', 'iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna', 'ACTIVE', 'PUBLIC', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 14.6698, -90.357, '2018-04-01T06:44:00Z', '2018-06-02T09:03:14Z', 'GTQ', 8086.1, 'https://picsum.photos/1024/576/?image=152');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (84, 'Y-find', 'luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet', 'ACTIVE', 'PUBLIC', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', -7.1240121, 111.6049608, '2018-05-14T21:29:35Z', '2018-06-05T08:53:46Z', 'IDR', 6343.3, 'https://picsum.photos/1024/576/?image=74');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (85, 'Konklab', 'mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis', 'ACTIVE', 'PUBLIC', 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 56.6444907, 14.224297, '2018-04-25T02:32:36Z', '2018-06-12T13:05:50Z', 'SEK', 9433.9, 'https://picsum.photos/1024/576/?image=382');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (86, 'Quo Lux', 'ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor', 'ACTIVE', 'PUBLIC', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.', 38.520089, 102.188043, '2018-04-08T16:33:01Z', '2018-07-08T18:44:03Z', 'CNY', 5569.1, 'https://picsum.photos/1024/576/?image=308');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (87, 'Bytecard', 'felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor', 'ACTIVE', 'LINK_ONLY', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 15.7325058, 120.5726776, '2018-05-30T08:31:11Z', '2018-06-05T03:36:23Z', 'PHP', 387.5, 'https://picsum.photos/1024/576/?image=380');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (88, 'Viva', 'cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque', 'ACTIVE', 'LINK_ONLY', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 16.0001974, 120.6583327, '2018-05-17T07:09:44Z', '2018-07-27T01:22:55Z', 'PHP', 9605.6, 'https://picsum.photos/1024/576/?image=324');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (89, 'Lotstring', 'cras in purus eu magna vulputate luctus cum sociis natoque penatibus et', 'IN_CREATION', 'LINK_ONLY', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', null, null, null, null, null, null, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (90, 'Sonsing', 'placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque', 'ACTIVE', 'PUBLIC', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', 58.0537462, 27.0548658, '2018-04-18T01:37:18Z', '2018-06-09T21:39:21Z', 'EUR', 6228.4, 'https://picsum.photos/1024/576/?image=282');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (91, 'Prodder', 'erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse', 'ACTIVE', 'LINK_ONLY', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.', 3.1155165, 35.6040785, '2018-05-07T16:18:12Z', '2018-07-27T22:16:07Z', 'KES', 1703.6, 'https://picsum.photos/1024/576/?image=18');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (92, 'Regrant', 'nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non', 'ACTIVE', 'PUBLIC', 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 33.8761249, 7.8803236, '2018-04-28T18:25:11Z', '2018-07-01T13:02:49Z', 'TND', 1196.3, 'https://picsum.photos/1024/576/?image=232');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (93, 'Bytecard', 'risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis', 'ACTIVE', 'LINK_ONLY', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 32.478018, 117.167563, '2018-05-05T00:53:50Z', '2018-06-09T13:58:47Z', 'CNY', 9887.3, 'https://picsum.photos/1024/576/?image=252');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (94, 'Vagram', 'nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim', 'ACTIVE', 'PUBLIC', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 46.9125516, 37.1045934, '2018-04-23T07:16:45Z', '2018-06-29T23:02:24Z', 'UAH', 6843.9, 'https://picsum.photos/1024/576/?image=12');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (95, 'Vagram', 'morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum', 'ACTIVE', 'LINK_ONLY', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', -23.1087262, -50.3675124, '2018-05-20T17:35:48Z', '2018-06-29T21:42:39Z', 'BRL', 350.8, 'https://picsum.photos/1024/576/?image=200');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (96, 'Tempsoft', 'semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci', 'IN_CREATION', 'PRIVATE', null, null, null, '2018-04-28T06:35:01Z', null, 'CZK', 1000.6, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (97, 'Voyatouch', 'nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut', 'ACTIVE', 'PUBLIC', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 40.708873, -74.0093553, '2018-05-30T04:16:18Z', '2018-07-27T03:35:45Z', 'USD', 4869.5, 'https://picsum.photos/1024/576/?image=439');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (98, 'Zontrax', 'dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus', 'ACTIVE', 'LINK_ONLY', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 34.003135, -117.7228641, '2018-05-04T17:46:03Z', '2018-06-26T03:26:30Z', 'CNY', 545.6, 'https://picsum.photos/1024/576/?image=457');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (99, 'Flowdesk', 'sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel', 'ACTIVE', 'LINK_ONLY', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', '-4.9333', '122.5167', '2018-04-25T00:49:31Z', '2018-06-18T11:17:17Z', 'IDR', 6504.5, 'https://picsum.photos/1024/576/?image=245');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (100, 'Holdlamis', 'eget eros elementum pellentesque quisque porta volutpat erat quisque erat', 'ACTIVE', 'LINK_ONLY', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', -34.0508783, 23.0935283, '2018-05-30T12:59:20Z', '2018-06-11T20:13:07Z', 'ZAR', 1702.1, 'https://picsum.photos/1024/576/?image=483');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (101, 'Gembucket', 'quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id', 'ACTIVE', 'PUBLIC', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', 36.377539, 119.757032, '2018-04-29T11:24:48Z', '2018-06-14T08:15:00Z', 'CNY', 5275.2, 'https://picsum.photos/1024/576/?image=244');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (102, 'Tempsoft', 'convallis nunc proin at turpis a pede posuere nonummy integer', 'ACTIVE', 'PUBLIC', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', -29.6148016, -52.1936768, '2018-04-11T06:57:52Z', '2018-06-11T21:12:31Z', 'BRL', 4184.2, 'https://picsum.photos/1024/576/?image=15');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (103, 'Hatity', 'ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat', 'ACTIVE', 'LINK_ONLY', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 26.12715, 113.116527, '2018-04-07T20:06:43Z', '2018-07-03T10:25:12Z', 'CNY', 1327.5, 'https://picsum.photos/1024/576/?image=205');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (104, 'Ronstring', 'porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed', 'ACTIVE', 'PUBLIC', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', '54.5156', '28.9587', '2018-04-13T19:51:48Z', '2018-06-02T09:23:47Z', 'BYR', 7666.0, 'https://picsum.photos/1024/576/?image=6');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (105, 'Otcom', 'curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu', 'ACTIVE', 'PUBLIC', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 16.487885, 121.159718, '2018-05-23T01:30:18Z', '2018-06-07T15:33:25Z', 'PHP', 4517.9, 'https://picsum.photos/1024/576/?image=71');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (106, 'Redhold', 'aliquet maecenas leo odio condimentum id luctus nec molestie sed justo', 'ACTIVE', 'LINK_ONLY', 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 54.2064439, 17.6677767, '2018-05-15T11:16:52Z', '2018-07-09T13:31:24Z', 'PLN', 2231.1, 'https://picsum.photos/1024/576/?image=332');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (107, 'Zoolab', 'etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus', 'IN_CREATION', 'PRIVATE', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', null, null, '2018-05-20T10:00:26Z', '2018-07-11T11:56:58Z', null, null, 'https://picsum.photos/1024/576/?image=241');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (108, 'Daltfresh', 'ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque', 'IN_CREATION', 'LINK_ONLY', null, null, null, null, '2018-06-18T15:08:54Z', 'CNY', 7968.2, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (109, 'Vagram', 'a libero nam dui proin leo odio porttitor id consequat in', 'ACTIVE', 'LINK_ONLY', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 60.1512028, 15.1735854, '2018-05-29T11:53:38Z', '2018-07-17T06:48:44Z', 'SEK', 7029.5, 'https://picsum.photos/1024/576/?image=134');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (110, 'Job', 'ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla', 'ACTIVE', 'LINK_ONLY', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 43.2981839, 22.0044228, '2018-04-07T15:59:31Z', '2018-07-08T05:06:08Z', 'RSD', 3974.8, 'https://picsum.photos/1024/576/?image=220');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (111, 'Kanlam', 'hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci', 'IN_CREATION', 'PRIVATE', 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', null, null, '2018-04-27T14:07:14Z', '2018-06-17T03:23:46Z', null, null, 'https://picsum.photos/1024/576/?image=424');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (112, 'Zaam-Dox', 'lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl', 'ACTIVE', 'LINK_ONLY', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 9.852371, -83.6143148, '2018-05-30T20:21:28Z', '2018-07-24T14:49:28Z', 'CRC', 7364.1, 'https://picsum.photos/1024/576/?image=474');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (113, 'Wrapsafe', 'nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui', 'ACTIVE', 'LINK_ONLY', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', 50.2464907, 12.905216, '2018-05-01T06:14:24Z', '2018-06-08T02:25:36Z', 'CZK', 9640.9, 'https://picsum.photos/1024/576/?image=282');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (114, 'Zamit', 'consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius', 'ACTIVE', 'LINK_ONLY', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 14.0875558, 121.1774182, '2018-05-04T08:09:32Z', '2018-06-14T10:06:40Z', 'PHP', 516.4, 'https://picsum.photos/1024/576/?image=112');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (115, 'Cardguard', 'aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget', 'ACTIVE', 'LINK_ONLY', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 37.452068, 110.739673, '2018-05-12T12:37:26Z', '2018-06-20T04:24:37Z', 'CNY', 7645.5, 'https://picsum.photos/1024/576/?image=461');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (116, 'Greenlam', 'vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet', 'ACTIVE', 'PUBLIC', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 31.479648, 93.680881, '2018-04-26T16:01:09Z', '2018-07-26T02:30:21Z', 'CNY', 6943.1, 'https://picsum.photos/1024/576/?image=99');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (117, 'Tin', 'ante vel ipsum praesent blandit lacinia erat vestibulum sed magna', 'ACTIVE', 'LINK_ONLY', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 22.579117, 113.081508, '2018-05-09T22:14:07Z', '2018-07-19T00:36:25Z', 'CNY', 6979.4, 'https://picsum.photos/1024/576/?image=251');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (118, 'Ventosanzap', 'dolor sit amet consectetuer adipiscing elit proin risus praesent lectus', 'ACTIVE', 'LINK_ONLY', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 32.19828, 119.47016, '2018-05-26T19:38:42Z', '2018-07-18T22:34:33Z', 'CNY', 7748.2, 'https://picsum.photos/1024/576/?image=447');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (119, 'It', 'nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit', 'ACTIVE', 'PUBLIC', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.
+
+Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
+
+Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 41.5533401, -8.6434885, '2018-04-18T23:24:21Z', '2018-06-08T12:28:56Z', 'EUR', 4116.2, 'https://picsum.photos/1024/576/?image=426');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (120, 'Holdlamis', 'morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum', 'ACTIVE', 'PUBLIC', 'Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', 54.8771794, 26.9388432, '2018-05-04T15:55:51Z', '2018-06-15T00:00:39Z', 'BYR', 5753.7, 'https://picsum.photos/1024/576/?image=361');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (121, 'Cardify', 'ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi', 'ACTIVE', 'LINK_ONLY', 'Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', 36.789796, 127.0018494, '2018-05-11T07:10:57Z', '2018-07-21T21:44:55Z', 'KRW', 1714.1, 'https://picsum.photos/1024/576/?image=123');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (122, 'Bigtax', 'molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc', 'ACTIVE', 'LINK_ONLY', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', '7.55', '3.43333', '2018-05-22T17:22:54Z', '2018-07-13T07:06:26Z', 'NGN', 4583.8, 'https://picsum.photos/1024/576/?image=24');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (123, 'Gembucket', 'natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 'ACTIVE', 'LINK_ONLY', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.
+
+Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
+
+Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 45.601784, 5.131041, '2018-04-30T08:36:05Z', '2018-07-19T22:18:44Z', 'EUR', 9958.1, 'https://picsum.photos/1024/576/?image=278');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (124, 'Konklux', 'metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget', 'ACTIVE', 'PUBLIC', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', -8.2439594, 112.5125893, '2018-04-24T18:55:37Z', '2018-07-13T18:25:37Z', 'IDR', 996.8, 'https://picsum.photos/1024/576/?image=432');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (125, 'Alphazap', 'ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh', 'ACTIVE', 'PUBLIC', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 45.5288007, 17.8803474, '2018-05-01T03:14:57Z', '2018-06-26T03:51:16Z', 'HRK', 3989.4, 'https://picsum.photos/1024/576/?image=232');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (126, 'Flexidy', 'aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus', 'ACTIVE', 'PUBLIC', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 26.422277, 112.859759, '2018-05-13T04:06:16Z', '2018-06-05T02:58:43Z', 'CNY', 7239.0, 'https://picsum.photos/1024/576/?image=187');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (127, 'Greenlam', 'mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur', 'ACTIVE', 'LINK_ONLY', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 48.8066526, 2.4725036, '2018-05-09T18:54:16Z', '2018-07-26T00:15:18Z', 'EUR', 218.5, 'https://picsum.photos/1024/576/?image=96');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (128, 'Sub-Ex', 'fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed', 'IN_CREATION', 'LINK_ONLY', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 1.699532, 32.0733109, '2018-05-11T06:44:24Z', null, null, null, 'https://picsum.photos/1024/576/?image=384');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (129, 'Temp', 'metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean', 'ACTIVE', 'LINK_ONLY', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 38.6002411, 141.2405508, '2018-05-11T15:54:35Z', '2018-06-22T14:28:53Z', 'JPY', 6088.5, 'https://picsum.photos/1024/576/?image=468');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (130, 'Bitchip', 'nulla sed accumsan felis ut at dolor quis odio consequat varius integer', 'ACTIVE', 'PUBLIC', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 50.6375507, 17.8149641, '2018-05-30T15:30:20Z', '2018-06-05T18:25:09Z', 'PLN', 3069.8, 'https://picsum.photos/1024/576/?image=288');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (131, 'Zathin', 'sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris', 'ACTIVE', 'LINK_ONLY', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 19.955811, 56.268059, '2018-04-01T06:08:09Z', '2018-06-04T17:10:36Z', 'OMR', 8657.5, 'https://picsum.photos/1024/576/?image=171');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (132, 'Keylex', 'in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget', 'IN_CREATION', 'LINK_ONLY', null, null, null, '2018-05-10T05:16:31Z', null, null, null, 'https://picsum.photos/1024/576/?image=295');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (133, 'Tempsoft', 'nisl nunc rhoncus dui vel sem sed sagittis nam congue risus', 'ACTIVE', 'LINK_ONLY', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.', 1.6408734, -75.4111644, '2018-04-23T21:35:16Z', '2018-06-26T07:47:54Z', 'COP', 3517.0, 'https://picsum.photos/1024/576/?image=75');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (134, 'Holdlamis', 'maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio', 'ACTIVE', 'PUBLIC', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 44.1675867, 2.0308233, '2018-04-20T23:36:53Z', '2018-06-11T12:01:08Z', 'EUR', 6316.5, 'https://picsum.photos/1024/576/?image=348');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (135, 'Otcom', 'consequat nulla nisl nunc nisl duis bibendum felis sed interdum', 'ACTIVE', 'PUBLIC', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 43.8554024, 19.8420937, '2018-05-15T15:27:26Z', '2018-06-15T02:05:07Z', 'RSD', 6703.9, 'https://picsum.photos/1024/576/?image=249');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (136, 'Daltfresh', 'pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum', 'ACTIVE', 'PUBLIC', 'In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', -23.144255, -64.325272, '2018-04-09T08:39:16Z', '2018-06-25T11:40:51Z', 'ARS', 1215.2, 'https://picsum.photos/1024/576/?image=70');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (137, 'Tampflex', 'tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus', 'IN_CREATION', 'PRIVATE', 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.
+
+Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', null, null, null, '2018-07-15T15:16:15Z', null, null, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (138, 'Regrant', 'maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu', 'ACTIVE', 'LINK_ONLY', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 40.3706555, 47.1378909, '2018-05-21T14:32:28Z', '2018-07-01T04:08:28Z', 'AZN', 2498.4, 'https://picsum.photos/1024/576/?image=493');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (139, 'Sonair', 'at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula', 'IN_CREATION', 'LINK_ONLY', null, 38.7528669, 48.8475015, '2018-04-27T03:27:14Z', '2018-07-25T20:46:05Z', 'AZN', 1764.5, 'https://picsum.photos/1024/576/?image=155');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (140, 'Cookley', 'ut tellus nulla ut erat id mauris vulputate elementum nullam', 'ACTIVE', 'PUBLIC', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', 28.01082, 120.663064, '2018-04-15T17:37:33Z', '2018-07-10T13:00:09Z', 'CNY', 2556.3, 'https://picsum.photos/1024/576/?image=492');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (141, 'Asoka', 'eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis', 'IN_CREATION', 'PRIVATE', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', '13.91581', '44.32414', '2018-05-28T11:58:05Z', '2018-06-06T07:26:29Z', 'YER', 7242.1, 'https://picsum.photos/1024/576/?image=313');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (142, 'Job', 'cum sociis natoque penatibus et magnis dis parturient montes nascetur', 'ACTIVE', 'PUBLIC', 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 34.4912621, -5.1262689, '2018-04-12T13:10:43Z', '2018-07-06T20:26:44Z', 'MAD', 1640.4, 'https://picsum.photos/1024/576/?image=255');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (143, 'Stringtough', 'rutrum nulla tellus in sagittis dui vel nisl duis ac', 'ACTIVE', 'PUBLIC', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 11.646909, 124.8692275, '2018-04-19T10:42:13Z', '2018-06-13T16:31:03Z', 'PHP', 7213.6, 'https://picsum.photos/1024/576/?image=130');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (144, 'Alphazap', 'in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est', 'ACTIVE', 'LINK_ONLY', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 34.983385, 102.911027, '2018-04-03T20:02:01Z', '2018-06-28T13:35:36Z', 'CNY', 5026.9, 'https://picsum.photos/1024/576/?image=255');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (145, 'Toughjoyfax', 'risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede', 'ACTIVE', 'LINK_ONLY', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 14.972892, 8.8831506, '2018-04-10T16:02:42Z', '2018-06-13T07:43:08Z', 'XOF', 526.3, 'https://picsum.photos/1024/576/?image=447');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (146, 'Quo Lux', 'cursus id turpis integer aliquet massa id lobortis convallis tortor', 'ACTIVE', 'PUBLIC', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.
+
+Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', -25.6684553, 28.5158257, '2018-04-07T14:39:33Z', '2018-07-30T15:30:36Z', 'ZAR', 2743.5, 'https://picsum.photos/1024/576/?image=39');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (147, 'Y-Solowarm', 'nam congue risus semper porta volutpat quam pede lobortis ligula sit amet', 'ACTIVE', 'PUBLIC', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 32.540157, 111.513127, '2018-05-03T00:43:29Z', '2018-07-18T20:49:37Z', 'CNY', 6358.6, 'https://picsum.photos/1024/576/?image=96');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (148, 'Job', 'nullam porttitor lacus at turpis donec posuere metus vitae ipsum', 'ACTIVE', 'LINK_ONLY', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', -6.1841954, 106.8310178, '2018-05-21T20:45:22Z', '2018-06-23T13:57:13Z', 'IDR', 3561.4, 'https://picsum.photos/1024/576/?image=446');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (149, 'Tres-Zap', 'consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi', 'IN_CREATION', 'LINK_ONLY', null, null, null, '2018-04-12T21:59:13Z', null, null, null, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (150, 'Span', 'volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus', 'ACTIVE', 'LINK_ONLY', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 10.1315305, 124.1775822, '2018-05-21T01:07:36Z', '2018-07-30T14:16:34Z', 'PHP', 770.8, 'https://picsum.photos/1024/576/?image=278');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (151, 'Tampflex', 'odio condimentum id luctus nec molestie sed justo pellentesque viverra pede', 'IN_CREATION', 'PRIVATE', null, 26.08603, 119.3028774, null, null, 'CNY', 8235.7, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (152, 'Rank', 'consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius', 'IN_CREATION', 'LINK_ONLY', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', null, null, '2018-04-30T16:40:48Z', null, 'NGN', 8566.5, 'https://picsum.photos/1024/576/?image=282');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (153, 'Cookley', 'porta volutpat quam pede lobortis ligula sit amet eleifend pede', 'ACTIVE', 'LINK_ONLY', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 53.180879, 17.0835566, '2018-05-30T08:17:38Z', '2018-06-25T16:14:01Z', 'PLN', 6488.5, 'https://picsum.photos/1024/576/?image=453');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (154, 'Konklux', 'penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue', 'ACTIVE', 'LINK_ONLY', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.', 52.5424757, 16.3067301, '2018-05-21T01:56:13Z', '2018-06-07T16:34:25Z', 'PLN', 773.0, 'https://picsum.photos/1024/576/?image=358');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (155, 'Voltsillam', 'dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt', 'ACTIVE', 'PUBLIC', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.', 59.7536439, 10.1199836, '2018-05-08T20:24:07Z', '2018-07-14T07:39:53Z', 'NOK', 6376.7, 'https://picsum.photos/1024/576/?image=306');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (156, 'Cardify', 'sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec', 'ACTIVE', 'LINK_ONLY', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 31.800137, 115.416027, '2018-04-11T10:39:40Z', '2018-06-21T08:38:11Z', 'CNY', 2617.3, 'https://picsum.photos/1024/576/?image=365');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (157, 'Greenlam', 'ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque', 'IN_CREATION', 'LINK_ONLY', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', null, null, '2018-04-06T06:59:38Z', '2018-06-16T12:16:25Z', null, null, 'https://picsum.photos/1024/576/?image=235');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (158, 'Kanlam', 'eget tempus vel pede morbi porttitor lorem id ligula suspendisse', 'IN_CREATION', 'LINK_ONLY', null, null, null, '2018-04-21T17:30:15Z', null, 'CNY', 5053.8, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (159, 'Y-Solowarm', 'nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget', 'ACTIVE', 'PUBLIC', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', -47.7375833, -65.896638, '2018-04-23T17:19:51Z', '2018-07-05T15:48:00Z', 'ARS', 2035.7, 'https://picsum.photos/1024/576/?image=68');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (160, 'Ventosanzap', 'sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut', 'ACTIVE', 'LINK_ONLY', 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
+
+Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+
+In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.', 49.7144884, 13.6861064, '2018-04-16T21:26:32Z', '2018-06-13T20:00:41Z', 'CZK', 1550.0, 'https://picsum.photos/1024/576/?image=429');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (161, 'Rank', 'at ipsum ac tellus semper interdum mauris ullamcorper purus sit', 'ACTIVE', 'LINK_ONLY', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 46.259991, 14.367531, '2018-05-19T03:40:35Z', '2018-06-05T11:17:24Z', 'EUR', 882.1, 'https://picsum.photos/1024/576/?image=126');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (162, 'Y-Solowarm', 'faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat', 'IN_CREATION', 'LINK_ONLY', null, null, null, null, null, null, null, 'https://picsum.photos/1024/576/?image=429');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (163, 'Daltfresh', 'sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc', 'ACTIVE', 'PUBLIC', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', -7.5450262, 111.6556388, '2018-04-06T17:13:23Z', '2018-07-01T10:38:37Z', 'IDR', 5373.9, 'https://picsum.photos/1024/576/?image=260');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (164, 'Flowdesk', 'ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas', 'ACTIVE', 'PUBLIC', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.', 23.917576, 116.325389, '2018-05-28T09:51:44Z', '2018-07-30T04:41:59Z', 'CNY', 793.6, 'https://picsum.photos/1024/576/?image=469');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (165, 'Biodex', 'interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac', 'ACTIVE', 'LINK_ONLY', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 24.062988, 115.625839, '2018-04-15T11:21:13Z', '2018-07-02T22:09:34Z', 'CNY', 1658.6, 'https://picsum.photos/1024/576/?image=476');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (166, 'Opela', 'aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque', 'ACTIVE', 'LINK_ONLY', 'In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 16.6482598, 101.0118776, '2018-05-17T19:14:45Z', '2018-06-05T20:32:29Z', 'THB', 2052.0, 'https://picsum.photos/1024/576/?image=350');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (167, 'Tresom', 'montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean', 'ACTIVE', 'LINK_ONLY', 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 56.5930499, 25.2431539, '2018-04-06T04:28:07Z', '2018-06-17T03:19:22Z', 'EUR', 8401.6, 'https://picsum.photos/1024/576/?image=248');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (168, 'Ventosanzap', 'magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce', 'ACTIVE', 'PUBLIC', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 37.943121, 115.217658, '2018-05-23T05:12:01Z', '2018-06-11T13:15:12Z', 'CNY', 3982.2, 'https://picsum.photos/1024/576/?image=198');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (169, 'Aerified', 'dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis', 'ACTIVE', 'LINK_ONLY', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 11.0537247, 125.0332235, '2018-04-15T02:22:17Z', '2018-07-03T21:36:43Z', 'PHP', 8378.7, 'https://picsum.photos/1024/576/?image=134');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (170, 'Latlux', 'tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in', 'IN_CREATION', 'PRIVATE', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 41.5464241, -8.2915385, null, '2018-06-23T00:03:54Z', null, null, 'https://picsum.photos/1024/576/?image=195');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (171, 'Hatity', 'risus dapibus augue vel accumsan tellus nisi eu orci mauris', 'ACTIVE', 'PUBLIC', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 49.3932119, 15.8838159, '2018-04-09T05:09:27Z', '2018-07-16T02:05:04Z', 'CZK', 2773.2, 'https://picsum.photos/1024/576/?image=367');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (172, 'Treeflex', 'ac consequat metus sapien ut nunc vestibulum ante ipsum primis', 'ACTIVE', 'LINK_ONLY', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 51.8315426, 38.1394579, '2018-04-13T09:38:05Z', '2018-06-23T22:52:01Z', 'RUB', 4342.9, 'https://picsum.photos/1024/576/?image=194');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (173, 'Viva', 'magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis', 'ACTIVE', 'LINK_ONLY', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.', 32.990664, 112.528308, '2018-05-07T02:27:47Z', '2018-07-07T15:53:53Z', 'CNY', 9539.8, 'https://picsum.photos/1024/576/?image=177');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (174, 'Flexidy', 'ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy', 'ACTIVE', 'PUBLIC', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 13.9327517, 121.6158104, '2018-05-15T08:32:49Z', '2018-06-07T02:22:52Z', 'PHP', 703.5, 'https://picsum.photos/1024/576/?image=80');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (175, 'Voyatouch', 'maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices', 'ACTIVE', 'LINK_ONLY', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 14.8004428, -89.551878, '2018-04-09T04:49:12Z', '2018-06-14T02:28:49Z', 'GTQ', 5129.1, 'https://picsum.photos/1024/576/?image=221');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (176, 'Y-find', 'nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend', 'ACTIVE', 'PUBLIC', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.', 36.689044, 117.302269, '2018-05-03T21:40:56Z', '2018-07-10T04:13:25Z', 'CNY', 312.8, 'https://picsum.photos/1024/576/?image=256');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (177, 'Biodex', 'turpis adipiscing lorem vitae mattis nibh ligula nec sem duis', 'ACTIVE', 'LINK_ONLY', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 40.450839, 44.600998, '2018-04-15T15:35:42Z', '2018-07-29T08:35:05Z', 'AMD', 73.6, 'https://picsum.photos/1024/576/?image=271');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (178, 'Latlux', 'faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae', 'ACTIVE', 'PUBLIC', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.', 63.24072, 29.2518185, '2018-05-23T04:37:41Z', '2018-06-07T07:52:14Z', 'EUR', 2098.6, 'https://picsum.photos/1024/576/?image=432');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (179, 'Otcom', 'neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci', 'ACTIVE', 'LINK_ONLY', 'In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 31.26179, 121.423664, '2018-05-25T04:44:01Z', '2018-06-28T18:16:17Z', 'CNY', 6001.8, 'https://picsum.photos/1024/576/?image=385');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (180, 'Rank', 'justo in hac habitasse platea dictumst etiam faucibus cursus urna ut', 'ACTIVE', 'PUBLIC', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 43.5687705, 27.8342003, '2018-05-13T23:02:35Z', '2018-07-23T05:21:59Z', 'BGN', 7751.0, 'https://picsum.photos/1024/576/?image=443');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (181, 'Vagram', 'vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis', 'ACTIVE', 'PUBLIC', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.', '35.86139', '14.38222', '2018-05-08T13:42:19Z', '2018-07-23T10:04:54Z', 'EUR', 6841.5, 'https://picsum.photos/1024/576/?image=253');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (182, 'Transcof', 'rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat', 'ACTIVE', 'LINK_ONLY', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 9.9356473, -84.0792946, '2018-05-03T12:08:23Z', '2018-06-29T20:54:09Z', 'CRC', 245.3, 'https://picsum.photos/1024/576/?image=367');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (183, 'Bigtax', 'venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat', 'ACTIVE', 'PUBLIC', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 45.8272842, 20.4615173, '2018-04-22T21:59:01Z', '2018-07-24T08:22:49Z', 'RSD', 7362.5, 'https://picsum.photos/1024/576/?image=481');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (184, 'Regrant', 'odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim', 'ACTIVE', 'PUBLIC', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 14.5458392, 121.0044883, '2018-04-13T16:24:20Z', '2018-07-29T22:40:37Z', 'PHP', 5508.4, 'https://picsum.photos/1024/576/?image=495');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (185, 'It', 'ac enim in tempor turpis nec euismod scelerisque quam turpis', 'ACTIVE', 'PUBLIC', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 15.6338588, 103.3421371, '2018-04-16T07:52:32Z', '2018-07-25T21:37:56Z', 'THB', 7507.3, 'https://picsum.photos/1024/576/?image=226');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (186, 'Y-find', 'tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus', 'ACTIVE', 'PUBLIC', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+
+Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', 61.1174188, 28.5010914, '2018-05-07T16:47:21Z', '2018-07-18T16:19:42Z', 'EUR', 845.4, 'https://picsum.photos/1024/576/?image=275');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (187, 'Keylex', 'aliquet maecenas leo odio condimentum id luctus nec molestie sed', 'ACTIVE', 'LINK_ONLY', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', -21.6704167, -42.0792577, '2018-05-30T15:49:56Z', '2018-07-18T22:00:13Z', 'BRL', 8347.8, 'https://picsum.photos/1024/576/?image=1');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (188, 'Y-Solowarm', 'donec quis orci eget orci vehicula condimentum curabitur in libero ut', 'IN_CREATION', 'PRIVATE', null, 64.9142998, 77.7663297, '2018-04-18T07:01:22Z', '2018-07-18T05:17:21Z', 'RUB', 1461.8, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (189, 'Bitwolf', 'lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui', 'ACTIVE', 'PUBLIC', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+
+Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
+
+Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
+
+Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', 13.9791936, 121.7983634, '2018-04-21T13:22:24Z', '2018-07-14T02:04:46Z', 'PHP', 6226.3, 'https://picsum.photos/1024/576/?image=182');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (190, 'Trippledex', 'eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula', 'ACTIVE', 'LINK_ONLY', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.
+
+Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 48.968713, 117.773198, '2018-05-21T04:16:43Z', '2018-06-11T03:45:14Z', 'CNY', 2990.5, 'https://picsum.photos/1024/576/?image=110');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (191, 'Prodder', 'mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor', 'ACTIVE', 'PUBLIC', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 24.7932832, 68.3001994, '2018-05-21T10:55:17Z', '2018-06-07T08:18:17Z', 'PKR', 3480.1, 'https://picsum.photos/1024/576/?image=309');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (192, 'Lotstring', 'sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa', 'ACTIVE', 'PUBLIC', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
+
+In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
+
+Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
+
+Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 49.3055868, 18.0616373, '2018-05-23T13:44:45Z', '2018-07-29T21:23:22Z', 'CZK', 2055.2, 'https://picsum.photos/1024/576/?image=432');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (193, 'Kanlam', 'habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem', 'IN_CREATION', 'LINK_ONLY', null, null, null, null, '2018-07-28T03:51:11Z', 'PHP', 8422.8, 'https://picsum.photos/1024/576/?image=270');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (194, 'Fixflex', 'proin eu mi nulla ac enim in tempor turpis nec euismod', 'ACTIVE', 'LINK_ONLY', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
+
+Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
+
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+
+Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 53.5087757, 50.1567556, '2018-04-13T18:20:19Z', '2018-07-16T05:25:44Z', 'RUB', 810.0, 'https://picsum.photos/1024/576/?image=87');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (195, 'Zathin', 'ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut', 'ACTIVE', 'PUBLIC', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', -5.9127393, 29.1913918, '2018-05-04T15:09:05Z', '2018-06-05T03:47:28Z', 'CDF', 4981.5, 'https://picsum.photos/1024/576/?image=144');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (196, 'Quo Lux', 'nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis', 'ACTIVE', 'PUBLIC', 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
+
+Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
+
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 8.2608053, 123.0748243, '2018-05-12T12:12:09Z', '2018-06-21T10:48:06Z', 'PHP', 815.2, 'https://picsum.photos/1024/576/?image=261');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (197, 'Asoka', 'vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate', 'ACTIVE', 'LINK_ONLY', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', -8.2795949, 112.0327329, '2018-04-25T11:44:30Z', '2018-06-28T09:39:07Z', 'IDR', 8789.5, 'https://picsum.photos/1024/576/?image=290');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (198, 'Fix San', 'praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi', 'IN_CREATION', 'PRIVATE', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
+
+Phasellus in felis. Donec semper sapien a libero. Nam dui.
+
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 52.8818616, 17.5860395, '2018-05-15T01:17:38Z', null, 'PLN', 4250.7, null);
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (199, 'Mat Lam Tam', 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam', 'ACTIVE', 'PUBLIC', 'Fusce consequat. Nulla nisl. Nunc nisl.
+
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
+
+Sed ante. Vivamus tortor. Duis mattis egestas metus.', 24.804061, 118.609289, '2018-05-24T19:07:50Z', '2018-07-24T13:48:02Z', 'CNY', 9605.2, 'https://picsum.photos/1024/576/?image=282');
+insert into PROJECT (id, name, short_description, type, visibility, description, location_latitude, location_longitude, start_date_time, end_date_time, funding_goal_currency, funding_goal_amount, image_link) values (200, 'Holdlamis', 'vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula', 'ACTIVE', 'LINK_ONLY', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
+
+Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
+
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 12.4102568, 122.0493078, '2018-04-09T14:51:01Z', '2018-07-05T16:29:13Z', 'PHP', 694.9, 'https://picsum.photos/1024/576/?image=342');
