@@ -51,6 +51,12 @@ public class ProjectResource {
     @JsonView(Views.Minimal.class)
     private String projectImageLink;
 
+    @JsonView(Views.Minimal.class)
+    private ProjectType type;
+
+    @JsonView(Views.Minimal.class)
+    private ProjectVisibility visibility;
+
     @JsonProperty("gallery_videos")
     private List<String> videoLinks = new ArrayList<>();
     @JsonProperty("gallery_images")

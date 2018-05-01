@@ -31,6 +31,8 @@ public class ProjectRepositoryService implements ProjectService {
     public Project create(String name, String description, Money fundingGoal, Long... ownersIds) {
         Person[] persons = Arrays.stream(ownersIds).map(this::getPerson).toArray(Person[]::new);
         Project project = new Project(name, description, fundingGoal, persons);
+        project.setType(ProjectType.IN_CREATION);
+        project.setVisibility(ProjectVisibility.PRIVATE);
         return projectRepository.save(project);
     }
 

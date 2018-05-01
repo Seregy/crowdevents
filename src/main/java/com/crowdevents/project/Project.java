@@ -20,6 +20,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -57,6 +59,14 @@ public class Project {
     private Money fundingGoal;
 
     private String projectImageLink;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ProjectType type;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ProjectVisibility visibility;
 
     @ElementCollection
     private List<String> videoLinks = new ArrayList<>();
@@ -366,5 +376,21 @@ public class Project {
                     .map(Money::getCurrencyUnit)
                     .orElse(CurrencyUnit.USD));
         }
+    }
+
+    public ProjectType getType() {
+        return type;
+    }
+
+    public void setType(ProjectType type) {
+        this.type = type;
+    }
+
+    public ProjectVisibility getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(ProjectVisibility visibility) {
+        this.visibility = visibility;
     }
 }
