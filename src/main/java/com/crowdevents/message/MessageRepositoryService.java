@@ -10,9 +10,9 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-
 
 @Service
 @Transactional
@@ -57,6 +57,26 @@ public class MessageRepositoryService implements MessageService {
     @Override
     public Optional<Message> get(Long id) {
         return messageRepository.findById(id);
+    }
+
+    @Override
+    public Page<Message> getAll(Pageable pageable) {
+        return messageRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Message> getAllBySender(Long senderId, Pageable pageable) {
+        return messageRepository.findAllBySenderId(senderId, pageable);
+    }
+
+    @Override
+    public Page<Message> getAllByReceiver(Long receiverId, Pageable pageable) {
+        return messageRepository.findAllByReceiverId(receiverId, pageable);
+    }
+
+    @Override
+    public Page<Message> getAllByPerson(Long personId, Pageable pageable) {
+        return messageRepository.findDistinctBySenderIdOrReceiverId(personId, personId, pageable);
     }
 
     @Override
