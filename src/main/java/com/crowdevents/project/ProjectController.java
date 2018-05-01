@@ -60,14 +60,17 @@ public class ProjectController {
             @RequestParam(name = "page", defaultValue = "0") int pageNumber,
             @RequestParam(name = "limit", defaultValue = "10") int limit,
             @RequestParam(name = "starting_after", required = false) Long startingAfter,
-            @RequestParam(name = "ending_before", required = false) Long endingBefore) {
+            @RequestParam(name = "ending_before", required = false) Long endingBefore,
+            @RequestParam(name = "type", defaultValue = "ACTIVE") ProjectType type,
+            @RequestParam(name = "visibility",
+                    defaultValue = "PUBLIC") ProjectVisibility visibility) {
         Page<Project> resultPage;
         PageRequest pageRequest = PageRequest.of(pageNumber, limit);
         if (startingAfter == null && endingBefore == null) {
-            resultPage = projectService.getAll(pageRequest);
+            resultPage = projectService.getAll(type, visibility, pageRequest);
         } else {
             resultPage = projectService.getAllBeforeAndOrAfter(endingBefore,
-                    startingAfter, pageRequest);
+                    startingAfter, type, visibility, pageRequest);
         }
 
         return new PageResource<>(
