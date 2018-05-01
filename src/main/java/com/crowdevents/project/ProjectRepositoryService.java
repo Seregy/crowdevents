@@ -28,7 +28,8 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public Project create(String name, String shortDescription, Money fundingGoal, Long... ownersIds) {
+    public Project create(String name, String shortDescription,
+                          Money fundingGoal, Long... ownersIds) {
         Person[] persons = Arrays.stream(ownersIds).map(this::getPerson).toArray(Person[]::new);
         Project project = new Project(name, shortDescription, fundingGoal, persons);
         project.setType(ProjectType.IN_CREATION);
@@ -47,6 +48,11 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
+    public Page<Project> getAll(ProjectType type, ProjectVisibility visibility, Pageable pageable) {
+        return projectRepository.findAllByTypeAndVisibility(type, visibility, pageable);
+    }
+
+    @Override
     public Page<Project> getAllBeforeAndOrAfter(Long beforeId, Long afterId, Pageable pageable) {
         if (beforeId != null && afterId != null) {
             return projectRepository.findAllByIdAfterAndIdBefore(afterId, beforeId, pageable);
@@ -54,6 +60,23 @@ public class ProjectRepositoryService implements ProjectService {
             return projectRepository.findAllByIdBefore(beforeId, pageable);
         } else if (afterId != null) {
             return projectRepository.findAllByIdAfter(afterId, pageable);
+        } else {
+            throw new IllegalArgumentException("Either beforeId or afterId must not be null");
+        }
+    }
+
+    @Override
+    public Page<Project> getAllBeforeAndOrAfter(Long beforeId, Long afterId, ProjectType type,
+                                                ProjectVisibility visibility, Pageable pageable) {
+        if (beforeId != null && afterId != null) {
+            return projectRepository.findAllByIdAfterAndIdBeforeAndTypeAndVisibility(afterId,
+                    beforeId, type, visibility, pageable);
+        } else if (beforeId != null) {
+            return projectRepository.findAllByIdBeforeAndTypeAndVisibility(beforeId, type,
+                    visibility, pageable);
+        } else if (afterId != null) {
+            return projectRepository.findAllByIdAfterAndTypeAndVisibility(afterId, type,
+                    visibility, pageable);
         } else {
             throw new IllegalArgumentException("Either beforeId or afterId must not be null");
         }

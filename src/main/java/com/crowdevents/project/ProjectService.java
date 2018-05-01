@@ -16,7 +16,12 @@ public interface ProjectService {
 
     Page<Project> getAll(Pageable pageable);
 
+    Page<Project> getAll(ProjectType type, ProjectVisibility visibility, Pageable pageable);
+
     Page<Project> getAllBeforeAndOrAfter(Long beforeId, Long afterId, Pageable pageable);
+
+    Page<Project> getAllBeforeAndOrAfter(Long beforeId, Long afterId, ProjectType type,
+                                         ProjectVisibility visibility, Pageable pageable);
 
     boolean delete(Long id);
 
