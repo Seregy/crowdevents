@@ -19,10 +19,10 @@ public class Faq {
     @ManyToOne
     private Project project;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 140)
     private String question;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 140)
     private String answer;
 
     /**

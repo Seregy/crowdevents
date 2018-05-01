@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -21,12 +22,14 @@ public class Update {
     @ManyToOne
     private Project project;
 
-    @Column(nullable = false)
+    @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
 
+    @Lob
     @Column(nullable = false)
     private String message;
 
+    @Column(name = "short_message", length = 140)
     private String shortMessage;
 
     /**

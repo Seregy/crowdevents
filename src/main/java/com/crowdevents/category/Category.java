@@ -34,6 +34,7 @@ public class Category {
     @Column(nullable = false)
     private String name;
 
+    @Column(length = 140)
     private String description;
 
     public Category(String name, String description) {

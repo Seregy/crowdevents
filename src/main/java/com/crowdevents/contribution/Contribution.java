@@ -30,7 +30,7 @@ public class Contribution {
     @ManyToOne
     private Project project;
 
-    @Column(nullable = false)
+    @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
 
     @Columns(columns = {

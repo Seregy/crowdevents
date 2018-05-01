@@ -39,10 +39,14 @@ public class Reward {
     @Column(name = "reward_limit")
     private Integer limit;
 
-    @Column(nullable = false)
+
+    @Column(nullable = false, length = 140)
     private String description;
 
+    @Column(name = "delivery_date", length = 140)
     private String deliveryDate;
+
+    @Column(name = "shipping_location", length = 140)
     private String shippingLocation;
 
     /**

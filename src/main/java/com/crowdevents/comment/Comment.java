@@ -30,7 +30,7 @@ public class Comment {
     @Column(nullable = false)
     private String message;
 
-    @Column(nullable = false)
+    @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
 
     /**
