@@ -2,12 +2,16 @@ package com.crowdevents.faq;
 
 import com.crowdevents.core.web.Views;
 import com.crowdevents.project.ProjectResource;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonView;
 
+@JsonView(Views.Detailed.class)
 public class FaqResource {
     @JsonView(Views.Minimal.class)
     private Long id;
 
+    @JsonIgnoreProperties({"gallery_videos", "gallery_images", "owners", "subscribers",
+            "contributions", "comments", "faqs", "categories", "updates", "rewards"})
     private ProjectResource project;
 
     @JsonView(Views.Minimal.class)
