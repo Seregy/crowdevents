@@ -2,8 +2,11 @@ package com.crowdevents.core;
 
 import com.crowdevents.contribution.ContributionResource;
 import com.crowdevents.location.LocationResource;
+import com.crowdevents.notification.UpdateNotification;
+import com.crowdevents.notification.UpdateNotificationResource;
 import com.crowdevents.project.ProjectResource;
 import com.crowdevents.reward.RewardResource;
+import com.crowdevents.update.UpdateResource;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -26,6 +29,7 @@ public class MappingConfiguration {
         ModelMapper mapper = new ModelMapper();
         addProjectMaps(mapper);
         addRewardMap(mapper);
+        addUpdateMaps(mapper);
         return mapper;
     }
 
@@ -126,6 +130,42 @@ public class MappingConfiguration {
                     if (source.containsKey("shipping_location")) {
                         String value = (String) source.get("shipping_location");
                         result.setShippingLocation(value);
+                    }
+
+                    return result;
+                });
+    }
+
+    /**
+     * Adds mapping configurations for mapping update and
+     * related to it classes.
+     *
+     * @param mapper model mapper instance
+     */
+    public void addUpdateMaps(ModelMapper mapper) {
+        mapper.createTypeMap(LinkedHashMap.class, UpdateResource.class)
+                .setProvider(request -> new UpdateResource())
+                .setConverter(context -> {
+                    LinkedHashMap source = context.getSource();
+                    UpdateResource result = context.getDestination();
+                    if (source.containsKey("project")) {
+                        ProjectResource value = (ProjectResource) source.get("project");
+                        result.setProject(value);
+                    }
+
+                    if (source.containsKey("posted")) {
+                        LocalDateTime value = LocalDateTime.parse((String) source.get("posted"));
+                        result.setDateTime(value);
+                    }
+
+                    if (source.containsKey("message")) {
+                        String value = (String) source.get("message");
+                        result.setMessage(value);
+                    }
+
+                    if (source.containsKey("short_message")) {
+                        String value = (String) source.get("short_message");
+                        result.setShortMessage(value);
                     }
 
                     return result;
