@@ -2,6 +2,11 @@ package com.crowdevents.core;
 
 import com.crowdevents.contribution.ContributionResource;
 import com.crowdevents.location.LocationResource;
+import com.crowdevents.notification.BaseNotificationResource;
+import com.crowdevents.notification.ContributionNotification;
+import com.crowdevents.notification.ContributionNotificationResource;
+import com.crowdevents.notification.PersonNotification;
+import com.crowdevents.notification.PersonNotificationResource;
 import com.crowdevents.notification.UpdateNotification;
 import com.crowdevents.notification.UpdateNotificationResource;
 import com.crowdevents.project.ProjectResource;
@@ -27,10 +32,23 @@ public class MappingConfiguration {
     @Bean
     public ModelMapper modelMapper() {
         ModelMapper mapper = new ModelMapper();
+        addNotificationsMaps(mapper);
         addProjectMaps(mapper);
         addRewardMap(mapper);
         addUpdateMaps(mapper);
         return mapper;
+    }
+
+    private void addNotificationsMaps(ModelMapper mapper) {
+        mapper.createTypeMap(ContributionNotification.class, BaseNotificationResource.class)
+                .setConverter(context -> mapper.map(context.getSource(),
+                        ContributionNotificationResource.class));
+        mapper.createTypeMap(PersonNotification.class, BaseNotificationResource.class)
+                .setConverter(context -> mapper.map(context.getSource(),
+                        PersonNotificationResource.class));
+        mapper.createTypeMap(UpdateNotification.class, BaseNotificationResource.class)
+                .setConverter(context -> mapper.map(context.getSource(),
+                        UpdateNotificationResource.class));
     }
 
     /**
