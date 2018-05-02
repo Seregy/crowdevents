@@ -31,6 +31,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
+import org.joda.money.BigMoney;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 
@@ -61,8 +62,8 @@ public class Project {
 
     @Columns(columns = { @Column(name = "funding_goal_currency"),
             @Column(name = "funding_goal_amount") })
-    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
-    private Money fundingGoal;
+    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentBigMoneyAmountAndCurrency")
+    private BigMoney fundingGoal;
 
     @Column(name = "image_link")
     private String projectImageLink;
@@ -117,7 +118,7 @@ public class Project {
     public Project(String name, String shortDescription, Money fundingGoal, Person... owners) {
         this.name = name;
         this.shortDescription = shortDescription;
-        this.fundingGoal = fundingGoal;
+        this.fundingGoal = fundingGoal.toBigMoney();
         for (Person owner : owners) {
             addOwner(owner);
         }
@@ -184,11 +185,11 @@ public class Project {
     }
 
     public Money getFundingGoal() {
-        return fundingGoal;
+        return fundingGoal.toMoney();
     }
 
     public void setFundingGoal(Money fundingGoal) {
-        this.fundingGoal = fundingGoal;
+        this.fundingGoal = fundingGoal.toBigMoney();
     }
 
     public String getProjectImageLink() {
@@ -388,7 +389,7 @@ public class Project {
             return Money.total(contributed);
         } else {
             return Money.zero(Optional.ofNullable(fundingGoal)
-                    .map(Money::getCurrencyUnit)
+                    .map(BigMoney::getCurrencyUnit)
                     .orElse(CurrencyUnit.USD));
         }
     }

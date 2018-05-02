@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
+import org.joda.money.BigMoney;
 import org.joda.money.Money;
 
 @Entity
@@ -37,8 +38,8 @@ public class Contribution {
             @Column(name = "money_currency", nullable = false),
             @Column(name = "money_amount", nullable = false)
     })
-    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
-    private Money money;
+    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentBigMoneyAmountAndCurrency")
+    private BigMoney money;
 
     @ManyToOne
     private Reward reward;
@@ -57,7 +58,7 @@ public class Contribution {
         this.contributor = contributor;
         this.project = project;
         this.dateTime = dateTime;
-        this.money = money;
+        this.money = money.toBigMoney();
         this.reward = reward;
     }
 
@@ -98,11 +99,11 @@ public class Contribution {
     }
 
     public Money getMoney() {
-        return money;
+        return money.toMoney();
     }
 
     public void setMoney(Money money) {
-        this.money = money;
+        this.money = money.toBigMoney();
     }
 
     public Reward getReward() {

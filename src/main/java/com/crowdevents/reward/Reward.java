@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
+import org.joda.money.BigMoney;
 import org.joda.money.Money;
 
 @Entity
@@ -33,8 +34,8 @@ public class Reward {
 
     @Columns(columns = { @Column(name = "minimal_contribution_currency", nullable = false),
             @Column(name = "minimal_contribution_amount", nullable = false) })
-    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmountAndCurrency")
-    private Money minimalContribution;
+    @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentBigMoneyAmountAndCurrency")
+    private BigMoney minimalContribution;
 
     @Column(name = "reward_limit")
     private Integer limit;
@@ -60,7 +61,7 @@ public class Reward {
     public Reward(Project project, Integer limit, Money minimalContribution, String description) {
         this.project = project;
         this.limit = limit;
-        this.minimalContribution = minimalContribution;
+        this.minimalContribution = minimalContribution.toBigMoney();
         this.description = description;
     }
 
@@ -111,11 +112,11 @@ public class Reward {
     }
 
     public Money getMinimalContribution() {
-        return minimalContribution;
+        return minimalContribution.toMoney();
     }
 
     public void setMinimalContribution(Money minimalContribution) {
-        this.minimalContribution = minimalContribution;
+        this.minimalContribution = minimalContribution.toBigMoney();
     }
 
     public String getDescription() {
