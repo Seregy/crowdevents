@@ -59,7 +59,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (59, 332, 101, '2018-05-09 16:32:37', 48, 'CNY', 202.52);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (60, 61, 146, '2018-04-10 09:58:18', 222, 'ZAR', 55.96);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (61, 39, 97, '2018-06-03 12:45:15', 281, 'USD', 179.84);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (62, 24, 27, '2018-04-30 01:06:30', 96, 'JPY', 204.14);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (62, 24, 27, '2018-04-30 01:06:30', 96, 'JPY', 204);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (63, 114, 142, '2018-04-22 17:46:41', 202, 'MAD', 107.94);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (64, 348, 127, '2018-05-11 11:48:30', 353, 'EUR', 127.37);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (65, 148, 94, '2018-04-27 20:37:04', 258, 'UAH', 222.86);
@@ -139,7 +139,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (139, 53, 7, '2018-05-02 22:52:24', 56, 'PHP', 223.02);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (140, 148, 94, '2018-04-30 18:38:51', 181, 'UAH', 146.7);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (141, 375, 134, '2018-04-29 16:46:15', 293, 'EUR', 241.46);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (142, 40, 145, '2018-04-13 15:31:10', 233, 'XOF', 182.7);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (142, 40, 145, '2018-04-13 15:31:10', 233, 'XOF', 182);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (143, 74, 98, '2018-05-12 09:52:01', 334, 'CNY', 61.36);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (144, 194, 85, '2018-04-28 15:34:52', 343, 'SEK', 160.39);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (145, 17, 17, '2018-05-30 09:22:21', 76, 'PHP', 110.74);
@@ -206,7 +206,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (206, 268, 136, '2018-04-19 22:47:36', 190, 'ARS', 223.59);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (207, 350, 12, '2018-05-01 12:00:00', 246, 'CNY', 163.48);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (208, 59, 80, '2018-05-05 15:59:51', 362, 'PHP', 73.84);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (209, 328, 120, '2018-05-15 12:18:26', 175, 'BYR', 195.17);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (209, 328, 120, '2018-05-15 12:18:26', 175, 'BYN', 195.17);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (210, 18, 187, '2018-06-02 14:32:57', 261, 'BRL', 127.71);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (211, 127, 112, '2018-06-05 02:53:43', 4, 'CRC', 266.55);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (212, 303, 19, '2018-04-17 18:29:14', 220, 'UAH', 148.01);
@@ -233,7 +233,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (233, 19, 10, '2018-05-21 17:50:22', 30, 'USD', 231.89);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (234, 147, 2, '2018-04-08 02:07:57', 255, 'RUB', 100.01);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (235, 384, 118, '2018-05-31 23:41:18', 288, 'CNY', 223.73);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (236, 146, 27, '2018-05-01 17:33:50', 338, 'JPY', 197.61);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (236, 146, 27, '2018-05-01 17:33:50', 338, 'JPY', 197);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (237, 270, 185, '2018-04-24 20:58:21', 81, 'THB', 217.46);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (238, 96, 31, '2018-05-24 12:29:26', 338, 'CAD', 99.48);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (239, 145, 102, '2018-04-17 00:32:21', 344, 'BRL', 295.7);
@@ -282,9 +282,9 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (282, 55, 98, '2018-05-10 06:50:54', 363, 'CNY', 208.16);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (283, 399, 31, '2018-05-30 12:48:04', 215, 'CAD', 252.52);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (284, 368, 154, '2018-05-25 10:30:41', 305, 'PLN', 260.22);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (285, 266, 104, '2018-04-16 12:16:30', 264, 'BYR', 79.31);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (285, 266, 104, '2018-04-16 12:16:30', 264, 'BYN', 79.31);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (286, 166, 48, '2018-05-01 12:00:00', 214, 'USD', 145.65);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (287, 255, 36, '2018-04-12 06:22:39', 385, 'JPY', 97.76);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (287, 255, 36, '2018-04-12 06:22:39', 385, 'JPY', 97);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (288, 91, 174, '2018-05-22 08:25:40', 189, 'PHP', 217.07);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (289, 203, 71, '2018-05-25 17:42:44', 171, 'CNY', 125.33);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (290, 341, 171, '2018-04-16 14:33:00', 229, 'CZK', 59.21);
@@ -330,14 +330,14 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (330, 81, 148, '2018-06-02 13:31:05', 363, 'IDR', 83.58);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (331, 330, 1, '2018-05-30 15:16:17', 228, 'THB', 239.67);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (332, 188, 108, '2018-05-01 12:00:00', 309, 'CNY', 252.82);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (333, 146, 27, '2018-04-26 19:20:42', 119, 'JPY', 252.9);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (333, 146, 27, '2018-04-26 19:20:42', 119, 'JPY', 252);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (334, 274, 144, '2018-04-10 09:12:48', 133, 'CNY', 187.91);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (335, 379, 171, '2018-04-11 04:30:19', 50, 'CZK', 264.72);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (336, 40, 145, '2018-04-14 21:36:35', 378, 'XOF', 102.68);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (336, 40, 145, '2018-04-14 21:36:35', 378, 'XOF', 102);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (337, 106, 194, '2018-04-19 03:30:45', 180, 'RUB', 130.18);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (338, 387, 56, '2018-04-14 21:30:39', 300, 'CNY', 184.27);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (339, 176, 17, '2018-06-02 12:37:12', 73, 'PHP', 150);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (340, 328, 120, '2018-05-10 06:36:34', 168, 'BYR', 191.92);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (340, 328, 120, '2018-05-10 06:36:34', 168, 'BYN', 191.92);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (341, 281, 166, '2018-05-20 10:32:06', 351, 'THB', 163.29);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (342, 279, 150, '2018-05-24 18:47:37', 196, 'PHP', 216.47);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (343, 29, 148, '2018-05-26 00:33:03', 322, 'IDR', 240.94);
@@ -378,7 +378,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (378, 30, 200, '2018-04-14 08:36:31', 288, 'PHP', 93.94);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (379, 381, 174, '2018-05-22 21:11:42', 264, 'PHP', 89.16);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (380, 20, 156, '2018-04-21 01:02:40', 367, 'CNY', 63.07);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (381, 227, 104, '2018-04-21 06:14:56', 144, 'BYR', 135.82);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (381, 227, 104, '2018-04-21 06:14:56', 144, 'BYN', 135.82);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (382, 62, 71, '2018-05-24 19:25:30', 150, 'CNY', 114);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (383, 114, 142, '2018-04-18 08:40:28', 313, 'MAD', 75.2);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (384, 259, 60, '2018-05-24 08:45:33', 196, 'RUB', 182.72);
@@ -395,7 +395,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (395, 240, 53, '2018-05-22 16:19:01', 307, 'EUR', 71.64);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (396, 51, 98, '2018-05-07 01:28:05', 276, 'CNY', 134.26);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (397, 37, 179, '2018-06-01 16:42:53', 290, 'CNY', 143.4);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (398, 276, 27, '2018-04-29 02:28:27', 177, 'JPY', 81.6);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (398, 276, 27, '2018-04-29 02:28:27', 177, 'JPY', 81);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (399, 354, 30, '2018-04-13 15:54:56', 151, 'CDF', 194.3);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (400, 98, 62, '2018-04-17 17:53:21', 145, 'MXN', 190.74);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (401, 43, 22, '2018-04-24 05:17:50', 299, 'BDT', 199.57);
@@ -404,7 +404,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (404, 186, 130, '2018-06-11 02:29:52', 160, 'PLN', 104.1);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (405, 349, 99, '2018-04-26 03:53:39', 303, 'IDR', 276.41);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (406, 46, 80, '2018-05-01 17:13:46', 171, 'PHP', 40.21);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (407, 328, 120, '2018-05-10 19:01:34', 35, 'BYR', 104.37);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (407, 328, 120, '2018-05-10 19:01:34', 35, 'BYN', 104.37);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (408, 181, 6, '2018-04-21 17:06:51', 383, 'IDR', 99.44);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (409, 10, 86, '2018-04-12 03:57:20', 123, 'CNY', 185.89);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (410, 289, 100, '2018-06-02 23:39:51', 345, 'ZAR', 134.32);
@@ -431,7 +431,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (431, 312, 168, '2018-05-31 02:07:58', 335, 'CNY', 164.25);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (432, 210, 185, '2018-04-18 19:10:54', 232, 'THB', 172.84);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (433, 17, 17, '2018-05-29 17:37:36', 54, 'PHP', 38.04);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (434, 242, 27, '2018-04-27 09:21:05', 274, 'JPY', 78.21);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (434, 242, 27, '2018-04-27 09:21:05', 274, 'JPY', 78);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (435, 310, 41, '2018-05-28 11:45:23', 24, 'CNY', 23.66);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (436, 53, 7, '2018-04-29 22:35:03', 343, 'PHP', 138.75);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (437, 334, 39, '2018-05-01 12:00:00', 298, 'IDR', 111.61);
@@ -440,7 +440,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (440, 370, 151, '2018-05-01 12:00:00', 108, 'CNY', 230.02);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (441, 278, 46, '2018-04-07 01:11:15', 75, 'BRL', 16.88);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (442, 92, 86, '2018-04-11 15:48:57', 354, 'CNY', 200.78);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (443, 227, 104, '2018-04-21 04:29:04', 384, 'BYR', 107.96);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (443, 227, 104, '2018-04-21 04:29:04', 384, 'BYN', 107.96);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (444, 209, 167, '2018-04-16 19:52:01', 362, 'EUR', 212.66);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (445, 195, 100, '2018-06-03 17:37:25', 296, 'ZAR', 119.74);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (446, 170, 159, '2018-05-02 22:52:27', 348, 'ARS', 132.92);
@@ -461,7 +461,7 @@ insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, 
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (461, 279, 150, '2018-05-26 15:47:30', 120, 'PHP', 219.82);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (462, 181, 6, '2018-04-25 06:10:30', 140, 'IDR', 248.05);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (463, 180, 72, '2018-04-20 07:59:04', 170, 'CNY', 95.43);
-insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (464, 266, 104, '2018-04-18 03:21:24', 305, 'BYR', 123.89);
+insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (464, 266, 104, '2018-04-18 03:21:24', 305, 'BYN', 123.89);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (465, 31, 199, '2018-05-30 00:24:41', 28, 'CNY', 115.92);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (466, 236, 93, '2018-05-07 00:32:04', 24, 'CNY', 54.62);
 insert into CONTRIBUTION (id, reward_id, project_id, date_time, contributor_id, money_currency, money_amount) values (467, 63, 100, '2018-06-09 09:24:53', 229, 'ZAR', 180.25);
