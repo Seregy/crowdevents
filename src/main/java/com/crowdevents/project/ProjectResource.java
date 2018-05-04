@@ -72,7 +72,10 @@ public class ProjectResource {
     private List<ContributionResource> contributions = new ArrayList<>();
     private List<CommentResource> comments = new ArrayList<>();
     private List<FaqResource> faqs = new ArrayList<>();
+
+    @JsonView(Views.Minimal.class)
     private List<CategoryResource> categories = new ArrayList<>();
+
     private List<UpdateResource> updates = new ArrayList<>();
     private List<RewardResource> rewards = new ArrayList<>();
 
