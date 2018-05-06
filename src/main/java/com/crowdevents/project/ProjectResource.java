@@ -72,6 +72,7 @@ public class ProjectResource {
     @JsonView(Views.Minimal.class)
     private PersonResource owner;
 
+    @JsonProperty("team_members")
     private List<PersonResource> teamMembers = new ArrayList<>();
 
     private List<PersonResource> subscribers = new ArrayList<>();
