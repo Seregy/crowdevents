@@ -2,6 +2,8 @@ package com.crowdevents.faq;
 
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
+import org.joda.money.CurrencyUnit;
+import org.joda.money.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -30,7 +32,8 @@ public class FaqRepositoryServiceTest {
 
     @Test
     public void create_WithProperParams_ShouldCreateNewFaq() {
-        Project mockProject = new Project("name", "description", null);
+        Project mockProject = new Project("name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Faq mockFaq = new Faq(mockProject, "Mock question", "Mock answer");
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));

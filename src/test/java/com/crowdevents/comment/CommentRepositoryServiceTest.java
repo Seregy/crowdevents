@@ -4,6 +4,8 @@ import com.crowdevents.person.Person;
 import com.crowdevents.person.PersonRepository;
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
+import org.joda.money.CurrencyUnit;
+import org.joda.money.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
@@ -42,7 +44,8 @@ public class CommentRepositoryServiceTest {
     @Test
     public void post_WithProperParams_ShouldCreateComment() {
         Person mockPerson = new Person("email", "password", "name");
-        Project mockProject = new Project("Name", "description", null, mockPerson);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Comment mockComment = new Comment(mockProject, mockPerson, "Some message",
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockCommentRepository.save(Mockito.any()))
@@ -60,7 +63,8 @@ public class CommentRepositoryServiceTest {
 
     @Test
     public void post_WithWrongPersonId_ShouldThrowException() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Comment mockComment = new Comment(mockProject, null, "Some message",
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockCommentRepository.save(Mockito.any()))
@@ -132,7 +136,7 @@ public class CommentRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithProperProjectId_ShouldReturnAllComments() {
-        Project project = new Project("Project 1", null, null);
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
         project.setId(1L);
         Comment[] comments = {new Comment(project, null, "Comment 1", LocalDateTime.parse("2018-01-01T01:00:00")),
                 new Comment(project, null, "Comment 2", LocalDateTime.parse("2018-02-01T01:00:00"))};
@@ -146,7 +150,7 @@ public class CommentRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithWrongProjectId_ShouldReturnEmptyPage() {
-        Project project = new Project("Project 1", null, null);
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
         project.setId(1L);
         Comment[] comments = {new Comment(project, null, "Comment 1", LocalDateTime.parse("2018-01-01T01:00:00")),
                 new Comment(project, null, "Comment 2", LocalDateTime.parse("2018-02-01T01:00:00"))};

@@ -37,7 +37,8 @@ public class RewardRepositoryServiceTest {
 
     @Test
     public void create_WithProperParams_ShouldCreateNewReward() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
         Reward mockReward = new Reward(mockProject, 2, Money.of(CurrencyUnit.USD, 1),
@@ -108,7 +109,7 @@ public class RewardRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithProperProjectId_ShouldReturnAllRewards() {
-        Project project = new Project("Project 1", null, null);
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
         project.setId(1L);
         Reward[] rewards = {
                 new Reward(project, 1, Money.of(CurrencyUnit.USD, 1), "Reward 1"),
@@ -126,7 +127,7 @@ public class RewardRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithWrongProjectId_ShouldReturnEmptyPage() {
-        Project project = new Project("Project 1", null, null);
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
         project.setId(1L);
         Reward[] rewards = {
                 new Reward(project, 1, Money.of(CurrencyUnit.USD, 1), "Reward 1"),

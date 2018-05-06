@@ -2,6 +2,8 @@ package com.crowdevents.update;
 
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
+import org.joda.money.CurrencyUnit;
+import org.joda.money.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -33,7 +35,8 @@ public class UpdateRepositoryServiceTest {
 
     @Test
     public void post_WithProperParams_ShouldCreateNewUpdate() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
         Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");

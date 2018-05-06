@@ -39,12 +39,13 @@ public class ProjectRepositoryServiceTest {
         Person mockPerson = new Person("email", "password", "name");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Project mockProject = new Project("Name", "description", null, mockPerson);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.save(Mockito.any()))
                 .thenReturn(mockProject);
 
-        Project result = projectService.create("Name", "description", null,
-                1L);
+        Project result = projectService.create("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), 1L);
 
         assertEquals(mockProject, result);
     }
@@ -53,7 +54,8 @@ public class ProjectRepositoryServiceTest {
     public void create_WithWrongOwnerId_ShouldThrowException() {
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.save(Mockito.any()))
                 .thenReturn(mockProject);
 
@@ -68,7 +70,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void get_WithProperParams_ShouldReturnExistingProject() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -89,10 +92,11 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void getAll_ShouldReturnAllProjects() {
-        Project[] projects = {new Project("Project 1", "Description 1", null),
-                new Project("Project 2", "Description 2", null),
-                new Project("Project 3", "Description 3", null),
-                new Project("Project 4", "Description 4", null)};
+        Project[] projects = {new Project("Project 1", "Description 1",
+                Money.of(CurrencyUnit.USD, 1)),
+                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2)),
+                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3)),
+                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4))};
         Mockito.when(mockProjectRepository.findAll(Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(Arrays.asList(projects)));
 
@@ -103,10 +107,11 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void getAllBeforeAndOrAfter_WithProperBeforeId_ShouldReturnAllProjectsBeforeId() {
-        Project[] projects = {new Project("Project 1", "Description 1", null),
-                new Project("Project 2", "Description 2", null),
-                new Project("Project 3", "Description 3", null),
-                new Project("Project 4", "Description 4", null)};
+        Project[] projects = {new Project("Project 1", "Description 1",
+                Money.of(CurrencyUnit.USD, 1)),
+                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2)),
+                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3)),
+                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4))};
         List<Project> beforeList = Arrays.asList(projects[0], projects[1]);
         Mockito.when(mockProjectRepository.findAllByIdBefore(Mockito.eq(3L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(beforeList));
@@ -119,10 +124,11 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void getAllBeforeAndOrAfter_WithProperAfterId_ShouldReturnAllProjectsAfterId() {
-        Project[] projects = {new Project("Project 1", "Description 1", null),
-                new Project("Project 2", "Description 2", null),
-                new Project("Project 3", "Description 3", null),
-                new Project("Project 4", "Description 4", null)};
+        Project[] projects = {new Project("Project 1", "Description 1",
+                Money.of(CurrencyUnit.USD, 1)),
+                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2)),
+                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3)),
+                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4))};
         List<Project> afterList = Arrays.asList(projects[2], projects[3]);
         Mockito.when(mockProjectRepository.findAllByIdAfter(Mockito.eq(2L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(afterList));
@@ -135,10 +141,11 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void getAllBeforeAndOrAfter_WithProperBeforeAndAfterId_ShouldReturnAllProjectsBetweenIds() {
-        Project[] projects = {new Project("Project 1", "Description 1", null),
-                new Project("Project 2", "Description 2", null),
-                new Project("Project 3", "Description 3", null),
-                new Project("Project 4", "Description 4", null)};
+        Project[] projects = {new Project("Project 1", "Description 1",
+                Money.of(CurrencyUnit.USD, 1)),
+                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2)),
+                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3)),
+                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4))};
         List<Project> betweenList = Arrays.asList(projects[1], projects[2]);
         Mockito.when(mockProjectRepository
                 .findAllByIdAfterAndIdBefore(Mockito.eq(1L), Mockito.eq(4L), Mockito.any(Pageable.class)))
@@ -173,7 +180,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void changeName_WithProperParams_ShouldChangeName() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -197,7 +205,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void changeDescription_WithProperParams_ShouldChangeDescription() {
-        Project mockProject = new Project("Name", "short description", null);
+        Project mockProject = new Project("Name", "short description",
+                Money.of(CurrencyUnit.USD, 1));
         mockProject.setDescription("description");
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
@@ -251,7 +260,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void changeLocation_WithProperParams_ShouldChangeLocation() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -277,7 +287,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void changeStartDateTime_WithProperParams_ShouldChangeStartDateTime() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -303,7 +314,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void changeEndDateTime_WithProperParams_ShouldChangeEndDateTime() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -329,7 +341,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void addVideoLink_WithProperParams_ShouldAddNewVideoLink() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -355,7 +368,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void addImageLink_WithProperParams_ShouldAddNewImageLink() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -384,7 +398,8 @@ public class ProjectRepositoryServiceTest {
         Person mockPerson = new Person("email", "password", "name");
         Set<Person> initialOwners = new HashSet<>();
         initialOwners.add(mockPerson);
-        Project mockProject = new Project("Name", "description", null, mockPerson);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -404,7 +419,8 @@ public class ProjectRepositoryServiceTest {
     @Test
     public void addOwner_WithWrongOwnerId_ShouldThrowException() {
         Person mockPerson = new Person("email", "password", "name");
-        Project mockProject = new Project("Name", "description", null, mockPerson);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
         Mockito.when(mockPersonRepository.findById(2L))
@@ -438,10 +454,12 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void update_WithProperProject_ShouldUpdateProject() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
-        Project newProject = new Project("Name", "description", null);
+        Project newProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         newProject.setStartDateTime(LocalDateTime.parse("2018-01-01T01:00:00"));
 
         assertNull(mockProject.getStartDateTime());
@@ -452,7 +470,8 @@ public class ProjectRepositoryServiceTest {
 
     @Test
     public void update_WithNullUpdatedProject_ShouldThrowException() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -468,7 +487,8 @@ public class ProjectRepositoryServiceTest {
     public void update_WithWrongProjectId_ShouldThrowException() {
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
-        Project newProject = new Project("Name", "description", null);
+        Project newProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             projectService.update(1L, newProject);

@@ -8,6 +8,8 @@ import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
 import com.crowdevents.update.Update;
 import com.crowdevents.update.UpdateRepository;
+import org.joda.money.CurrencyUnit;
+import org.joda.money.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -50,8 +52,8 @@ public class NotificationRepositoryServiceTest {
         Person mockPerson = new Person("mock@mail.com", "password", "Mock person");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Project mockProject = new Project("Mock project", "Description", null,
-                mockPerson);
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         BaseNotification mockBaseNotification = new BaseNotification("Base notification", mockPerson,
@@ -70,8 +72,8 @@ public class NotificationRepositoryServiceTest {
         Person mockPerson = new Person("mock@mail.com", "password", "Mock person");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
-        Project mockProject = new Project("Mock project", "Description", null,
-                mockPerson);
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         BaseNotification mockBaseNotification = new BaseNotification("Base notification", mockPerson,
@@ -114,12 +116,12 @@ public class NotificationRepositoryServiceTest {
         Person mockPerson = new Person("mock@mail.com", "password", "Mock person");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Project mockProject = new Project("Mock project", "Description", null,
-                mockPerson);
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         Contribution mockContribution = new Contribution(mockPerson, mockProject, null,
-                null, null);
+                Money.of(CurrencyUnit.USD, 1), null);
         Mockito.when(mockContributionRepository.findById(3L))
                 .thenReturn(Optional.of(mockContribution));
         ContributionNotification mockContributionNotification = new ContributionNotification("Notification",
@@ -139,8 +141,8 @@ public class NotificationRepositoryServiceTest {
         Person mockPerson = new Person("mock@mail.com", "password", "Mock person");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Project mockProject = new Project("Mock project", "Description", null,
-                mockPerson);
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         Mockito.when(mockContributionRepository.findById(3L))
@@ -165,12 +167,12 @@ public class NotificationRepositoryServiceTest {
         Person mockPerson = new Person("mock@mail.com", "password", "Mock person");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
-        Project mockProject = new Project("Mock project", "Description", null,
-                mockPerson);
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         Contribution mockContribution = new Contribution(mockPerson, mockProject, null,
-                null, null);
+                Money.of(CurrencyUnit.USD, 1), null);
         Mockito.when(mockContributionRepository.findById(3L))
                 .thenReturn(Optional.of(mockContribution));
 
@@ -193,7 +195,7 @@ public class NotificationRepositoryServiceTest {
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.empty());
         Contribution mockContribution = new Contribution(mockPerson, null, null,
-                null, null);
+                Money.of(CurrencyUnit.USD, 1), null);
         Mockito.when(mockContributionRepository.findById(3L))
                 .thenReturn(Optional.of(mockContribution));
 
@@ -216,7 +218,8 @@ public class NotificationRepositoryServiceTest {
         Person targetPerson = new Person("target@mail.com", "password", "Target person");
         Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.of(targetPerson));
-        Project mockProject = new Project("Mock project", "Description", null,
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1),
                 targetPerson);
         Mockito.when(mockProjectRepository.findById(3L))
                 .thenReturn(Optional.of(mockProject));
@@ -239,7 +242,8 @@ public class NotificationRepositoryServiceTest {
                 .thenReturn(Optional.of(receiver));
         Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.empty());
-        Project mockProject = new Project("Mock project", "Description", null);
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(3L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -261,7 +265,8 @@ public class NotificationRepositoryServiceTest {
         Person targetPerson = new Person("target@mail.com", "password", "Target person");
         Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.of(targetPerson));
-        Project mockProject = new Project("Mock project", "Description", null,
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1),
                 targetPerson);
         Mockito.when(mockProjectRepository.findById(3L))
                 .thenReturn(Optional.of(mockProject));
@@ -310,7 +315,8 @@ public class NotificationRepositoryServiceTest {
         Person mockPerson = new Person("mock@mail.com", "password", "Mock person");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Project mockProject = new Project("Mock project", "Description", null, mockPerson);
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Update");
@@ -333,7 +339,8 @@ public class NotificationRepositoryServiceTest {
         Person mockPerson = new Person("mock@mail.com", "password", "Mock person");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Project mockProject = new Project("Mock project", "Description", null,
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1),
                 mockPerson);
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
@@ -355,7 +362,8 @@ public class NotificationRepositoryServiceTest {
     public void sendUpdateNotification_WithWrongPersonId_ShouldThrowException() {
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
-        Project mockProject = new Project("Mock project", "Description", null);
+        Project mockProject = new Project("Mock project", "Description",
+                Money.of(CurrencyUnit.USD, 1));
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Update");

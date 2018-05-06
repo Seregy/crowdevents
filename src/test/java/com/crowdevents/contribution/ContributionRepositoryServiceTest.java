@@ -52,7 +52,8 @@ public class ContributionRepositoryServiceTest {
     @Test
     public void contribute_WithProperParams_ShouldCreateNewContribution() {
         Person mockPerson = new Person("email", "password", "name");
-        Project mockProject = new Project("Name", "description", null, mockPerson);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1),
                 "description");
         Contribution mockContribution = new Contribution(mockPerson, mockProject,
@@ -75,7 +76,8 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void contribute_WithWrongPersonId_ShouldThrowException() {
-        Project mockProject = new Project("Name", "description", null);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1));
         Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1),
                 "description");
         Contribution mockContribution = new Contribution(null, mockProject,
@@ -128,7 +130,8 @@ public class ContributionRepositoryServiceTest {
     @Test
     public void contribute_WithWrongRewardId_ShouldThrowException() {
         Person mockPerson = new Person("email", "password", "name");
-        Project mockProject = new Project("Name", "description", null, mockPerson);
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), mockPerson);
         Contribution mockContribution = new Contribution(mockPerson, mockProject,
                 LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
         Mockito.when(mockContributionRepository.save(Mockito.any()))
@@ -193,7 +196,7 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithProperProjectId_ShouldReturnAllContributions() {
-        Project project = new Project("Project 1", null, null);
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
         project.setId(1L);
         Contribution[] contributions = {
                 new Contribution(null, project, LocalDateTime.parse("2018-01-01T01:00:00"),
@@ -210,7 +213,7 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithWrongProjectId_ShouldReturnEmptyPage() {
-        Project project = new Project("Project 1", null, null);
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
         project.setId(1L);
         Contribution[] contributions = {
                 new Contribution(null, project, LocalDateTime.parse("2018-01-01T01:00:00"),
@@ -356,7 +359,7 @@ public class ContributionRepositoryServiceTest {
         Mockito.when(mockRewardRepository.findById(2L))
                 .thenReturn(Optional.of(newReward));
         Contribution updatedContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-02-02T01:00:00"), null, newReward);
+                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), newReward);
 
         contributionService.update(1L, updatedContribution);
         assertEquals(newReward, mockContribution.getReward());
@@ -404,7 +407,7 @@ public class ContributionRepositoryServiceTest {
         Mockito.when(mockRewardRepository.findById(2L))
                 .thenReturn(Optional.empty());
         Contribution newContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-02-02T01:00:00"), null, newReward);
+                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), newReward);
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             contributionService.update(1L, newContribution);
