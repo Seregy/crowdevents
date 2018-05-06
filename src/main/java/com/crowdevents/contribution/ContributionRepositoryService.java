@@ -107,20 +107,6 @@ public class ContributionRepositoryService implements ContributionService {
     }
 
     @Override
-    public void changeReward(Long id, Long newRewardId) {
-        Contribution contribution = contributionRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException(
-                        "Invalid contribution id: " + id));
-        Reward reward = rewardRepository
-                .findById(newRewardId)
-                .orElseThrow(() -> new IllegalArgumentException(
-                        "Invalid reward id: " + newRewardId));
-        contribution.setReward(reward);
-        contributionRepository.save(contribution);
-    }
-
-    @Override
     public void update(Long id, Contribution updatedContribution) {
         if (updatedContribution == null) {
             throw new IllegalArgumentException("Updated contribution must not be null");

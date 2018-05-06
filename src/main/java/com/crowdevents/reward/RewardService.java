@@ -17,15 +17,5 @@ public interface RewardService {
 
     boolean delete(Long id);
 
-    void changeLimit(Long id, Integer newLimit);
-
-    void changeMinimalContribution(Long id, Money newMinimalContribution);
-
-    void changeDescription(Long id, String newDescription);
-
-    void changeDeliveryDate(Long id, String newDeliveryDate);
-
-    void changeShippingLocation(Long id, String newShippingLocation);
-
     void update(Long id, Reward updatedReward);
 }

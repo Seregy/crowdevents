@@ -26,7 +26,5 @@ public interface NotificationService {
 
     boolean delete(Long id);
 
-    void changeMessage(Long id, String newMessage);
-
     void update(Long id, BaseNotification updatedNotification);
 }

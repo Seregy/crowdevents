@@ -16,9 +16,5 @@ public interface FaqService {
 
     boolean delete(Long id);
 
-    void changeQuestion(Long id, String newQuestion);
-
-    void changeAnswer(Long id, String newAnswer);
-
     void update(Long id, Faq updatedFaq);
 }

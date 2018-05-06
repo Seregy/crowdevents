@@ -68,20 +68,6 @@ public class UpdateRepositoryService implements UpdateService {
     }
 
     @Override
-    public void changeMessage(Long id, String newMessage) {
-        Update update = getUpdate(id);
-        update.setMessage(newMessage);
-        updateRepository.save(update);
-    }
-
-    @Override
-    public void changeShortMessage(Long id, String newShortMessage) {
-        Update update = getUpdate(id);
-        update.setShortMessage(newShortMessage);
-        updateRepository.save(update);
-    }
-
-    @Override
     public void update(Long id, Update updatedUpdate) {
         if (updatedUpdate == null) {
             throw new IllegalArgumentException("Updated update must not be null");

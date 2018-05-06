@@ -133,15 +133,6 @@ public class NotificationRepositoryService implements NotificationService {
     }
 
     @Override
-    public void changeMessage(Long id, String newMessage) {
-        BaseNotification notification = notificationRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid notification id: " + id));
-        notification.setMessage(newMessage);
-        notificationRepository.save(notification);
-    }
-
-    @Override
     public void update(Long id, BaseNotification updatedNotification) {
         if (updatedNotification == null) {
             throw new IllegalArgumentException("Updated notification must not be null");

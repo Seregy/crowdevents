@@ -61,24 +61,6 @@ public class FaqRepositoryService implements FaqService {
     }
 
     @Override
-    public void changeQuestion(Long id, String newQuestion) {
-        Faq faq = faqRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid faq id: " + id));
-        faq.setQuestion(newQuestion);
-        faqRepository.save(faq);
-    }
-
-    @Override
-    public void changeAnswer(Long id, String newAnswer) {
-        Faq faq = faqRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid faq id: " + id));
-        faq.setAnswer(newAnswer);
-        faqRepository.save(faq);
-    }
-
-    @Override
     public void update(Long id, Faq updatedFaq) {
         if (updatedFaq == null) {
             throw new IllegalArgumentException("Updated faq must not be null");

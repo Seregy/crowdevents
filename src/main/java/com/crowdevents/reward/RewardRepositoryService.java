@@ -56,41 +56,6 @@ public class RewardRepositoryService implements RewardService {
     }
 
     @Override
-    public void changeLimit(Long id, Integer newLimit) {
-        Reward reward = getReward(id);
-        reward.setLimit(newLimit);
-        rewardRepository.save(reward);
-    }
-
-    @Override
-    public void changeMinimalContribution(Long id, Money newMinimalContribution) {
-        Reward reward = getReward(id);
-        reward.setMinimalContribution(newMinimalContribution);
-        rewardRepository.save(reward);
-    }
-
-    @Override
-    public void changeDescription(Long id, String newDescription) {
-        Reward reward = getReward(id);
-        reward.setDescription(newDescription);
-        rewardRepository.save(reward);
-    }
-
-    @Override
-    public void changeDeliveryDate(Long id, String newDeliveryDate) {
-        Reward reward = getReward(id);
-        reward.setDeliveryDate(newDeliveryDate);
-        rewardRepository.save(reward);
-    }
-
-    @Override
-    public void changeShippingLocation(Long id, String newShippingLocation) {
-        Reward reward = getReward(id);
-        reward.setShippingLocation(newShippingLocation);
-        rewardRepository.save(reward);
-    }
-
-    @Override
     public void update(Long id, Reward updatedReward) {
         if (updatedReward == null) {
             throw new IllegalArgumentException("Updated reward must not be null");

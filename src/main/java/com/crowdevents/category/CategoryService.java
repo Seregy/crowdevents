@@ -16,11 +16,5 @@ public interface CategoryService {
 
     boolean delete(Long id);
 
-    void changeName(Long id, String newName);
-
-    void changeDescription(Long id, String newDescription);
-
-    void changeParentCategory(Long id, Long newParentCategoryId);
-
     void update(Long id, Category updatedCategory);
 }

@@ -19,7 +19,5 @@ public interface ContributionService {
 
     boolean delete(Long id);
 
-    void changeReward(Long id, Long newRewardId);
-
     void update(Long id, Contribution updatedContribution);
 }

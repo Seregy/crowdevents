@@ -89,15 +89,6 @@ public class MessageRepositoryService implements MessageService {
     }
 
     @Override
-    public void changeMessage(Long id, String newMessage) {
-        Message message = messageRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid message id: " + id));
-        message.setMessage(newMessage);
-        messageRepository.save(message);
-    }
-
-    @Override
     public void update(Long id, Message updatedMessage) {
         if (updatedMessage == null) {
             throw new IllegalArgumentException("Updated message must not be null");

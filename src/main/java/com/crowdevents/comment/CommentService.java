@@ -18,7 +18,5 @@ public interface CommentService {
 
     boolean delete(Long id);
 
-    void changeMessage(Long id, String newMessage);
-
     void update(Long id, Comment updatedComment);
 }

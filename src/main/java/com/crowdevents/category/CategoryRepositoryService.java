@@ -58,37 +58,6 @@ public class CategoryRepositoryService implements CategoryService {
     }
 
     @Override
-    public void changeName(Long id, String newName) {
-        Category category = categoryRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
-        category.setName(newName);
-        categoryRepository.save(category);
-    }
-
-    @Override
-    public void changeDescription(Long id, String newDescription) {
-        Category category = categoryRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
-        category.setDescription(newDescription);
-        categoryRepository.save(category);
-    }
-
-    @Override
-    public void changeParentCategory(Long id, Long newParentCategoryId) {
-        Category category = categoryRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid category id: " + id));
-        Category parent = categoryRepository
-                .findById(newParentCategoryId)
-                .orElseThrow(() -> new IllegalArgumentException(
-                        "Invalid parent category id: " + newParentCategoryId));
-        category.setParent(parent);
-        categoryRepository.save(category);
-    }
-
-    @Override
     public void update(Long id, Category updatedCategory) {
         if (updatedCategory == null) {
             throw new IllegalArgumentException("Updated category must not be null");

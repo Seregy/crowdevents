@@ -90,15 +90,6 @@ public class CommentRepositoryService implements CommentService {
     }
 
     @Override
-    public void changeMessage(Long id, String newMessage) {
-        Comment comment = commentRepository
-                .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid comment id: " + id));
-        comment.setMessage(newMessage);
-        commentRepository.save(comment);
-    }
-
-    @Override
     public void update(Long id, Comment updatedComment) {
         if (updatedComment == null) {
             throw new IllegalArgumentException("Updated comment must not be null");
