@@ -45,48 +45,6 @@ public class PersonRepositoryService implements PersonService {
     }
 
     @Override
-    public void changeName(Long id, String newName) {
-        Person person = getPerson(id);
-        person.setName(newName);
-        personRepository.save(person);
-    }
-
-    @Override
-    public void changeSurname(Long id, String newSurname) {
-        Person person = getPerson(id);
-        person.setSurname(newSurname);
-        personRepository.save(person);
-    }
-
-    @Override
-    public void changePassword(Long id, String newPassword) {
-        Person person = getPerson(id);
-        person.setPassword(newPassword);
-        personRepository.save(person);
-    }
-
-    @Override
-    public void changeEmail(Long id, String newEmail) {
-        Person person = getPerson(id);
-        person.setEmail(newEmail);
-        personRepository.save(person);
-    }
-
-    @Override
-    public void changeCountry(Long id, String newCountry) {
-        Person person = getPerson(id);
-        person.setCountry(newCountry);
-        personRepository.save(person);
-    }
-
-    @Override
-    public void changeCity(Long id, String newCity) {
-        Person person = getPerson(id);
-        person.setCity(newCity);
-        personRepository.save(person);
-    }
-
-    @Override
     public void update(Long id, Person updatedPerson) {
         if (updatedPerson == null) {
             throw new IllegalArgumentException("Updated person must not be null");

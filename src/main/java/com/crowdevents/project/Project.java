@@ -27,6 +27,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Columns;
@@ -85,9 +86,12 @@ public class Project {
     @ElementCollection
     private List<String> imageLinks = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "createdProjects", cascade =
+    @ManyToOne
+    private Person owner;
+
+    @ManyToMany(mappedBy = "teamMemberProjects", cascade =
             {CascadeType.PERSIST, CascadeType.MERGE})
-    private Set<Person> owners = new HashSet<>();
+    private Set<Person> teamMembers = new HashSet<>();
 
     @ManyToMany(mappedBy = "subscribedProjects")
     private Set<Person> subscribers = new HashSet<>();
@@ -116,15 +120,13 @@ public class Project {
      * @param name name of the project
      * @param shortDescription short description
      * @param fundingGoal funding goal of the project
-     * @param owners owners of the project
+     * @param owner owner of the project
      */
-    public Project(String name, String shortDescription, Money fundingGoal, Person... owners) {
+    public Project(String name, String shortDescription, Money fundingGoal, Person owner) {
         this.name = name;
         this.shortDescription = shortDescription;
         this.fundingGoal = fundingGoal.toBigMoney();
-        for (Person owner : owners) {
-            addOwner(owner);
-        }
+        owner.addCreatedProject(this);
     }
 
     protected Project() {
@@ -243,22 +245,30 @@ public class Project {
         this.imageLinks = imageLinks;
     }
 
-    public Set<Person> getOwners() {
-        return owners;
+    public Person getOwner() {
+        return owner;
     }
 
-    public void addOwner(Person owner) {
-        owners.add(owner);
-        owner.getCreatedProjects().add(this);
+    public void setOwner(Person owner) {
+        this.owner = owner;
     }
 
-    public void removeOwner(Person owner) {
-        owners.remove(owner);
-        owner.getCreatedProjects().remove(this);
+    public Set<Person> getTeamMembers() {
+        return teamMembers;
     }
 
-    public void setOwners(Set<Person> owners) {
-        this.owners = owners;
+    public void addTeamMember(Person owner) {
+        teamMembers.add(owner);
+        owner.getTeamMemberProjects().add(this);
+    }
+
+    public void removeTeamMember(Person owner) {
+        teamMembers.remove(owner);
+        owner.getTeamMemberProjects().remove(this);
+    }
+
+    public void setTeamMembers(Set<Person> teamMembers) {
+        this.teamMembers = teamMembers;
     }
 
     public Set<Person> getSubscribers() {

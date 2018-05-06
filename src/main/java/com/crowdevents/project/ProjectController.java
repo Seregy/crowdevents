@@ -106,9 +106,7 @@ public class ProjectController {
         Project createdProject = projectService.create(newProject.getName(),
                 newProject.getDescription(),
                 newProject.getFundingGoal(),
-                newProject.getOwners().stream()
-                        .map(PersonResource::getId)
-                        .toArray(Long[]::new));
+                newProject.getOwner().getId());
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/v0/projects/{id}")
                 .buildAndExpand(createdProject.getId())

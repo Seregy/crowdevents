@@ -42,9 +42,12 @@ public class Person {
 
     private String personImageLink;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "PERSON_PROJECTS_OWNED")
+    @OneToMany(mappedBy = "owner")
     private Set<Project> createdProjects = new HashSet<>();
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "PERSON_PROJECTS_TEAM")
+    private Set<Project> teamMemberProjects = new HashSet<>();
 
     @ManyToMany
     private Set<Project> subscribedProjects = new HashSet<>();
@@ -154,8 +157,26 @@ public class Person {
         return createdProjects;
     }
 
+    public void addCreatedProject(Project project) {
+        createdProjects.add(project);
+        project.setOwner(this);
+    }
+
+    public void removeCreatedProject(Project project) {
+        createdProjects.remove(project);
+        project.setOwner(null);
+    }
+
     public void setCreatedProjects(Set<Project> createdProjects) {
         this.createdProjects = createdProjects;
+    }
+
+    public Set<Project> getTeamMemberProjects() {
+        return teamMemberProjects;
+    }
+
+    public void setTeamMemberProjects(Set<Project> teamMemberProjects) {
+        this.teamMemberProjects = teamMemberProjects;
     }
 
     public Set<Project> getSubscribedProjects() {

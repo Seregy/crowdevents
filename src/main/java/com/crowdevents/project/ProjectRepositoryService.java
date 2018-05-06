@@ -29,9 +29,9 @@ public class ProjectRepositoryService implements ProjectService {
 
     @Override
     public Project create(String name, String shortDescription,
-                          Money fundingGoal, Long... ownersIds) {
-        Person[] persons = Arrays.stream(ownersIds).map(this::getPerson).toArray(Person[]::new);
-        Project project = new Project(name, shortDescription, fundingGoal, persons);
+                          Money fundingGoal, Long ownerId) {
+        Person person = getPerson(ownerId);
+        Project project = new Project(name, shortDescription, fundingGoal, person);
         project.setType(ProjectType.IN_CREATION);
         project.setVisibility(ProjectVisibility.PRIVATE);
         return projectRepository.save(project);
@@ -92,72 +92,6 @@ public class ProjectRepositoryService implements ProjectService {
     }
 
     @Override
-    public void changeName(Long id, String newName) {
-        Project project = getProject(id);
-        project.setName(newName);
-        projectRepository.save(project);
-    }
-
-    @Override
-    public void changeDescription(Long id, String newDescription) {
-        Project project = getProject(id);
-        project.setDescription(newDescription);
-        projectRepository.save(project);
-    }
-
-    @Override
-    public void changeFundingGoal(Long id, Money newGoal) {
-        Project project = getProject(id);
-        project.setFundingGoal(newGoal);
-        projectRepository.save(project);
-    }
-
-    @Override
-    public void changeLocation(Long id, Location newLocation) {
-        Project project = getProject(id);
-        project.setLocation(newLocation);
-        projectRepository.save(project);
-    }
-
-    @Override
-    public void changeStartDateTime(Long id, LocalDateTime newStartDateTime) {
-        Project project = getProject(id);
-        project.setStartDateTime(newStartDateTime);
-        projectRepository.save(project);
-    }
-
-    @Override
-    public void changeEndDateTime(Long id, LocalDateTime newEndDateTime) {
-        Project project = getProject(id);
-        project.setEndDateTime(newEndDateTime);
-        projectRepository.save(project);
-    }
-
-    @Override
-    public void addVideoLink(Long id, String... links) {
-        Project project = getProject(id);
-        project.getVideoLinks().addAll(Arrays.asList(links));
-        projectRepository.save(project);
-    }
-
-    @Override
-    public void addImageLink(Long id, String... links) {
-        Project project = getProject(id);
-        project.getImageLinks().addAll(Arrays.asList(links));
-        projectRepository.save(project);
-    }
-
-    @Override
-    public void addOwner(Long id, Long... ownersIds) {
-        Project project = getProject(id);
-        for (Long ownerId : ownersIds) {
-            Person owner = getPerson(ownerId);
-            project.addOwner(owner);
-        }
-        projectRepository.save(project);
-    }
-
-    @Override
     public void update(Long id, Project updatedProject) {
         if (updatedProject == null) {
             throw new IllegalArgumentException("Updated project must not be null");
@@ -175,6 +109,9 @@ public class ProjectRepositoryService implements ProjectService {
         project.setProjectImageLink(updatedProject.getProjectImageLink());
         project.setType(updatedProject.getType());
         project.setVisibility(updatedProject.getVisibility());
+        project.setTeamMembers(updatedProject.getTeamMembers());
+        project.setImageLinks(updatedProject.getImageLinks());
+        project.setVideoLinks(updatedProject.getVideoLinks());
         projectRepository.save(project);
     }
 

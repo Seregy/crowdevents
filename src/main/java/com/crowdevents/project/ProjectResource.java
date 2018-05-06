@@ -70,7 +70,9 @@ public class ProjectResource {
     private List<String> imageLinks = new ArrayList<>();
 
     @JsonView(Views.Minimal.class)
-    private List<PersonResource> owners = new ArrayList<>();
+    private PersonResource owner;
+
+    private List<PersonResource> teamMembers = new ArrayList<>();
 
     private List<PersonResource> subscribers = new ArrayList<>();
     private List<ContributionResource> contributions = new ArrayList<>();
@@ -191,12 +193,20 @@ public class ProjectResource {
         this.imageLinks = imageLinks;
     }
 
-    public List<PersonResource> getOwners() {
-        return owners;
+    public PersonResource getOwner() {
+        return owner;
     }
 
-    public void setOwners(List<PersonResource> owners) {
-        this.owners = owners;
+    public void setOwner(PersonResource owner) {
+        this.owner = owner;
+    }
+
+    public List<PersonResource> getTeamMembers() {
+        return teamMembers;
+    }
+
+    public void setTeamMembers(List<PersonResource> teamMembers) {
+        this.teamMembers = teamMembers;
     }
 
     public List<PersonResource> getSubscribers() {

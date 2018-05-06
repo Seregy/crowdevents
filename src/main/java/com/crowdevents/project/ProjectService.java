@@ -10,7 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ProjectService {
-    Project create(String name, String shortDescription, Money fundingGoal, Long... ownersIds);
+    Project create(String name, String shortDescription, Money fundingGoal, Long ownerId);
 
     Optional<Project> get(Long id);
 
@@ -24,24 +24,6 @@ public interface ProjectService {
                                          ProjectVisibility visibility, Pageable pageable);
 
     boolean delete(Long id);
-
-    void changeName(Long id, String newName);
-
-    void changeDescription(Long id, String newDescription);
-
-    void changeFundingGoal(Long id, Money newGoal);
-
-    void changeLocation(Long id, Location newLocation);
-
-    void changeStartDateTime(Long id, LocalDateTime newStartDateTime);
-
-    void changeEndDateTime(Long id, LocalDateTime newEndDateTime);
-
-    void addVideoLink(Long id, String... links);
-
-    void addImageLink(Long id, String... links);
-
-    void addOwner(Long id, Long... ownersIds);
 
     void update(Long id, Project updatedProject);
 }

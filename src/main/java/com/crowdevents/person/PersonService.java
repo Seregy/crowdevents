@@ -14,17 +14,5 @@ public interface PersonService {
 
     boolean delete(Long id);
 
-    void changeName(Long id, String newName);
-
-    void changeSurname(Long id, String newSurname);
-
-    void changePassword(Long id, String newPassword);
-
-    void changeEmail(Long id, String newEmail);
-
-    void changeCountry(Long id, String newCountry);
-
-    void changeCity(Long id, String newCity);
-
     void update(Long id, Person updatedPerson);
 }
