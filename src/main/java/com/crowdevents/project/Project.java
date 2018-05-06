@@ -198,7 +198,11 @@ public class Project {
     }
 
     public Money getFundingGoal() {
-        return fundingGoal.toMoney();
+        if (fundingGoal != null) {
+            return fundingGoal.toMoney();
+        }
+        
+        return null;
     }
 
     public void setFundingGoal(Money fundingGoal) {
