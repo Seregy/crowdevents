@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="crowdevents" target="1.8" />
+      <module name="crowdevents" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>
