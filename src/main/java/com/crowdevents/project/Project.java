@@ -60,6 +60,9 @@ public class Project {
     @Column(name = "end_date_time")
     private LocalDateTime endDateTime;
 
+    @Column(name = "event_date_time")
+    private LocalDateTime eventDateTime;
+
     @Columns(columns = { @Column(name = "funding_goal_currency"),
             @Column(name = "funding_goal_amount") })
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentBigMoneyAmountAndCurrency")
@@ -182,6 +185,14 @@ public class Project {
 
     public void setEndDateTime(LocalDateTime endDateTime) {
         this.endDateTime = endDateTime;
+    }
+
+    public LocalDateTime getEventDateTime() {
+        return eventDateTime;
+    }
+
+    public void setEventDateTime(LocalDateTime eventDateTime) {
+        this.eventDateTime = eventDateTime;
     }
 
     public Money getFundingGoal() {

@@ -170,6 +170,7 @@ public class ProjectRepositoryService implements ProjectService {
         project.setLocation(updatedProject.getLocation());
         project.setStartDateTime(updatedProject.getStartDateTime());
         project.setEndDateTime(updatedProject.getEndDateTime());
+        project.setEventDateTime(updatedProject.getEventDateTime());
         project.setFundingGoal(updatedProject.getFundingGoal());
         project.setProjectImageLink(updatedProject.getProjectImageLink());
         project.setType(updatedProject.getType());

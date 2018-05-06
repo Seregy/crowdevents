@@ -42,6 +42,10 @@ public class ProjectResource {
     @JsonView(Views.Minimal.class)
     private LocalDateTime endDateTime;
 
+    @JsonProperty("event_date")
+    @JsonView(Views.Minimal.class)
+    private LocalDateTime eventDateTime;
+
     @JsonProperty("funding_goal")
     @JsonView(Views.Minimal.class)
     private Money fundingGoal;
@@ -137,6 +141,14 @@ public class ProjectResource {
 
     public void setEndDateTime(LocalDateTime endDateTime) {
         this.endDateTime = endDateTime;
+    }
+
+    public LocalDateTime getEventDateTime() {
+        return eventDateTime;
+    }
+
+    public void setEventDateTime(LocalDateTime eventDateTime) {
+        this.eventDateTime = eventDateTime;
     }
 
     public Money getFundingGoal() {
