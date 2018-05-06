@@ -116,44 +116,31 @@ public class CategoryRepositoryServiceTest {
     }
 
     @Test
-    public void changeName_WithProperParams_ShouldChangeName() {
-        Category mockedCategory = new Category("Mock", "Mocked category");
+    public void update_WithNewName_ShouldChangeName() {
+        Category mockCategory = new Category("Mock", "Mocked category");
         Mockito.when(mockCategoryRepository.findById(1L))
-                .thenReturn(Optional.of(mockedCategory));
+                .thenReturn(Optional.of(mockCategory));
+        Category updatedCategory = new Category("New name", null);
 
-        assertEquals("Mock", mockedCategory.getName());
-        categoryService.changeName(1L, "Changed name");
-        assertEquals("Changed name", mockedCategory.getName());
+        assertEquals("Mock", mockCategory.getName());
+        categoryService.update(1L, updatedCategory);
+        assertEquals("New name", mockCategory.getName());
     }
 
     @Test
-    public void changeDescription_WithProperParams_ShouldChangeDescription() {
-        Category mockedCategory = new Category("Mock", "Mocked category");
+    public void update_WithNewDescription_ShouldChangeDescription() {
+        Category mockCategory = new Category("Mock", "Mocked category");
         Mockito.when(mockCategoryRepository.findById(1L))
-                .thenReturn(Optional.of(mockedCategory));
+                .thenReturn(Optional.of(mockCategory));
+        Category updatedCategory = new Category("Mock", "New category");
 
-        assertEquals("Mocked category", mockedCategory.getDescription());
-        categoryService.changeDescription(1L, "Changed description");
-        assertEquals("Changed description", mockedCategory.getDescription());
+        assertEquals("Mocked category", mockCategory.getDescription());
+        categoryService.update(1L, updatedCategory);
+        assertEquals("New category", mockCategory.getDescription());
     }
 
     @Test
-    public void changeParentCategory_WithProperParams_ShouldChangeParent() {
-        Category mockedParentCategory = new Category("Parent", "Mocked parent category");
-        Category mockedCategory = new Category("Mock", "Mocked category", mockedParentCategory);
-        Mockito.when(mockCategoryRepository.findById(1L))
-                .thenReturn(Optional.of(mockedCategory));
-        Category anotherParent = new Category("Another parent", "Another mocked parent category");
-        Mockito.when(mockCategoryRepository.findById(2L))
-                .thenReturn(Optional.of(anotherParent));
-
-        assertEquals(mockedParentCategory, mockedCategory.getParent());
-        categoryService.changeParentCategory(1L, 2L);
-        assertEquals(anotherParent, mockedCategory.getParent());
-    }
-
-    @Test
-    public void update_WithProperParams_ShouldUpdateCategory() {
+    public void update_WithNewParentCategory_ShouldChangeParent() {
         Category mockCategory = new Category("Mock", "Mocked category");
         Mockito.when(mockCategoryRepository.findById(1L))
                 .thenReturn(Optional.of(mockCategory));
@@ -165,8 +152,6 @@ public class CategoryRepositoryServiceTest {
 
         assertNull(mockCategory.getParent());
         categoryService.update(1L, updatedCategory);
-        assertNull(mockCategory.getDescription());
-        assertEquals("New name", mockCategory.getName());
         assertEquals(mockParentCategory, mockCategory.getParent());
     }
 

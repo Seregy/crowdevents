@@ -1,5 +1,6 @@
 package com.crowdevents.reward;
 
+import com.crowdevents.person.Person;
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
 import org.joda.money.CurrencyUnit;
@@ -38,7 +39,7 @@ public class RewardRepositoryServiceTest {
     @Test
     public void create_WithProperParams_ShouldCreateNewReward() {
         Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
         Reward mockReward = new Reward(mockProject, 2, Money.of(CurrencyUnit.USD, 1),
@@ -109,7 +110,8 @@ public class RewardRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithProperProjectId_ShouldReturnAllRewards() {
-        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1),
+                new Person("", "", ""));
         project.setId(1L);
         Reward[] rewards = {
                 new Reward(project, 1, Money.of(CurrencyUnit.USD, 1), "Reward 1"),
@@ -127,7 +129,8 @@ public class RewardRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithWrongProjectId_ShouldReturnEmptyPage() {
-        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1),
+                new Person("", "", ""));
         project.setId(1L);
         Reward[] rewards = {
                 new Reward(project, 1, Money.of(CurrencyUnit.USD, 1), "Reward 1"),
@@ -157,160 +160,75 @@ public class RewardRepositoryServiceTest {
     }
 
     @Test
-    public void changeLimit_WithProperParams_ShouldChangeLimit() {
-        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
-                "Reward description");
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.of(mockReward));
-
-        assertEquals(Integer.valueOf(2), mockReward.getLimit());
-        rewardService.changeLimit(1L, 5);
-        assertEquals(Integer.valueOf(5), mockReward.getLimit());
-    }
-
-    @Test
-    public void changeLimit_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeLimit(1L, 5);
-        });
-
-        assertEquals("Invalid reward id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeMinimalContribution_WithProperParams_ShouldChangeMinimalContribution() {
-        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
-                "Reward description");
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.of(mockReward));
-
-        assertEquals(Money.of(CurrencyUnit.USD, 1), mockReward.getMinimalContribution());
-        rewardService.changeMinimalContribution(1L,
-                Money.of(CurrencyUnit.USD, 5));
-        assertEquals(Money.of(CurrencyUnit.USD, 5), mockReward.getMinimalContribution());
-    }
-
-    @Test
-    public void changeMinimalContribution_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeMinimalContribution(1L,
-                    Money.of(CurrencyUnit.USD, 5));
-        });
-
-        assertEquals("Invalid reward id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeDescription_WithProperParams_ShouldChangeDescription() {
-        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
-                "Reward description");
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.of(mockReward));
-
-        assertEquals("Reward description", mockReward.getDescription());
-        rewardService.changeDescription(1L,
-                "New description");
-        assertEquals("New description", mockReward.getDescription());
-    }
-
-    @Test
-    public void changeDescription_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeDescription(1L,
-                    "New description");
-        });
-
-        assertEquals("Invalid reward id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeDeliveryDate_WithProperParams_ShouldChangeDeliveryDate() {
-        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
-                "Reward description");
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.of(mockReward));
-
-        assertNull(mockReward.getDeliveryDate());
-        rewardService.changeDeliveryDate(1L,
-                "New delivery date");
-        assertEquals("New delivery date", mockReward.getDeliveryDate());
-    }
-
-    @Test
-    public void changeDeliveryDate_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeDeliveryDate(1L,
-                    "New delivery date");
-        });
-
-        assertEquals("Invalid reward id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeShippingLocation_WithProperParams_ShouldChangeShippingLocation() {
-        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
-                "Reward description");
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.of(mockReward));
-
-        assertNull(mockReward.getShippingLocation());
-        rewardService.changeShippingLocation(1L,
-                "New shipping location");
-        assertEquals("New shipping location", mockReward.getShippingLocation());
-    }
-
-    @Test
-    public void changeShippingLocation_WithWrongRewardId_ShouldThrowException() {
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.changeShippingLocation(1L,
-                    "New shipping location");
-        });
-
-        assertEquals("Invalid reward id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void update_WithProperParams_ShouldUpdateReward() {
+    public void update_WithNewLimit_ShouldChangeLimit() {
         Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
                 "Reward description");
         Mockito.when(mockRewardRepository.findById(1L))
                 .thenReturn(Optional.of(mockReward));
         Reward updatedReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5),
-                "New description");
-        updatedReward.setShippingLocation("New shipping location");
-        updatedReward.setDeliveryDate("New delivery date");
+                "Reward description");
 
         assertEquals(Integer.valueOf(2), mockReward.getLimit());
-        assertEquals(Money.of(CurrencyUnit.USD, 1), mockReward.getMinimalContribution());
-        assertEquals("Reward description", mockReward.getDescription());
-        assertNull(mockReward.getShippingLocation());
-        assertNull(mockReward.getDeliveryDate());
         rewardService.update(1L, updatedReward);
         assertEquals(Integer.valueOf(5), mockReward.getLimit());
+    }
+
+    @Test
+    public void update_WithNewMinimalContribution_ShouldChangeMinimalContribution() {
+        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "Reward description");
+        Mockito.when(mockRewardRepository.findById(1L))
+                .thenReturn(Optional.of(mockReward));
+        Reward updatedReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 5),
+                "Reward description");
+
+        assertEquals(Money.of(CurrencyUnit.USD, 1), mockReward.getMinimalContribution());
+        rewardService.update(1L, updatedReward);
         assertEquals(Money.of(CurrencyUnit.USD, 5), mockReward.getMinimalContribution());
+    }
+
+    @Test
+    public void update_WithNewDescription_ShouldChangeDescription() {
+        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "Reward description");
+        Mockito.when(mockRewardRepository.findById(1L))
+                .thenReturn(Optional.of(mockReward));
+        Reward updatedReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "New description");
+
+        assertEquals("Reward description", mockReward.getDescription());
+        rewardService.update(1L, updatedReward);
         assertEquals("New description", mockReward.getDescription());
-        assertEquals("New shipping location", mockReward.getShippingLocation());
-        assertEquals("New delivery date", mockReward.getDeliveryDate());
+    }
+
+    @Test
+    public void update_WithNewDeliveryDate_ShouldChangeDeliveryDate() {
+        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "Reward description");
+        Mockito.when(mockRewardRepository.findById(1L))
+                .thenReturn(Optional.of(mockReward));
+        Reward updatedReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "Reward description");
+        updatedReward.setDeliveryDate("Some delivery date");
+
+        assertNull(mockReward.getDeliveryDate());
+        rewardService.update(1L, updatedReward);
+        assertEquals("Some delivery date", mockReward.getDeliveryDate());
+    }
+
+    @Test
+    public void update_WithNewShippingLocation_ShouldChangeShippingLocation() {
+        Reward mockReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "Reward description");
+        Mockito.when(mockRewardRepository.findById(1L))
+                .thenReturn(Optional.of(mockReward));
+        Reward updatedReward = new Reward(null, 2, Money.of(CurrencyUnit.USD, 1),
+                "Reward description");
+        updatedReward.setShippingLocation("Some shipping location");
+
+        assertNull(mockReward.getShippingLocation());
+        rewardService.update(1L, updatedReward);
+        assertEquals("Some shipping location", mockReward.getShippingLocation());
     }
 
     @Test

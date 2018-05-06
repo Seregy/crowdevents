@@ -77,7 +77,7 @@ public class ContributionRepositoryServiceTest {
     @Test
     public void contribute_WithWrongPersonId_ShouldThrowException() {
         Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1),
                 "description");
         Contribution mockContribution = new Contribution(null, mockProject,
@@ -196,7 +196,8 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithProperProjectId_ShouldReturnAllContributions() {
-        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1),
+                new Person("", "", ""));
         project.setId(1L);
         Contribution[] contributions = {
                 new Contribution(null, project, LocalDateTime.parse("2018-01-01T01:00:00"),
@@ -213,7 +214,8 @@ public class ContributionRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithWrongProjectId_ShouldReturnEmptyPage() {
-        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1),
+                new Person("", "", ""));
         project.setId(1L);
         Contribution[] contributions = {
                 new Contribution(null, project, LocalDateTime.parse("2018-01-01T01:00:00"),
@@ -281,72 +283,7 @@ public class ContributionRepositoryServiceTest {
     }
 
     @Test
-    public void changeReward_WithProperParams_ShouldChangeReward() {
-        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
-                "description");
-        Contribution mockContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.of(mockReward));
-        Mockito.when(mockContributionRepository.findById(2L))
-                .thenReturn(Optional.of(mockContribution));
-        Reward anotherReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5),
-                "Another description");
-        Mockito.when(mockRewardRepository.findById(3L))
-                .thenReturn(Optional.of(anotherReward));
-
-        assertEquals(mockReward, mockContribution.getReward());
-        contributionService.changeReward(2L,
-                3L);
-        assertEquals(anotherReward, mockContribution.getReward());
-    }
-
-    @Test
-    public void changeReward_WithWrongContributionId_ShouldThrowException() {
-        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
-                "description");
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.of(mockReward));
-        Mockito.when(mockContributionRepository.findById(2L))
-                .thenReturn(Optional.empty());
-        Reward anotherReward = new Reward(null, 5, Money.of(CurrencyUnit.USD, 5),
-                "Another description");
-        Mockito.when(mockRewardRepository.findById(3L))
-                .thenReturn(Optional.of(anotherReward));
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            contributionService.changeReward(2L,
-                    3L);
-        });
-
-        assertEquals("Invalid contribution id: 2",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeReward_WithWrongRewardId_ShouldThrowException() {
-        Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
-                "description");
-        Contribution mockContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
-        Mockito.when(mockRewardRepository.findById(1L))
-                .thenReturn(Optional.of(mockReward));
-        Mockito.when(mockContributionRepository.findById(2L))
-                .thenReturn(Optional.of(mockContribution));
-        Mockito.when(mockRewardRepository.findById(3L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            contributionService.changeReward(2L,
-                    3L);
-        });
-
-        assertEquals("Invalid reward id: 3",
-                exception.getMessage());
-    }
-
-    @Test
-    public void update_WithProperPropers_ShouldUpdateContribution() {
+    public void update_WithNewReward_ShouldChangeReward() {
         Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
                 "description");
         Contribution mockContribution = new Contribution(null, null,

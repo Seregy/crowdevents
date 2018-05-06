@@ -1,5 +1,6 @@
 package com.crowdevents.update;
 
+import com.crowdevents.person.Person;
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
 import org.joda.money.CurrencyUnit;
@@ -36,7 +37,7 @@ public class UpdateRepositoryServiceTest {
     @Test
     public void post_WithProperParams_ShouldCreateNewUpdate() {
         Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
         Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
@@ -95,71 +96,29 @@ public class UpdateRepositoryServiceTest {
     }
 
     @Test
-    public void changeMessage_WithProperParams_ShouldChangeMessage() {
+    public void update_WithNewShortMessage_ShouldChangeShortMessage() {
         Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
         Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
-
-        assertEquals("Message", mockUpdate.getMessage());
-        updateService.changeMessage(1L,
-                "New message");
-        assertEquals("New message", mockUpdate.getMessage());
-    }
-
-    @Test
-    public void changeMessage_WithWrongUpdateId_ShouldThrowException() {
-        Mockito.when(mockUpdateRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            updateService.changeMessage(1L,
-                    "New message");
-        });
-
-        assertEquals("Invalid update id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeShortMessage_WithProperParams_ShouldChangeShortMessage() {
-        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
-        Mockito.when(mockUpdateRepository.findById(1L))
-                .thenReturn(Optional.of(mockUpdate));
+        Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        updatedUpdate.setShortMessage("Short message");
 
         assertNull(mockUpdate.getShortMessage());
-        updateService.changeShortMessage(1L,
-                "New short message");
-        assertEquals("New short message", mockUpdate.getShortMessage());
+        updateService.update(1L, updatedUpdate);
+        assertEquals("Short message", mockUpdate.getShortMessage());
     }
 
     @Test
-    public void changeShortMessage_WithWrongUpdateId_ShouldThrowException() {
-        Mockito.when(mockUpdateRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            updateService.changeShortMessage(1L,
-                    "New short message");
-        });
-
-        assertEquals("Invalid update id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void update_WithProperParams_ShouldUpdateUpdate() {
+    public void update_WithNewMessage_ShouldChangeMessage() {
         Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
         Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
         Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
                 "New message");
-        updatedUpdate.setShortMessage("Short message");
 
         assertEquals("Message", mockUpdate.getMessage());
-        assertNull(mockUpdate.getShortMessage());
         updateService.update(1L, updatedUpdate);
         assertEquals("New message", mockUpdate.getMessage());
-        assertEquals("Short message", mockUpdate.getShortMessage());
     }
 
     @Test

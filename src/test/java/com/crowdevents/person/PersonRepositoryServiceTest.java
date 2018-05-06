@@ -86,172 +86,80 @@ public class PersonRepositoryServiceTest {
     }
 
     @Test
-    public void changeName_WithProperParams_ShouldChangeName() {
-        Person mockPerson = new Person("email", "password", "name");
+    public void update_WithNewName_ShouldChangeName() {
+        Person mockPerson = new Person("name@email.com", "password", "Name");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
+        Person newPerson = new Person("name@email.com", "password", "New name");
 
-        assertEquals("name", mockPerson.getName());
-        personService.changeName(1L, "New name");
+        assertEquals("Name", mockPerson.getName());
+        personService.update(1L, newPerson);
         assertEquals("New name", mockPerson.getName());
     }
 
     @Test
-    public void changeName_WithWrongPersonId_ShouldThrowException() {
-        Mockito.when(mockPersonRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            personService.changeName(1L, "New name");
-        });
-
-        assertEquals("Invalid person id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeSurname_WithProperParams_ShouldChangeSurname() {
-        Person mockPerson = new Person("email", "password", "name");
+    public void update_WithNewSurname_ShouldChangeSurname() {
+        Person mockPerson = new Person("name@email.com", "password", "Name");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
+        Person newPerson = new Person("name@email.com", "password", "Name");
+        newPerson.setSurname("New surname");
 
         assertNull(mockPerson.getSurname());
-        personService.changeSurname(1L, "New surname");
+        personService.update(1L, newPerson);
         assertEquals("New surname", mockPerson.getSurname());
     }
 
     @Test
-    public void changeSurname_WithWrongPersonId_ShouldThrowException() {
-        Mockito.when(mockPersonRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            personService.changeSurname(1L,
-                    "New surname");
-        });
-
-        assertEquals("Invalid person id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changePassword_WithProperParams_ShouldChangePassword() {
-        Person mockPerson = new Person("email", "password", "name");
+    public void update_WithNewPassword_ShouldChangePassword() {
+        Person mockPerson = new Person("name@email.com", "password", "Name");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
+        Person newPerson = new Person("name@email.com", "New password", "Name");
 
         assertEquals("password", mockPerson.getPassword());
-        personService.changePassword(1L,
-                "New password");
+        personService.update(1L, newPerson);
         assertEquals("New password", mockPerson.getPassword());
     }
 
     @Test
-    public void changePassword_WithWrongPersonId_ShouldThrowException() {
-        Mockito.when(mockPersonRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            personService.changePassword(1L,
-                    "New password");
-        });
-
-        assertEquals("Invalid person id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeEmail_WithProperParams_ShouldChangeEmail() {
-        Person mockPerson = new Person("email", "password", "name");
+    public void update_WithNewEmail_ShouldChangeEmail() {
+        Person mockPerson = new Person("name@email.com", "password", "Name");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
+        Person newPerson = new Person("new@email.com", "password", "Name");
 
-        assertEquals("email", mockPerson.getEmail());
-        personService.changeEmail(1L,
-                "new@mail.com");
-        assertEquals("new@mail.com", mockPerson.getEmail());
+        assertEquals("name@email.com", mockPerson.getEmail());
+        personService.update(1L, newPerson);
+        assertEquals("new@email.com", mockPerson.getEmail());
     }
 
     @Test
-    public void changeEmail_WithWrongPersonId_ShouldThrowException() {
-        Mockito.when(mockPersonRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            personService.changePassword(1L,
-                    "New password");
-        });
-
-        assertEquals("Invalid person id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeCountry_WithProperParams_ShouldChangeCountry() {
-        Person mockPerson = new Person("email", "password", "name");
+    public void update_WithNewCountry_ShouldChangeCountry() {
+        Person mockPerson = new Person("name@email.com", "password", "Name");
+        mockPerson.setCountry("Country");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
+        Person newPerson = new Person("name@email.com", "password", "Name");
+        newPerson.setCountry("New country");
 
-        assertNull(mockPerson.getCountry());
-        personService.changeCountry(1L,
-                "New country");
+        assertEquals("Country", mockPerson.getCountry());
+        personService.update(1L, newPerson);
         assertEquals("New country", mockPerson.getCountry());
     }
 
     @Test
-    public void changeCountry_WithWrongPersonId_ShouldThrowException() {
-        Mockito.when(mockPersonRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            personService.changeCountry(1L,
-                    "New country");
-        });
-
-        assertEquals("Invalid person id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeCity_WithProperParams_ShouldChangeCity() {
-        Person mockPerson = new Person("email", "password", "name");
-        Mockito.when(mockPersonRepository.findById(1L))
-                .thenReturn(Optional.of(mockPerson));
-
-        assertNull(mockPerson.getCity());
-        personService.changeCity(1L,
-                "New city");
-        assertEquals("New city", mockPerson.getCity());
-    }
-
-    @Test
-    public void changeCity_WithWrongPersonId_ShouldThrowException() {
-        Mockito.when(mockPersonRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            personService.changeCity(1L,
-                    "New city");
-        });
-
-        assertEquals("Invalid person id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void update_WithProperProject_ShouldUpdatePerson() {
+    public void update_WithNewCity_ShouldChangeCity() {
         Person mockPerson = new Person("name@email.com", "password", "Name");
+        mockPerson.setCity("City");
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.of(mockPerson));
-        Person newPerson = new Person("new@email.com", "password", null);
-        newPerson.setCountry("Brand new country");
+        Person newPerson = new Person("name@email.com", "password", "Name");
+        newPerson.setCity("New city");
 
-        assertNull(mockPerson.getCountry());
+        assertEquals("City", mockPerson.getCity());
         personService.update(1L, newPerson);
-        assertNull(mockPerson.getName());
-        assertEquals("Brand new country", mockPerson.getCountry());
-        assertEquals("new@email.com", mockPerson.getEmail());
-        assertEquals("password", mockPerson.getPassword());
+        assertEquals("New city", mockPerson.getCity());
     }
 
     @Test

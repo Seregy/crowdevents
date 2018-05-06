@@ -64,7 +64,7 @@ public class CommentRepositoryServiceTest {
     @Test
     public void post_WithWrongPersonId_ShouldThrowException() {
         Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Comment mockComment = new Comment(mockProject, null, "Some message",
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockCommentRepository.save(Mockito.any()))
@@ -136,7 +136,8 @@ public class CommentRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithProperProjectId_ShouldReturnAllComments() {
-        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1),
+                new Person("", "", ""));
         project.setId(1L);
         Comment[] comments = {new Comment(project, null, "Comment 1", LocalDateTime.parse("2018-01-01T01:00:00")),
                 new Comment(project, null, "Comment 2", LocalDateTime.parse("2018-02-01T01:00:00"))};
@@ -150,7 +151,8 @@ public class CommentRepositoryServiceTest {
 
     @Test
     public void getAllByProject_WithWrongProjectId_ShouldReturnEmptyPage() {
-        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1));
+        Project project = new Project("Project 1", null, Money.of(CurrencyUnit.USD, 1),
+                new Person("", "", ""));
         project.setId(1L);
         Comment[] comments = {new Comment(project, null, "Comment 1", LocalDateTime.parse("2018-01-01T01:00:00")),
                 new Comment(project, null, "Comment 2", LocalDateTime.parse("2018-02-01T01:00:00"))};
@@ -206,34 +208,7 @@ public class CommentRepositoryServiceTest {
     }
 
     @Test
-    public void changeMessage_WithProperParams_ShouldChangeComment() {
-        Comment mockComment = new Comment(null, null, "Some message",
-                LocalDateTime.parse("2018-01-01T01:00:00"));
-        Mockito.when(mockCommentRepository.findById(1L))
-                .thenReturn(Optional.of(mockComment));
-
-        assertEquals("Some message", mockComment.getMessage());
-        commentService.changeMessage(1L,
-                "New message");
-        assertEquals("New message", mockComment.getMessage());
-    }
-
-    @Test
-    public void changeMessage_WithWrongCommentId_ShouldThrowException() {
-        Mockito.when(mockCommentRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            commentService.changeMessage(1L,
-                    "message");
-        });
-
-        assertEquals("Invalid comment id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void update_WithProperParams_ShouldUpdateComment() {
+    public void update_WithNewMessage_ShouldChangeMessage() {
         Comment mockComment = new Comment(null, null, "Some message",
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockCommentRepository.findById(1L))

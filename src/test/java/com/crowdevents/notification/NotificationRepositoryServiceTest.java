@@ -243,7 +243,7 @@ public class NotificationRepositoryServiceTest {
         Mockito.when(mockPersonRepository.findById(2L))
                 .thenReturn(Optional.empty());
         Project mockProject = new Project("Mock project", "Description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(3L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -363,7 +363,7 @@ public class NotificationRepositoryServiceTest {
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Project mockProject = new Project("Mock project", "Description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Update");
@@ -439,34 +439,7 @@ public class NotificationRepositoryServiceTest {
     }
 
     @Test
-    public void changeMessage_WithProperParams_ShouldChangeMessage() {
-        BaseNotification mockNotification = new BaseNotification("Message", null,
-                LocalDateTime.parse("2018-01-01T01:00:00"), null);
-        Mockito.when(mockNotificationRepository.findById(1L))
-                .thenReturn(Optional.of(mockNotification));
-
-        assertEquals("Message", mockNotification.getMessage());
-        notificationService.changeMessage(1L,
-                "New message");
-        assertEquals("New message", mockNotification.getMessage());
-    }
-
-    @Test
-    public void changeMessage_WithWrongMessageId_ShouldThrowException() {
-        Mockito.when(mockNotificationRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            notificationService.changeMessage(1L,
-                    "New message");
-        });
-
-        assertEquals("Invalid notification id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void update_WithProperParams_ShouldUpdateNotification() {
+    public void update_WithNewMessage_ShouldUpdateMessage() {
         BaseNotification mockNotification = new BaseNotification("Message", null,
                 LocalDateTime.parse("2018-01-01T01:00:00"), null);
         Mockito.when(mockNotificationRepository.findById(1L))

@@ -1,5 +1,6 @@
 package com.crowdevents.faq;
 
+import com.crowdevents.person.Person;
 import com.crowdevents.project.Project;
 import com.crowdevents.project.ProjectRepository;
 import org.joda.money.CurrencyUnit;
@@ -33,7 +34,7 @@ public class FaqRepositoryServiceTest {
     @Test
     public void create_WithProperParams_ShouldCreateNewFaq() {
         Project mockProject = new Project("name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Faq mockFaq = new Faq(mockProject, "Mock question", "Mock answer");
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
@@ -96,66 +97,26 @@ public class FaqRepositoryServiceTest {
     }
 
     @Test
-    public void changeQuestion_WithProperParams_ShouldChangeQuestion() {
+    public void update_WithNewQuestion_ShouldUpdateQuestion() {
         Faq mockFaq = new Faq(null, "Mock question", "Mock answer");
         Mockito.when(mockFaqRepository.findById(1L))
                 .thenReturn(Optional.of(mockFaq));
+        Faq updatedFaq = new Faq(null, "New question", "Mock answer");
 
         assertEquals("Mock question", mockFaq.getQuestion());
-        faqService.changeQuestion(1L,
-                "Another question");
-        assertEquals("Another question", mockFaq.getQuestion());
-    }
-
-    @Test
-    public void changeQuestion_WithWrongFaqId_ShouldThrowException() {
-        Mockito.when(mockFaqRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            faqService.changeQuestion(1L,
-                    "Another question");
-        });
-
-        assertEquals("Invalid faq id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeAnswer_WithProperParams_ShouldChangeAnswer() {
-        Faq mockFaq = new Faq(null, "Mock question", "Mock answer");
-        Mockito.when(mockFaqRepository.findById(1L))
-                .thenReturn(Optional.of(mockFaq));
-
-        assertEquals("Mock answer", mockFaq.getAnswer());
-        faqService.changeAnswer(1L,
-                "Another answer");
-        assertEquals("Another answer", mockFaq.getAnswer());
-    }
-
-    @Test
-    public void changeAnswer_WithWrongFaqId_ShouldThrowException() {
-        Mockito.when(mockFaqRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            faqService.changeAnswer(1L,
-                    "Another answer");
-        });
-
-        assertEquals("Invalid faq id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void update_WithProperParams_ShouldUpdateFaq() {
-        Faq mockFaq = new Faq(null, "Mock question", "Mock answer");
-        Mockito.when(mockFaqRepository.findById(1L))
-                .thenReturn(Optional.of(mockFaq));
-        Faq updatedFaq = new Faq(null, "New question", "New answer");
-
         faqService.update(1L, updatedFaq);
         assertEquals("New question", mockFaq.getQuestion());
+    }
+
+    @Test
+    public void update_WithNewAnswer_ShouldUpdateQuestion() {
+        Faq mockFaq = new Faq(null, "Mock question", "Mock answer");
+        Mockito.when(mockFaqRepository.findById(1L))
+                .thenReturn(Optional.of(mockFaq));
+        Faq updatedFaq = new Faq(null, "Mock question", "New answer");
+
+        assertEquals("Mock answer", mockFaq.getAnswer());
+        faqService.update(1L, updatedFaq);
         assertEquals("New answer", mockFaq.getAnswer());
     }
 

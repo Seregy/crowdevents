@@ -118,37 +118,7 @@ public class MessageRepositoryServiceTest {
     }
 
     @Test
-    public void changeMessage_WithProperParams_ShouldChangeMessage() {
-        Message mockMessage = new Message("Mock message", null, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"));
-        Mockito.when(mockMessageRepository.findById(1L))
-                .thenReturn(Optional.of(mockMessage));
-
-        assertEquals("Mock message", mockMessage.getMessage());
-        messageService.changeMessage(1L,
-                "New message");
-        assertEquals("New message", mockMessage.getMessage());
-    }
-
-    @Test
-    public void changeMessage_WithWrongMessageId_ShouldThrowException() {
-        Message mockMessage = new Message("Mock message", null, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"));
-        Mockito.when(mockMessageRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            messageService.changeMessage(1L,
-                    "New message");
-        });
-
-        assertEquals("Invalid message id: 1",
-                exception.getMessage());
-        assertEquals("Mock message", mockMessage.getMessage());
-    }
-
-    @Test
-    public void update_WithProperParams_ShouldUpdateMessage() {
+    public void update_WithNewMessage_ShouldUpdateMessage() {
         Message mockMessage = new Message("Mock message", null, null,
                 LocalDateTime.parse("2018-01-01T01:00:00"));
         Mockito.when(mockMessageRepository.findById(1L))

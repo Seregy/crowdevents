@@ -45,7 +45,8 @@ public class ProjectRepositoryServiceTest {
                 .thenReturn(mockProject);
 
         Project result = projectService.create("Name", "description",
-                Money.of(CurrencyUnit.USD, 1), 1L);
+                Money.of(CurrencyUnit.USD, 1),
+                1L);
 
         assertEquals(mockProject, result);
     }
@@ -55,7 +56,7 @@ public class ProjectRepositoryServiceTest {
         Mockito.when(mockPersonRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.save(Mockito.any()))
                 .thenReturn(mockProject);
 
@@ -71,7 +72,7 @@ public class ProjectRepositoryServiceTest {
     @Test
     public void get_WithProperParams_ShouldReturnExistingProject() {
         Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -93,10 +94,13 @@ public class ProjectRepositoryServiceTest {
     @Test
     public void getAll_ShouldReturnAllProjects() {
         Project[] projects = {new Project("Project 1", "Description 1",
-                Money.of(CurrencyUnit.USD, 1)),
-                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2)),
-                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3)),
-                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4))};
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", "")),
+                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2),
+                        new Person("", "", "")),
+                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3),
+                        new Person("", "", "")),
+                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4),
+                        new Person("", "", ""))};
         Mockito.when(mockProjectRepository.findAll(Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(Arrays.asList(projects)));
 
@@ -108,10 +112,13 @@ public class ProjectRepositoryServiceTest {
     @Test
     public void getAllBeforeAndOrAfter_WithProperBeforeId_ShouldReturnAllProjectsBeforeId() {
         Project[] projects = {new Project("Project 1", "Description 1",
-                Money.of(CurrencyUnit.USD, 1)),
-                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2)),
-                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3)),
-                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4))};
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", "")),
+                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2),
+                        new Person("", "", "")),
+                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3),
+                        new Person("", "", "")),
+                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4),
+                        new Person("", "", ""))};
         List<Project> beforeList = Arrays.asList(projects[0], projects[1]);
         Mockito.when(mockProjectRepository.findAllByIdBefore(Mockito.eq(3L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(beforeList));
@@ -125,10 +132,13 @@ public class ProjectRepositoryServiceTest {
     @Test
     public void getAllBeforeAndOrAfter_WithProperAfterId_ShouldReturnAllProjectsAfterId() {
         Project[] projects = {new Project("Project 1", "Description 1",
-                Money.of(CurrencyUnit.USD, 1)),
-                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2)),
-                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3)),
-                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4))};
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", "")),
+                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2),
+                        new Person("", "", "")),
+                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3),
+                        new Person("", "", "")),
+                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4),
+                        new Person("", "", ""))};
         List<Project> afterList = Arrays.asList(projects[2], projects[3]);
         Mockito.when(mockProjectRepository.findAllByIdAfter(Mockito.eq(2L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(afterList));
@@ -142,10 +152,13 @@ public class ProjectRepositoryServiceTest {
     @Test
     public void getAllBeforeAndOrAfter_WithProperBeforeAndAfterId_ShouldReturnAllProjectsBetweenIds() {
         Project[] projects = {new Project("Project 1", "Description 1",
-                Money.of(CurrencyUnit.USD, 1)),
-                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2)),
-                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3)),
-                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4))};
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", "")),
+                new Project("Project 2", "Description 2", Money.of(CurrencyUnit.USD, 2),
+                        new Person("", "", "")),
+                new Project("Project 3", "Description 3", Money.of(CurrencyUnit.USD, 3),
+                        new Person("", "", "")),
+                new Project("Project 4", "Description 4", Money.of(CurrencyUnit.USD, 4),
+                        new Person("", "", ""))};
         List<Project> betweenList = Arrays.asList(projects[1], projects[2]);
         Mockito.when(mockProjectRepository
                 .findAllByIdAfterAndIdBefore(Mockito.eq(1L), Mockito.eq(4L), Mockito.any(Pageable.class)))
@@ -179,287 +192,13 @@ public class ProjectRepositoryServiceTest {
     }
 
     @Test
-    public void changeName_WithProperParams_ShouldChangeName() {
-        Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        assertEquals("Name", mockProject.getName());
-        projectService.changeName(1L, "New name");
-        assertEquals("New name", mockProject.getName());
-    }
-
-    @Test
-    public void changeName_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeName(1L, "New name");
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeDescription_WithProperParams_ShouldChangeDescription() {
-        Project mockProject = new Project("Name", "short description",
-                Money.of(CurrencyUnit.USD, 1));
-        mockProject.setDescription("description");
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        assertEquals("description", mockProject.getDescription());
-        projectService.changeDescription(1L,
-                "New description");
-        assertEquals("New description", mockProject.getDescription());
-    }
-
-    @Test
-    public void changeDescription_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeDescription(1L,
-                    "New description");
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeFundingGoal_WithProperParams_ShouldChangeFundingGoal() {
-        Money goal = Money.of(CurrencyUnit.USD, 10);
-        Project mockProject = new Project("Name", "description", goal);
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        assertEquals(Money.of(CurrencyUnit.USD, 10), mockProject.getFundingGoal());
-        projectService.changeFundingGoal(1L,
-                Money.of(CurrencyUnit.USD, 15));
-        assertEquals(Money.of(CurrencyUnit.USD, 15), mockProject.getFundingGoal());
-    }
-
-    @Test
-    public void changeFundingGoal_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeFundingGoal(1L,
-                    Money.of(CurrencyUnit.USD, 15));
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeLocation_WithProperParams_ShouldChangeLocation() {
-        Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        assertNull(mockProject.getLocation());
-        projectService.changeLocation(1L,
-                new Location(50.45, 30.52));
-        assertEquals(new Location(50.45, 30.52), mockProject.getLocation());
-    }
-
-    @Test
-    public void changeLocation_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeLocation(1L,
-                    new Location(50.45, 30.52));
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeStartDateTime_WithProperParams_ShouldChangeStartDateTime() {
-        Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        assertNull(mockProject.getStartDateTime());
-        projectService.changeStartDateTime(1L,
-                LocalDateTime.parse("2018-01-01T01:00:00"));
-        assertEquals(LocalDateTime.parse("2018-01-01T01:00:00"), mockProject.getStartDateTime());
-    }
-
-    @Test
-    public void changeStartDateTime_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeStartDateTime(1L,
-                    LocalDateTime.parse("2018-01-01T01:00:00"));
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void changeEndDateTime_WithProperParams_ShouldChangeEndDateTime() {
-        Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        assertNull(mockProject.getEndDateTime());
-        projectService.changeEndDateTime(1L,
-                LocalDateTime.parse("2018-01-01T01:00:00"));
-        assertEquals(LocalDateTime.parse("2018-01-01T01:00:00"), mockProject.getEndDateTime());
-    }
-
-    @Test
-    public void changeEndDateTime_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.changeEndDateTime(1L,
-                    LocalDateTime.parse("2018-01-01T01:00:00"));
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void addVideoLink_WithProperParams_ShouldAddNewVideoLink() {
-        Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        assertTrue(mockProject.getVideoLinks().isEmpty());
-        projectService.addVideoLink(1L,
-                "link 1", "link 2");
-        assertEquals(Arrays.asList("link 1", "link 2"), mockProject.getVideoLinks());
-    }
-
-    @Test
-    public void addVideoLink_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.addVideoLink(1L,
-                    "link 1", "link 2");
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void addImageLink_WithProperParams_ShouldAddNewImageLink() {
-        Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        assertTrue(mockProject.getImageLinks().isEmpty());
-        projectService.addImageLink(1L,
-               "image link 1", "image link 2");
-        assertEquals(Arrays.asList("image link 1", "image link 2"), mockProject.getImageLinks());
-    }
-
-    @Test
-    public void addImageLink_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.addImageLink(1L,
-                    "image link 1", "image link 2");
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
-    public void addOwner_WithProperParams_ShouldAddNewOwner() {
-        Person mockPerson = new Person("email", "password", "name");
-        Set<Person> initialOwners = new HashSet<>();
-        initialOwners.add(mockPerson);
-        Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1), mockPerson);
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-
-        Person newOwner = new Person("Another@mail.com", "owner", "owner");
-        Mockito.when(mockPersonRepository.findById(2L))
-                .thenReturn(Optional.of(newOwner));
-
-        assertEquals(initialOwners, mockProject.getOwners());
-        projectService.addOwner(1L,
-                2L);
-        Set<Person> resultOwners = new HashSet<>();
-        resultOwners.add(mockPerson);
-        resultOwners.add(newOwner);
-        assertEquals(resultOwners, mockProject.getOwners());
-    }
-
-    @Test
-    public void addOwner_WithWrongOwnerId_ShouldThrowException() {
-        Person mockPerson = new Person("email", "password", "name");
-        Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1), mockPerson);
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.of(mockProject));
-        Mockito.when(mockPersonRepository.findById(2L))
-                .thenReturn(Optional.empty());
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.addOwner(1L,
-                    2L);
-        });
-
-        assertEquals("Invalid person id: 2",
-                exception.getMessage());
-    }
-
-    @Test
-    public void addOwner_WithWrongProjectId_ShouldThrowException() {
-        Mockito.when(mockProjectRepository.findById(1L))
-                .thenReturn(Optional.empty());
-        Person newOwner = new Person("Another@mail.com", "owner", "owner");
-        Mockito.when(mockPersonRepository.findById(2L))
-                .thenReturn(Optional.of(newOwner));
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            projectService.addOwner(1L,
-                    2L);
-        });
-
-        assertEquals("Invalid project id: 1",
-                exception.getMessage());
-    }
-
-    @Test
     public void update_WithProperProject_ShouldUpdateProject() {
         Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
         Project newProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         newProject.setStartDateTime(LocalDateTime.parse("2018-01-01T01:00:00"));
 
         assertNull(mockProject.getStartDateTime());
@@ -469,9 +208,178 @@ public class ProjectRepositoryServiceTest {
     }
 
     @Test
+    public void update_WithNewName_ShouldChangeName() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("New name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+
+        assertEquals("Name", mockProject.getName());
+        projectService.update(1L, newProject);
+        assertEquals("New name", mockProject.getName());
+    }
+
+    @Test
+    public void update_WithNewDescription_ShouldChangeShortDescription() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "New description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+
+        assertEquals("description", mockProject.getShortDescription());
+        projectService.update(1L, newProject);
+        assertEquals("New description", mockProject.getShortDescription());
+    }
+
+    @Test
+    public void update_WithNewDescription_ShouldChangeDescription() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        mockProject.setDescription("Full description");
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        newProject.setDescription("New full description");
+
+        assertEquals("Full description", mockProject.getDescription());
+        projectService.update(1L, newProject);
+        assertEquals("New full description", mockProject.getDescription());
+    }
+
+    @Test
+    public void update_WithNewFundingGoal_ShouldChangeFundingGoal() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 7), new Person("", "", ""));
+
+        assertEquals(Money.of(CurrencyUnit.USD, 1), mockProject.getFundingGoal());
+        projectService.update(1L, newProject);
+        assertEquals(Money.of(CurrencyUnit.USD, 7), mockProject.getFundingGoal());
+    }
+
+    @Test
+    public void update_WithNewLocation_ShouldChangeLocation() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        newProject.setLocation(new Location(20.13, 37.21));
+
+        assertNull(mockProject.getLocation());
+        projectService.update(1L, newProject);
+        assertEquals(new Location(20.13, 37.21), mockProject.getLocation());
+    }
+
+    @Test
+    public void update_WithNewStartDate_ShouldChangeStartDate() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        mockProject.setStartDateTime(LocalDateTime.parse("2018-01-01T01:00:00"));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "New description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        newProject.setStartDateTime(LocalDateTime.parse("2018-02-02T12:00:00"));
+
+        assertEquals(LocalDateTime.parse("2018-01-01T01:00:00"), mockProject.getStartDateTime());
+        projectService.update(1L, newProject);
+        assertEquals(LocalDateTime.parse("2018-02-02T12:00:00"), mockProject.getStartDateTime());
+    }
+
+    @Test
+    public void update_WithNewEndDate_ShouldChangeEndDate() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        mockProject.setEndDateTime(LocalDateTime.parse("2018-01-01T01:00:00"));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "New description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        newProject.setEndDateTime(LocalDateTime.parse("2018-02-02T12:00:00"));
+
+        assertEquals(LocalDateTime.parse("2018-01-01T01:00:00"), mockProject.getEndDateTime());
+        projectService.update(1L, newProject);
+        assertEquals(LocalDateTime.parse("2018-02-02T12:00:00"), mockProject.getEndDateTime());
+    }
+
+    @Test
+    public void update_WithNewEventDate_ShouldChangeEventDate() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        mockProject.setEventDateTime(LocalDateTime.parse("2018-01-01T01:00:00"));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "New description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        newProject.setEventDateTime(LocalDateTime.parse("2018-02-02T12:00:00"));
+
+        assertEquals(LocalDateTime.parse("2018-01-01T01:00:00"), mockProject.getEventDateTime());
+        projectService.update(1L, newProject);
+        assertEquals(LocalDateTime.parse("2018-02-02T12:00:00"), mockProject.getEventDateTime());
+    }
+
+    @Test
+    public void update_WithNewVideoLinks_ShouldChangeVideoLinks() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "New description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        newProject.setVideoLinks(Arrays.asList("link1", "link2", "link3"));
+
+        assertTrue(mockProject.getVideoLinks().isEmpty());
+        projectService.update(1L, newProject);
+        assertEquals(Arrays.asList("link1", "link2", "link3"), mockProject.getVideoLinks());
+    }
+
+    @Test
+    public void update_WithNewImageLinks_ShouldChangeImageLinks() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "New description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        newProject.setImageLinks(Arrays.asList("link1", "link2", "link3"));
+
+        assertTrue(mockProject.getImageLinks().isEmpty());
+        projectService.update(1L, newProject);
+        assertEquals(Arrays.asList("link1", "link2", "link3"), mockProject.getImageLinks());
+    }
+
+    @Test
+    public void update_WithNewTeamMembers_ShouldChangeTeamMembers() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "New description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Set<Person> persons = Set.of(new Person("email", "pass", "Person 1"),
+                new Person("email", "pass", "Person 2"),
+                new Person("email", "pass", "Person 3"));
+        newProject.setTeamMembers(persons);
+
+        assertTrue(mockProject.getTeamMembers().isEmpty());
+        projectService.update(1L, newProject);
+        assertEquals(persons, mockProject.getTeamMembers());
+    }
+
+    @Test
     public void update_WithNullUpdatedProject_ShouldThrowException() {
         Project mockProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
 
@@ -488,7 +396,7 @@ public class ProjectRepositoryServiceTest {
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Project newProject = new Project("Name", "description",
-                Money.of(CurrencyUnit.USD, 1));
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             projectService.update(1L, newProject);
