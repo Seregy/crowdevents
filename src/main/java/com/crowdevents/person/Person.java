@@ -40,6 +40,7 @@ public class Person {
     private String country;
     private String city;
 
+    @Column(name = "image_link")
     private String personImageLink;
 
     @OneToMany(mappedBy = "owner")
