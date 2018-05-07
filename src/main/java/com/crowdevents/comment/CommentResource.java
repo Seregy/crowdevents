@@ -4,6 +4,7 @@ import com.crowdevents.core.web.Views;
 import com.crowdevents.person.PersonResource;
 import com.crowdevents.project.ProjectResource;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ public class CommentResource {
     @JsonView(Views.Minimal.class)
     private String message;
 
+    @JsonProperty("posted")
     @JsonView(Views.Minimal.class)
     private LocalDateTime dateTime;
 
