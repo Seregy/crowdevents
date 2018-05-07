@@ -23,6 +23,7 @@ public class PersonResource {
     private String city;
 
     @JsonProperty("image_link")
+    @JsonView(Views.Minimal.class)
     private String personImageLink;
 
     public Long getId() {
