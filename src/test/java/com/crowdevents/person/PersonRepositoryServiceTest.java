@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.AbstractPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -20,12 +22,19 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PersonRepositoryServiceTest {
     @Mock
     private PersonRepository mockPersonRepository;
-    @InjectMocks
+
     private PersonRepositoryService personService;
 
     @BeforeEach
     public void setUp(){
         MockitoAnnotations.initMocks(this);
+        PasswordEncoder passwordEncoder = new AbstractPasswordEncoder() {
+            @Override
+            protected byte[] encode(CharSequence rawPassword, byte[] salt) {
+                return  rawPassword.toString().getBytes();
+            }
+        };
+        personService = new PersonRepositoryService(mockPersonRepository, passwordEncoder);
     }
 
     @Test
