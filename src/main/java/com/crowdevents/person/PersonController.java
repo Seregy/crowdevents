@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,6 +56,27 @@ public class PersonController {
 
         return new PageResource<>(
                 resultPage.map((person) -> modelMapper.map(person, PersonResource.class)));
+    }
+
+    /**
+     * Returns currently authorized person.
+     *
+     * @param auth oauth authentication
+     * @return response with http status 204 with person inside the body, 404 if it wasn't found
+     *      or 401 if person isn't authorized
+     */
+    @JsonView(Views.Detailed.class)
+    @GetMapping("/current")
+    public ResponseEntity<PersonResource> getCurrentPerson(OAuth2Authentication auth) {
+        if (auth != null && auth.getPrincipal() instanceof PersonDetails) {
+            PersonDetails details = (PersonDetails) auth.getPrincipal();
+            return personService.get((details.getPersonId()))
+                    .map(person -> ResponseEntity.ok(modelMapper.map(person, PersonResource.class)))
+                    .orElse(ResponseEntity.notFound().build());
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
     }
 
     /**
