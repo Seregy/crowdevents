@@ -22,6 +22,7 @@ public class DataSourceConfiguration {
     public DataSource embeddedDataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
+                .addScript("classpath:oauth-schema.sql")
                 .build();
     }
 
