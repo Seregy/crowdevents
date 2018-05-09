@@ -197,6 +197,11 @@ public class Project {
         this.eventDateTime = eventDateTime;
     }
 
+    /**
+     * Returns project's funding goal.
+     *
+     * @return funding goal if it exists, null otherwise
+     */
     public Money getFundingGoal() {
         if (fundingGoal != null) {
             return fundingGoal.toMoney();
