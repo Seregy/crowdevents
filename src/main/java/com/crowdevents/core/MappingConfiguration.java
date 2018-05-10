@@ -176,6 +176,11 @@ public class MappingConfiguration {
                         result.setDateTime(value);
                     }
 
+                    if (source.containsKey("title")) {
+                        String value = (String) source.get("title");
+                        result.setTitle(value);
+                    }
+
                     if (source.containsKey("message")) {
                         String value = (String) source.get("message");
                         result.setMessage(value);

@@ -37,9 +37,9 @@ public class UpdateRepositoryService implements UpdateService {
     }
 
     @Override
-    public Update post(Long projectId, String message) {
+    public Update post(Long projectId, String title, String message) {
         Project project = getProject(projectId);
-        Update update = new Update(project, LocalDateTime.now(clock), message);
+        Update update = new Update(project, LocalDateTime.now(clock), title, message);
         return updateRepository.save(update);
     }
 
@@ -74,6 +74,7 @@ public class UpdateRepositoryService implements UpdateService {
         }
 
         Update update = getUpdate(id);
+        update.setTitle(updatedUpdate.getTitle());
         update.setMessage(updatedUpdate.getMessage());
         update.setShortMessage(updatedUpdate.getShortMessage());
         updateRepository.save(update);

@@ -102,7 +102,7 @@ public class UpdateController {
     public ResponseEntity postUpdate(@RequestBody UpdateResource newUpdate,
                                     HttpServletRequest servletRequest) {
         Update postedUpdate = updateService.post(newUpdate.getProject().getId(),
-                newUpdate.getMessage());
+                newUpdate.getTitle(), newUpdate.getMessage());
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/v0/updates/{id}")
                 .buildAndExpand(postedUpdate.getId())

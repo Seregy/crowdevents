@@ -40,10 +40,11 @@ public class UpdateRepositoryServiceTest {
                 Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.of(mockProject));
-        Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Message");
         Mockito.when(mockUpdateRepository.save(Mockito.any())).thenReturn(mockUpdate);
 
-        Update result = updateService.post(1L, "Message");
+        Update result = updateService.post(1L, "Title", "Message");
 
         assertEquals(mockUpdate, result);
     }
@@ -52,11 +53,12 @@ public class UpdateRepositoryServiceTest {
     public void create_WithWrongProjectId_ShouldThrowException() {
         Mockito.when(mockProjectRepository.findById(1L))
                 .thenReturn(Optional.empty());
-        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Message");
         Mockito.when(mockUpdateRepository.save(Mockito.any())).thenReturn(mockUpdate);
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
-            updateService.post(1L, "Message");
+            updateService.post(1L, "Title", "Message");
         });
 
         assertEquals("Invalid project id: 1",
@@ -65,7 +67,8 @@ public class UpdateRepositoryServiceTest {
 
     @Test
     public void get_WithProperParams_ShouldReturnExistingUpdate() {
-        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Message");
         Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
 
@@ -96,11 +99,27 @@ public class UpdateRepositoryServiceTest {
     }
 
     @Test
-    public void update_WithNewShortMessage_ShouldChangeShortMessage() {
-        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+    public void update_WithNewTitle_ShouldChangeTitle() {
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Message");
         Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
-        Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "New title", "Message");
+
+        assertEquals("Title", mockUpdate.getTitle());
+        updateService.update(1L, updatedUpdate);
+        assertEquals("New title", mockUpdate.getTitle());
+    }
+
+    @Test
+    public void update_WithNewShortMessage_ShouldChangeShortMessage() {
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Message");
+        Mockito.when(mockUpdateRepository.findById(1L))
+                .thenReturn(Optional.of(mockUpdate));
+        Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Message");
         updatedUpdate.setShortMessage("Short message");
 
         assertNull(mockUpdate.getShortMessage());
@@ -110,11 +129,12 @@ public class UpdateRepositoryServiceTest {
 
     @Test
     public void update_WithNewMessage_ShouldChangeMessage() {
-        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Message");
         Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
         Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
-                "New message");
+                "Title", "New message");
 
         assertEquals("Message", mockUpdate.getMessage());
         updateService.update(1L, updatedUpdate);
@@ -123,7 +143,8 @@ public class UpdateRepositoryServiceTest {
 
     @Test
     public void update_WithNullUpdate_ShouldThrowException() {
-        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Message");
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Message");
         Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.of(mockUpdate));
 
@@ -140,7 +161,7 @@ public class UpdateRepositoryServiceTest {
         Mockito.when(mockUpdateRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Update updatedUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
-                "New message");
+                "Title", "New message");
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             updateService.update(1L, updatedUpdate);

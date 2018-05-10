@@ -21,6 +21,9 @@ public class UpdateResource {
     @JsonView(Views.Minimal.class)
     private LocalDateTime dateTime;
 
+    @JsonView(Views.Minimal.class)
+    private String title;
+
     private String message;
 
     @JsonProperty("short_message")
@@ -49,6 +52,14 @@ public class UpdateResource {
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getMessage() {

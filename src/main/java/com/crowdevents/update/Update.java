@@ -25,6 +25,9 @@ public class Update {
     @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
 
+    @Column(nullable = false, length = 60)
+    private String title;
+
     @Lob
     @Column(nullable = false)
     private String message;
@@ -39,9 +42,10 @@ public class Update {
      * @param dateTime creation date and time
      * @param message update message
      */
-    public Update(Project project, LocalDateTime dateTime, String message) {
+    public Update(Project project, LocalDateTime dateTime, String title, String message) {
         this.project = project;
         this.dateTime = dateTime;
+        this.title = title;
         this.message = message;
     }
 
@@ -71,6 +75,14 @@ public class Update {
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getMessage() {

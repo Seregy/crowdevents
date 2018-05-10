@@ -319,7 +319,8 @@ public class NotificationRepositoryServiceTest {
                 Money.of(CurrencyUnit.USD, 1), mockPerson);
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
-        Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Update");
+        Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Update");
         Mockito.when(mockUpdateRepository.findById(3L))
                 .thenReturn(Optional.of(mockUpdate));
         UpdateNotification mockUpdateNotification = new UpdateNotification("Notification", mockUpdate,
@@ -366,7 +367,8 @@ public class NotificationRepositoryServiceTest {
                 Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
-        Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"), "Update");
+        Update mockUpdate = new Update(mockProject, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Update");
         Mockito.when(mockUpdateRepository.findById(3L))
                 .thenReturn(Optional.of(mockUpdate));
 
@@ -388,7 +390,8 @@ public class NotificationRepositoryServiceTest {
                 .thenReturn(Optional.of(mockPerson));
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.empty());
-        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"), "Update");
+        Update mockUpdate = new Update(null, LocalDateTime.parse("2018-01-01T01:00:00"),
+                "Title", "Update");
         Mockito.when(mockUpdateRepository.findById(3L))
                 .thenReturn(Optional.of(mockUpdate));
 

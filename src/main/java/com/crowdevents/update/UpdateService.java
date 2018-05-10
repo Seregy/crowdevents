@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface UpdateService {
-    Update post(Long projectId, String message);
+    Update post(Long projectId, String title, String message);
 
     Optional<Update> get(Long id);
 
