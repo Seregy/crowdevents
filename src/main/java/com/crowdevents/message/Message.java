@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class Message {
     @Id
@@ -26,6 +28,7 @@ public class Message {
     private Person receiver;
 
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(nullable = false)
     private String message;
 

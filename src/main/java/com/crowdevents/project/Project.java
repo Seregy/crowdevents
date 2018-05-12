@@ -32,6 +32,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 import org.joda.money.BigMoney;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
@@ -51,6 +53,7 @@ public class Project {
     private String shortDescription;
 
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     private String description;
 
     private Location location;

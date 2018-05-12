@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class Comment {
     @Id
@@ -27,6 +29,7 @@ public class Comment {
     private Person author;
 
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(nullable = false)
     private String message;
 

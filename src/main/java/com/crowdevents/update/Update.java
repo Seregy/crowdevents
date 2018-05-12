@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class Update {
     @Id
@@ -29,6 +31,7 @@ public class Update {
     private String title;
 
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(nullable = false)
     private String message;
 
