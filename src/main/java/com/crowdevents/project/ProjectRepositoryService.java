@@ -112,6 +112,7 @@ public class ProjectRepositoryService implements ProjectService {
         project.setTeamMembers(updatedProject.getTeamMembers());
         project.setImageLinks(updatedProject.getImageLinks());
         project.setVideoLinks(updatedProject.getVideoLinks());
+        project.setPaymentAccountId(updatedProject.getPaymentAccountId());
         projectRepository.save(project);
     }
 

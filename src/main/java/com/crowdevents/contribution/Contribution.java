@@ -44,6 +44,9 @@ public class Contribution {
     @ManyToOne
     private Reward reward;
 
+    @Column(name = "payment_id")
+    private String paymentId;
+
     /**
      * Constructs new contribution to the project.
      *
@@ -54,12 +57,13 @@ public class Contribution {
      * @param reward reward for this contribution
      */
     public Contribution(Person contributor, Project project, LocalDateTime dateTime,
-                        Money money, Reward reward) {
+                        Money money, Reward reward, String paymentId) {
         this.contributor = contributor;
         this.project = project;
         this.dateTime = dateTime;
         this.money = money.toBigMoney();
         this.reward = reward;
+        this.paymentId = paymentId;
     }
 
     protected Contribution() {
@@ -112,5 +116,13 @@ public class Contribution {
 
     public void setReward(Reward reward) {
         this.reward = reward;
+    }
+
+    public String getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
     }
 }

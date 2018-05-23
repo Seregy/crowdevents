@@ -55,7 +55,8 @@ public class ContributionRepositoryService implements ContributionService {
     }
 
     @Override
-    public Contribution contribute(Long personId, Long projectId, Money money, Long rewardId) {
+    public Contribution contribute(Long personId, Long projectId, Money money, Long rewardId,
+                                   String paymentId) {
         Person person = personRepository
                 .findById(personId)
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -69,7 +70,7 @@ public class ContributionRepositoryService implements ContributionService {
                 .orElseThrow(() -> new IllegalArgumentException(
                         "Invalid reward id: " + rewardId));
         Contribution contribution = new Contribution(person, project,
-                LocalDateTime.now(clock), money, reward);
+                LocalDateTime.now(clock), money, reward, paymentId);
 
         person.addContribution(contribution);
         project.addContribution(contribution);

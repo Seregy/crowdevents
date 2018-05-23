@@ -129,7 +129,8 @@ public class ContributionController {
                                       HttpServletRequest servletRequest) {
         Contribution createdContribution = contributionService.contribute(
                 newContribution.getContributor().getId(), newContribution.getProject().getId(),
-                newContribution.getMoney(), newContribution.getReward().getId());
+                newContribution.getMoney(), newContribution.getReward().getId(),
+                newContribution.getPaymentId());
         URI uri = ServletUriComponentsBuilder.fromServletMapping(servletRequest)
                 .path("/v0/contributions/{id}")
                 .buildAndExpand(createdContribution.getId())

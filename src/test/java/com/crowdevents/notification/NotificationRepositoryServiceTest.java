@@ -121,7 +121,7 @@ public class NotificationRepositoryServiceTest {
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         Contribution mockContribution = new Contribution(mockPerson, mockProject, null,
-                Money.of(CurrencyUnit.USD, 1), null);
+                Money.of(CurrencyUnit.USD, 1), null, null);
         Mockito.when(mockContributionRepository.findById(3L))
                 .thenReturn(Optional.of(mockContribution));
         ContributionNotification mockContributionNotification = new ContributionNotification("Notification",
@@ -172,7 +172,7 @@ public class NotificationRepositoryServiceTest {
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.of(mockProject));
         Contribution mockContribution = new Contribution(mockPerson, mockProject, null,
-                Money.of(CurrencyUnit.USD, 1), null);
+                Money.of(CurrencyUnit.USD, 1), null, null);
         Mockito.when(mockContributionRepository.findById(3L))
                 .thenReturn(Optional.of(mockContribution));
 
@@ -195,7 +195,7 @@ public class NotificationRepositoryServiceTest {
         Mockito.when(mockProjectRepository.findById(2L))
                 .thenReturn(Optional.empty());
         Contribution mockContribution = new Contribution(mockPerson, null, null,
-                Money.of(CurrencyUnit.USD, 1), null);
+                Money.of(CurrencyUnit.USD, 1), null, null);
         Mockito.when(mockContributionRepository.findById(3L))
                 .thenReturn(Optional.of(mockContribution));
 

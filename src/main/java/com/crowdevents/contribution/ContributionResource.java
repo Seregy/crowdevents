@@ -5,6 +5,7 @@ import com.crowdevents.person.PersonResource;
 import com.crowdevents.project.ProjectResource;
 import com.crowdevents.reward.RewardResource;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 import java.time.LocalDateTime;
 import org.joda.money.Money;
@@ -29,6 +30,9 @@ public class ContributionResource {
     @JsonIgnoreProperties(value = {"project", "contributions"}, allowSetters = true)
     @JsonView(Views.Minimal.class)
     private RewardResource reward;
+
+    @JsonProperty("payment_id")
+    private String paymentId;
 
     public Long getId() {
         return id;
@@ -76,5 +80,13 @@ public class ContributionResource {
 
     public void setReward(RewardResource reward) {
         this.reward = reward;
+    }
+
+    public String getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
     }
 }

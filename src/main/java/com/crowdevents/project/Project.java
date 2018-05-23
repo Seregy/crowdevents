@@ -117,6 +117,9 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Set<Reward> rewards = new HashSet<>();
 
+    @Column(name = "payment_account_id")
+    private String paymentAccountId;
+
     /**
      * Constructs new project.
      *
@@ -441,5 +444,13 @@ public class Project {
 
     public void setVisibility(ProjectVisibility visibility) {
         this.visibility = visibility;
+    }
+
+    public String getPaymentAccountId() {
+        return paymentAccountId;
+    }
+
+    public void setPaymentAccountId(String paymentAccountId) {
+        this.paymentAccountId = paymentAccountId;
     }
 }

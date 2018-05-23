@@ -377,6 +377,21 @@ public class ProjectRepositoryServiceTest {
     }
 
     @Test
+    public void update_WithNewPaymentAccountId_ShouldChangePaymentAccountId() {
+        Project mockProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        Mockito.when(mockProjectRepository.findById(1L))
+                .thenReturn(Optional.of(mockProject));
+        Project newProject = new Project("Name", "description",
+                Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));
+        newProject.setPaymentAccountId("New payment account id");
+
+        assertNull(mockProject.getPaymentAccountId());
+        projectService.update(1L, newProject);
+        assertEquals("New payment account id", mockProject.getPaymentAccountId());
+    }
+
+    @Test
     public void update_WithNullUpdatedProject_ShouldThrowException() {
         Project mockProject = new Project("Name", "description",
                 Money.of(CurrencyUnit.USD, 1), new Person("", "", ""));

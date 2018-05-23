@@ -7,7 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ContributionService {
-    Contribution contribute(Long personId, Long projectId, Money money, Long rewardId);
+    Contribution contribute(Long personId, Long projectId, Money money, Long rewardId,
+                            String paymentId);
 
     Optional<Contribution> get(Long id);
 

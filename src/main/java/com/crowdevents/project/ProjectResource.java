@@ -86,6 +86,9 @@ public class ProjectResource {
     private List<UpdateResource> updates = new ArrayList<>();
     private List<RewardResource> rewards = new ArrayList<>();
 
+    @JsonProperty("payment_account_id")
+    private String paymentAccountId;
+
     public ProjectResource() {
 
     }
@@ -280,5 +283,13 @@ public class ProjectResource {
 
     public void setVisibility(ProjectVisibility visibility) {
         this.visibility = visibility;
+    }
+
+    public String getPaymentAccountId() {
+        return paymentAccountId;
+    }
+
+    public void setPaymentAccountId(String paymentAccountId) {
+        this.paymentAccountId = paymentAccountId;
     }
 }

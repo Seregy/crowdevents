@@ -57,7 +57,8 @@ public class ContributionRepositoryServiceTest {
         Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1),
                 "description");
         Contribution mockContribution = new Contribution(mockPerson, mockProject,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward,
+                "id");
         Mockito.when(mockContributionRepository.save(Mockito.any()))
                 .thenReturn(mockContribution);
         Mockito.when(mockPersonRepository.findById(1L))
@@ -69,7 +70,7 @@ public class ContributionRepositoryServiceTest {
 
         Contribution result = contributionService.contribute(1L,
                 2L, Money.of(CurrencyUnit.USD, 1),
-                3L);
+                3L, "id");
 
         assertEquals(mockContribution, result);
     }
@@ -81,7 +82,7 @@ public class ContributionRepositoryServiceTest {
         Reward mockReward = new Reward(mockProject, 1, Money.of(CurrencyUnit.USD, 1),
                 "description");
         Contribution mockContribution = new Contribution(null, mockProject,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward, "id");
         Mockito.when(mockContributionRepository.save(Mockito.any()))
                 .thenReturn(mockContribution);
         Mockito.when(mockPersonRepository.findById(1L))
@@ -94,7 +95,7 @@ public class ContributionRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             contributionService.contribute(1L,
                     2L, Money.of(CurrencyUnit.USD, 1),
-                    3L);
+                    3L, "id");
         });
 
         assertEquals("Invalid person id: 1",
@@ -107,7 +108,7 @@ public class ContributionRepositoryServiceTest {
         Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
                 "description");
         Contribution mockContribution = new Contribution(mockPerson, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward, "id");
         Mockito.when(mockContributionRepository.save(Mockito.any()))
                 .thenReturn(mockContribution);
         Mockito.when(mockPersonRepository.findById(1L))
@@ -120,7 +121,7 @@ public class ContributionRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             contributionService.contribute(1L,
                     2L, Money.of(CurrencyUnit.USD, 1),
-                    3L);
+                    3L, "id");
         });
 
         assertEquals("Invalid project id: 2",
@@ -133,7 +134,7 @@ public class ContributionRepositoryServiceTest {
         Project mockProject = new Project("Name", "description",
                 Money.of(CurrencyUnit.USD, 1), mockPerson);
         Contribution mockContribution = new Contribution(mockPerson, mockProject,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null, "id");
         Mockito.when(mockContributionRepository.save(Mockito.any()))
                 .thenReturn(mockContribution);
         Mockito.when(mockPersonRepository.findById(1L))
@@ -146,7 +147,7 @@ public class ContributionRepositoryServiceTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             contributionService.contribute(1L,
                     2L, Money.of(CurrencyUnit.USD, 1),
-                    3L);
+                    3L, "id");
         });
 
         assertEquals("Invalid reward id: 3",
@@ -156,7 +157,7 @@ public class ContributionRepositoryServiceTest {
     @Test
     public void get_WithExistingId_ShouldReturnExistingContribution() {
         Contribution mockContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null, "id");
         Mockito.when(mockContributionRepository.findById(1L))
                 .thenReturn(Optional.of(mockContribution));
 
@@ -179,13 +180,13 @@ public class ContributionRepositoryServiceTest {
     public void getAll_ShouldReturnAllContributions() {
         Contribution[] contributions = {
                 new Contribution(null, null, LocalDateTime.parse("2018-01-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 1), null),
+                        Money.of(CurrencyUnit.USD, 1), null, "id 1"),
                 new Contribution(null, null, LocalDateTime.parse("2018-02-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 2), null),
+                        Money.of(CurrencyUnit.USD, 2), null, "id 2"),
                 new Contribution(null, null, LocalDateTime.parse("2018-03-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 3), null),
+                        Money.of(CurrencyUnit.USD, 3), null, "id 3"),
                 new Contribution(null, null, LocalDateTime.parse("2018-04-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 4), null)};
+                        Money.of(CurrencyUnit.USD, 4), null, "id 4")};
         Mockito.when(mockContributionRepository.findAll(Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
 
@@ -201,9 +202,9 @@ public class ContributionRepositoryServiceTest {
         project.setId(1L);
         Contribution[] contributions = {
                 new Contribution(null, project, LocalDateTime.parse("2018-01-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 1), null),
+                        Money.of(CurrencyUnit.USD, 1), null , "id 1"),
                 new Contribution(null, project, LocalDateTime.parse("2018-02-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 2), null)};
+                        Money.of(CurrencyUnit.USD, 2), null, "id 2")};
         Mockito.when(mockContributionRepository.findAllByProjectId(Mockito.eq(1L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
 
@@ -219,9 +220,9 @@ public class ContributionRepositoryServiceTest {
         project.setId(1L);
         Contribution[] contributions = {
                 new Contribution(null, project, LocalDateTime.parse("2018-01-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 1), null),
+                        Money.of(CurrencyUnit.USD, 1), null, "id 1"),
                 new Contribution(null, project, LocalDateTime.parse("2018-02-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 2), null)};
+                        Money.of(CurrencyUnit.USD, 2), null, "id 2")};
         Mockito.when(mockContributionRepository.findAllByProjectId(Mockito.eq(1L), Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
         Mockito.when(mockContributionRepository.findAllByProjectId(Mockito.eq(2L), Mockito.any(Pageable.class)))
@@ -238,9 +239,9 @@ public class ContributionRepositoryServiceTest {
         person.setId(1L);
         Contribution[] contributions = {
                 new Contribution(person, null, LocalDateTime.parse("2018-01-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 1), null),
+                        Money.of(CurrencyUnit.USD, 1), null, "id 1"),
                 new Contribution(person, null, LocalDateTime.parse("2018-02-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 2), null)};
+                        Money.of(CurrencyUnit.USD, 2), null, "id 2")};
         Mockito.when(mockContributionRepository.findAllByContributorId(Mockito.eq(1L),
                 Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
@@ -256,9 +257,9 @@ public class ContributionRepositoryServiceTest {
         person.setId(1L);
         Contribution[] contributions = {
                 new Contribution(person, null, LocalDateTime.parse("2018-01-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 1), null),
+                        Money.of(CurrencyUnit.USD, 1), null, "id 1"),
                 new Contribution(person, null, LocalDateTime.parse("2018-02-01T01:00:00"),
-                        Money.of(CurrencyUnit.USD, 2), null)};
+                        Money.of(CurrencyUnit.USD, 2), null, "id 2")};
         Mockito.when(mockContributionRepository.findAllByContributorId(Mockito.eq(1L),
                 Mockito.any(Pageable.class)))
                 .thenReturn(new PageImpl<>(Arrays.asList(contributions)));
@@ -287,7 +288,7 @@ public class ContributionRepositoryServiceTest {
         Reward mockReward = new Reward(null, 1, Money.of(CurrencyUnit.USD, 1),
                 "description");
         Contribution mockContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward);
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), mockReward, "id");
         Mockito.when(mockContributionRepository.findById(1L))
                 .thenReturn(Optional.of(mockContribution));
         Reward newReward = new Reward(null, 1, Money.of(CurrencyUnit.CAD, 5),
@@ -296,7 +297,7 @@ public class ContributionRepositoryServiceTest {
         Mockito.when(mockRewardRepository.findById(2L))
                 .thenReturn(Optional.of(newReward));
         Contribution updatedContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), newReward);
+                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), newReward, "id");
 
         contributionService.update(1L, updatedContribution);
         assertEquals(newReward, mockContribution.getReward());
@@ -305,7 +306,7 @@ public class ContributionRepositoryServiceTest {
     @Test
     public void update_WithNullUpdatedContribution_ShouldThrowException() {
         Contribution mockContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null, "id");
         Mockito.when(mockContributionRepository.findById(1L))
                 .thenReturn(Optional.of(mockContribution));
 
@@ -322,7 +323,7 @@ public class ContributionRepositoryServiceTest {
         Mockito.when(mockContributionRepository.findById(1L))
                 .thenReturn(Optional.empty());
         Contribution updatedContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
+                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), null, "id");
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             contributionService.update(1L, updatedContribution);
@@ -335,7 +336,7 @@ public class ContributionRepositoryServiceTest {
     @Test
     public void update_WithWrongRewardId_ShouldThrowException() {
         Contribution mockContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null);
+                LocalDateTime.parse("2018-01-01T01:00:00"), Money.of(CurrencyUnit.USD, 1), null, "id");
         Mockito.when(mockContributionRepository.findById(1L))
                 .thenReturn(Optional.of(mockContribution));
         Reward newReward = new Reward(null, 1, Money.of(CurrencyUnit.CAD, 5),
@@ -344,7 +345,7 @@ public class ContributionRepositoryServiceTest {
         Mockito.when(mockRewardRepository.findById(2L))
                 .thenReturn(Optional.empty());
         Contribution newContribution = new Contribution(null, null,
-                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), newReward);
+                LocalDateTime.parse("2018-02-02T01:00:00"), Money.of(CurrencyUnit.USD, 1), newReward, "id");
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             contributionService.update(1L, newContribution);
