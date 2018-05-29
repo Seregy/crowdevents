@@ -35,7 +35,7 @@ public class Contribution {
     private LocalDateTime dateTime;
 
     @Columns(columns = {
-            @Column(name = "money_currency", nullable = false),
+            @Column(name = "money_currency", nullable = false, length = 3),
             @Column(name = "money_amount", nullable = false)
     })
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentBigMoneyAmountAndCurrency")

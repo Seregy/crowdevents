@@ -10,10 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
 
 @Entity
 public class Category {
@@ -23,6 +24,9 @@ public class Category {
     private Long id;
 
     @ManyToMany
+    @JoinTable(name = "category_project",
+            joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"))
     private Set<Project> projects;
 
     @ManyToOne
@@ -31,10 +35,10 @@ public class Category {
     @OneToMany(mappedBy = "parent")
     private Set<Category> children = new HashSet<>();
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 60)
     private String name;
 
-    @Column(length = 140)
+    @Column(nullable = false, length = 140)
     private String description;
 
     public Category(String name, String description) {

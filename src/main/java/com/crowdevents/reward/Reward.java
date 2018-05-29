@@ -32,7 +32,9 @@ public class Reward {
     @OneToMany(mappedBy = "reward")
     private Set<Contribution> contributions = new HashSet<>();
 
-    @Columns(columns = { @Column(name = "minimal_contribution_currency", nullable = false),
+    @Columns(columns = { @Column(name = "minimal_contribution_currency",
+            nullable = false,
+            length = 3),
             @Column(name = "minimal_contribution_amount", nullable = false) })
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentBigMoneyAmountAndCurrency")
     private BigMoney minimalContribution;

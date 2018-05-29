@@ -17,6 +17,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -25,6 +26,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -32,8 +34,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
-import org.hibernate.annotations.TypeDefs;
+
 import org.joda.money.BigMoney;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
@@ -67,7 +68,7 @@ public class Project {
     @Column(name = "event_date_time")
     private LocalDateTime eventDateTime;
 
-    @Columns(columns = { @Column(name = "funding_goal_currency"),
+    @Columns(columns = { @Column(name = "funding_goal_currency", length = 3),
             @Column(name = "funding_goal_amount") })
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentBigMoneyAmountAndCurrency")
     private BigMoney fundingGoal;
@@ -84,9 +85,15 @@ public class Project {
     private ProjectVisibility visibility;
 
     @ElementCollection
+    @CollectionTable(name = "project_video",
+            joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"))
+    @Column(name = "video_link")
     private List<String> videoLinks = new ArrayList<>();
 
     @ElementCollection
+    @CollectionTable(name = "project_image",
+            joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"))
+    @Column(name = "image_link")
     private List<String> imageLinks = new ArrayList<>();
 
     @ManyToOne

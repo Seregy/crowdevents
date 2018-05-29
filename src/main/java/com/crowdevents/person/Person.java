@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -26,9 +27,10 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 64)
     private String name;
 
+    @Column(length = 64)
     private String surname;
 
     @Column(nullable = false)
@@ -37,7 +39,10 @@ public class Person {
     @Column(nullable = false)
     private String email;
 
+    @Column(length = 64)
     private String country;
+
+    @Column(length = 64)
     private String city;
 
     @Column(name = "image_link")
@@ -47,10 +52,15 @@ public class Person {
     private Set<Project> createdProjects = new HashSet<>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "PERSON_PROJECTS_TEAM")
+    @JoinTable(name = "person_project_team",
+            joinColumns = @JoinColumn(name = "person_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"))
     private Set<Project> teamMemberProjects = new HashSet<>();
 
     @ManyToMany
+    @JoinTable(name = "person_project_subscription",
+            joinColumns = @JoinColumn(name = "person_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"))
     private Set<Project> subscribedProjects = new HashSet<>();
 
     @OneToMany(mappedBy = "contributor")
@@ -63,7 +73,11 @@ public class Person {
     private Set<Comment> comments = new HashSet<>();
 
     @ManyToMany
+    @JoinTable(name = "person_follower",
+            joinColumns = @JoinColumn(name = "follower_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "followed_id", referencedColumnName = "id"))
     private Set<Person> followers = new HashSet<>();
+
     @ManyToMany(mappedBy = "followers")
     private Set<Person> followed = new HashSet<>();
 
