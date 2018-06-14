@@ -172,6 +172,20 @@ public class PersonRepositoryServiceTest {
     }
 
     @Test
+    public void update_WithNewRole_ShouldChangeRole() {
+        Person mockPerson = new Person("name@email.com", "password", "Name");
+        mockPerson.setRole(PersonRole.USER);
+        Mockito.when(mockPersonRepository.findById(1L))
+                .thenReturn(Optional.of(mockPerson));
+        Person newPerson = new Person("name@email.com", "password", "Name");
+        newPerson.setRole(PersonRole.ADMIN);
+
+        assertEquals(PersonRole.USER, mockPerson.getRole());
+        personService.update(1L, newPerson);
+        assertEquals(PersonRole.ADMIN, mockPerson.getRole());
+    }
+
+    @Test
     public void update_WithNullUpdatedPerson_ShouldThrowException() {
         Person mockPerson = new Person("name@email.com", "password", "Name");
         Mockito.when(mockPersonRepository.findById(1L))

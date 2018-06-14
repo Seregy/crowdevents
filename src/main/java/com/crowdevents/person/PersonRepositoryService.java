@@ -63,6 +63,7 @@ public class PersonRepositoryService implements PersonService {
         person.setCountry(updatedPerson.getCountry());
         person.setCity(updatedPerson.getCity());
         person.setPersonImageLink(updatedPerson.getPersonImageLink());
+        person.setRole(updatedPerson.getRole());
         personRepository.save(person);
     }
 

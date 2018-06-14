@@ -12,6 +12,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -87,6 +89,10 @@ public class Person {
     @OneToMany(mappedBy = "receiver")
     private Set<Message> receivedMessages = new HashSet<>();
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private PersonRole role;
+
     /**
      * Constructs new person that represents user of the system.
      *
@@ -98,6 +104,7 @@ public class Person {
         this.email = email;
         this.password = password;
         this.name = name;
+        this.role = PersonRole.USER;
     }
 
     protected Person() {
@@ -326,5 +333,13 @@ public class Person {
 
     public void setReceivedMessages(Set<Message> receivedMessages) {
         this.receivedMessages = receivedMessages;
+    }
+
+    public PersonRole getRole() {
+        return role;
+    }
+
+    public void setRole(PersonRole role) {
+        this.role = role;
     }
 }

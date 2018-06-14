@@ -26,6 +26,8 @@ public class PersonResource {
     @JsonView(Views.Minimal.class)
     private String personImageLink;
 
+    private PersonRole role;
+
     public Long getId() {
         return id;
     }
@@ -88,5 +90,13 @@ public class PersonResource {
 
     public void setPersonImageLink(String personImageLink) {
         this.personImageLink = personImageLink;
+    }
+
+    public PersonRole getRole() {
+        return role;
+    }
+
+    public void setRole(PersonRole role) {
+        this.role = role;
     }
 }
