@@ -31,8 +31,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/oauth/authorize").authenticated()
                 .antMatchers("/oauth/**").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
-                .anyRequest().authenticated();
+                .antMatchers("/h2-console/**").permitAll();
     }
 
     @Bean
