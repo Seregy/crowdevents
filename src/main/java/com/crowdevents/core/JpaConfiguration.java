@@ -51,7 +51,7 @@ public class JpaConfiguration {
      *
      * @return PostgreSQL vendor adapter
      */
-    @Profile("qa")
+    @Profile("postgres")
     @Bean
     public JpaVendorAdapter jpaVendorAdapterPostgreSql() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();

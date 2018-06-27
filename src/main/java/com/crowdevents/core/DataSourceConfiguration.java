@@ -36,9 +36,9 @@ public class DataSourceConfiguration {
      * @param password password
      * @return datasource for PostgreSQL db
      */
-    @Profile("qa")
+    @Profile("postgres")
     @Bean
-    public DataSource qaDataSource(@Value("${POSTGRES_HOSTNAME}") String host,
+    public DataSource postgresDataSource(@Value("${POSTGRES_HOSTNAME}") String host,
                                    @Value("${POSTGRES_PORT}") String port,
                                    @Value("${POSTGRES_DB}") String database,
                                    @Value("${POSTGRES_USER}") String user,
