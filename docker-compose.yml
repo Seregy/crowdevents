@@ -5,9 +5,9 @@ services:
       context: ./docker/db
     image: crowdevents-db
     environment:
-      - POSTGRES_USER=qa
-      - POSTGRES_DB=crowdevents-qa
-      - POSTGRES_PASSWORD=qapass
+      - POSTGRES_USER=user
+      - POSTGRES_DB=crowdevents
+      - POSTGRES_PASSWORD=pass
     ports:
       - "5432:5432"
     restart: always
@@ -16,23 +16,21 @@ services:
 
   appserver:
     build: 
-      context: .
-      dockerfile: docker/app/Dockerfile-qa
+      context: ./
+      dockerfile: docker/app/Dockerfile-postgres
     image: crowdevents-app
     ports:
       - "8080:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=qa
-      - POSTGRES_USER=qa
-      - POSTGRES_PASSWORD=qapass
-      - POSTGRES_DB=crowdevents-qa
+      - SPRING_PROFILES_ACTIVE=postgres
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=crowdevents
       - POSTGRES_HOSTNAME=database
       - POSTGRES_PORT=5432
     networks:
       - backend
     restart: always
-    volumes:
-      - ./target/crowdevents.war:/usr/local/tomcat/webapps/crowdevents.war
 
 networks:
   backend:

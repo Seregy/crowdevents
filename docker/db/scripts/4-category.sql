@@ -1,0 +1,13 @@
+insert into CATEGORY (id, name, description, parent_id) values (1, 'Мистецтво', 'Заходи, повя''зані з мистецькими показами, виставками, демонстраціями тощо', null);
+insert into CATEGORY (id, name, description, parent_id) values (2, 'Навчання', 'Лекції, майстер-класи, навчальні заняття', null);
+insert into CATEGORY (id, name, description, parent_id) values (3, 'Спорт', 'Спортивні заходи', null);
+insert into CATEGORY (id, name, description, parent_id) values (4, 'Екскурсії', 'Екскурсії', null);
+insert into CATEGORY (id, name, description, parent_id) values (5, 'Розваги', 'Розважальні заходи', null);
+insert into CATEGORY (id, name, description, parent_id) values (6, 'Їжа', 'Заходи, пов''язані з їжею та напоями', null);
+insert into CATEGORY (id, name, description, parent_id) values (7, 'Бізнес', 'Бізнес заходи', null);
+insert into CATEGORY (id, name, description, parent_id) values (8, 'Інші заходи', 'Решта заходів', null);
+insert into CATEGORY (id, name, description, parent_id) values (9, 'Музика', 'Музикальні заходи та концерти', 1);
+insert into CATEGORY (id, name, description, parent_id) values (10, 'Кіно', 'Кінопокази та кінофестевалі', 1);
+insert into CATEGORY (id, name, description, parent_id) values (11, 'Театр', 'Театральні вистави', 1);
+insert into CATEGORY (id, name, description, parent_id) values (12, 'Література', 'Літературні заходи', 1);
+insert into CATEGORY (id, name, description, parent_id) values (13, 'Настільні ігри', 'Заходи, пов''язані з настільними іграми', 5);

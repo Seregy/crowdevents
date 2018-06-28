@@ -1,0 +1,1 @@
+insert into REWARD (id, delivery_date, description, reward_limit, project_id, minimal_contribution_currency, minimal_contribution_amount, shipping_location) values (1, '4 липня', 'Квиток для одного', 75, 5, 'UAH', 100, 'по всій Україні');
